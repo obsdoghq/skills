@@ -22,6 +22,7 @@ Use the selected local Personal Space without requiring login or network access.
 4. Run `obsdog search open --path <space> --run <run-id> --rank <n> --format json` only for a result actually placed in human view or agent context. This records exposure and selection for that one hit.
 5. Run `obsdog search use --path <space> --run <run-id> --rank <n> --type answer_evidence|citation|quote|copy|link --format json` only when the task output actually uses that exact source.
 6. Use `obsdog trace show` when the user asks what was returned, filtered, opened, used, or judged. Historical traces must keep their original label snapshot even after a label is superseded.
+7. If an exact historical hit points to a retired block and replacement history matters, use the read-only `obsdog_block_lineage` MCP tool or `obsdog block lineage --id <block-id>`. Treat direct split/merge edges as provenance, not proof that successor content inherited the predecessor's labels, evaluations, or verification.
 
 Do not open every returned result merely to produce telemetry. Do not turn uninspected hits into negative judgments. When rank one answers the need, the other returned hits remain retrieved and unjudged.
 
