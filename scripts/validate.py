@@ -4,6 +4,9 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
 
 
@@ -14,6 +17,45 @@ EXPECTED_SKILLS = {"find", "remember", "maintain", "report", "documentify"}
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def verify_live_mcp_boundary(mcp: dict) -> None:
+    """Execute the declared command through a harmless stub and inspect scope."""
+    with tempfile.TemporaryDirectory(prefix="obsdog-mcp-boundary-") as temporary:
+        root = Path(temporary)
+        selected_space = root / "selected-space"
+        selected_space.mkdir()
+        binary_dir = root / "bin"
+        binary_dir.mkdir()
+        capture = root / "capture.json"
+        stub = binary_dir / "obsdog"
+        stub.write_text(
+            f"#!{sys.executable}\n"
+            "import json, os, sys\n"
+            f"open({str(capture)!r}, 'w', encoding='utf-8').write(json.dumps({{"
+            "'argv': sys.argv[1:], 'cwd': os.getcwd(), 'env': sorted(os.environ)}))\n",
+            encoding="utf-8",
+        )
+        stub.chmod(0o700)
+
+        declared_environment = {name: str(binary_dir) for name in mcp["env_vars"]}
+        completed = subprocess.run(
+            [mcp["command"], *mcp["args"]],
+            cwd=selected_space,
+            env=declared_environment,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=mcp["startup_timeout_sec"],
+        )
+        assert completed.returncode == 0, completed.stderr
+        observed = json.loads(capture.read_text(encoding="utf-8"))
+        assert observed["argv"] == ["mcp", "--path", "."]
+        assert Path(observed["cwd"]).resolve() == selected_space.resolve()
+        assert set(observed["env"]).issubset(
+            {"PATH", "LC_CTYPE", "__CF_USER_TEXT_ENCODING"}
+        ), observed
+        assert "OBSDOG_SYNC_TOKEN" not in observed["env"]
 
 
 def main() -> None:
@@ -32,6 +74,7 @@ def main() -> None:
     assert mcp["command"] == "obsdog"
     assert mcp["args"] == ["mcp", "--path", "."]
     assert mcp["env_vars"] == ["PATH"]
+    verify_live_mcp_boundary(mcp)
 
     skill_directories = {
         path.name for path in (PLUGIN / "skills").iterdir() if path.is_dir()

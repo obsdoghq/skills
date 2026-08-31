@@ -53,6 +53,12 @@ No package, binary, or hosted credential is included. Installation does not
 grant access to a Space and never broadens the authorization of the invoking
 human or agent.
 
+`python3 scripts/validate.py` also executes the declared MCP command through a
+temporary harmless stub. The integration check proves the process receives the
+fixed `mcp --path .` arguments, starts in only the selected directory, inherits
+only the declared `PATH` plus operating-system locale bootstrap variables, and
+receives no sync credential.
+
 ## License
 
 Proprietary and confidential. See [LICENSE](LICENSE).
