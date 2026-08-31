@@ -1,7 +1,7 @@
 {
   "name": "obsdog",
-  "version": "0.1.0",
-  "description": "Search, maintain, and evaluate measurable knowledge in ObsDog Personal Spaces.",
+  "version": "0.2.0",
+  "description": "Find, remember, maintain, report on, and documentify measurable knowledge in ObsDog Spaces.",
   "author": {
     "name": "ObsDog",
     "url": "https://obsdog.ai"
@@ -9,6 +9,6 @@
   "homepage": "https://obsdog.ai",
   "repository": "https://github.com/obsdoghq/skills",
   "license": "Proprietary",
-  "keywords": ["obsdog", "knowledge", "search", "evaluation", "mcp"],
+  "keywords": ["obsdog", "knowledge", "search", "documentation", "mcp"],
   "skills": "./skills/"
 }

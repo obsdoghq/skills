@@ -1,7 +1,7 @@
 {
   "name": "obsdog",
-  "version": "0.1.0",
-  "description": "Search, maintain, and evaluate measurable knowledge in ObsDog Personal Spaces.",
+  "version": "0.2.0",
+  "description": "Find, remember, maintain, report on, and documentify measurable knowledge in ObsDog Spaces.",
   "author": {
     "name": "ObsDog",
     "url": "https://obsdog.ai"
@@ -9,11 +9,11 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "ObsDog",
-    "shortDescription": "Search, maintain, and evaluate observable knowledge.",
-    "longDescription": "Official ObsDog skills for measured local knowledge retrieval, attributable maintenance, and reproducible evaluation.",
+    "shortDescription": "Work with measurable knowledge in five focused ways.",
+    "longDescription": "Official ObsDog skills for measured retrieval, durable capture, attributable maintenance, private health reporting, and repository documentification.",
     "developerName": "ObsDog",
     "category": "Productivity",
-    "capabilities": ["Knowledge search", "Knowledge maintenance", "Retrieval evaluation"],
+    "capabilities": ["Knowledge discovery", "Durable capture", "Knowledge maintenance", "Health reporting", "Repository documentation"],
     "defaultPrompt": "Use ObsDog to search my selected Personal Space and measure only what is actually opened and used."
   },
   "mcpServers": "./.mcp.json"

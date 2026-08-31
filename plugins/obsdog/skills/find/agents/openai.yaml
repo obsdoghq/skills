@@ -1,0 +1,4 @@
+interface:
+  display_name: "Find with ObsDog"
+  short_description: "Find, open, and measure useful knowledge."
+  default_prompt: "Use $find to answer from my ObsDog Space and record only sources actually opened and used."

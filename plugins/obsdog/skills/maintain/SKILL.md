@@ -1,11 +1,13 @@
 ---
 name: maintain
-description: Maintain knowledge inside an ObsDog Space using attributable revisions, revision-bound labels, metadata comments, portable export, and recoverable backups. Use when creating, updating, classifying, commenting on, exporting, or backing up ObsDog knowledge; do not mutate a Space for read-only requests.
+description: Evolve and organize knowledge in an ObsDog Space through attributable revisions, review queues, labels, comments, and recoverable maintenance. Use for updates, cleanup, follow-ups, stale knowledge, or structural changes; do not mutate a Space for read-only requests.
 ---
 
 # Maintain ObsDog
 
 Canonical Markdown stays primary. Structured block operations exist for exact edits and metadata.
+
+Start from evidence: open comments, suggested labels, stale or review-due labels, orphaned annotations, negative evaluations, and revision history are work candidates—not automatic permission to rewrite knowledge. Present meaningful or risky changes for review.
 
 ## Inspect before mutation
 

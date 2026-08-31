@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / "plugins" / "obsdog"
-EXPECTED_SKILLS = {"search", "maintain", "evaluate"}
+EXPECTED_SKILLS = {"find", "remember", "maintain", "report", "documentify"}
 
 
 def load_json(path: Path) -> dict:
@@ -26,6 +26,8 @@ def main() -> None:
     assert codex["version"] == claude["version"]
     assert marketplace["name"] == "obsdog-skills"
     assert marketplace["plugins"][0]["source"]["path"] == "./plugins/obsdog"
+    claude_marketplace = load_json(ROOT / ".claude-plugin" / "marketplace.json")
+    assert claude_marketplace["plugins"][0]["version"] == codex["version"]
     assert mcp["enabled"] is False
     assert mcp["command"] == "obsdog"
     assert mcp["args"] == ["mcp", "--path", "."]
@@ -40,7 +42,10 @@ def main() -> None:
         assert f"name: {name}\n" in text
         assert "[TODO:" not in text
         assert "Space" in text
-        assert "credential" not in text.lower()
+        prompt = (PLUGIN / "skills" / name / "agents" / "openai.yaml").read_text(
+            encoding="utf-8"
+        )
+        assert f"${name}" in prompt
 
     repository_text = "\n".join(
         path.read_text(encoding="utf-8", errors="ignore")
