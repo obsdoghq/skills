@@ -17,10 +17,11 @@ Use the selected local Personal Space without requiring login or network access.
 ## Search and read
 
 1. Run `obsdog search --path <space> --format json --query <need>`. A returned hit is only `retrieved`.
-2. Inspect rank, document, block, exact revision, snippet, and explanation before choosing.
-3. Run `obsdog search open --path <space> --run <run-id> --rank <n> --format json` only for a result actually placed in human view or agent context. This records exposure and selection for that one hit.
-4. Run `obsdog search use --path <space> --run <run-id> --rank <n> --type answer_evidence|citation|quote|copy|link --format json` only when the task output actually uses that exact source.
-5. Use `obsdog trace show` when the user asks what was returned, opened, used, or judged.
+2. When the task calls for metadata routing, first discover definitions with `obsdog label definitions`, then add a separate bounded filter such as `--filter 'label:memory:horizon=long_term AND NOT label:lifecycle:state=stale'`. Use only canonical `label:<namespace>:<key>=<value>` predicates with `NOT`, `AND`, `OR`, and parentheses. Never invent namespace-only shorthand or unsupported usage/evaluation predicates.
+3. Inspect rank, document, block, exact revision, snippet, canonical `label_filter`, and `matched_labels` before choosing. A suggested label does not satisfy an active-label filter.
+4. Run `obsdog search open --path <space> --run <run-id> --rank <n> --format json` only for a result actually placed in human view or agent context. This records exposure and selection for that one hit.
+5. Run `obsdog search use --path <space> --run <run-id> --rank <n> --type answer_evidence|citation|quote|copy|link --format json` only when the task output actually uses that exact source.
+6. Use `obsdog trace show` when the user asks what was returned, filtered, opened, used, or judged. Historical traces must keep their original label snapshot even after a label is superseded.
 
 Do not open every returned result merely to produce telemetry. Do not turn uninspected hits into negative judgments. When rank one answers the need, the other returned hits remain retrieved and unjudged.
 
