@@ -3,15 +3,22 @@
 Official private-preview skills and plugins for [ObsDog](https://obsdog.ai), the
 knowledge observability platform.
 
-The single `obsdog` plugin intentionally groups three coherent workflows so
+The single `obsdog` plugin intentionally groups five user workflows so
 clients display a stable namespace:
 
-- `obsdog:search` — search, open, use, and trace exact knowledge revisions;
-- `obsdog:maintain` — revise, label, comment, export, back up, and restore;
-- `obsdog:evaluate` — run reproducible retrieval evaluations and baselines.
+- `obsdog:find` — find, open, use, and trace exact knowledge revisions;
+- `obsdog:remember` — capture intentional durable Markdown knowledge;
+- `obsdog:maintain` — evolve, organize, review, and recover knowledge;
+- `obsdog:report` — generate a private standalone HTML health report;
+- `obsdog:documentify` — turn an authorized repository into auditable knowledge.
 
 The namespace is provided by the plugin. Portable skill folders keep the short
-names `search`, `maintain`, and `evaluate` so manifests remain valid.
+names so both clients load the same instructions. Claude Code exposes commands
+such as `/obsdog:find`; Codex shows the five skills within the ObsDog plugin and
+invokes their short skill names such as `$find`.
+
+Benchmark and product-comparison workflows are intentionally not distributed in
+this user plugin. They remain separate internal evaluation work.
 
 ## Private development install
 
