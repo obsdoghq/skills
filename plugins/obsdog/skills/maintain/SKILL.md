@@ -25,7 +25,9 @@ Do not claim split, merge, or move lineage unless the installed CLI explicitly s
 - Apply labels to the whole authored idea at block level. Comments are separate metadata and never rewrite the document.
 - Agents should use `--state suggested` unless policy clearly permits active low-risk routing labels.
 - `epistemic:verified` is protected: an agent must suggest it for review unless a disclosed verifier policy authorizes application.
+- A human reviews one exact suggestion with `obsdog label review --assignment <id> --decision accept|reject`. A corrected acceptance may add `--value`; always preserve the reason. Never retry a completed review or activate a suggestion that the CLI reports as stale.
 - Use comments for questions, explanations, corrections, and evidence. Use structured feedback—not a comment alone—to evaluate retrieval or task performance.
+- Change discussion state with `obsdog comment status --id <id> --status resolved|wont_fix|open --reason <reason>`. Use `open` only to reopen a terminal thread, and inspect `comment history` when resolution provenance matters.
 - Preserve actor identity, rationale, confidence, target revision, and prior assignment history.
 
 ## Portability and recovery
