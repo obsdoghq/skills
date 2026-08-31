@@ -1,0 +1,18 @@
+{
+  "name": "obsdog-skills",
+  "owner": {
+    "name": "ObsDog",
+    "url": "https://obsdog.ai"
+  },
+  "metadata": {
+    "description": "Official ObsDog agent skills"
+  },
+  "plugins": [
+    {
+      "name": "obsdog",
+      "source": "./plugins/obsdog",
+      "description": "Search, maintain, and evaluate observable knowledge.",
+      "version": "0.1.0"
+    }
+  ]
+}

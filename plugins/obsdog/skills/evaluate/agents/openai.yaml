@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evaluate ObsDog"
+  short_description: "Run reproducible retrieval evaluations."
+  default_prompt: "Evaluate ObsDog retrieval against a versioned dataset and explain the metrics."

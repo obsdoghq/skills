@@ -1,0 +1,4 @@
+interface:
+  display_name: "Search ObsDog"
+  short_description: "Search, open, and measure local knowledge safely."
+  default_prompt: "Search my ObsDog Space and preserve retrieval, exposure, selection, and use semantics."
