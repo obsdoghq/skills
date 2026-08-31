@@ -17,7 +17,14 @@ Canonical Markdown stays primary. Structured block operations exist for exact ed
 
 `block update` creates an immutable block revision, a corresponding document revision, and a new index snapshot. Supply an attributable actor and a concrete reason. Read the exact target back after updating and inspect `obsdog history --type block --id <id>` when continuity matters.
 
-Do not claim split, merge, or move lineage unless the installed CLI explicitly supports and records it. Do not edit the SQLite database directly.
+Use structure operations only when the installed CLI help exposes them:
+
+- `block split --id <id> --part <text> --part <text> --reason <reason>` replaces one active leaf with 2–20 explicit successors. It retires the predecessor; it does not delete history.
+- `block merge --ids <id>,<id> --content <text> --reason <reason>` accepts only contiguous active sibling leaves of the same type and depth. Supply reconciled content explicitly rather than hiding a concatenation decision.
+- `block move --id <id> --before <anchor>` or `--after <anchor>` preserves block and content-revision identity while moving the complete heading subtree. It does not reparent.
+- `block lineage --id <id>` reads direct exact-revision split/merge edges and moves for an active or retired identity.
+
+Do not copy labels, comments, evaluations, or verification state from retired predecessors to successors unless a separate attributable policy explicitly requires it. Verify successor IDs and current Markdown after split/merge, verify the complete subtree after move, and use `block lineage` for provenance. Do not edit the SQLite database directly.
 
 ## Labels and comments
 
