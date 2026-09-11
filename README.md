@@ -20,6 +20,12 @@ invokes their short skill names such as `$find`.
 Benchmark and product-comparison workflows are intentionally not distributed in
 this user plugin. They remain separate internal evaluation work.
 
+The `find` workflow requires CLI v0.1.8 or newer for explicit agent attribution
+on search, open and use. Evaluation identity is separate. Check installed help
+before use; never silently omit unsupported attribution flags. An already-scoped
+MCP server can provide its own agent identity without CLI flags. This repository
+does not install or update the CLI/plugin on the user's behalf.
+
 ## Private development install
 
 ```sh
