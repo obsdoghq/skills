@@ -68,3 +68,7 @@ receives no sync credential.
 ## License
 
 Proprietary and confidential. See [LICENSE](LICENSE).
+
+## Linux CI runner
+
+The private Linux CI workflow uses the repository-scoped GitHub Actions runner `whitekiwi-ubuntu-ci-obsdog-skills` with label `whitekiwi-linux-obsdog-skills` on the Windows host's Ubuntu VM. Fork pull requests stay on GitHub-hosted Ubuntu; trusted pushes and same-repository pull requests use this runner. Runner registration, service recovery, and host capacity are documented in `WhiteKiwi/home-hub` under `hosts/windows/runner/linux-vm.md`.

@@ -10,7 +10,8 @@ permissions:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    # Keep untrusted fork PRs off the persistent private runner.
+    runs-on: ${{ fromJSON(github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository && '["ubuntu-latest"]' || '["self-hosted","Linux","X64","whitekiwi-linux-obsdog-skills"]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
