@@ -17,7 +17,11 @@ Start from evidence: open comments, suggested labels, stale or review-due labels
 
 ## Revisions
 
-`block update` creates an immutable block revision, a corresponding document revision, and a new index snapshot. Supply an attributable actor and a concrete reason. Read the exact target back after updating and inspect `obsdog history --type block --id <id>` when continuity matters.
+`block update` creates an immutable block revision, a corresponding document revision, and a new index snapshot. On CLI v0.1.11+, supply `--actor-type agent --actor <agent-id>`, the read-back `--base-revision`, and a concrete reason. Never fall back to human authorship if flags are unsupported. Read the exact target back after updating and inspect `obsdog history --type block --id <id>` when continuity matters.
+
+No `init` is required for Personal maintenance. Use the confirmed default only
+when no explicit project/Org boundary applies; do not repair a broken selection
+by switching libraries or enabling synchronization.
 
 Use structure operations only when the installed CLI help exposes them:
 

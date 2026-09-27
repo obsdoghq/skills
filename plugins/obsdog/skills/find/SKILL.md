@@ -7,6 +7,11 @@ description: Find and read knowledge from a selected ObsDog Space while preservi
 
 Use the selected Space locally and offline when possible. Prefer an already scoped ObsDog MCP server; otherwise inspect `obsdog --help` and `obsdog space status --path <space> --format json`. Never crawl for other private Spaces.
 
+CLI v0.1.11 defaults to the same Personal library across directories without
+`init`. Use `--space personal` only when no explicit project/Org boundary applies;
+otherwise preserve the exact selected Space. A broken selection is an error,
+not permission to search a different library or connect cloud sync.
+
 ## Retrieve intentionally
 
 1. On CLI v0.1.8+, search with `obsdog search --path <space> --format json --query <need> --actor-type agent --actor <agent-id>`. Returned hits are retrieved, not read or judged.

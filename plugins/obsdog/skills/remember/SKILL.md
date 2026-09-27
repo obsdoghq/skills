@@ -10,10 +10,15 @@ Confirm the target Space and what should become durable. Preserve user-authored 
 ## Capture
 
 - Prefer concise canonical Markdown with a descriptive title and source or decision context when available.
-- Import a prepared file with `obsdog document import --path <space> --file <file> --actor <id> --format json` using the installed help as the contract. The current import surface records human authorship; do not relabel agent-authored prose as human-authored without review.
+- On CLI v0.1.11+, import with `obsdog document import --path <space> --file <file> --actor-type agent --actor <agent-id> --format json`. Check installed help first; do not fall back to default human authorship if attribution flags are absent.
 - Treat headings and leaf Markdown regions as stable addressable blocks after import. Do not fabricate block identifiers.
 - Read the imported document back and verify its title, block count, and exact Space.
 - Suggest labels only after discovering definitions. Agents normally use `--state suggested`, a rationale, and calibrated confidence. Protected verification remains subject to human or disclosed verifier review.
 - Put explanations, questions, corrections, and evidence in metadata comments when they should not alter canonical prose.
 
-Do not initialize a Space, connect sync, or import unrelated repository files unless requested. Never place credentials, access tokens, or secret values in remembered content. Keep local capture functional without login or network access.
+Without an explicit boundary, v0.1.11 can capture into Personal from any directory
+without `init`; its first capture lazily creates the local library. Respect an
+existing project/Org binding and fail visibly if it is broken. Default selection
+does not merge libraries or connect sync. Do not connect sync or import unrelated
+files without authorization. Never place credentials, access tokens, or secret
+values in remembered content. Keep capture usable without login or network.
