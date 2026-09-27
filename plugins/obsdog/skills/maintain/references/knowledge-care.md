@@ -30,8 +30,11 @@ of what changed, why, what was checked and how it can be recovered.
   question. If nothing useful needs changing, no-op is the right result.
 
 The present workflow is performed by the authorized agent in an active task.
-It does not claim that a hosted worker, durable care queue, one-click structural
-undo or new policy controls already exist.
+It does not claim that a hosted worker, durable care queue or structural recovery
+already exists. Human-facing web/report surfaces prioritize read-only state,
+trends and evidence, not editing, approval or undo controls. Users ask their AI
+for changes/reversal; retain safe recovery capabilities and exact references
+behind that workflow. Do not invent a trend from current snapshot totals.
 
 ## Choose an operation from an observed need
 

@@ -10,6 +10,12 @@ Reports remain read-only and protected-label rules remain enforced. Source-only
 workflow updates do not install plugins or launch a worker; manifest 0.2.2 is the
 existing package baseline, not a claim of a new runtime release.
 
+The visibility-first follow-up makes reports and planned human web screens
+read-only: current state, real trends, AI outcomes and their evidence. No knowledge
+editing/approval/undo interface is planned. Users ask their AI for changes; safe
+history/recovery capabilities remain necessary, and absent historical data is
+never invented to fill a chart.
+
 ## Connected knowledge care (0.2.2)
 
 Capture workflows search before adding, retain justified citations and separate

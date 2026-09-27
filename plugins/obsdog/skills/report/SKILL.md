@@ -1,6 +1,6 @@
 ---
 name: report
-description: Generate and explain a private standalone HTML knowledge-health report for a selected ObsDog Space. Use for current-state summaries, retrieval health, usage, maintenance queues, or sync status; do not treat aggregate counts as causal proof.
+description: Generate and explain a private read-only HTML knowledge-health report for a selected ObsDog Space. Use for current state, supported trends, retrieval health, AI activity or sync status; do not treat aggregate counts as causal proof.
 ---
 
 # Report with ObsDog
@@ -13,6 +13,15 @@ The command must not overwrite an existing artifact. Treat the output as private
 
 ## Interpret responsibly
 
+- Prioritize visibility: current state, real trends, outcome quality, AI activity
+  and data freshness. No edit/approve/apply/reject/undo UI or mandatory user work
+  queue. The user requests changes through their authorized AI workflow; include
+  scoped evidence/reference details only where the report actually provides them.
+- Keep snapshot totals distinct from time-series evidence. The current all-time
+  report does not supply historical trends. Never derive growth/activity history
+  from current update timestamps, interpolate absent samples or invent a quality
+  score. Show period/timezone/coverage and compare only compatible windows when
+  that data genuinely exists.
 - Report metric numerators and denominators; “not enough data” is different from zero.
 - Separate retrieval from selection, direct use, and explicit evaluation.
 - Explain that high usage can reflect popularity or dependency, not correctness; low usage can reflect poor discovery or narrow scope, not low value.
