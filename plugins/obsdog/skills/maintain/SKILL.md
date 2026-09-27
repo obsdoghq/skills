@@ -7,6 +7,11 @@ description: Evolve and organize knowledge in an ObsDog Space through attributab
 
 Canonical Markdown stays primary. Structured block operations exist for exact edits and metadata.
 
+Before judging split/merge, document or link quality, or retirement, read
+[knowledge-care criteria](references/knowledge-care.md). Follow its bounded
+find/use/evaluate/maintain/verify loop. A quality review is not a task-use event,
+and structural sync compatibility is a separate gate from local command support.
+
 Start from evidence: open comments, suggested labels, stale or review-due labels, orphaned annotations, negative evaluations, and revision history are work candidates—not automatic permission to rewrite knowledge. Present meaningful or risky changes for review.
 
 ## Inspect before mutation
@@ -42,6 +47,27 @@ Do not copy labels, comments, evaluations, or verification state from retired pr
 - Use comments for questions, explanations, corrections, and evidence. Use structured feedback—not a comment alone—to evaluate retrieval or task performance.
 - Change discussion state with `obsdog comment status --id <id> --status resolved|wont_fix|open --reason <reason>`. Use `open` only to reopen a terminal thread, and inspect `comment history` when resolution provenance matters.
 - Preserve actor identity, rationale, confidence, target revision, and prior assignment history.
+
+## Reference maintenance
+
+When the task involves disconnected knowledge, inspect actual body links and
+current block comments, not only graph density. Relative Markdown paths resolve
+only against exact imported paths inside the selected Space; a missing import
+or ambiguous title/path must not be repaired by guessing.
+
+Read both ends before adding a relationship. Preserve canonical prose unless a
+revision is warranted. A current `explanation`/`evidence` comment can record a
+concrete citation; an uncertain relationship belongs in a `question` comment
+with a stable target ID and a specific reason. Inspect existing comments and
+links first, keep changes bounded, and retain agent attribution. Never impose a
+minimum link count or claim semantic similarity is verified evidence.
+
+Only open comments bound to the current block revision contribute hosted graph
+links. After editing a block, re-evaluate relevant old comments rather than
+silently copying their judgments. Close rejected proposals with `wont_fix` and
+a reason. Closing a question does not automatically turn it into a reference;
+an accepted citation needs its own attributable body revision or evidence/
+explanation comment. Use the installed CLI help and read back the result.
 
 ## Portability and recovery
 

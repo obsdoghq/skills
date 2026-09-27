@@ -18,4 +18,8 @@ The command must not overwrite an existing artifact. Treat the output as private
 - Explain that high usage can reflect popularity or dependency, not correctness; low usage can reflect poor discovery or narrow scope, not low value.
 - Treat maintenance counts as queues for review. Do not auto-resolve comments, accept suggestions, or rewrite content from aggregate data alone.
 - Call out sample-size and collection gaps before recommending action.
+- Keep unresolved links, proposals and quality-review notes distinct from task
+  outcomes. Current graph strength counts citations, not correctness/usefulness;
+  a `knowledge-care/v1` comment is not yet a structured aggregate metric. Do not
+  imply that an adaptive ranker or automatic cleanup runs behind the report.
 - Link or return the generated local HTML path. Summarize only the decisions the user needs; preserve the report as the detailed artifact.

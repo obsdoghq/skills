@@ -1,5 +1,18 @@
 # ObsDog Skills
 
+## Connected knowledge care (0.2.2)
+
+Capture workflows search before adding, retain justified citations and separate
+uncertain relationships as question-comment proposals. Maintenance reads the
+[knowledge-care rubric](plugins/obsdog/skills/maintain/references/knowledge-care.md)
+for meaningful block boundaries, merge/split/link decisions, review evidence,
+recoverable retirement and before/after verification. Low usage is not bad
+quality, and reference strength is not usefulness. Structural synchronization
+needs separate acceptance; no new schema or background cleanup is enabled.
+
+The same authored workflows ship for Codex and Claude. This source update does
+not install/reinstall either plugin or enroll any Space in synchronization.
+
 Official private-preview skills and plugins for [ObsDog](https://obsdog.ai), the
 knowledge observability platform.
 
