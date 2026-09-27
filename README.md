@@ -2,6 +2,16 @@
 
 ## AI-managed care direction — 2026-09-28
 
+Source-aware authoring chooses a home before an import: code/repository knowledge
+stays with its owner; ObsDog retains native reusable lessons, purposeful pointers,
+attributed synthesis or justified snapshots. No capture is valid when nothing
+durable is added. The shared [care guide](plugins/obsdog/skills/maintain/references/knowledge-care.md)
+also covers selected history versus revision records, context-preserving blocks,
+graph views versus Space boundaries and source checks versus task usefulness.
+The five skills are one bundle and share this packaged reference; preserve that
+dependency if redistributing the workflows. Structured source-role metadata and
+aggregates are not part of this instruction-only update.
+
 The current source makes routine review, correction and verification AI-owned
 within the caller's existing write authority. Humans receive concise outcomes
 and recovery information, not an approval inbox. Evidence/capability gaps are

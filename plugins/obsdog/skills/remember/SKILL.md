@@ -13,6 +13,15 @@ decisions and follow-ups rather than silently upgrading certainty.
 
 ## Capture
 
+Before choosing what to store, read the bundled
+[authoring and care criteria](../maintain/references/knowledge-care.md).
+Find the authoritative home: code-local contracts/runbooks stay in their source
+repository; a Space-owned lesson can be native. Choose a useful pointer, an
+attributed synthesis or a justified minimal snapshot when the original lives
+elsewhere. No reuse/discovery value means no extra note. Explicit preservation
+intent is respected; read access alone does not authorize a private-source copy.
+Do not create a parallel task log, API manual or repository mirror.
+
 A useful note serves one reader/job with scope, evidence and limitations. Keep
 blocks independently revisable but context-complete: retain prerequisites,
 warnings and code/table context. Do not atomize sentences or split for a token
@@ -20,11 +29,18 @@ quota. Update a canonical answer instead of adding another version as a new
 note; route substantial split/merge or retirement to the maintenance workflow.
 
 - Prefer concise canonical Markdown with a descriptive title and source or decision context when available.
+- For externally grounded claims, distinguish the current source link from the
+  exact checked version/section, observation date/method and applicability.
+  Preserve necessary qualifications in the body. Import/edit time is not source
+  freshness; a copied source is not another independent confirmation.
 - On CLI v0.1.11+, import with `obsdog document import --path <space> --file <file> --actor-type agent --actor <agent-id> --format json`. Check installed help first; do not fall back to default human authorship if attribution flags are absent.
 - Treat headings and leaf Markdown regions as stable addressable blocks after import. Do not fabricate block identifiers.
 - Read the imported document back and verify its title, block count, and exact Space.
 - Suggest labels only after discovering definitions. Agents normally use `--state suggested`, a rationale, and calibrated confidence. Protected verification remains subject to human or disclosed verifier review.
 - Put explanations, questions, corrections, and evidence in metadata comments when they should not alter canonical prose.
+- Keep current guidance separate from selected historical rationale. Skip routine
+  progress chatter; never prune revisions or evaluations as "unnecessary history".
+  No new source-role flags, automatic archive filter or retention policy is added.
 
 ## Connect relevant knowledge
 

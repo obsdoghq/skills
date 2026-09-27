@@ -1,11 +1,26 @@
 ---
 name: documentify
-description: Turn an authorized code repository into reviewable Markdown knowledge and import it into an ObsDog Space. Use for repository onboarding, architecture, operations, or issue-context documentation; do not claim undocumented behavior or ingest secrets.
+description: Document an authorized repository and capture useful source pointers or grounded synthesis in an ObsDog Space. Use for onboarding, architecture, operations, or issue context; do not mirror a repository by default, claim undocumented behavior or ingest secrets.
 ---
 
 # Documentify with ObsDog
 
 Document the repository the user placed in scope. Inspect its agent instructions, authoritative docs, manifests, entry points, tests, deployment configuration, and a bounded sample of relevant issues when access is authorized.
+
+## Choose the home, then document
+
+Read the bundled [authoring and care criteria](../maintain/references/knowledge-care.md)
+before choosing capture and boundaries. Code/API contracts, invariants and
+maintained runbooks belong in code/repository documentation. When those writes
+are authorized, improve that home first; an ObsDog import is not a replacement.
+Otherwise disclose the gap and keep any useful account provisional. Do not infer
+source-write or upload permission just because the repository can be read.
+
+Prefer a discoverable pointer to existing maintained docs. Add a source-grounded
+onboarding map, cross-source explanation or tested lesson only when it helps a
+real reader/job. A selective snapshot needs offline/reproducibility value,
+permission and an exact source version. A file-by-file mirror, full issue history
+or parallel release/TODO log is not the default deliverable.
 
 ## Build reviewable knowledge
 
@@ -16,12 +31,20 @@ source versions; block boundaries follow meaning and independent revision, not
 fixed token length. Extraction/merge requires lineage and verified sync support,
 not an ad hoc copy/delete cleanup. Use maintenance criteria for these decisions.
 
-- Prefer evidence from code and maintained configuration. Label inference as inference and unresolved behavior as a question or follow-up.
+- Match evidence to the claim: specification for intent, code/tests for a version's
+  implementation, runtime checks for an observed environment. Preserve disagreement
+  and label inference; code inspection alone does not prove deployed behavior.
 - Produce focused Markdown documents such as overview, architecture, data model, operational runbook, and contributor workflow only when the repository supports them. Avoid a file-by-file dump.
-- Include exact source paths or public links where they make claims auditable. Do not copy credentials, environment values, private user data, or generated dependencies.
+- Include a canonical locator and checked commit/release/section with date/method
+  where material. Distinguish moving-branch links from pinned evidence. Do not copy
+  credentials, environment values, private user data or generated dependencies;
+  do not leak inaccessible sources through a pointer's title/snippet.
 - Stage drafts outside the Space when useful, then check their claims against sources yourself. The authorized repository scope does not require a separate human approval for every note. Ask before expanding to unrelated sources, new disclosure or destructive replacement; do not bulk-ingest just because files are reachable.
 - Import source-checked, in-scope Markdown through `obsdog document import`, verify the resulting documents and blocks, and suggest provenance or lifecycle labels if the Space definitions support them. Report important results and uncertainty, not a mandatory manual draft-review queue.
 - Preserve useful relative links when their exact imported targets exist in the same Space. For generated relationships between imported notes, read back their stable IDs and use explicit Markdown citations; do not fabricate IDs or bulk-connect every file. Record uncertain relationships as reasoned question comments, then route unresolved imports and stale citations to `maintain`.
 - Once a repository has a documented baseline, route future evolution and cleanup to `maintain` rather than regenerating everything.
 
-Documentification does not imply benchmark or product comparison. Keep code truth and prose synchronized through attributable follow-up revisions.
+Documentification does not imply benchmarking, Git sync or a crawler. Keep a
+derived note's source/version and uncertainty explicit through attributable
+follow-up, rather than pretending it automatically tracks its source. Significant
+ADR/postmortem rationale may be retained; routine work diaries are not required.

@@ -7,10 +7,17 @@ description: Review, improve and verify knowledge in a selected ObsDog Space thr
 
 Canonical Markdown stays primary. Structured block operations exist for exact edits and metadata.
 
-Before judging split/merge, document or link quality, or retirement, read
+Before choosing the source of truth, selective history, graph grouping,
+split/merge, document or link quality, or retirement, read
 [knowledge-care criteria](references/knowledge-care.md). Follow its bounded
 find/use/evaluate/maintain/verify loop. A quality review is not a task-use event,
 and structural sync compatibility is a separate gate from local command support.
+
+Inspect a note's role before editing: native answer, pointer, derived synthesis
+or retained snapshot. Recheck the authoritative claim/version, not just whether
+its URL loads. Repair the original only when that write is in scope; preserve a
+cached/old observation as such. Do not erase significant historical reasons,
+create a new Space per topic, or prune revision history to simplify discovery.
 
 Start from evidence: open comments, suggested labels, stale or review-due labels,
 orphaned annotations, negative evaluations and history are investigation candidates,

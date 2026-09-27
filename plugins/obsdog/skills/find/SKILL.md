@@ -30,6 +30,21 @@ MCP arguments. Opening results for an agent is not genuine human feedback.
 
 Do not open every hit for telemetry. Unopened results remain unjudged. If the first result solves the task, only that result should become selected or used.
 
+## Follow authority, not just a familiar answer
+
+Identify whether a hit is native guidance, a discovery pointer, a derived note or
+an old snapshot. Check material source/version/applicability; import time and a
+working URL do not prove currency. Follow the original within existing access
+when current facts matter. A pointer can genuinely help discovery without its
+unread destination becoming verified evidence. Offline or denied checks remain
+explicit limitations, not proof that the cached claim is incorrect.
+
+Read necessary parent scope, warnings and surrounding procedure when the returned
+leaf is insufficient. Prefer current applicable guidance for a current task;
+history can answer "why" or an older-version question. Do not assume a role filter
+exists or hide unlabeled legacy notes. Authoring/source repairs use the bundled
+[care criteria](../maintain/references/knowledge-care.md), not a whole-Space rewrite.
+
 ## Feedback
 
 When feedback writes are authorized and actual work supplies an observed outcome,
