@@ -1,5 +1,15 @@
 # ObsDog Skills
 
+## AI-managed care direction — 2026-09-28
+
+The current source makes routine review, correction and verification AI-owned
+within the caller's existing write authority. Humans receive concise outcomes
+and recovery information, not an approval inbox. Evidence/capability gaps are
+deferred; only missing authority or consequential owner intent requires a question.
+Reports remain read-only and protected-label rules remain enforced. Source-only
+workflow updates do not install plugins or launch a worker; manifest 0.2.2 is the
+existing package baseline, not a claim of a new runtime release.
+
 ## Connected knowledge care (0.2.2)
 
 Capture workflows search before adding, retain justified citations and separate

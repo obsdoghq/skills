@@ -5,7 +5,11 @@ description: Save durable Markdown knowledge into a selected ObsDog Space with c
 
 # Remember with ObsDog
 
-Confirm the target Space and what should become durable. Preserve user-authored wording when supplied; distinguish facts, hypotheses, decisions, and follow-ups rather than silently upgrading certainty.
+Resolve the target Space and durable intent from the request and existing scope;
+ask only if either is materially ambiguous. With capture already authorized, check,
+import and read back the note yourself rather than asking for each routine save.
+Preserve user-authored wording when supplied; distinguish facts, hypotheses,
+decisions and follow-ups rather than silently upgrading certainty.
 
 ## Capture
 

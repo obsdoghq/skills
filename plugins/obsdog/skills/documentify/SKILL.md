@@ -19,8 +19,8 @@ not an ad hoc copy/delete cleanup. Use maintenance criteria for these decisions.
 - Prefer evidence from code and maintained configuration. Label inference as inference and unresolved behavior as a question or follow-up.
 - Produce focused Markdown documents such as overview, architecture, data model, operational runbook, and contributor workflow only when the repository supports them. Avoid a file-by-file dump.
 - Include exact source paths or public links where they make claims auditable. Do not copy credentials, environment values, private user data, or generated dependencies.
-- Write drafts outside the Space first when substantial judgment is involved. Let the user review destructive replacements or broad imports.
-- Import accepted Markdown through `obsdog document import`, verify the resulting documents and blocks, and suggest provenance or lifecycle labels if the Space definitions support them.
+- Stage drafts outside the Space when useful, then check their claims against sources yourself. The authorized repository scope does not require a separate human approval for every note. Ask before expanding to unrelated sources, new disclosure or destructive replacement; do not bulk-ingest just because files are reachable.
+- Import source-checked, in-scope Markdown through `obsdog document import`, verify the resulting documents and blocks, and suggest provenance or lifecycle labels if the Space definitions support them. Report important results and uncertainty, not a mandatory manual draft-review queue.
 - Preserve useful relative links when their exact imported targets exist in the same Space. For generated relationships between imported notes, read back their stable IDs and use explicit Markdown citations; do not fabricate IDs or bulk-connect every file. Record uncertain relationships as reasoned question comments, then route unresolved imports and stale citations to `maintain`.
 - Once a repository has a documented baseline, route future evolution and cleanup to `maintain` rather than regenerating everything.
 

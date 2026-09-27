@@ -1,6 +1,6 @@
 ---
 name: maintain
-description: Evolve and organize knowledge in an ObsDog Space through attributable revisions, review queues, labels, comments, and recoverable maintenance. Use for updates, cleanup, follow-ups, stale knowledge, or structural changes; do not mutate a Space for read-only requests.
+description: Review, improve and verify knowledge in a selected ObsDog Space through attributable revisions, labels, comments and recoverable maintenance. Use for updates, cleanup, follow-ups, stale knowledge or structural changes; do not mutate a Space for read-only requests.
 ---
 
 # Maintain ObsDog
@@ -12,7 +12,18 @@ Before judging split/merge, document or link quality, or retirement, read
 find/use/evaluate/maintain/verify loop. A quality review is not a task-use event,
 and structural sync compatibility is a separate gate from local command support.
 
-Start from evidence: open comments, suggested labels, stale or review-due labels, orphaned annotations, negative evaluations, and revision history are work candidates—not automatic permission to rewrite knowledge. Present meaningful or risky changes for review.
+Start from evidence: open comments, suggested labels, stale or review-due labels,
+orphaned annotations, negative evaluations and history are investigation candidates,
+not proof of a problem. Within the task's existing write authority, do the review,
+supported correction and readback yourself; do not ask the user to approve each
+routine change or edit the Markdown. Keep a concise outcome/reason/recovery record.
+
+If evidence is weak, investigate within budget or defer with the original intact.
+If an operation is unsupported, retain its capability gap instead of handing the
+user a manual repair task. Ask only for missing authority or an owner-intent choice
+that materially changes the result. Respect read-only/propose policies and user
+suppression; this workflow cannot grant itself access, schedule a worker or enroll
+a new model provider. Confidence alone is not permission or factual verification.
 
 ## Inspect before mutation
 
@@ -43,7 +54,7 @@ Do not copy labels, comments, evaluations, or verification state from retired pr
 - Apply labels to the whole authored idea at block level. Comments are separate metadata and never rewrite the document.
 - Agents should use `--state suggested` unless policy clearly permits active low-risk routing labels.
 - `epistemic:verified` is protected: an agent must suggest it for review unless a disclosed verifier policy authorizes application.
-- A human reviews one exact suggestion with `obsdog label review --assignment <id> --decision accept|reject`. A corrected acceptance may add `--value`; always preserve the reason. Never retry a completed review or activate a suggestion that the CLI reports as stale.
+- If a human chooses to review, the current human-only route is `obsdog label review --assignment <id> --decision accept|reject`. Do not invoke it as a fake human or make it a prerequisite for every supported text correction. Leave protected suggestions deferred when no real agent-verifier capability exists. Never retry a completed review or activate a stale suggestion.
 - Use comments for questions, explanations, corrections, and evidence. Use structured feedback—not a comment alone—to evaluate retrieval or task performance.
 - Change discussion state with `obsdog comment status --id <id> --status resolved|wont_fix|open --reason <reason>`. Use `open` only to reopen a terminal thread, and inspect `comment history` when resolution provenance matters.
 - Preserve actor identity, rationale, confidence, target revision, and prior assignment history.
@@ -74,6 +85,11 @@ explanation comment. Use the installed CLI help and read back the result.
 - `space export` creates an inspectable directory of canonical Markdown, block maps, and a manifest. It is for portability, not a full telemetry restore.
 - `space backup` creates a consistent private archive containing the manifest and operational SQLite database.
 - `space restore` accepts only a new, uninitialized destination. Never overwrite a live Space.
-- Before a bulk or risky maintenance operation, offer a backup when it is proportionate; do not create one during an unrelated read-only task.
+- Prepare a private backup when it is proportionate to an already authorized change; backup is a prerequisite, not a reason to request approval for every edit. Do not create one during an unrelated read-only task or treat a backup as authorization for an otherwise unsupported operation.
 
-After mutations, use JSON read-back to verify the exact Space, target, revision, actor, and state. Keep private content and metadata inside the Space boundary.
+After mutations, use JSON read-back to verify the exact Space, target, revision,
+actor and state. Preserve concurrent edits: re-read/replan on conflict; never
+force-write or restore an old whole-Space backup over newer work. Correct a failed
+change only through a supported conditional operation. Stop bounded retries and
+defer unresolved issues; don't reapply an explicitly reverted change without new
+evidence. Keep private content and metadata inside the Space boundary.

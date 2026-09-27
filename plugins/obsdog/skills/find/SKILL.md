@@ -32,7 +32,15 @@ Do not open every hit for telemetry. Unopened results remain unjudged. If the fi
 
 ## Feedback
 
-When requested or useful to an explicit evaluation task, keep judgments distinct: relevance links query to hit; usefulness links a used revision to the task; correctness evaluates supported claims; freshness follows a review policy. Identify agent judgments as `--evaluator-type agent --evaluator <agent-id>`, include a concise reason, and never represent them as human feedback. Evaluator flags do not replace retrieval actor flags; preserve the exact target revision and selected Space.
+When feedback writes are authorized and actual work supplies an observed outcome,
+evaluate it yourself instead of requiring the user to rate each result. Keep
+judgments distinct: relevance links query to hit; usefulness links a genuinely
+used revision to the task; correctness evaluates supported claims; freshness
+follows a review policy. Identify agent judgments as `--evaluator-type agent
+--evaluator <agent-id>`, include a reason, and never represent them as human
+feedback. Evaluator flags do not replace retrieval actor flags; preserve the
+exact target revision and Space. Read-only requests and missing evidence mean
+no feedback write; an AI assessment does not prove that a human found it useful.
 
 When actual work reveals missing context, a wrong link, duplication or a stale
 claim, pass that exact revision and reason to `maintain` for a bounded improvement.
