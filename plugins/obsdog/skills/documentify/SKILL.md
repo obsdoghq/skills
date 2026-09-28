@@ -50,8 +50,31 @@ not an ad hoc copy/delete cleanup. Use maintenance criteria for these decisions.
   do not leak inaccessible sources through a pointer's title/snippet.
 - Stage drafts outside the Space when useful, then check their claims against sources yourself. The authorized repository scope does not require a separate human approval for every note. Ask before expanding to unrelated sources, new disclosure or destructive replacement; do not bulk-ingest just because files are reachable.
 - Import source-checked, in-scope Markdown through `obsdog document import`, verify the resulting documents and blocks, and suggest provenance or lifecycle labels if the Space definitions support them. Report important results and uncertainty, not a mandatory manual draft-review queue.
-- Preserve useful relative links when their exact imported targets exist in the same Space. For generated relationships between imported notes, read back their stable IDs and use explicit Markdown citations; do not fabricate IDs or bulk-connect every file. Record uncertain relationships as reasoned question comments, then route unresolved imports and stale citations to `maintain`.
 - Once a repository has a documented baseline, route future evolution and cleanup to `maintain` rather than regenerating everything.
+
+## Finish the reference map
+
+Documentification is not finished merely because imports succeeded. When the
+source has meaningful relationships, verify that readers can follow them in the
+document graph (`insights show` → `graph`, or the local dashboard's Graph).
+
+On CLI v0.2.3+, preserve relative Markdown references: they resolve against exact
+imported paths in the selected Space. Import the target too only when in scope.
+Missing or duplicate paths remain unresolved; never guess by filename alone.
+Older local graphs resolve stable IDs only—do not promise relative-path support.
+
+For a new source-grounded overview and specialist notes, finish a bounded second
+pass in the same task: import the notes, read back their IDs and current block
+revisions, then add useful citations with conditional `block update` and a reason.
+For example, an orientation pointer can link “rollback prerequisites” to the
+already read specialist note rather than copying its whole procedure. Re-read
+the resulting references and map; no separate human review is required for an
+otherwise authorized correction. Record an unresolved target as a limitation.
+
+Use a current-revision `question` comment for a genuinely uncertain relation;
+it appears as an opt-in proposal, not a citation. No link quota: independently
+useful notes may remain isolated. Do not infer relationships from shared tags or
+create artificial search/open/use events to make the graph look connected.
 
 Documentification does not imply benchmarking, Git sync or a crawler. Keep a
 derived note's source/version and uncertainty explicit through attributable

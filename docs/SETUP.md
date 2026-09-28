@@ -11,7 +11,7 @@ a connection or modify an independently configured MCP server.
 
 ## Readiness checklist
 
-1. `obsdog version` prints v0.2.2 or newer **inside the agent's environment**.
+1. `obsdog version` prints v0.2.3 or newer **inside the agent's environment**.
    If a desktop client inherited an older PATH, restart the client after fixing
    PATH using the CLI installation guide. Do not add a second CLI copy as a fix.
 2. The intended client lists the ObsDog plugin and its five skills.

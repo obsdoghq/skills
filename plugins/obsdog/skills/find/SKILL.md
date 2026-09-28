@@ -44,12 +44,24 @@ MCP arguments. Opening results for an agent is not genuine human feedback.
 
 Do not open every hit for telemetry. Unopened results remain unjudged. If the first result solves the task, only that result should become selected or used.
 
+On CLI v0.2.3+, `--limit` fixes page size (default 10, up to 100). Continue the
+same frozen window with `search page --run <id> --page <n>` and the original
+Space/actor flags, or scoped MCP `obsdog_search_page`. Open/use/feedback take
+the returned **global rank**, not `page_rank`. Page replay adds no observations.
+At most 100 candidates are retained; this is not an exhaustive corpus count.
+Start a new run if the query/filters change or the current device lacks the
+original frozen chunks. Unreturned candidates are not read/used/judged.
+
 ## Follow authority, not just a familiar answer
 
 For heading-only hits, missing entity context or a noisy hub, follow
 [retrieval-oriented authoring](../maintain/references/retrieval-authoring.md).
 Read the needed source/parent context; a landing-page hit is not acquisition of
 its linked answer. Diagnose coverage vs ranking vs reading before changing notes.
+CLI v0.2.3+ offers `--exclude-headings` (MCP `exclude_headings`) when answer-body
+retrieval is the job. It filters before ranking, not after the page is cut.
+Heading open still reads only that exact revision; no section-body exposure is
+implied. Do not remove useful navigation headings from source merely to raise scores.
 
 Identify whether a hit is native guidance, a discovery pointer, a derived note or
 an old snapshot. Check material source/version/applicability; import time and a
@@ -84,6 +96,12 @@ follows a review policy. Identify agent judgments as `--evaluator-type agent
 feedback. Evaluator flags do not replace retrieval actor flags; preserve the
 exact target revision and Space. Read-only requests and missing evidence mean
 no feedback write; an AI assessment does not prove that a human found it useful.
+
+CLI v0.2.3 defaults the evaluator ID to `local-<evaluator-type>`, matching the
+default search caller. Keep an explicit task-specific ID on both sides when
+one was used; a distinct evaluator is retained but does not impersonate the
+original actor's activation sample. Older releases need the explicit ID to
+avoid the mismatched agent default. Do not rewrite historical events to repair it.
 
 When actual work reveals missing context, a wrong link, duplication or a stale
 claim, pass that exact revision and reason to `maintain` for a bounded improvement.

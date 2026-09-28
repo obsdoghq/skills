@@ -78,13 +78,15 @@ Do not copy labels, comments, evaluations, or verification state from retired pr
 
 ## Reference maintenance
 
-On CLI v0.1.16+, use `memory show` to investigate observed query/co-use paths,
+On CLI v0.2.3+, start with `memory show --summary` for compact counts/coverage.
+Use `memory show` (v0.1.16+) to investigate observed query/co-use paths,
 fading and evidence. These derived links need no manual materialization or
 cleanup. They are separate from the authored reference maintenance below;
 never turn a co-use observation into a factual support edge automatically.
 
 When the task involves disconnected knowledge, inspect actual body links and
-current block comments, not only graph density. Relative Markdown paths resolve
+current block comments, not only graph density. The document map is
+`insights show` → `graph`, not `memory show`. On CLI v0.2.3+, relative Markdown paths resolve
 only against exact imported paths inside the selected Space; a missing import
 or ambiguous title/path must not be repaired by guessing.
 
@@ -95,8 +97,10 @@ with a stable target ID and a specific reason. Inspect existing comments and
 links first, keep changes bounded, and retain agent attribution. Never impose a
 minimum link count or claim semantic similarity is verified evidence.
 
-Only open comments bound to the current block revision contribute hosted graph
-links. After editing a block, re-evaluate relevant old comments rather than
+Only open comments bound to the current revision contribute graph links. The
+hosted graph accepts block comments; CLI v0.2.3+ also exposes document-scoped
+current comments locally. Local `graph.proposals` is separate from `graph.edges`
+and does not increase citation strength. After editing a block, re-evaluate relevant old comments rather than
 silently copying their judgments. Close rejected proposals with `wont_fix` and
 a reason. Closing a question does not automatically turn it into a reference;
 an accepted citation needs its own attributable body revision or evidence/

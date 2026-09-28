@@ -34,6 +34,11 @@ Do not proxy the loopback service to a network or submit its JSON elsewhere.
   score. Show period/timezone/coverage and compare only compatible windows when
   that data genuinely exists.
 - Report metric numerators and denominators; “not enough data” is different from zero.
+- On CLI v0.2.3+, `first_page_used / page_eligible` measures explicit same-actor
+  use from page 1 among completed runs with recorded page metadata. Legacy runs
+  remain excluded, not guessed from Top 10. Page size varies by run. This is not
+  first-query task success. Top 1/3/10 among used runs has a different denominator;
+  show observation coverage alongside it. Period deltas require both samples.
 - Separate retrieval from selection, direct use, and explicit evaluation.
 - Explain that high usage can reflect popularity or dependency, not correctness; low usage can reflect poor discovery or narrow scope, not low value.
 - Treat maintenance counts as candidates for AI investigation, not chores for the user. A report-only request stays read-only; do not resolve comments, accept suggestions or rewrite content from aggregate data alone. In a separately authorized maintenance task, the AI should inspect and fix supported routine issues itself.

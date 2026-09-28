@@ -24,7 +24,7 @@ this user plugin. They remain separate internal evaluation work.
 
 ## Requirements and data boundaries
 
-Use [ObsDog CLI v0.2.2 or newer](https://github.com/obsdoghq/obsdog-releases)
+Use [ObsDog CLI v0.2.3 or newer](https://github.com/obsdoghq/obsdog-releases)
 for the current workflow set, including Living memory and source-aware care.
 The skills inspect installed capabilities before using a command. Keep explicit
 agent authorship on import/update as well as search/open/use. Evaluation identity is
@@ -52,7 +52,7 @@ obsdog version
 obsdog document list
 ```
 
-The current skills require CLI **v0.2.2+**. `command not found` means the CLI is
+The current skills require CLI **v0.2.3+**. `command not found` means the CLI is
 missing or not on your client process's `PATH`; see the guide before proceeding.
 An empty document list is normal for a new Personal Space. No login or project
 initialization is required. Do not install both Homebrew and standalone copies.
@@ -84,6 +84,12 @@ For ongoing AI-managed knowledge, add the short **optional**
 Manual skill invocation works without changing global instructions.
 
 ## Browse your documents
+
+Plugin v0.3.4 uses frozen result pages with global ranks, exact relative-reference
+readback after documentification, and concise observed-memory summaries. It keeps
+authored references, observed query/co-use and unconfirmed comment proposals
+distinct. First-page use needs real page evidence, not an assumed Top 10. These
+workflows never manufacture links or ratings just to fill a graph or dashboard.
 
 ```sh
 obsdog document list

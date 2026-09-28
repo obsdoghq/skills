@@ -1,7 +1,7 @@
 {
   "name": "obsdog",
-  "version": "0.3.3",
-  "description": "Five knowledge workflows; requires the separately installed ObsDog CLI v0.2.2+. Verify obsdog version; installation and feedback: https://github.com/obsdoghq/obsdog-releases .",
+  "version": "0.3.4",
+  "description": "Five knowledge workflows; requires the separately installed ObsDog CLI v0.2.3+. Verify obsdog version; installation and feedback: https://github.com/obsdoghq/obsdog-releases .",
   "author": {
     "name": "ObsDog",
     "url": "https://obsdog.ai"
