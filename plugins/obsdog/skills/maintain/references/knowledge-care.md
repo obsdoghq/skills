@@ -159,6 +159,10 @@ Repeated praise from the same agent/task is not independent corroboration.
 
 ## Record source and authoring evidence (CLI v0.1.14+)
 
+Use CLI v0.1.15+ for content replacements from ordinary LF/CRLF-terminated files.
+It normalizes outer whitespace like import while retaining the single-block,
+type/depth and revision guards. v0.1.14 incorrectly rejected a final newline.
+
 First inspect `obsdog care --help` and `care show --format json`. Connected
 Spaces require server v0.1.26+ and compatible active readers before new event
 types; never substitute the experimental CLI or re-enable held native clients.

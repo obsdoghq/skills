@@ -12,6 +12,8 @@ The five skills are one bundle and share this packaged reference; preserve that
 dependency if redistributing the workflows. CLI v0.1.14 / server v0.1.26 add typed
 source-role metadata and dimensional aggregates; the workflows check runtime
 capabilities before using them. No legacy note is implicitly verified.
+Use CLI v0.1.15 or later for newline-terminated `block update --file` replacements;
+the patch normalizes file boundaries without allowing implicit structure changes.
 
 The current source makes routine review, correction and verification AI-owned
 within the caller's existing write authority. Humans receive concise outcomes
