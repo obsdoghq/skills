@@ -1,8 +1,10 @@
 # Set up ObsDog for your AI client
 
 The CLI stores and operates on knowledge. The plugin teaches five workflows.
-Install both using the [quick start](../README.md#install); there is no plugin
-post-install script, automatic CLI download or automatic global-file edit.
+Install both using the [Quick Start](../README.md#quick-start-cli--plugin-together),
+or use the documented separate steps. The user-invoked setup helper composes
+the public Homebrew CLI and agent marketplace; there is no plugin post-install
+download, automatic knowledge upload or automatic global-file edit.
 MCP is optional; CLI-driven skills need no MCP setup. From plugin v0.3.3,
 Codex keeps a disabled declaration inside its own manifest, while Claude
 has no automatically discovered plugin MCP server. This avoids relying on one

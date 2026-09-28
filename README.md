@@ -33,14 +33,35 @@ separate. With no explicit boundary, commands share Personal across directories;
 or an exact local Space ID; cwd is never a selection boundary. A broken explicit
 selection must not silently fall back to Personal. Check installed help
 before use; never silently omit unsupported attribution flags. An already-scoped
-MCP server can provide its own agent identity without CLI flags. This repository
-does not install or update the CLI/plugin on the user's behalf.
+MCP server can provide its own agent identity without CLI flags. Merely adding
+this plugin does not install the CLI; the explicit Quick Start below can prepare
+both.
 
 ## Install
 
-There are **two separate installations**. The plugin supplies instructions;
-the CLI runs the local knowledge store. A successful `plugin add` does not
-install the `obsdog` executable or mean that local commands are ready.
+### Quick Start: CLI + plugin together
+
+On Apple silicon macOS, first install your chosen agent client. Homebrew is
+needed if the ObsDog CLI is not already installed.
+This public helper performs both installs for one client and checks the CLI:
+
+```sh
+setup="$(mktemp)" && curl -fsSL https://raw.githubusercontent.com/obsdoghq/obsdog-releases/d64550e384c3ed7c577c26d707f062e847c5985a/scripts/setup-agent.sh -o "$setup" && sh "$setup" --client codex
+obsdog version
+obsdog document list
+```
+
+For Claude Code, change the final flag to `--client claude`. You can
+[inspect the exact script](https://github.com/obsdoghq/obsdog-releases/blob/d64550e384c3ed7c577c26d707f062e847c5985a/scripts/setup-agent.sh)
+before running it or append `--dry-run`. An empty list is normal; no project
+`init`, account, sync or sample upload is involved. Open a fresh agent session
+and call ObsDog `find` to confirm skill discovery. The helper does not edit
+AGENTS.md or CLAUDE.md. If Homebrew is unavailable, use the separate steps below.
+
+The plugin supplies instructions; the CLI runs the local knowledge store. A
+successful `plugin add` alone does not install the `obsdog` executable.
+
+### Separate installation steps
 
 ### 1. Install or verify the CLI
 
