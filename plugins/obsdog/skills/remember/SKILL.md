@@ -1,6 +1,6 @@
 ---
 name: remember
-description: Save durable Markdown knowledge into a selected ObsDog Space with clear provenance and stable block identities. Use when the user asks to remember, capture, import, or preserve knowledge; do not import transient chat content without intent.
+description: Save durable, source-grounded knowledge in an ObsDog Space when explicitly requested or when standing capture permission covers reusable learning from ordinary work. At meaningful milestones consider tested fixes, operating lessons and durable decisions; skip duplicates, transient chat and unsupported claims. Plugin installation alone does not authorize capture.
 ---
 
 # Remember with ObsDog
@@ -10,6 +10,28 @@ ask only if either is materially ambiguous. With capture already authorized, che
 import and read back the note yourself rather than asking for each routine save.
 Preserve user-authored wording when supplied; distinguish facts, hypotheses,
 decisions and follow-ups rather than silently upgrading certainty.
+
+## Consider capture at a meaningful milestone
+
+An existing instruction authorizing proactive capture is sufficient intent; do
+not require another "remember this" after each relevant fix or investigation.
+Without that permission or an explicit capture request, do not write. Search-only
+and no-memory instructions take precedence. Inspect the exact Space's existing
+sync status/permission: a nominally local write to a connected Space can upload.
+Permission in one project/client/Space does not grant it in another.
+
+For proactive capture, select a verified reusable finding, tested procedure or
+explicit durable decision. Check whether it would change a future answer or
+prevent a repeated mistake, and whether a canonical note already covers it.
+Prefer a bounded update or source pointer when the authoritative content lives
+elsewhere. Keep checked source/version/date, applicability and limitations.
+
+Do not convert raw transcripts, logs, temporary progress, secrets or untested
+hypotheses into factual memory. An explicit request to retain a hypothesis can
+preserve it clearly labeled; proactive speculation is not verified learning.
+Nothing useful or new means no write, not a forced summary, rating or approval
+question. Briefly disclose material captures without adding routine housekeeping
+noise to every response. Continue the user's task if memory is unavailable.
 
 ## Capture
 

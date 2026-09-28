@@ -1,8 +1,8 @@
 # Bounded execution receipts
 
 This workflow is for a care-capable CLI/server pair, not a promise that every
-installed version supports it. Published CLI v0.2.3 does **not** contain these
-execution commands. First inspect `obsdog care --help`; if `check`, `apply`,
+installed version supports it. It requires CLI v0.2.4+ and, for connected care,
+server v0.1.29+ with compatible active writers. First inspect `obsdog care --help`; if `check`, `apply`,
 `runs`, `defer` and `revert` are absent, use supported revision/comment
 operations or retain the capability gap. Do not install an experimental binary
 on the user's knowledge to make a proposed action possible.

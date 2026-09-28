@@ -11,7 +11,7 @@ a connection or modify an independently configured MCP server.
 
 ## Readiness checklist
 
-1. `obsdog version` prints v0.2.3 or newer **inside the agent's environment**.
+1. `obsdog version` prints v0.2.4 or newer **inside the agent's environment**.
    If a desktop client inherited an older PATH, restart the client after fixing
    PATH using the CLI installation guide. Do not add a second CLI copy as a fix.
 2. The intended client lists the ObsDog plugin and its five skills.
@@ -50,14 +50,23 @@ ObsDog heading if present; do not replace the file or add repeated copies.
 ```md
 ## ObsDog knowledge
 
-- Use the installed ObsDog plugin's find, remember and maintain skills when
-  substantive work benefits from prior knowledge or yields reusable learning.
+- Use ObsDog find early for prior decisions/fixes/incidents, existing internal
+  behavior/configuration/conventions, and nontrivial debugging/design/migrations
+  where project history could change the approach, even without an ObsDog request.
+  Search a few specific terms, open promising hits and verify current source
+  evidence. No useful hit or unavailable memory must not block the actual task.
+- Skip incidental recall for general concepts, supplied-text transformations and
+  name mentions alone. Reuse already-read task evidence instead of searching
+  every follow-up. Honor explicit source restrictions and no-memory requests.
 - Honor an explicitly selected Space on every command. Otherwise use Personal
   only for knowledge permitted there; a broken explicit boundary must not fall
   back. Never copy organization/project-private material to Personal implicitly.
 - I authorize relevant local capture and supported maintenance during active
-  tasks. Save concise, source-grounded conclusions, not chatter, secrets or
-  unverified claims as facts. Read-only/no-memory requests override this rule.
+  tasks. At meaningful completion, use remember for verified reusable findings
+  or durable decisions: check the canonical home and duplicates, retain source,
+  checked date/version and scope, then read back. No useful new learning means
+  no write. Do not save chatter, raw logs, secrets or unverified claims as facts.
+  Read-only/no-memory requests override this rule.
 - Attribute agent actions; distinguish returned, opened, used and useful.
   Record use only when knowledge actually supports the work, with honest reasons.
 - Do not enable login, sync, sharing, publishing, telemetry or background jobs
@@ -71,6 +80,12 @@ For **search-only** use, replace the capture/maintenance permission bullet with:
 These rules guide behavior, not guaranteed automatic execution on every task.
 They do not alter client approvals or grant access to an unauthorized Space.
 Use the report skill for local visibility; HTML export is optional.
+
+This is an entry/exit decision during active work, not a hook that records every
+tool call or saves every session. The plugin does not install automatic recall,
+transcript collection or background maintenance. See the
+[synthetic evaluation cases and measurement limits](EVALUATION.md) for how missed
+recall and unsafe capture should be checked independently of search ranking.
 
 ## Copyable setup request
 

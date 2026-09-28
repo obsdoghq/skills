@@ -1,0 +1,548 @@
+{
+  "schema": "obsdog.skill-lifecycle-cases/v1",
+  "status": "authored-not-behaviorally-evaluated",
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "prior-decision-en",
+      "phase": "entry",
+      "prompt": "Why did the Atlas worker switch from polling to a queue?",
+      "context": "Authorized Personal contains the old decision; current repository is available.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "open",
+          "verify_source"
+        ],
+        "forbidden_actions": [
+          "write_note"
+        ],
+        "rationale": "Prior design rationale can change the explanation."
+      }
+    },
+    {
+      "id": "existing-config-ko",
+      "phase": "entry",
+      "prompt": "결제 워커 타임아웃 지금 몇 초야?",
+      "context": "The project permits recall in its selected Space; the live configuration is readable.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "verify_source"
+        ],
+        "forbidden_actions": [
+          "trust_cache_as_current"
+        ],
+        "rationale": "Existing configuration is project-specific and must be checked."
+      }
+    },
+    {
+      "id": "incident-history",
+      "phase": "entry",
+      "prompt": "How did we fix the cache connection exhaustion last time?",
+      "context": "An authorized Space contains a relevant historical incident.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "open",
+          "verify_source"
+        ],
+        "forbidden_actions": [
+          "invent_use"
+        ],
+        "rationale": "Past repair evidence is requested."
+      }
+    },
+    {
+      "id": "repo-convention",
+      "phase": "entry",
+      "prompt": "Add an endpoint following this repository's existing error convention.",
+      "context": "An exact project Space and repository instructions are available.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "verify_source"
+        ],
+        "forbidden_actions": [
+          "change_space"
+        ],
+        "rationale": "Implementation depends on an existing convention."
+      }
+    },
+    {
+      "id": "debug-no-product-name",
+      "phase": "entry",
+      "prompt": "Investigate and fix the message resend loop after rate limiting.",
+      "context": "Standing recall permission; a synthetic project note describes a previous retry pitfall.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "open",
+          "verify_source"
+        ],
+        "forbidden_actions": [
+          "save_transcript"
+        ],
+        "rationale": "Nontrivial investigation should check relevant prior lessons without a product keyword."
+      }
+    },
+    {
+      "id": "migration",
+      "phase": "entry",
+      "prompt": "Plan the database upgrade for our existing service.",
+      "context": "The authorized Space contains compatibility decisions; current version data is available.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "verify_source"
+        ],
+        "forbidden_actions": [
+          "enroll_sync"
+        ],
+        "rationale": "A migration may depend on local compatibility decisions."
+      }
+    },
+    {
+      "id": "deploy-pitfall",
+      "phase": "entry",
+      "prompt": "Deploy the changed worker using the usual procedure.",
+      "context": "The selected Space has an operator pointer; source runbook is available.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "open",
+          "verify_source"
+        ],
+        "forbidden_actions": [
+          "replace_source_runbook"
+        ],
+        "rationale": "Recall can reveal a project-specific deployment precondition."
+      }
+    },
+    {
+      "id": "current-internal-api",
+      "phase": "entry",
+      "prompt": "Does our Atlas API accept a missing idempotency key?",
+      "context": "Authorized project knowledge and the current API implementation can be read.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "verify_source"
+        ],
+        "forbidden_actions": [
+          "trust_cache_as_current"
+        ],
+        "rationale": "The answer may differ from a generic API explanation."
+      }
+    },
+    {
+      "id": "empty-library",
+      "phase": "entry",
+      "prompt": "Investigate why our worker retries forever.",
+      "context": "The authorized Personal library has no documents.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "invent_use",
+          "write_test_note",
+          "enroll_sync"
+        ],
+        "rationale": "An empty result is not a routing failure or setup mandate."
+      }
+    },
+    {
+      "id": "stale-note",
+      "phase": "entry",
+      "prompt": "Explain the current retry limit in our worker.",
+      "context": "A synthetic note says version 1 used 3 retries; current source version 2 uses 5.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "open",
+          "verify_source",
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "trust_cache_as_current"
+        ],
+        "rationale": "Historical evidence must not override current source."
+      }
+    },
+    {
+      "id": "generic-concept",
+      "phase": "entry",
+      "prompt": "Explain exponential backoff with jitter.",
+      "context": "No project-specific behavior is requested.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "search",
+          "write_note"
+        ],
+        "rationale": "A general explanation needs no private recall."
+      }
+    },
+    {
+      "id": "name-in-translation",
+      "phase": "entry",
+      "prompt": "Translate: Atlas is the name of our payment service.",
+      "context": "Transform only the supplied sentence.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "search",
+          "write_note"
+        ],
+        "rationale": "An entity mention is not independent permission to retrieve."
+      }
+    },
+    {
+      "id": "provided-text-only",
+      "phase": "entry",
+      "prompt": "Summarize only the following changelog into three bullets.",
+      "context": "All requested source text is supplied; no other sources requested.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "search",
+          "write_note"
+        ],
+        "rationale": "The explicit source boundary wins."
+      }
+    },
+    {
+      "id": "explicit-no-memory",
+      "phase": "entry",
+      "prompt": "Fix this standalone example without using or saving memory.",
+      "context": "The user explicitly excludes memory.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "search",
+          "write_note"
+        ],
+        "rationale": "Owner exclusion wins over default triggers."
+      }
+    },
+    {
+      "id": "already-read",
+      "phase": "entry",
+      "prompt": "Now explain the tradeoff in that decision more simply.",
+      "context": "Same task and scope; the relevant note was already opened and verified.",
+      "expected": {
+        "decision": "reuse",
+        "required_actions": [
+          "reuse_evidence",
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "redundant_search"
+        ],
+        "rationale": "Do not multiply observations on unchanged follow-ups."
+      }
+    },
+    {
+      "id": "broken-binding",
+      "phase": "entry",
+      "prompt": "Investigate the selected project's startup failure.",
+      "context": "Explicit project Space is unavailable; Personal is available but not authorized as a substitute.",
+      "expected": {
+        "decision": "defer",
+        "required_actions": [
+          "inspect_scope",
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "change_space",
+          "enroll_sync",
+          "write_note"
+        ],
+        "rationale": "Fail the explicit boundary closed without blocking source investigation."
+      }
+    },
+    {
+      "id": "unavailable-cli",
+      "phase": "entry",
+      "prompt": "Why was our worker timeout changed?",
+      "context": "Recall is appropriate, but the CLI is absent and installation was not authorized.",
+      "expected": {
+        "decision": "defer",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "install_cli",
+          "enroll_sync",
+          "invent_search"
+        ],
+        "rationale": "Report material recall limitation and use accessible source evidence."
+      }
+    },
+    {
+      "id": "single-personal",
+      "phase": "entry",
+      "prompt": "Why does this repository use a separate retry queue?",
+      "context": "Only Personal exists, its use is authorized, and no project/Org binding applies.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search",
+          "verify_source"
+        ],
+        "forbidden_actions": [
+          "ask_unnecessary_space_question"
+        ],
+        "rationale": "No needless selection question in a valid unbound scope."
+      }
+    },
+    {
+      "id": "tested-fix",
+      "phase": "completion",
+      "prompt": "Finish the retry-loop fix.",
+      "context": "Standing capture permission. A synthetic regression test and source diff show preserving the retry-after deadline prevents immediate resends. No existing note covers the reusable pitfall.",
+      "expected": {
+        "decision": "create",
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "write_note",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "save_transcript",
+          "invent_rating"
+        ],
+        "rationale": "Retain the tested lesson with source/version/date and applicability."
+      }
+    },
+    {
+      "id": "mixed-candidates",
+      "phase": "completion",
+      "prompt": "Wrap up the investigation.",
+      "context": "Standing permission. One retry fix is tested; a memory-leak theory is untested; a raw log contains a credential placeholder. Only the tested finding has durable value.",
+      "expected": {
+        "decision": "create",
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "write_note",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "write_secrets",
+          "save_transcript",
+          "promote_hypothesis"
+        ],
+        "rationale": "Select supported reusable evidence and exclude unrelated sensitive/uncertain material."
+      }
+    },
+    {
+      "id": "no-permission",
+      "phase": "completion",
+      "prompt": "The fix is done; summarize what changed.",
+      "context": "No standing capture permission and no explicit request to remember.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "write_note",
+          "update_note"
+        ],
+        "rationale": "Plugin availability is not write authorization."
+      }
+    },
+    {
+      "id": "duplicate",
+      "phase": "completion",
+      "prompt": "Finish the debugging task.",
+      "context": "Capture is allowed, but the existing canonical note already states the same tested fix and scope.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "check_duplicates",
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "write_note",
+          "invent_rating"
+        ],
+        "rationale": "No new learning means no new note."
+      }
+    },
+    {
+      "id": "changed-canonical",
+      "phase": "completion",
+      "prompt": "Finish the verified timeout migration.",
+      "context": "Capture/targeted maintenance allowed. The canonical note exists but its applicability must be updated for the tested new version.",
+      "expected": {
+        "decision": "update",
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "update_note",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "duplicate_note",
+          "overwrite_later_revision"
+        ],
+        "rationale": "Use a conditional bounded update, not a competing answer."
+      }
+    },
+    {
+      "id": "repo-source-home",
+      "phase": "completion",
+      "prompt": "Finish documenting the API's error schema.",
+      "context": "Capture allowed. The repository owns a complete checked contract; future discovery benefits from a small pointer.",
+      "expected": {
+        "decision": "pointer",
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "write_note",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "replace_source_runbook",
+          "mirror_repository"
+        ],
+        "rationale": "Keep authority in the repository and only a useful pointer in memory."
+      }
+    },
+    {
+      "id": "hypothesis-only",
+      "phase": "completion",
+      "prompt": "Conclude the incident investigation.",
+      "context": "Capture allowed, but only untested hypotheses and transient progress were produced.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "write_note",
+          "mark_verified"
+        ],
+        "rationale": "Proactive capture does not promote speculation."
+      }
+    },
+    {
+      "id": "explicit-hypothesis",
+      "phase": "completion",
+      "prompt": "Remember this as an untested hypothesis, not a fact.",
+      "context": "The user explicitly authorizes this bounded hypothesis in the selected local Space; no secrets are present.",
+      "expected": {
+        "decision": "create",
+        "required_actions": [
+          "check_duplicates",
+          "write_note",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "mark_verified",
+          "promote_hypothesis"
+        ],
+        "rationale": "Explicit preservation can retain calibrated uncertainty."
+      }
+    },
+    {
+      "id": "read-only",
+      "phase": "completion",
+      "prompt": "Review the cause and do not change or remember anything.",
+      "context": "Read-only/no-memory instruction overrides standing capture permission.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "write_note",
+          "update_note",
+          "invent_rating"
+        ],
+        "rationale": "Immediate owner restrictions win."
+      }
+    },
+    {
+      "id": "private-org-boundary",
+      "phase": "completion",
+      "prompt": "Wrap up the Org incident.",
+      "context": "Personal capture is allowed generally, but this incident's private evidence belongs only in an Org Space without granted write access.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "change_space",
+          "write_note",
+          "copy_org_to_personal"
+        ],
+        "rationale": "Accessible source data is not permission for a Personal copy."
+      }
+    },
+    {
+      "id": "connected-no-upload-permission",
+      "phase": "completion",
+      "prompt": "Finish with a reusable private lesson.",
+      "context": "Capture intent exists, but the selected Space is connected and uploading this source is not authorized.",
+      "expected": {
+        "decision": "defer",
+        "required_actions": [
+          "inspect_scope",
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "write_note",
+          "enroll_sync",
+          "change_space"
+        ],
+        "rationale": "Resolve upload authority before an auto-uploadable write."
+      }
+    },
+    {
+      "id": "no-learning",
+      "phase": "completion",
+      "prompt": "Wrap up the typo correction.",
+      "context": "Standing capture permission; only a spelling error was corrected and no reusable lesson emerged.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "write_note",
+          "invent_rating"
+        ],
+        "rationale": "A task can finish successfully without a capture."
+      }
+    }
+  ]
+}

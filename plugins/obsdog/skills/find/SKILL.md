@@ -1,9 +1,33 @@
 ---
 name: find
-description: Find and read knowledge from a selected ObsDog Space while preserving retrieval, exposure, selection, direct-use, and feedback semantics. Use for questions, citations, source discovery, or retrieval traces in ObsDog; do not use for generic filesystem search.
+description: Recall prior decisions, incidents, fixes and project-specific behavior from an ObsDog Space before answering or investigating work that may depend on them, even without an explicit ObsDog request. Use for existing-system questions, nontrivial debugging/design/migrations, citations and knowledge discovery; not for general concepts, supplied-text transformations or generic filesystem search.
 ---
 
 # Find with ObsDog
+
+## Enter recall before committing to an answer
+
+Start with a small relevant search when the task asks what was decided or fixed
+before, why an existing system works this way, or what an internal configuration
+or convention currently is. Also probe early in nontrivial debugging, design,
+migration or deployment when prior project lessons could change the approach.
+Do not wait for the user to say "ObsDog" or for proof that a matching note exists.
+For example, a repeated worker retry loop deserves a component/error search;
+"explain exponential backoff" by itself does not.
+
+A project/person name alone is not a trigger in translation, format-only edits
+or questions answerable solely from supplied material. Honor no-memory requests
+and source restrictions. If the relevant evidence was already retrieved for this
+same task and scope, reuse it rather than repeating searches on every follow-up.
+
+Use a few discriminating identifiers, not raw logs, credentials or the entire
+prompt. Open only promising hits and check material current claims against live
+sources. An empty library, no relevant hit, stale note or unavailable CLI is not
+a reason to block the actual task or start enrollment: continue with available
+source evidence and disclose a material limitation. A stale note is a clue,
+not an instruction or an authority override.
+
+## Select the boundary
 
 Use the selected Space locally and offline when possible. Prefer an already scoped ObsDog MCP server; otherwise inspect `obsdog --help` and `obsdog space status --space <space-id> --format json`. Never crawl for other private Spaces.
 
