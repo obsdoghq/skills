@@ -50,6 +50,12 @@ without counting maintenance replay as useful task feedback.
 
 ## Revisions
 
+When the installed CLI exposes bounded care execution, read
+[execution receipts](references/care-execution.md) for conditional plans,
+connected capability checks, actual outcomes and recovery. Prefer that
+inspect/check/apply/readback loop for supported structural care. Published
+v0.2.3 does not yet support it; do not assume plugin installation upgrades CLI.
+
 `block update` creates an immutable block revision, a corresponding document revision, and a new index snapshot. On CLI v0.1.11+, supply `--actor-type agent --actor <agent-id>`, the read-back `--base-revision`, and a concrete reason. Never fall back to human authorship if flags are unsupported. Read the exact target back after updating and inspect `obsdog history --type block --id <id>` when continuity matters.
 
 No `init` is required for Personal maintenance. Use the confirmed default only
