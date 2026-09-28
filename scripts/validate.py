@@ -9,6 +9,8 @@ import sys
 import tempfile
 from pathlib import Path
 
+from check_public_content import audit
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / "plugins" / "obsdog"
@@ -97,6 +99,13 @@ def main() -> None:
     ).lower()
     for forbidden in ("api_key=", "access_token=", "bearer ey", "private_key="):
         assert forbidden not in repository_text
+
+    problems, _, _ = audit(ROOT, [], False, [])
+    for path, line, rule in problems:
+        print(f"{path}:{line}: {rule} (matched value omitted)", file=sys.stderr)
+    assert not problems, "Distributable content contains non-public information"
+
+    subprocess.run([sys.executable, "-m", "unittest", "discover", "-s", "tests"], cwd=ROOT, check=True)
 
     print("ObsDog skills packaging and authorization-boundary checks passed.")
 
