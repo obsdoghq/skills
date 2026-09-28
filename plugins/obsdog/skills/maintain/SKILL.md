@@ -71,6 +71,11 @@ Do not copy labels, comments, evaluations, or verification state from retired pr
 
 ## Reference maintenance
 
+On CLI v0.1.16+, use `memory show` to investigate observed query/co-use paths,
+fading and evidence. These derived links need no manual materialization or
+cleanup. They are separate from the authored reference maintenance below;
+never turn a co-use observation into a factual support edge automatically.
+
 When the task involves disconnected knowledge, inspect actual body links and
 current block comments, not only graph density. Relative Markdown paths resolve
 only against exact imported paths inside the selected Space; a missing import

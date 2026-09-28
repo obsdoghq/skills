@@ -99,7 +99,9 @@ copied notes for graph layout. Containment is not support; topic tags are not
 citations; similarity/co-retrieval is not evidence. Keep current authored links,
 uncertain proposals, observed usage and source/lineage inspection distinct.
 Typed source records appear in the read-only Wiki/graph inspector; they do not
-create support edges or enlarge nodes. Typed usage edges remain unimplemented.
+create support edges or enlarge nodes. CLI v0.1.16 / server v0.1.27 separately
+derive revision-bound query associations and co-use edges from recorded actions;
+these are observations, not authored support or factual ontology assertions.
 Read both ends and explain direction/purpose; backlinks are not extra votes.
 No quota for links or universal ontology is needed.
 
@@ -218,10 +220,49 @@ types; never substitute the experimental CLI or re-enable held native clients.
    Separate locally applied changes from acknowledged cloud delivery; report a
    deferred item as deferred, not completed or awaiting routine human approval.
 
-Strengthening means preserving and improving useful evidence, not accumulating
-links. Weakening means reviewing applicability, rejecting a bad proposal or
-retiring proven obsolete material—not an untested automatic decay/delete rule.
-Current graph width counts distinct citing blocks, not usefulness.
+Strengthening authored knowledge still means preserving and improving evidence,
+not accumulating links. Authored graph width counts distinct citing blocks.
+The separate Living memory layer uses the bounded policy below; weakening its
+activation never authorizes source deletion, revision pruning or fake ratings.
+
+## Usage reinforcement and fading (CLI v0.1.16+)
+
+Inspect installed help before using `obsdog memory show --format json`, optionally
+`--query <need>`. It reads current-revision activation, cue/block and co-use edges,
+selected daily samples and attribution without writing observations. Raw queries
+and reasons remain private Space data. `--as-of` changes the scoring clock over
+current source state; it is not a historical snapshot restore.
+
+Default search applies `obsdog.activation/v1` only inside the first 100 eligible
+lexical candidates. A bounded same-query/current-revision usefulness adjustment
+never makes unknown evidence negative or injects graph-only candidates. Use
+`--ranking lexical` for an explicit baseline or diagnosing ranking influence.
+Check `learning_status`: unavailable projections visibly fall back to lexical;
+missing observations are neutral. Source-care ratings do not train this policy.
+
+Record actual search/open/use/feedback with one consistent agent identity.
+Relevance/noise requires inspection; usefulness requires real task use. Explain
+the outcome, not a desired node weight. Do not repeatedly query/open/rate to
+boost a note, create reciprocal citations for graph density or seed synthetic
+success into the real library. One cue/block/day sample limits repeated calls;
+judged samples take precedence over later unjudged reads. This is not Sybil
+resistance or proof that an AI judgment is correct.
+
+Useful traces strengthen and decay with time; noisy traces temporarily reduce
+that same cue's rank. Co-use requires two actually used blocks from one run,
+not co-retrieval or similarity. Both must be positively judged to yield positive
+pair evidence. Inspection-only connections are provisional and fade sooner.
+Dormant means less visible, not incorrect or removed: rare recovery guidance
+remains searchable and useful new use can reactivate it. New revisions do not
+inherit old judgments. Repair source mistakes against evidence immediately,
+not only after a popularity threshold. Do not run a decay daemon: projection
+evaluates time on read, with no source/history mutation.
+
+Web Living memory observes the synced CLI evidence. Current browser browsing
+does not itself record use or feedback. Keep observed associations distinct from
+authored references and unverified relationship proposals. Improved activation
+metrics do not establish improved retrieval/task quality; compare a fixed,
+chronologically held-out baseline before claiming performance gains.
 
 ## Counterexamples to check
 

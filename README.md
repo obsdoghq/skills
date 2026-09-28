@@ -20,7 +20,7 @@ within the caller's existing write authority. Humans receive concise outcomes
 and recovery information, not an approval inbox. Evidence/capability gaps are
 deferred; only missing authority or consequential owner intent requires a question.
 Reports remain read-only and protected-label rules remain enforced. Source-only
-workflow updates do not install plugins or launch a worker; manifest 0.2.2 is the
+workflow updates do not install plugins or launch a worker; manifest 0.2.3 is the
 existing package baseline, not a claim of a new runtime release.
 
 The visibility-first follow-up makes reports and planned human web screens
@@ -30,6 +30,13 @@ history/recovery capabilities remain necessary, and absent historical data is
 never invented to fill a chart.
 
 ## Connected knowledge care (0.2.2)
+
+The 0.2.3 follow-up documents CLI v0.1.16 / server v0.1.27 Living memory:
+same-query/revision-bounded ranking, actual-use reinforcement, read-time fading,
+query and co-use observations, and `memory show`. No extra feature skill,
+background worker, automatic source deletion or plugin installation is added.
+`--ranking lexical` remains the explicit comparison baseline. Browser views
+observe synced CLI evidence, not fabricated click/use judgments.
 
 Capture workflows search before adding, retain justified citations and separate
 uncertain relationships as question-comment proposals. Maintenance reads the

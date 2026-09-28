@@ -48,6 +48,14 @@ first. Do not hide unknown legacy notes by default. Authoring/source repairs use
 
 ## Feedback
 
+CLI v0.1.16+ defaults to bounded, query-conditioned usefulness reranking. Inspect
+`ranking_policy` and `learning_status` when explaining order; use `--ranking
+lexical` for the unchanged baseline. `memory show --query <need>` reads the
+actual activation/connection evidence. Read the bundled care guide's usage
+section when investigating fading or reinforcement. Do not create repeated
+searches or artificial feedback to manipulate weight; unjudged is not bad and
+graph associations are not factual citations.
+
 When feedback writes are authorized and actual work supplies an observed outcome,
 evaluate it yourself instead of requiring the user to rate each result. Keep
 judgments distinct: relevance links query to hit; usefulness links a genuinely
