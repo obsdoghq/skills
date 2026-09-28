@@ -30,11 +30,13 @@ The command must not overwrite an existing artifact. Treat the output as private
 - Separate source-check coverage, content freshness and task usefulness when
   actually available. A pointer is not an imported manual; an old decision can
   still be relevant. Unknown legacy provenance, failed source checks and unjudged
-  notes are not passing quality. Today's report has no structured source-role or
-  authoring-rubric aggregates; never infer them from note dates or comment text.
+  notes are not passing quality. CLI v0.1.14+ supplies current source declarations
+  and 30-day revision-bound authoring aggregates by evaluator/method. Preserve the
+  exact window and denominators; older reports do not have these fields. Never
+  infer checks from note dates or comment text.
 - Keep unresolved links, proposals and quality-review notes distinct from task
   outcomes. Current graph strength counts citations, not correctness/usefulness;
-  a `knowledge-care/v1` comment is not yet a structured aggregate metric. Do not
+  a prose `knowledge-care/v1` comment is not a typed care record. Do not
   imply that an adaptive ranker or automatic cleanup runs behind the report.
 - Where actual receipts exist, distinguish AI-completed improvements, technical/
   evidence deferrals and genuine authority/intent decisions. Show reasons and

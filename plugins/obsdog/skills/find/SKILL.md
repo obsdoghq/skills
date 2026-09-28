@@ -41,8 +41,9 @@ explicit limitations, not proof that the cached claim is incorrect.
 
 Read necessary parent scope, warnings and surrounding procedure when the returned
 leaf is insufficient. Prefer current applicable guidance for a current task;
-history can answer "why" or an older-version question. Do not assume a role filter
-exists or hide unlabeled legacy notes. Authoring/source repairs use the bundled
+history can answer "why" or an older-version question. On CLI v0.1.14+,
+`--source-role` and `--temporal` are available; inspect help and care records
+first. Do not hide unknown legacy notes by default. Authoring/source repairs use the bundled
 [care criteria](../maintain/references/knowledge-care.md), not a whole-Space rewrite.
 
 ## Feedback

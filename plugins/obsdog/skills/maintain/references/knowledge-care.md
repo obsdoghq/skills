@@ -47,7 +47,8 @@ an ObsDog note is not a substitute. If source writes are not authorized, retain
 a clearly provisional explanation/gap only when useful; do not claim the source
 was corrected. Reading a private repository does not authorize uploading it.
 
-Choose the smallest useful representation, without new document-type flags:
+Choose the smallest useful representation. CLI v0.1.14+ can record these as typed
+source roles, separate from the Markdown/block type:
 
 - **Native:** a Space-owned decision, durable preference or reusable lesson.
 - **Pointer:** where the maintained answer lives, what it helps with and scope;
@@ -75,7 +76,7 @@ automatically mean the claim is wrong. Offline/denied/missing/conflicting source
 remain explicit uncertainty. Use sufficient cached context with limits, or
 abstain from unsupported advice. Preserve failed checks separately from the last
 successful check. Copies of one source are not independent corroboration.
-No automatic repository sync, crawler or source-record schema is implied.
+Typed source records do not imply repository sync, crawling or background checks.
 
 ### Select history and graph scope deliberately
 
@@ -87,9 +88,9 @@ retained as scoped working memory. Age alone is not staleness. Never interpret
 "don't save unhelpful history" as permission to prune revisions, audit, evaluations
 or backups. Follow actual retention/removal authority.
 
-Use supported lifecycle/horizon labels only after registry/policy checks; there
-is no automatic source/history-role filtering in this stable runtime. Document
-labels do not automatically classify all blocks. Do not mass-archive legacy imports
+Use supported lifecycle/horizon labels only after registry/policy checks. CLI
+v0.1.14+ also supports explicit source-role/temporal filters. Legacy unclassified
+notes stay unknown. Document labels do not automatically classify all blocks. Do not mass-archive legacy imports
 to comply with a new guideline.
 
 Keep one authorized Space with overlapping topic/project/source views unless
@@ -97,7 +98,8 @@ actual ownership/sharing needs a separate boundary. No Space per repository or
 copied notes for graph layout. Containment is not support; topic tags are not
 citations; similarity/co-retrieval is not evidence. Keep current authored links,
 uncertain proposals, observed usage and source/lineage inspection distinct.
-Typed usage/source graph layers are planned, not currently exposed commands.
+Typed source records appear in the read-only Wiki/graph inspector; they do not
+create support edges or enlarge nodes. Typed usage edges remain unimplemented.
 Read both ends and explain direction/purpose; backlinks are not extra votes.
 No quota for links or universal ontology is needed.
 
@@ -148,11 +150,51 @@ reading or a missing qualification before splitting coherent source content.
 Reviewing a note without a real task may justify a care comment, never invented
 search use/usefulness. A model assessment is not a ground-truth label.
 
-A short attributable comment may record `knowledge-care/v1` dimensions and a
-proposed operation. This is a review note, not a machine-aggregated metric.
+On CLI v0.1.14+ with compatible connected readers/server, record structured
+`knowledge-care/v1` reviews using the typed workflow below. On older versions,
+a short attributed comment remains a non-aggregated note, not a metric.
 Existing `feedback add` kinds retain their real meanings; do not invent rubric
 values or claim a comment alone trains the ranker. Keep AI/human attribution.
 Repeated praise from the same agent/task is not independent corroboration.
+
+## Record source and authoring evidence (CLI v0.1.14+)
+
+First inspect `obsdog care --help` and `care show --format json`. Connected
+Spaces require server v0.1.26+ and compatible active readers before new event
+types; never substitute the experimental CLI or re-enable held native clients.
+
+- Use `care record --file <json> --actor-type agent --actor <agent-id> --format json`.
+  Read exact target/revision IDs first. The payload schema is
+  `obsdog.knowledge-care-record/v1`: `request_id`, `kind` (source/review),
+  `key`, `target_type`, `target_id`, `revision_id`, `supersedes`, `reason`
+  and one of `source` or `review`.
+- Source: `role` native/pointer/derived/snapshot, `temporal`
+  current/historical/working, `owner`, `applicability`, `check_scope`, `outcome`.
+  External roles need a credential-free HTTPS `locator` with no query.
+  For a real check add `checked_at`, `method`, `evidence`; semantic support
+  also needs the examined `version`. `section` and common-source `family`
+  prevent misleading provenance. For an unchecked source use
+  `check_scope:none`, `outcome:not_checked`, no fabricated check fields.
+- Review: `rubric:knowledge-care/v1`, `method:agent`, `dimensions` keyed by
+  home/fidelity/applicability/context/connections. Each inspected dimension
+  has value pass/needs_work/unknown/not_applicable, reason and evidence.
+  Omitted dimensions are unassessed. Do not fabricate human review or actual use.
+- Use a stable association `key` for each source and a task key for a review.
+  Retry with the same request ID and exact JSON; changing the request is not a
+  retry. A correction names every current head of that stream in `supersedes`.
+  After a revision/conflict rejection, read back and reconcile within budget;
+  keep sibling judgments, never choose the newest timestamp as truth.
+- Keep document defaults small; block-specific sources override even when stale.
+  `search --source-role pointer --temporal current` filters before result limits.
+  Also inspect unknown/stale/conflict when relevant, not just known successes.
+  Source filters do not increase rank or infer usefulness.
+- Full backup retains history. Portable current-state import preserves old care
+  as archival evidence, not current checks on the new revisions. Reassess only
+  what the active task needs. Never mass-relabel to improve coverage.
+- `care show`, read-only MCP `obsdog_care_show`, Wiki/graph inspectors and
+  HTML reports expose evidence/coverage. Reports separate current declarations,
+  30-day exact-revision/evaluator review samples and unknown/NA/unassessed.
+  Activity is recorded work, not proven quality improvement.
 
 ## Close the loop with a small, auditable change
 

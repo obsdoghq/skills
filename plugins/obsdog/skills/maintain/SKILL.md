@@ -37,6 +37,9 @@ a new model provider. Confidence alone is not permission or factual verification
 - Confirm the intended Space with `obsdog space status --format json`.
 - Read a document as Markdown first. Use `document read --structure`, `block show`, or `history` only when stable block identity or an exact revision matters.
 - Use the installed `--help` surface because commands and schema compatibility may evolve.
+- On CLI v0.1.14+, inspect `care show --format json` and follow the shared typed
+  source/review workflow. Keep request IDs, current revisions and causal stream
+  heads; do not reuse an old check after changing text.
 
 ## Revisions
 

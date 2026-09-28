@@ -9,8 +9,9 @@ durable is added. The shared [care guide](plugins/obsdog/skills/maintain/referen
 also covers selected history versus revision records, context-preserving blocks,
 graph views versus Space boundaries and source checks versus task usefulness.
 The five skills are one bundle and share this packaged reference; preserve that
-dependency if redistributing the workflows. Structured source-role metadata and
-aggregates are not part of this instruction-only update.
+dependency if redistributing the workflows. CLI v0.1.14 / server v0.1.26 add typed
+source-role metadata and dimensional aggregates; the workflows check runtime
+capabilities before using them. No legacy note is implicitly verified.
 
 The current source makes routine review, correction and verification AI-owned
 within the caller's existing write authority. Humans receive concise outcomes
