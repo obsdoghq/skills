@@ -11,7 +11,7 @@ clients display a stable namespace:
 - `obsdog:find` — find, open, use, and trace exact knowledge revisions;
 - `obsdog:remember` — capture intentional durable Markdown knowledge;
 - `obsdog:maintain` — evolve, organize, review, and recover knowledge;
-- `obsdog:report` — generate a private standalone HTML health report;
+- `obsdog:report` — explain local health/activity and open an offline dashboard;
 - `obsdog:documentify` — turn an authorized repository into auditable knowledge.
 
 The namespace is provided by the plugin. Portable skill folders keep the short
@@ -24,7 +24,7 @@ this user plugin. They remain separate internal evaluation work.
 
 ## Requirements and data boundaries
 
-Use [ObsDog CLI v0.2.0 or newer](https://github.com/obsdoghq/obsdog-releases)
+Use [ObsDog CLI v0.2.2 or newer](https://github.com/obsdoghq/obsdog-releases)
 for the current workflow set, including Living memory and source-aware care.
 The skills inspect installed capabilities before using a command. Keep explicit
 agent authorship on import/update as well as search/open/use. Evaluation identity is
@@ -38,6 +38,27 @@ does not install or update the CLI/plugin on the user's behalf.
 
 ## Install
 
+There are **two separate installations**. The plugin supplies instructions;
+the CLI runs the local knowledge store. A successful `plugin add` does not
+install the `obsdog` executable or mean that local commands are ready.
+
+### 1. Install or verify the CLI
+
+Follow the [official CLI installation guide](https://github.com/obsdoghq/obsdog-releases#cli-free-beta--apple-silicon-macos),
+then run:
+
+```sh
+obsdog version
+obsdog document list
+```
+
+The current skills require CLI **v0.2.2+**. `command not found` means the CLI is
+missing or not on your client process's `PATH`; see the guide before proceeding.
+An empty document list is normal for a new Personal Space. No login or project
+initialization is required. Do not install both Homebrew and standalone copies.
+
+### 2. Add the plugin to your chosen client
+
 ```sh
 codex plugin marketplace add obsdoghq/skills
 codex plugin add obsdog@obsdog-skills
@@ -49,6 +70,33 @@ Claude Code uses the same repository as a marketplace:
 claude plugin marketplace add obsdoghq/skills
 claude plugin install obsdog@obsdog-skills
 ```
+
+### 3. Verify in a fresh client session
+
+Choose **find** inside the ObsDog plugin in Codex, or use `/obsdog:find` in Claude
+Code, and ask it to find an existing note in the intended Space. Verify that the
+client loads the skill and can run `obsdog version`. An empty result is okay for
+a new Space; a missing skill or executable is not successful setup. CLI smoke
+tests alone do not verify next-session skill invocation.
+
+For ongoing AI-managed knowledge, add the short **optional**
+[global instruction snippet and setup prompt](docs/SETUP.md#optional-proactive-use).
+Manual skill invocation works without changing global instructions.
+
+## Browse your documents
+
+```sh
+obsdog document list
+obsdog document list --space personal --format json
+obsdog document read --id <document-id>
+obsdog dashboard serve
+```
+
+List shows document IDs, titles and active block counts, newest update first.
+The dashboard opens at `http://127.0.0.1:47777`; its Knowledge tab reads Markdown.
+Listing and overview viewing do not imply that every document was opened or used.
+
+## Update or remove
 
 Update or remove the package explicitly:
 
@@ -70,6 +118,16 @@ No package, binary, or hosted credential is included. Installation does not
 grant access to a Space and never broadens the authorization of the invoking
 human or agent.
 
+## Feedback
+
+[Report a bug, installation experience or idea](https://github.com/obsdoghq/obsdog-releases/issues/new/choose).
+Use a tiny synthetic example and include CLI/plugin/client versions and what
+you actually tested. Public issues must not contain documents, query histories,
+tokens, private repository URLs or raw Space/diagnostic exports. See the
+[feedback safety guide](https://github.com/obsdoghq/obsdog-releases/blob/main/FEEDBACK.md).
+Posting product feedback is optional and separate from knowledge usefulness
+ratings stored locally by `obsdog feedback add`.
+
 ## Knowledge care and Living memory
 
 The [retrieval authoring guide](plugins/obsdog/skills/maintain/references/retrieval-authoring.md)
@@ -83,8 +141,15 @@ revision-bound review and recoverable changes. Maintain code contracts and
 runbooks with their authoritative source; retain useful pointers or reusable
 lessons in ObsDog instead of copying a parallel manual. Routine corrections are
 AI-managed within existing authority, with evidence and readback. Missing
-authority still requires consent. Reports are private, read-only HTML and never
-invent historical trends or present AI judgments as human verification.
+authority still requires consent. Reports use read-only local insights and the
+offline dashboard; HTML is an optional explicit export, not the default.
+Never invent historical trends or present AI judgments as human verification.
+
+`obsdog dashboard serve` provides Knowledge, Graph, Activity and Sources on this
+device without login or sync. `obsdog insights show` supplies bounded JSON and
+actual UTC event windows. Source checks can record private-clone evidence with
+`care source`; the MCP remains read-only for care mutations. Substring search
+ignores spaces while preserving original text and earlier traces.
 
 Actual open/use/evaluation records can strengthen query associations and co-use
 connections; old activation fades without deleting knowledge. CLI v0.1.16 and

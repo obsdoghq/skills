@@ -201,8 +201,16 @@ types; never substitute the experimental CLI or re-enable held native clients.
 - Full backup retains history. Portable current-state import preserves old care
   as archival evidence, not current checks on the new revisions. Reassess only
   what the active task needs. Never mass-relabel to improve coverage.
+- CLI v0.2.2 adds `care source --help` with typed source/check options, using
+  the same v1 record. Private HTTPS repository locators are valid identifiers;
+  an authenticated local-clone check does not need anonymous URL access. Record
+  the exact commit, relative file/section, actual time, bounded method/evidence
+  and the scope truly checked. No absolute private paths, credentials or source
+  dumps. Do not turn prose verification notes into current checks automatically;
+  recover and validate their evidence first. MCP care remains read-only; use CLI
+  writes within the authorized Space rather than inventing unsupported fields.
 - `care show`, read-only MCP `obsdog_care_show`, Wiki/graph inspectors and
-  HTML reports expose evidence/coverage. Reports separate current declarations,
+  the local dashboard expose evidence/coverage. Views separate current declarations,
   30-day exact-revision/evaluator review samples and unknown/NA/unassessed.
   Activity is recorded work, not proven quality improvement.
 

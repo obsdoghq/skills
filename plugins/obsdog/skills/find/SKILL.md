@@ -14,6 +14,20 @@ not permission to search a different library or connect cloud sync.
 
 ## Retrieve intentionally
 
+For an inventory request, use `obsdog document list --space <space-id> --format
+json` on CLI v0.2.2+, or suggest `obsdog dashboard serve` for local browsing.
+Do not issue broad searches or open every document to simulate a list. Listing
+is not exposure or use. Verify `obsdog version` if the command is absent;
+installing this plugin alone does not install or update the CLI.
+
+CLI v0.2.2 uses whitespace-insensitive substring discovery across languages:
+`사과` finds `사과나무`, `충돌` finds `충돌은`, and `동시수정` finds `동시 수정`.
+Unquoted terms are OR candidates; quotes group contiguous normalized characters;
+`-term` excludes partial matches. Exact full title/content matches rank first.
+This is not stemming, synonym expansion or fuzzy spelling. Do not add particle
+variants solely to work around the older tokenizer. Inspect `lexical_policy`;
+raw scores from different versions are not a controlled comparison.
+
 1. On CLI v0.2.0+, search with `obsdog search --space <space-id> --format json --query <need> --actor-type agent --actor <agent-id>`. Returned hits are retrieved, not read or judged.
 2. Add a canonical label filter only when routing requires it. Discover definitions first and use expressions such as `label:memory:horizon=long_term AND NOT label:lifecycle:state=stale`.
 3. Choose from rank, document, block, exact revision, snippet, and matched labels.

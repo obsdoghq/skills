@@ -1,18 +1,26 @@
 ---
 name: report
-description: Generate and explain a private read-only HTML knowledge-health report for a selected ObsDog Space. Use for current state, supported trends, retrieval health, AI activity or sync status; do not treat aggregate counts as causal proof.
+description: Inspect and explain the current state, activity, graph and source evidence of a selected ObsDog Space using local read-only insights and the offline dashboard. Export HTML only when explicitly requested; do not treat counts as causal proof.
 ---
 
 # Report with ObsDog
 
-Use CLI v0.2.0+, confirm the selected Space, inspect `obsdog report --help`, and choose a new output path. Generate with:
+Use CLI v0.2.2+, confirm the selected Space and inspect `obsdog insights --help`.
+The default is an evidence-backed status explanation, not an HTML file:
 
-`obsdog report create --space <space-id> --output <new-file>.html --format json`
+`obsdog insights show --space <space-id> --days 30 --actor all --format json`
+
+For a requested browser dashboard, run `obsdog dashboard serve --space <space-id>`
+and use its announced loopback URL (default 127.0.0.1:47777). `wiki serve` opens
+the reading entrypoint of that same UI. No login, LAN scan, cloud upload, hosted
+bridge or background service is required or authorized by viewing status.
 
 Omit `--space` only for authorized Personal use. An explicit project/Org ID must
 be passed through; cwd does not select a Space, and there is no `init` step.
 
-The command must not overwrite an existing artifact. Treat the output as private even though it excludes exact queries, document bodies, comments, evaluation reasons, and annotation text.
+Treat insights and the dashboard as private: they can include document titles,
+links, source-check evidence and actor identities. They are not anonymous metrics.
+Do not proxy the loopback service to a network or submit its JSON elsewhere.
 
 ## Interpret responsibly
 
@@ -20,8 +28,8 @@ The command must not overwrite an existing artifact. Treat the output as private
   and data freshness. No edit/approve/apply/reject/undo UI or mandatory user work
   queue. The user requests changes through their authorized AI workflow; include
   scoped evidence/reference details only where the report actually provides them.
-- Keep snapshot totals distinct from time-series evidence. The current all-time
-  report does not supply historical trends. Never derive growth/activity history
+- Keep snapshot totals distinct from time-series evidence. Insights supplies
+  actual 7/30/90-day UTC events, not historical inventory snapshots. Never derive growth/activity history
   from current update timestamps, interpolate absent samples or invent a quality
   score. Show period/timezone/coverage and compare only compatible windows when
   that data genuinely exists.
@@ -45,4 +53,17 @@ The command must not overwrite an existing artifact. Treat the output as private
   evidence deferrals and genuine authority/intent decisions. Show reasons and
   recovery limitations, not an approval card for every suggestion. Do not invent
   these counts from today's open-comment totals or call AI review human review.
-- Link or return the generated local HTML path. Summarize only the decisions the user needs; preserve the report as the detailed artifact.
+- Explain actor scope: activity/evaluation filters are selected; current inventory,
+  graph and source coverage are not filtered to that actor. Disclose truncation,
+  unavailable reads and stale refreshes instead of treating them as zeros.
+- Summarize what the user can observe and any genuine decision needed. Return the
+  local dashboard URL only when started or verified; do not pretend it is the
+  hosted app's synced view. A report-only request does not authorize maintenance.
+
+## Optional portable snapshot
+
+Only for an explicitly requested HTML export, inspect `obsdog report --help`,
+choose a new private path and run `obsdog report create --space <space-id>
+--output <new-file>.html --format json`. Never overwrite an artifact. The older
+HTML projection is not the live dashboard and does not have the same event-window
+charts; do not claim feature parity. Return the actual file and its limits.

@@ -1,7 +1,7 @@
 {
   "name": "obsdog",
-  "version": "0.3.1",
-  "description": "Find, remember, maintain, report on, and documentify measurable knowledge in ObsDog Spaces.",
+  "version": "0.3.2",
+  "description": "Five knowledge workflows; requires the separately installed ObsDog CLI v0.2.2+. Verify obsdog version; installation and feedback: https://github.com/obsdoghq/obsdog-releases .",
   "author": {
     "name": "ObsDog",
     "url": "https://obsdog.ai"
