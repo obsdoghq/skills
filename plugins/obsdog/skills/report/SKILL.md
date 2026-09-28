@@ -5,9 +5,12 @@ description: Generate and explain a private read-only HTML knowledge-health repo
 
 # Report with ObsDog
 
-Confirm the selected Space, inspect `obsdog report --help`, and choose a new output path. Generate with:
+Use CLI v0.2.0+, confirm the selected Space, inspect `obsdog report --help`, and choose a new output path. Generate with:
 
-`obsdog report create --path <space> --output <new-file>.html --format json`
+`obsdog report create --space <space-id> --output <new-file>.html --format json`
+
+Omit `--space` only for authorized Personal use. An explicit project/Org ID must
+be passed through; cwd does not select a Space, and there is no `init` step.
 
 The command must not overwrite an existing artifact. Treat the output as private even though it excludes exact queries, document bodies, comments, evaluation reasons, and annotation text.
 

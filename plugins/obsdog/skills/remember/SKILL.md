@@ -33,7 +33,7 @@ note; route substantial split/merge or retirement to the maintenance workflow.
   exact checked version/section, observation date/method and applicability.
   Preserve necessary qualifications in the body. Import/edit time is not source
   freshness; a copied source is not another independent confirmation.
-- On CLI v0.1.11+, import with `obsdog document import --path <space> --file <file> --actor-type agent --actor <agent-id> --format json`. Check installed help first; do not fall back to default human authorship if attribution flags are absent.
+- On CLI v0.2.0+, import with `obsdog document import --space <space-id> --file <file> --actor-type agent --actor <agent-id> --format json`. Check installed help first; do not fall back to default human authorship if attribution flags are absent.
 - Treat headings and leaf Markdown regions as stable addressable blocks after import. Do not fabricate block identifiers.
 - Read the imported document back and verify its title, block count, and exact Space.
 - Suggest labels only after discovering definitions. Agents normally use `--state suggested`, a rationale, and calibrated confidence. Protected verification remains subject to human or disclosed verifier review.
@@ -54,7 +54,7 @@ For a plausible but unconfirmed connection, inspect `comment list` to avoid
 duplicates and use an attributable `question` comment on the exact current block:
 
 ```sh
-obsdog comment add --path <space> --type block --id <block-id> --relation question --body "Possible connection: [Related note](<document-id>). Explain the specific relationship and uncertainty." --actor-type agent --actor <agent-id> --format json
+obsdog comment add --space <space-id> --type block --id <block-id> --relation question --body "Possible connection: [Related note](<document-id>). Explain the specific relationship and uncertainty." --actor-type agent --actor <agent-id> --format json
 ```
 
 Read the comment back. The hosted graph separates current open question-comment
@@ -62,7 +62,7 @@ links as opt-in proposals; they do not increase reference strength or node size.
 Use `evidence`/`explanation` only for an actual recorded citation with a concrete
 reason, not to promote a guess. A link is not a correctness or usefulness rating.
 
-Without an explicit boundary, v0.1.11 can capture into Personal from any directory
+Without an explicit boundary, v0.2.0 can capture into Personal from any directory
 without `init`; its first capture lazily creates the local library. Respect an
 existing project/Org binding and fail visibly if it is broken. Default selection
 does not merge libraries or connect sync. Do not connect sync or import unrelated

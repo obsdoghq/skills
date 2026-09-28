@@ -52,7 +52,7 @@ def verify_live_mcp_boundary(mcp: dict) -> None:
         )
         assert completed.returncode == 0, completed.stderr
         observed = json.loads(capture.read_text(encoding="utf-8"))
-        assert observed["argv"] == ["mcp", "--path", "."]
+        assert observed["argv"] == ["mcp", "--space", "personal"]
         assert Path(observed["cwd"]).resolve() == selected_space.resolve()
         assert set(observed["env"]).issubset(
             {"PATH", "LC_CTYPE", "__CF_USER_TEXT_ENCODING"}
@@ -74,7 +74,8 @@ def main() -> None:
     assert claude_marketplace["plugins"][0]["version"] == codex["version"]
     assert mcp["enabled"] is False
     assert mcp["command"] == "obsdog"
-    assert mcp["args"] == ["mcp", "--path", "."]
+    assert mcp["args"] == ["mcp", "--space", "personal"]
+    assert "cwd" not in mcp, "The plugin directory must not select a Space"
     assert mcp["env_vars"] == ["PATH"]
     verify_live_mcp_boundary(mcp)
 
@@ -97,7 +98,7 @@ def main() -> None:
         for path in PLUGIN.rglob("*")
         if path.is_file() and ".git" not in path.parts
     ).lower()
-    for forbidden in ("api_key=", "access_token=", "bearer ey", "private_key="):
+    for forbidden in ("api_key=", "access_token=", "bearer ey", "private_key=", "--path", "obsdog init"):
         assert forbidden not in repository_text
 
     problems, _, _ = audit(ROOT, [], False, [])

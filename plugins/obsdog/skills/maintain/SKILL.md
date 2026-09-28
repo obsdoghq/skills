@@ -34,7 +34,9 @@ a new model provider. Confidence alone is not permission or factual verification
 
 ## Inspect before mutation
 
-- Confirm the intended Space with `obsdog space status --format json`.
+- Use CLI v0.2.0+ and confirm `obsdog space status --space <space-id> --format json`.
+  Pass that same selector on each command below; only use Personal by default
+  when no explicit project/Org boundary applies. `init` and path selectors are removed.
 - Read a document as Markdown first. Use `document read --structure`, `block show`, or `history` only when stable block identity or an exact revision matters.
 - Use the installed `--help` surface because commands and schema compatibility may evolve.
 - On CLI v0.1.14+, inspect `care show --format json` and follow the shared typed
@@ -99,7 +101,10 @@ explanation comment. Use the installed CLI help and read back the result.
 
 - `space export` creates an inspectable directory of canonical Markdown, block maps, and a manifest. It is for portability, not a full telemetry restore.
 - `space backup` creates a consistent private archive containing the manifest and operational SQLite database.
-- `space restore` accepts only a new, uninitialized destination. Never overwrite a live Space.
+- `space restore --backup <file>` validates and restores the unchanged archive ID
+  into the profile catalog, refusing an existing destination. It changes no default
+  and transmits nothing. Use an isolated `OBSDOG_HOME` for recovery inspection;
+  never overwrite a live Space or treat a backup as cloud enrollment.
 - Prepare a private backup when it is proportionate to an already authorized change; backup is a prerequisite, not a reason to request approval for every edit. Do not create one during an unrelated read-only task or treat a backup as authorization for an otherwise unsupported operation.
 
 After mutations, use JSON read-back to verify the exact Space, target, revision,

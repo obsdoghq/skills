@@ -24,12 +24,13 @@ this user plugin. They remain separate internal evaluation work.
 
 ## Requirements and data boundaries
 
-Use [ObsDog CLI v0.1.16 or newer](https://github.com/obsdoghq/obsdog-releases)
+Use [ObsDog CLI v0.2.0 or newer](https://github.com/obsdoghq/obsdog-releases)
 for the current workflow set, including Living memory and source-aware care.
 The skills inspect installed capabilities before using a command. Keep explicit
 agent authorship on import/update as well as search/open/use. Evaluation identity is
 separate. With no explicit boundary, commands share Personal across directories;
-`init` is optional project guidance, not a prerequisite. A broken explicit
+`init` and filesystem Space selectors have been removed. Use `--space personal`
+or an exact local Space ID; cwd is never a selection boundary. A broken explicit
 selection must not silently fall back to Personal. Check installed help
 before use; never silently omit unsupported attribution flags. An already-scoped
 MCP server can provide its own agent identity without CLI flags. This repository
@@ -61,8 +62,9 @@ claude plugin uninstall obsdog@obsdog-skills
 ```
 
 The bundled local MCP declaration is disabled by default. Enable it only after
-selecting the intended Personal Space; otherwise use `obsdog mcp --path PATH`
-explicitly. The skills also work through the installed ObsDog CLI.
+confirming access to Personal. Its declared arguments are `mcp --space personal`.
+For another authorized Space, configure `obsdog mcp --space <space-id>` explicitly
+before enabling it. The skills also work through the installed ObsDog CLI.
 
 No package, binary, or hosted credential is included. Installation does not
 grant access to a Space and never broadens the authorization of the invoking
@@ -95,7 +97,7 @@ python3 scripts/validate.py
 
 `python3 scripts/validate.py` also executes the declared MCP command through a
 temporary harmless stub. The integration check proves the process receives the
-fixed `mcp --path .` arguments, starts in only the selected directory, inherits
+fixed `mcp --space personal` arguments independently of its working directory, inherits
 only the declared `PATH` plus operating-system locale bootstrap variables, and
 receives no sync credential.
 

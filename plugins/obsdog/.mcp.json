@@ -2,8 +2,7 @@
   "mcpServers": {
     "obsdog": {
       "command": "obsdog",
-      "args": ["mcp", "--path", "."],
-      "cwd": ".",
+      "args": ["mcp", "--space", "personal"],
       "enabled": false,
       "env_vars": ["PATH"],
       "startup_timeout_sec": 10,

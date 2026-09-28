@@ -2,7 +2,7 @@
 
 - `plugins/obsdog/skills/` contains the authored workflows.
 - The plugin name is `obsdog`; clients expose its skills with the `obsdog:` prefix.
-- Keep local MCP disabled by default because the install directory is not necessarily the intended Personal Space.
+- Keep local MCP disabled by default until access to the exact configured Space is authorized; cwd is not a Space selector.
 - Never broaden a selected Space or document authorization through a skill or plugin.
 - Keep credentials, private content, raw queries, labels, and comments out of this repository.
 - Validate every skill and plugin before committing.

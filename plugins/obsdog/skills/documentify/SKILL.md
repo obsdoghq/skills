@@ -5,6 +5,10 @@ description: Document an authorized repository and capture useful source pointer
 
 # Documentify with ObsDog
 
+Use CLI v0.2.0+. Select `--space <space-id>` on each command when the task names
+a Space; omitted selection means Personal, not a repository binding. There is no
+`init` step. A missing explicit boundary must not fall back to another library.
+
 Document the repository the user placed in scope. Inspect its agent instructions, authoritative docs, manifests, entry points, tests, deployment configuration, and a bounded sample of relevant issues when access is authorized.
 
 ## Choose the home, then document
