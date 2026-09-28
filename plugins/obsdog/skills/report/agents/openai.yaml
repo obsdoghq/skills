@@ -1,4 +1,0 @@
-interface:
-  display_name: "Report with ObsDog"
-  short_description: "Inspect local knowledge health and activity."
-  default_prompt: "Use $report to explain current state, activity, graph and source evidence for my ObsDog Space using read-only insights. Do not create an HTML file unless I ask for an export."

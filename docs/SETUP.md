@@ -1,6 +1,6 @@
 # Set up ObsDog for your AI client
 
-The CLI stores and operates on knowledge. The plugin teaches five workflows.
+The CLI stores and operates on knowledge. The plugin teaches four workflows.
 Install both using the [Quick Start](../README.md#quick-start-cli--plugin-together),
 or use the documented separate steps. The user-invoked setup helper composes
 the public Homebrew CLI and agent marketplace; there is no plugin post-install
@@ -16,7 +16,7 @@ a connection or modify an independently configured MCP server.
 1. `obsdog version` prints v0.2.4 or newer **inside the agent's environment**.
    If a desktop client inherited an older PATH, restart the client after fixing
    PATH using the CLI installation guide. Do not add a second CLI copy as a fix.
-2. The intended client lists the ObsDog plugin and its five skills.
+2. The intended client lists the ObsDog plugin and its four skills.
 3. Start a fresh session and explicitly select the plugin's `find` skill.
    Claude Code also supports `/obsdog:find`; in Codex select find under ObsDog
    before using `$find` if other plugins use the same short name.
@@ -57,6 +57,9 @@ ObsDog heading if present; do not replace the file or add repeated copies.
   where project history could change the approach, even without an ObsDog request.
   Search a few specific terms, open promising hits and verify current source
   evidence. No useful hit or unavailable memory must not block the actual task.
+- After a bounded no-hit retry, distinguish a search miss from a real coverage
+  gap. If authorized source work verifies reusable missing knowledge, hand it
+  to remember before finishing; a no-hit alone is not a reason to save.
 - Skip incidental recall for general concepts, supplied-text transformations and
   name mentions alone. Reuse already-read task evidence instead of searching
   every follow-up. Honor explicit source restrictions and no-memory requests.
@@ -81,7 +84,8 @@ For **search-only** use, replace the capture/maintenance permission bullet with:
 
 These rules guide behavior, not guaranteed automatic execution on every task.
 They do not alter client approvals or grant access to an unauthorized Space.
-Use the report skill for local visibility; HTML export is optional.
+Use `obsdog dashboard serve` for local visibility and `obsdog insights show`
+for machine-readable measures. HTML export remains an explicit CLI option.
 
 This is an entry/exit decision during active work, not a hook that records every
 tool call or saves every session. The plugin does not install automatic recall,
@@ -108,7 +112,9 @@ note; if the library is empty, say so instead of creating a test note or rating.
 We deliberately do not copy RTK's command-rewriting hooks: ObsDog needs
 task-sensitive selection, authorized capture and evidence-based evaluation, not
 rewriting every shell command. A separate setup skill is unnecessary for these
-few one-time checks; the guide is the single installation entrypoint.
+few one-time checks; the guide is the single installation entrypoint. See
+[AI client integration](AI_CLIENT_INTEGRATION.md) for the `@`-import, MCP and
+hook tradeoffs.
 
 ## References
 

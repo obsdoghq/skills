@@ -14,7 +14,7 @@ from check_public_content import audit
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / "plugins" / "obsdog"
-EXPECTED_SKILLS = {"find", "remember", "maintain", "report", "documentify"}
+EXPECTED_SKILLS = {"find", "remember", "maintain", "documentify"}
 
 
 def load_json(path: Path) -> dict:

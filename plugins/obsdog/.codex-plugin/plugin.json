@@ -1,7 +1,7 @@
 {
   "name": "obsdog",
-  "version": "0.3.5",
-  "description": "Find, remember, maintain, report on, and documentify measurable knowledge in ObsDog Spaces.",
+  "version": "0.3.6",
+  "description": "Find, remember, maintain, and documentify measurable knowledge in ObsDog Spaces.",
   "author": {
     "name": "ObsDog",
     "url": "https://obsdog.ai"
@@ -9,11 +9,11 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "ObsDog",
-    "shortDescription": "Work with measurable knowledge in five focused ways.",
-    "longDescription": "Five ObsDog knowledge workflows with task-aware recall, authorized selective capture and bounded care. Plugin installation does not install the CLI. First run obsdog version and install CLI v0.2.4+ from https://github.com/obsdoghq/obsdog-releases if needed. Then verify find in a fresh session. Optional global instructions: https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md . No login, sync or automatic upload is enabled.",
+    "shortDescription": "Work with measurable knowledge in four focused ways.",
+    "longDescription": "Four ObsDog knowledge workflows with task-aware recall, authorized selective capture and bounded care. Plugin installation does not install the CLI. First run obsdog version and install CLI v0.2.4+ from https://github.com/obsdoghq/obsdog-releases if needed. Then verify find in a fresh session. Optional global instructions: https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md . No login, sync or automatic upload is enabled.",
     "developerName": "ObsDog",
     "category": "Productivity",
-    "capabilities": ["Knowledge discovery", "Durable capture", "Knowledge maintenance", "Health reporting", "Repository documentation"],
+    "capabilities": ["Knowledge discovery", "Durable capture", "Knowledge maintenance", "Repository documentation"],
     "defaultPrompt": "Use ObsDog to search my selected Personal Space and measure only what is actually opened and used."
   },
   "mcpServers": {

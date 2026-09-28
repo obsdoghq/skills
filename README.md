@@ -1,22 +1,21 @@
 # ObsDog Skills
 
 Official skills and plugins for [ObsDog](https://obsdog.ai), the
-local-first knowledge tool for people and AI. The same five workflows support
+local-first knowledge tool for people and AI. The same four workflows support
 Codex and Claude Code. This repository is public; installing a plugin does not
 grant access to any private Space.
 
-The single `obsdog` plugin intentionally groups five user workflows so
+The single `obsdog` plugin intentionally groups four user workflows so
 clients display a stable namespace:
 
 - `obsdog:find` — recall prior project context, open, use and trace exact revisions;
 - `obsdog:remember` — capture requested or already-authorized reusable learning;
 - `obsdog:maintain` — evolve, organize, review, and recover knowledge;
-- `obsdog:report` — explain local health/activity and open an offline dashboard;
 - `obsdog:documentify` — turn an authorized repository into auditable knowledge.
 
 The namespace is provided by the plugin. Portable skill folders keep the short
 names so both clients load the same instructions. Claude Code exposes commands
-such as `/obsdog:find`; Codex shows the five skills within the ObsDog plugin and
+such as `/obsdog:find`; Codex shows the four skills within the ObsDog plugin and
 invokes their short skill names such as `$find`.
 
 Benchmark and product-comparison workflows are intentionally not distributed in
@@ -108,7 +107,10 @@ Manual skill invocation works without changing global instructions.
 
 ## Browse your documents
 
-Plugin v0.3.5 adds concrete task-entry recall and authorized completion-capture
+Plugin v0.3.6 connects bounded no-hit source discovery to selective capture and
+removes the redundant report skill; use `obsdog dashboard serve` for local
+visibility. [AI client integration decisions](docs/AI_CLIENT_INTEGRATION.md)
+explain the instruction-file, MCP and hook boundaries. Plugin v0.3.5 added concrete task-entry recall and authorized completion-capture
 gates. It does not search merely because a name appears or save every session.
 Bounded maintenance uses exact plans, actual outcome receipts and conditional
 recovery; connected care requires server v0.1.29+ and compatible active writers.
@@ -152,7 +154,9 @@ claude plugin uninstall obsdog@obsdog-skills
 
 The Codex-only MCP declaration inside `.codex-plugin/plugin.json` is disabled by
 default. Claude Code receives CLI-driven skills with **no automatically loaded
-MCP server**. Both clients can use all five skills through the installed CLI.
+MCP server**. Both clients can use all four skills through the installed CLI.
+The existing stdio MCP covers scoped discovery/read and retrieval observations,
+not remember, direct use, feedback or care writes; it is not a full CLI replacement.
 Enable or configure an optional MCP connection only after confirming access to
 the exact selected Space. The Codex declaration uses `mcp --space personal`;
 for another authorized Space, explicitly use `obsdog mcp --space <space-id>`.
@@ -201,7 +205,7 @@ server v0.1.27 support this bounded policy. `memory show` inspects the evidence;
 `--ranking lexical` retains the comparison baseline. Low usage is not bad quality.
 Browser views observe synced CLI evidence rather than inventing click/use ratings.
 No background worker, automatic upload or source deletion is enabled by installing
-the plugin. Keep the five skills and their shared reference together.
+the plugin. Keep the four skills and their shared reference together.
 
 ## Validate a source checkout
 
