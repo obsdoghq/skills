@@ -21,6 +21,18 @@ def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def verify_client_mcp_boundary(plugin: Path, codex: dict, claude: dict) -> dict:
+    """Do not expose Codex opt-out flags to Claude's automatic discovery."""
+    assert not (plugin / ".mcp.json").exists(), "Root MCP config is auto-loaded by Claude"
+    assert "mcpServers" not in claude, "Claude must remain CLI-only by default"
+    servers = codex.get("mcpServers")
+    assert isinstance(servers, dict), "Codex MCP must be isolated inside its manifest"
+    assert set(servers) == {"obsdog"}
+    mcp = servers["obsdog"]
+    assert mcp.get("enabled") is False, "Codex MCP must remain disabled by default"
+    return mcp
+
+
 def verify_live_mcp_boundary(mcp: dict) -> None:
     """Execute the declared command through a harmless stub and inspect scope."""
     with tempfile.TemporaryDirectory(prefix="obsdog-mcp-boundary-") as temporary:
@@ -64,7 +76,7 @@ def main() -> None:
     codex = load_json(PLUGIN / ".codex-plugin" / "plugin.json")
     claude = load_json(PLUGIN / ".claude-plugin" / "plugin.json")
     marketplace = load_json(ROOT / ".agents" / "plugins" / "marketplace.json")
-    mcp = load_json(PLUGIN / ".mcp.json")["mcpServers"]["obsdog"]
+    mcp = verify_client_mcp_boundary(PLUGIN, codex, claude)
 
     assert codex["name"] == claude["name"] == "obsdog"
     assert codex["version"] == claude["version"]

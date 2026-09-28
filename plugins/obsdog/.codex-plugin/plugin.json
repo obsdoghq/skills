@@ -1,6 +1,6 @@
 {
   "name": "obsdog",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Find, remember, maintain, report on, and documentify measurable knowledge in ObsDog Spaces.",
   "author": {
     "name": "ObsDog",
@@ -16,5 +16,14 @@
     "capabilities": ["Knowledge discovery", "Durable capture", "Knowledge maintenance", "Health reporting", "Repository documentation"],
     "defaultPrompt": "Use ObsDog to search my selected Personal Space and measure only what is actually opened and used."
   },
-  "mcpServers": "./.mcp.json"
+  "mcpServers": {
+    "obsdog": {
+      "command": "obsdog",
+      "args": ["mcp", "--space", "personal"],
+      "enabled": false,
+      "env_vars": ["PATH"],
+      "startup_timeout_sec": 10,
+      "tool_timeout_sec": 120
+    }
+  }
 }

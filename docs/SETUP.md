@@ -3,7 +3,11 @@
 The CLI stores and operates on knowledge. The plugin teaches five workflows.
 Install both using the [quick start](../README.md#install); there is no plugin
 post-install script, automatic CLI download or automatic global-file edit.
-MCP is optional and disabled by default; CLI-driven skills need no MCP setup.
+MCP is optional; CLI-driven skills need no MCP setup. From plugin v0.3.3,
+Codex keeps a disabled declaration inside its own manifest, while Claude
+has no automatically discovered plugin MCP server. This avoids relying on one
+client's enablement flags in another client. Updating the plugin does not enable
+a connection or modify an independently configured MCP server.
 
 ## Readiness checklist
 

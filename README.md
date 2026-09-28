@@ -98,21 +98,30 @@ Listing and overview viewing do not imply that every document was opened or used
 
 ## Update or remove
 
-Update or remove the package explicitly:
+Update the package explicitly:
 
 ```sh
 codex plugin marketplace upgrade obsdog-skills
-codex plugin remove obsdog@obsdog-skills
+codex plugin add obsdog@obsdog-skills
 
 claude plugin marketplace update obsdog-skills
 claude plugin update obsdog@obsdog-skills
+```
+
+Only when you want to uninstall:
+
+```sh
+codex plugin remove obsdog@obsdog-skills
 claude plugin uninstall obsdog@obsdog-skills
 ```
 
-The bundled local MCP declaration is disabled by default. Enable it only after
-confirming access to Personal. Its declared arguments are `mcp --space personal`.
-For another authorized Space, configure `obsdog mcp --space <space-id>` explicitly
-before enabling it. The skills also work through the installed ObsDog CLI.
+The Codex-only MCP declaration inside `.codex-plugin/plugin.json` is disabled by
+default. Claude Code receives CLI-driven skills with **no automatically loaded
+MCP server**. Both clients can use all five skills through the installed CLI.
+Enable or configure an optional MCP connection only after confirming access to
+the exact selected Space. The Codex declaration uses `mcp --space personal`;
+for another authorized Space, explicitly use `obsdog mcp --space <space-id>`.
+Do not copy Codex-specific enablement flags into Claude's auto-loaded `.mcp.json`.
 
 No package, binary, or hosted credential is included. Installation does not
 grant access to a Space and never broadens the authorization of the invoking
@@ -165,7 +174,9 @@ the plugin. Keep the five skills and their shared reference together.
 python3 scripts/validate.py
 ```
 
-`python3 scripts/validate.py` also executes the declared MCP command through a
+`python3 scripts/validate.py` also verifies client-specific discovery boundaries
+(no root `.mcp.json` or Claude MCP declaration) and executes the Codex-declared
+MCP command through a
 temporary harmless stub. The integration check proves the process receives the
 fixed `mcp --space personal` arguments independently of its working directory, inherits
 only the declared `PATH` plus operating-system locale bootstrap variables, and
