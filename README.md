@@ -43,17 +43,19 @@ both.
 
 On Apple silicon macOS, first install your chosen agent client. Homebrew is
 needed if the ObsDog CLI is not already installed.
-This public helper performs both installs for one client and checks the CLI:
+The first-party `https://obsdog.ai/install.sh` entry pins and checksum-verifies
+the public helper. It performs both installs for one client and checks the CLI:
 
 ```sh
-setup="$(mktemp)" && curl -fsSL https://raw.githubusercontent.com/obsdoghq/obsdog-releases/d64550e384c3ed7c577c26d707f062e847c5985a/scripts/setup-agent.sh -o "$setup" && sh "$setup" --client codex
+curl -fsSL https://obsdog.ai/install.sh | sh -s -- --client codex
 obsdog version
 obsdog document list
 ```
 
 For Claude Code, change the final flag to `--client claude`. You can
-[inspect the exact script](https://github.com/obsdoghq/obsdog-releases/blob/d64550e384c3ed7c577c26d707f062e847c5985a/scripts/setup-agent.sh)
-before running it or append `--dry-run`. An empty list is normal; no project
+[inspect the exact helper](https://github.com/obsdoghq/obsdog-releases/blob/d64550e384c3ed7c577c26d707f062e847c5985a/scripts/setup-agent.sh)
+and download the first-party entry for inspection before running it, or append
+`--dry-run`. An empty list is normal; no project
 `init`, account, sync or sample upload is involved. Open a fresh agent session
 and call ObsDog `find` to confirm skill discovery. The helper does not edit
 AGENTS.md or CLAUDE.md. If Homebrew is unavailable, use the separate steps below.
