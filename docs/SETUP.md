@@ -93,6 +93,50 @@ transcript collection or background maintenance. See the
 [synthetic evaluation cases and measurement limits](EVALUATION.md) for how missed
 recall and unsafe capture should be checked independently of search ranking.
 
+## Optional first-library bootstrap
+
+Installation intentionally leaves the library empty. If GitHub, Slack or
+repository tools are already connected to your AI client, ask for a **proposal**
+before copying anything into ObsDog. Connected access is not permission to
+ingest everything. The AI should check the selected Space and sync mode,
+inspect only authorized sources, identify a few durable candidate notes or
+source pointers, name each source owner/version and intended Space, then ask
+which candidates to import. Maintained code contracts and runbooks stay in
+their source repositories. Search for duplicates, import only selected items,
+and read back the results. A blank start is also a valid choice.
+
+```text
+Help me bootstrap my ObsDog library, but do not import anything yet. Check the
+selected Space and whether it syncs. Survey only the repositories or connected
+tools I authorize for this task. Propose up to five reusable, source-grounded
+notes or pointers with their canonical source, checked version/date, privacy
+boundary and why future work would retrieve them. Ask me which to create;
+do not copy raw conversations, secrets, transient logs or whole repositories.
+```
+
+Use `documentify` only when broader repository documentation is itself the
+task. For a few source pointers or lessons, use `find` then `remember`.
+
+## Updating CLI and agent guidance
+
+CLI and plugin versions advance separately. For a Homebrew CLI, use
+`brew update && brew upgrade obsdoghq/tap/obsdog`; a verified standalone CLI
+uses `obsdog update --check` and `obsdog update`. Refresh the agent marketplace
+separately:
+
+```sh
+codex plugin marketplace upgrade obsdog-skills
+codex plugin add obsdog@obsdog-skills
+# Or, for Claude Code:
+claude plugin marketplace update obsdog-skills
+claude plugin update obsdog@obsdog-skills
+```
+
+Restart an existing agent session to load changed skill metadata. The plugin
+never overwrites AGENTS.md or CLAUDE.md: compare any newer optional routing
+snippet with your existing rule and merge only the desired change. Do not
+remove organization policy or silently grant capture/sync authority.
+
 ## Copyable setup request
 
 Paste into your AI client after installing the CLI and plugin:
