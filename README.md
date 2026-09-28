@@ -72,6 +72,11 @@ human or agent.
 
 ## Knowledge care and Living memory
 
+The [retrieval authoring guide](plugins/obsdog/skills/maintain/references/retrieval-authoring.md)
+adds optional source-grounded entity overviews, question-to-source navigation,
+context-complete reading and fair validation. Categories and graph density are
+not ranking votes; finding a hub does not mean acquiring its linked answer.
+
 The shared [care guide](plugins/obsdog/skills/maintain/references/knowledge-care.md)
 explains source ownership, context-preserving blocks, justified references,
 revision-bound review and recoverable changes. Maintain code contracts and

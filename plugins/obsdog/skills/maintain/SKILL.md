@@ -34,6 +34,11 @@ a new model provider. Confidence alone is not permission or factual verification
 
 ## Inspect before mutation
 
+For retrieval complaints, consult
+[the discovery rubric](references/retrieval-authoring.md). Separate missing
+knowledge/context from candidate/ranking failure, and test the intended repair
+without counting maintenance replay as useful task feedback.
+
 - Use CLI v0.2.0+ and confirm `obsdog space status --space <space-id> --format json`.
   Pass that same selector on each command below; only use Personal by default
   when no explicit project/Org boundary applies. `init` and path selectors are removed.

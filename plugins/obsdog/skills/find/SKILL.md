@@ -32,6 +32,11 @@ Do not open every hit for telemetry. Unopened results remain unjudged. If the fi
 
 ## Follow authority, not just a familiar answer
 
+For heading-only hits, missing entity context or a noisy hub, follow
+[retrieval-oriented authoring](../maintain/references/retrieval-authoring.md).
+Read the needed source/parent context; a landing-page hit is not acquisition of
+its linked answer. Diagnose coverage vs ranking vs reading before changing notes.
+
 Identify whether a hit is native guidance, a discovery pointer, a derived note or
 an old snapshot. Check material source/version/applicability; import time and a
 working URL do not prove currency. Follow the original within existing access
@@ -50,7 +55,7 @@ first. Do not hide unknown legacy notes by default. Authoring/source repairs use
 
 CLI v0.1.16+ defaults to bounded, query-conditioned usefulness reranking. Inspect
 `ranking_policy` and `learning_status` when explaining order; use `--ranking
-lexical` for the unchanged baseline. `memory show --query <need>` reads the
+lexical` for that installed version's baseline. `memory show --query <need>` reads the
 actual activation/connection evidence. Read the bundled care guide's usage
 section when investigating fading or reinforcement. Do not create repeated
 searches or artificial feedback to manipulate weight; unjudged is not bad and

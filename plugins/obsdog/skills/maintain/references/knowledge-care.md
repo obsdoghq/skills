@@ -38,6 +38,10 @@ behind that workflow. Do not invent a trend from current snapshot totals.
 
 ## Choose an operation from an observed need
 
+For entity overviews, categories, discovery failures or hit-rate concerns, read
+[retrieval-oriented authoring](retrieval-authoring.md) before restructuring.
+Repair the observed question-to-source path, not the graph's visual density.
+
 ### Choose the authoritative home first
 
 Ask what future question the knowledge answers and where its owner maintains

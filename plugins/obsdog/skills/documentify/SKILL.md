@@ -28,6 +28,11 @@ or parallel release/TODO log is not the default deliverable.
 
 ## Build reviewable knowledge
 
+Apply [retrieval-oriented authoring](../maintain/references/retrieval-authoring.md)
+when deciding whether an overview, aliases or topic grouping helps discovery.
+Keep the introduction in the authoritative repository; the Space may need only
+a short orientation pointer and useful routes to existing specialist knowledge.
+
 Choose the reader's job first (how-to, explanation, reference or tutorial when
 useful), without creating empty category folders. One focused topic should still
 make sense when found through search. Preserve applicability, prerequisites and

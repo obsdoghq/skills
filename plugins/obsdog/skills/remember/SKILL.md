@@ -44,6 +44,11 @@ note; route substantial split/merge or retirement to the maintenance workflow.
 
 ## Connect relevant knowledge
 
+When recurring specialist notes lack orientation, apply the optional entity
+overview in [retrieval-oriented authoring](../maintain/references/retrieval-authoring.md).
+Capture a small, sourced introduction and selective question-to-note routes,
+not a new document/category for every entity or a keyword-filled hub.
+
 Search the selected Space for an existing note before creating a duplicate. Open
 relevant results and, when they genuinely support the new note, cite their real
 stable document/block IDs with Markdown links, e.g. `[Related decision](<returned-document-id>)`.
