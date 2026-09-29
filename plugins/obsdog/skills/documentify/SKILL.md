@@ -26,6 +26,16 @@ real reader/job. A selective snapshot needs offline/reproducibility value,
 permission and an exact source version. A file-by-file mirror, full issue history
 or parallel release/TODO log is not the default deliverable.
 
+For repository or infrastructure onboarding, first answer the reader's practical
+navigation questions: which repository owns a service or behavior, where its
+maintained architecture and runbook live, which code/configuration entry point
+implements it, and how deployment or rollback reaches it. Record only useful
+question-to-source routes and actual cross-repository boundaries. Keep the
+maintained explanation and procedures in their owning repositories; an ObsDog
+orientation pointer should explain when to follow each source, not reproduce a
+directory tree or claim that a path remains current. Verify code locations at
+the checked revision before using them for a change.
+
 ## Build reviewable knowledge
 
 Apply [retrieval-oriented authoring](../maintain/references/retrieval-authoring.md)

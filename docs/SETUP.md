@@ -60,6 +60,10 @@ ObsDog heading if present; do not replace the file or add repeated copies.
 - After a bounded no-hit retry, distinguish a search miss from a real coverage
   gap. If authorized source work verifies reusable missing knowledge, hand it
   to remember before finishing; a no-hit alone is not a reason to save.
+- When repository or infrastructure onboarding is requested, use documentify
+  on authorized sources to build a small question-to-source map. Keep maintained
+  architecture and procedures in their owning repos; do not copy a file tree
+  into ObsDog or start a new mapping task during unrelated work.
 - Skip incidental recall for general concepts, supplied-text transformations and
   name mentions alone. Reuse already-read task evidence instead of searching
   every follow-up. Honor explicit source restrictions and no-memory requests.
@@ -105,6 +109,13 @@ which candidates to import. Maintained code contracts and runbooks stay in
 their source repositories. Search for duplicates, import only selected items,
 and read back the results. A blank start is also a valid choice.
 
+For infrastructure repositories, one useful candidate is a compact navigation
+map: common task or question → owning repository → maintained architecture or
+runbook → relevant code/configuration entry point. Include cross-repository
+handoffs only when the authorized sources establish them. This is a proposal,
+not an automatic crawl or a snapshot of every file; verify moving paths against
+the repository before acting on them.
+
 ```text
 Help me bootstrap my ObsDog library, but do not import anything yet. Check the
 selected Space and whether it syncs. Survey only the repositories or connected
@@ -112,6 +123,9 @@ tools I authorize for this task. Propose up to five reusable, source-grounded
 notes or pointers with their canonical source, checked version/date, privacy
 boundary and why future work would retrieve them. Ask me which to create;
 do not copy raw conversations, secrets, transient logs or whole repositories.
+If infrastructure repositories are in scope, consider a compact map from common
+questions to the owning repo, maintained docs and code/configuration entry points
+instead of a file-tree dump.
 ```
 
 Use `documentify` only when broader repository documentation is itself the

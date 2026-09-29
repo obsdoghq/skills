@@ -104,9 +104,14 @@ tests alone do not verify next-session skill invocation.
 For ongoing AI-managed knowledge, add the short **optional**
 [global instruction snippet and setup prompt](docs/SETUP.md#optional-proactive-use).
 Manual skill invocation works without changing global instructions.
+For an empty library, the [optional bootstrap guide](docs/SETUP.md#optional-first-library-bootstrap)
+can propose a few source pointers or a task-oriented infrastructure repository
+map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
+Plugin v0.3.7 adds a selective infrastructure repository map to documentify
+and the optional onboarding guide; code and runbooks remain in their source repos.
 Plugin v0.3.6 connects bounded no-hit source discovery to selective capture and
 removes the redundant report skill; use `obsdog dashboard serve` for local
 visibility. [AI client integration decisions](docs/AI_CLIENT_INTEGRATION.md)
