@@ -12,7 +12,7 @@
       "name": "obsdog",
       "source": "./plugins/obsdog",
       "description": "Find, remember, maintain, and documentify observable knowledge.",
-      "version": "0.3.9"
+      "version": "0.3.10"
     }
   ]
 }

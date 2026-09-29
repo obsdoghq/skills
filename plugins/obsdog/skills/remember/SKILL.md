@@ -61,7 +61,7 @@ obsdog document read --space <space-id> --id <candidate-document-id> --format js
 Search results are candidates, not proof of absence; a bounded reformulation
 or source-path comparison may be needed. If the same canonical answer exists,
 read its current revision. For a small correction, use `obsdog block update`
-with that block's exact base revision and agent attribution. On CLI v0.2.9+,
+with that block's exact base revision and agent attribution. On CLI v0.2.10+,
 `obsdog document update --id <document-id> --base-revision
 <document-revision-id> --file <edited-markdown> --reason <reason> --actor-type
 agent --actor <agent-id> --space <space-id> --format json` replaces the full

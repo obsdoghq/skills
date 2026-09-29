@@ -38,7 +38,7 @@ blocks per document, 256 KiB plan and 256 KiB each before/after frame. Resolve
 relative/reference-style links to exact stable targets first when supported;
 do not strip a link to force an extraction. No cross-Space move or hard deletion.
 
-On CLI v0.2.9+, prefer `obsdog document update`, `document rename` or
+On CLI v0.2.10+, prefer `obsdog document update`, `document rename` or
 `document supersede` when those exact operations fit. These high-level commands
 construct the Care plan and return its receipt; `document import` never edits an
 existing identity. A replacement that changes block boundaries is deferred
@@ -74,7 +74,7 @@ Preparing this protocol makes older clients incompatible with subsequent care;
 do not downgrade or silently substitute clients. A verified connection can
 queue bounded changes offline, but a local receipt is not a server acceptance.
 The first connected full-document update or supersession additionally requires
-CLI v0.2.9+ for any client that later syncs that Space; older protocol-2 clients
+CLI v0.2.10+ for any client that later syncs that Space; older protocol-2 clients
 receive an upgrade-required response rather than an undecodable delta.
 
 - `applied`: the named local transaction committed; check sync separately.
