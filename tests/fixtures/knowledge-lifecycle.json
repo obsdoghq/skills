@@ -548,6 +548,69 @@
       }
     },
     {
+      "id": "no-hit-source-backed-capture-handoff",
+      "phase": "completion",
+      "prompt": "Finish the vendor-response implementation and hand it back to the parent agent.",
+      "context": "An authorized Personal search returned zero hits. Current source code and a test establish a reusable response-field rule absent from the selected Space; standing capture permission applies.",
+      "expected": {
+        "decision": "create",
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "write_note",
+          "readback",
+          "rerun_original_query",
+          "report_no_hit_disposition"
+        ],
+        "forbidden_actions": [
+          "defer_capture_to_parent",
+          "invent_rating"
+        ],
+        "rationale": "The worker closes the authorized source-backed gap and gives the parent a verifiable same-task disposition."
+      }
+    },
+    {
+      "id": "no-hit-existing-note-entry-point",
+      "phase": "completion",
+      "prompt": "Complete the investigation after the original query missed.",
+      "context": "A bounded reformulation found the existing canonical note. Its answer is source-verified, but the original term still misses because the note lacks that search cue; maintenance is authorized.",
+      "expected": {
+        "decision": "update",
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "update_note",
+          "readback",
+          "rerun_original_query",
+          "report_no_hit_disposition"
+        ],
+        "forbidden_actions": [
+          "duplicate_note",
+          "invent_use"
+        ],
+        "rationale": "An existing answer needs a better entry point, not a new document."
+      }
+    },
+    {
+      "id": "no-hit-no-durable-gap-handoff",
+      "phase": "completion",
+      "prompt": "Return the short delegated task result.",
+      "context": "The initial search missed, but the answer is already in an existing note under a different term and the original wording is too ambiguous to justify changing it.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "check_duplicates",
+          "report_no_hit_disposition",
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "write_note",
+          "update_note"
+        ],
+        "rationale": "The worker reports a justified no-write so the parent can distinguish closure from omission."
+      }
+    },
+    {
       "id": "no-learning",
       "phase": "completion",
       "prompt": "Wrap up the typo correction.",

@@ -18,6 +18,12 @@ For completion cases, supply candidate evidence and existing-note/source fixture
 check permission, exact Space, duplicate handling, source/verification metadata,
 readback and excluded content. Reuse existing evidence when the same task already
 performed the relevant check. Do not reward extra searches, notes or ratings.
+For a no-hit that later yields a source-backed reusable answer, check whether
+the work owner closes the `remember`/`maintain`/no-write decision **before**
+completion. In delegated fixtures, require the worker's compact disposition
+and the parent's handoff check. A justified no-write is a valid pass; a write
+requires read-back and an original-query diagnostic rerun. This tests an
+instructional handoff, not the efficacy of the search index or a failure rate.
 
 Report denominators and exclusions, not just a pass percentage:
 

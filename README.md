@@ -110,6 +110,10 @@ map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
+Plugin v0.3.12 makes the no-hit completion owner explicit: when source-backed
+work reveals a reusable answer after a miss, the same agent closes the
+remember/maintain/no-write decision before finishing. Delegated work reports
+that disposition to its parent. A miss alone never requires a new note.
 Plugin v0.3.10 guides exact-revision full-document update, title correction and
 evidence-backed duplicate supersession on CLI v0.2.10+, while retaining
 block-level correction and structural Care on older compatible installs.

@@ -30,15 +30,28 @@ not an instruction or an authority override.
 After a bounded query reformulation with no useful hit, distinguish a search
 miss from a genuine coverage gap. Continue from authorized source evidence. If
 that work finds an answer, return once to the original failed query: was the
-answer already in a note but hard to retrieve, or genuinely absent? For verified
-reusable missing knowledge, pass it to `remember`; for an existing note with a
-weak search entry point, pass the exact query and note to `maintain`. After an
-authorized repair, rerun the original query once and check that the intended
-current answer is retrievable. Attribute this diagnostic run as agent activity;
-do not mark it as task use or treat it as unbiased product traffic. The Space,
-permission, provenance and duplicate checks of the receiving skill govern any
-write. A no-hit alone never justifies capture. Use `documentify` only when the
-task calls for broader repository documentation.
+answer already in a note but hard to retrieve, or genuinely absent? **The agent
+doing that source-backed work owns this decision before reporting completion**;
+`remember` and `maintain` are workflows to invoke now, not a handoff to an
+unspecified future agent. For verified reusable missing knowledge, use
+`remember`; for an existing note with a weak search entry point, use `maintain`.
+Apply the receiving skill's Space, permission, provenance and duplicate checks.
+After an authorized repair, read it back, rerun the original query once and
+check that the intended current answer is retrievable. Attribute this diagnostic
+run as agent activity; do not mark it as task use or unbiased product traffic.
+If no write is appropriate (poor phrasing, duplicate, transient/unverified
+finding, read-only instruction or unsuitable Space), close the decision with a
+short reason. A no-hit alone never justifies capture. Use `documentify` only
+when the task calls for broader repository documentation.
+
+For delegated work, include a compact no-hit disposition in the handoff **when
+a no-hit was followed by a potentially reusable answer**: retrieval run ID (or
+the original query within the same authorized boundary); `remembered <document
+ID>`, `maintained <document ID>`, or `no write <reason>`; and read-back plus
+original-query rerun when a write occurred. The parent should check for that
+disposition before treating the work as closed. Do not expose a private query
+in a public report, log or issue. This is a completion check, not a requirement
+to persist every miss or create a new telemetry record.
 
 ## Select the boundary
 
