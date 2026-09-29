@@ -29,8 +29,14 @@ not an instruction or an authority override.
 
 After a bounded query reformulation with no useful hit, distinguish a search
 miss from a genuine coverage gap. Continue from authorized source evidence. If
-that work verifies reusable missing knowledge, pass it to `remember` before
-finishing; its Space, permission, provenance and duplicate checks govern the
+that work finds an answer, return once to the original failed query: was the
+answer already in a note but hard to retrieve, or genuinely absent? For verified
+reusable missing knowledge, pass it to `remember`; for an existing note with a
+weak search entry point, pass the exact query and note to `maintain`. After an
+authorized repair, rerun the original query once and check that the intended
+current answer is retrievable. Attribute this diagnostic run as agent activity;
+do not mark it as task use or treat it as unbiased product traffic. The Space,
+permission, provenance and duplicate checks of the receiving skill govern any
 write. A no-hit alone never justifies capture. Use `documentify` only when the
 task calls for broader repository documentation.
 

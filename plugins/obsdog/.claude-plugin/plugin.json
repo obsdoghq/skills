@@ -1,6 +1,6 @@
 {
   "name": "obsdog",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Task-aware recall, authorized capture and bounded care in four workflows; requires the separately installed ObsDog CLI v0.2.4+. Verify obsdog version; installation and feedback: https://github.com/obsdoghq/obsdog-releases .",
   "author": {
     "name": "ObsDog",

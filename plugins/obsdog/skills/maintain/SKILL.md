@@ -59,6 +59,8 @@ writers. Do not assume plugin installation upgrades either component.
 
 `block update` creates an immutable block revision, a corresponding document revision, and a new index snapshot. On CLI v0.1.11+, supply `--actor-type agent --actor <agent-id>`, the read-back `--base-revision`, and a concrete reason. Never fall back to human authorship if flags are unsupported. Read the exact target back after updating and inspect `obsdog history --type block --id <id>` when continuity matters.
 
+On CLI v0.2.9+, use `document update --id <id> --base-revision <document-revision> --file <edited-markdown> --reason <reason>` for a full Markdown correction that preserves block count, order, kind, depth and parent context. Use `document rename` with the same exact-base pattern for a title-only correction; the stored title need not equal H1. Both use one attributed Care receipt, not a create-only import. A structural change needs a reviewed structural plan. For a proven duplicate, `document supersede --id <duplicate> --base-revision <source-revision> --by <canonical> --by-revision <target-revision> --reason <reason> --evidence-ref <source> --evidence-revision <version> --evidence-finding <finding>` retires only the duplicate; it copies no blocks and leaves the canonical revision untouched. Read both documents and provide actual duplicate evidence first. Confirm protocol-2 preparation for a connected Space, inspect the receipt and read back both IDs. A deferred/conflicted action is not success; re-read and reconcile rather than retrying with a stale head.
+
 No `init` is required for Personal maintenance. Use the confirmed default only
 when no explicit project/Org boundary applies; do not repair a broken selection
 by switching libraries or enabling synchronization.

@@ -110,6 +110,9 @@ map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
+Plugin v0.3.9 guides exact-revision full-document update, title correction and
+evidence-backed duplicate supersession on CLI v0.2.9+, while retaining
+block-level correction and structural Care on older compatible installs.
 Plugin v0.3.8 makes the create-only `document import` identity boundary
 explicit: find and inspect an existing canonical note before import, update
 its current blocks or use care when it exists, and reserve new import for a
@@ -122,6 +125,13 @@ removes the redundant report skill; use `obsdog dashboard serve` for local
 visibility. [AI client integration decisions](docs/AI_CLIENT_INTEGRATION.md)
 explain the instruction-file, MCP and hook boundaries. Plugin v0.3.5 added concrete task-entry recall and authorized completion-capture
 gates. It does not search merely because a name appears or save every session.
+
+Migration from plugin 0.3.5 or earlier: `obsdog:report` was removed, not renamed.
+Use `obsdog dashboard serve` for the live local view, `obsdog insights show` or
+`obsdog metrics summary` for CLI data, and explicit HTML export when needed.
+Plugin-managed upgrades replace its skill set; if you made your own symlink to
+a versioned plugin cache, remove that stale link and use the supported plugin
+installer instead. Do not point a new link at another versioned cache folder.
 Bounded maintenance uses exact plans, actual outcome receipts and conditional
 recovery; connected care requires server v0.1.29+ and compatible active writers.
 No hooks, blanket transcript collection or background worker are installed.

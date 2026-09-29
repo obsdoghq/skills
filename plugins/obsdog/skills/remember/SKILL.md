@@ -60,10 +60,15 @@ obsdog document read --space <space-id> --id <candidate-document-id> --format js
 
 Search results are candidates, not proof of absence; a bounded reformulation
 or source-path comparison may be needed. If the same canonical answer exists,
-read its current block revisions and use `obsdog block update --id <block-id>
---base-revision <revision-id> --content <text> --reason <reason> --actor-type
-agent --actor <agent-id> --space <space-id> --format json`, or use a reviewed
-care plan for structural change. Never re-import it to "fix" the title. Only
+read its current revision. For a small correction, use `obsdog block update`
+with that block's exact base revision and agent attribution. On CLI v0.2.9+,
+`obsdog document update --id <document-id> --base-revision
+<document-revision-id> --file <edited-markdown> --reason <reason> --actor-type
+agent --actor <agent-id> --space <space-id> --format json` replaces the full
+Markdown without creating a second document, provided its block structure is
+unchanged. `document rename` changes the stored title independently of the H1.
+Use a reviewed care plan for structural change; never re-import an existing
+note to "fix" its content or title. Only
 when there is no existing canonical note should the new-note import below run.
 CLI versions with duplicate protection fail on the same source/content and
 report an existing ID; do not bypass that result with `--fork` unless the

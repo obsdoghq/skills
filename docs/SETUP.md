@@ -57,9 +57,11 @@ ObsDog heading if present; do not replace the file or add repeated copies.
   where project history could change the approach, even without an ObsDog request.
   Search a few specific terms, open promising hits and verify current source
   evidence. No useful hit or unavailable memory must not block the actual task.
-- After a bounded no-hit retry, distinguish a search miss from a real coverage
-  gap. If authorized source work verifies reusable missing knowledge, hand it
-  to remember before finishing; a no-hit alone is not a reason to save.
+- After a bounded no-hit retry, use authorized sources and revisit the original
+  query: if verified reusable knowledge is absent, hand it to remember; if an
+  existing note was missed, hand its search entry point to maintain. After an
+  authorized repair, retry that original query once. A no-hit alone is not a
+  reason to save, and a diagnostic retry is not task-use feedback.
 - When repository or infrastructure onboarding is requested, use documentify
   on authorized sources to build a small question-to-source map. Keep maintained
   architecture and procedures in their owning repos; do not copy a file tree
