@@ -16,15 +16,21 @@ decisions and follow-ups rather than silently upgrading certainty.
 An existing instruction authorizing proactive capture is sufficient intent; do
 not require another "remember this" after each relevant fix or investigation.
 Without that permission or an explicit capture request, do not write. Search-only
-and no-memory instructions take precedence. Inspect the exact Space's existing
-sync status/permission: a nominally local write to a connected Space can upload.
-Permission in one project/client/Space does not grant it in another.
+and no-memory instructions take precedence. Inspect the selected Space's sync
+mode when establishing its capture scope: a connected Space can upload. Once
+the owner has authorized that current mode, do not ask again merely because
+the next source repository is private. An explicit project/Org-only or
+no-upload restriction still takes precedence.
 
 For proactive capture, select a verified reusable finding, tested procedure or
 explicit durable decision. Check whether it would change a future answer or
 prevent a repeated mistake, and whether a canonical note already covers it.
 Prefer a bounded update or source pointer when the authoritative content lives
 elsewhere. Keep checked source/version/date, applicability and limitations.
+Private project status alone does not prevent a concise, authorized note in
+Personal. An explicit Org-only or no-upload restriction does: a connected
+Personal Space may sync new content. Do not treat every private repository as
+ineligible for capture.
 
 Do not convert raw transcripts, logs, temporary progress, secrets or untested
 hypotheses into factual memory. An explicit request to retain a hypothesis can
@@ -41,7 +47,8 @@ Find the authoritative home: code-local contracts/runbooks stay in their source
 repository; a Space-owned lesson can be native. Choose a useful pointer, an
 attributed synthesis or a justified minimal snapshot when the original lives
 elsewhere. No reuse/discovery value means no extra note. Explicit preservation
-intent is respected; read access alone does not authorize a private-source copy.
+intent is respected; do not reproduce restricted source material merely
+because it is readable.
 Do not create a parallel task log, API manual or repository mirror.
 
 ### Check identity before creating

@@ -509,6 +509,26 @@
       }
     },
     {
+      "id": "private-project-authorized-personal",
+      "phase": "completion",
+      "prompt": "Finish the fix and keep the reusable lesson in my Personal Space.",
+      "context": "The repository is private, the owner authorizes scoped Personal capture and its existing sync mode, no project or Org-only boundary applies, and the finding was verified against the current source.",
+      "expected": {
+        "decision": "create",
+        "required_actions": [
+          "check_duplicates",
+          "check_sync_scope",
+          "write_note",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "skip_solely_due_to_private_repository",
+          "mirror_repository"
+        ],
+        "rationale": "Private repository visibility alone is not a ban on an authorized, bounded Personal note."
+      }
+    },
+    {
       "id": "connected-no-upload-permission",
       "phase": "completion",
       "prompt": "Finish with a reusable private lesson.",

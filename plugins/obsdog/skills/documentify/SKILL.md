@@ -19,6 +19,10 @@ maintained runbooks belong in code/repository documentation. When those writes
 are authorized, improve that home first; an ObsDog import is not a replacement.
 Otherwise disclose the gap and keep any useful account provisional. Do not infer
 source-write or upload permission just because the repository can be read.
+A private repository can still yield a concise source pointer or grounded note
+in an authorized Personal Space; its private status alone is not a Space
+boundary. Check explicit source restrictions and whether that Space syncs
+before copying source details.
 
 Prefer a discoverable pointer to existing maintained docs. Add a source-grounded
 onboarding map, cross-source explanation or tested lesson only when it helps a

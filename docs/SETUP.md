@@ -46,7 +46,10 @@ explicit skill invocation and is not a security boundary enforced by the CLI.
   directory alone does not select a Space. Do not commit personal Space IDs or
   private paths into a public repository.
 
-Copy after reviewing the capture permission below. Merge once under an existing
+Before adopting the capture rule, check whether your Personal Space is local-only
+or already connected: new notes in a connected Space can upload. Choose the
+mode you want once; ordinary work in that approved mode needs no per-repository
+approval. Merge once under an existing
 ObsDog heading if present; do not replace the file or add repeated copies.
 
 ```md
@@ -69,10 +72,13 @@ ObsDog heading if present; do not replace the file or add repeated copies.
 - Skip incidental recall for general concepts, supplied-text transformations and
   name mentions alone. Reuse already-read task evidence instead of searching
   every follow-up. Honor explicit source restrictions and no-memory requests.
-- Honor an explicitly selected Space on every command. Otherwise use Personal
-  only for knowledge permitted there; a broken explicit boundary must not fall
-  back. Never copy organization/project-private material to Personal implicitly.
-- I authorize relevant local capture and supported maintenance during active
+- Honor an explicitly selected Space on every command; a broken binding must
+  not fall back. Otherwise use Personal for reusable knowledge from current
+  work, including private projects. Private repository status alone is not a
+  reason to skip a concise note or ask for another Space. Respect explicit
+  Org-only and no-upload restrictions.
+- I authorize relevant capture into my selected Personal Space in its current,
+  already-reviewed sync mode, plus supported maintenance during active
   tasks. At meaningful completion, use remember for verified reusable findings
   or durable decisions: check the canonical home and duplicates, retain source,
   checked date/version and scope, then read back. No useful new learning means
@@ -81,8 +87,8 @@ ObsDog heading if present; do not replace the file or add repeated copies.
 - Attribute agent actions; distinguish returned, opened, used and useful.
   Record use only when knowledge actually supports the work, with honest reasons.
 - Do not enable login, sync, sharing, publishing, telemetry or background jobs
-  from this instruction. A Space already connected to sync can upload new notes;
-  inspect its status and existing owner permissions before capture.
+  from this instruction. If the selected Space's upload mode conflicts with
+  an explicit source restriction, do not write that material there.
 ```
 
 For **search-only** use, replace the capture/maintenance permission bullet with:
