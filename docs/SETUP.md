@@ -98,6 +98,11 @@ For **search-only** use, replace the capture/maintenance permission bullet with:
 
 These rules guide behavior, not guaranteed automatic execution on every task.
 They do not alter client approvals or grant access to an unauthorized Space.
+On CLI v0.2.12+, verify a repair with `obsdog search --no-observe --query
+"<original query>"` in the same Space. This leaves no retrieval run or use
+handle; ordinary task searches should still be observed. Older CLIs record a
+diagnostic retry, so keep its agent attribution and do not read that run as
+unbiased product traffic.
 Use `obsdog dashboard serve` for local visibility and `obsdog insights show`
 for machine-readable measures. HTML export remains an explicit CLI option.
 

@@ -110,6 +110,11 @@ map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
+Plugin v0.3.14 distinguishes observed task search from the CLI v0.2.12+
+diagnostic probe. After a no-hit repair, agents can check the original query
+without adding a retrieval run. It also explains the direct split/merge guard
+and read-only legacy layout diagnosis; these do not repair old structure.
+
 Plugin v0.3.13 brings running-dashboard and MCP restart checks into the AI
 client update guide. `documentify` now separates imported, relation-reviewed,
 resolved, unresolved, and intentionally standalone documents at handoff;

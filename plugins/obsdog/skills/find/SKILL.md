@@ -36,9 +36,11 @@ doing that source-backed work owns this decision before reporting completion**;
 unspecified future agent. For verified reusable missing knowledge, use
 `remember`; for an existing note with a weak search entry point, use `maintain`.
 Apply the receiving skill's Space, permission, provenance and duplicate checks.
-After an authorized repair, read it back, rerun the original query once and
-check that the intended current answer is retrievable. Attribute this diagnostic
-run as agent activity; do not mark it as task use or unbiased product traffic.
+After an authorized repair, read it back and check the original query once.
+On CLI v0.2.12+, use `obsdog search --no-observe` for this diagnostic retry:
+it follows current matching and filters but creates no run, event or use handle.
+On older clients, attribute a normal retry as agent activity and exclude it
+from unbiased task-traffic comparisons. Neither check proves usefulness.
 If no write is appropriate (poor phrasing, duplicate, transient/unverified
 finding, read-only instruction or unsuitable Space), close the decision with a
 short reason. A no-hit alone never justifies capture. Use `documentify` only
@@ -82,6 +84,10 @@ Unquoted terms are OR candidates; quotes group contiguous normalized characters;
 This is not stemming, synonym expansion or fuzzy spelling. Do not add particle
 variants solely to work around the older tokenizer. Inspect `lexical_policy`;
 raw scores from different versions are not a controlled comparison.
+Quoted characters must be contiguous after whitespace removal, so quotes can
+exclude a note that discusses two separated identifiers. On CLI v0.2.12+, a
+quoted zero-hit can show a bounded count of unquoted candidates; treat it as a
+query hint, not an answer or proof of missing coverage.
 
 1. On CLI v0.2.0+, search with `obsdog search --space <space-id> --format json --query <need> --actor-type agent --actor <agent-id>`. Returned hits are retrieved, not read or judged.
 2. Add a canonical label filter only when routing requires it. Discover definitions first and use expressions such as `label:memory:horizon=long_term AND NOT label:lifecycle:state=stale`.
@@ -106,6 +112,13 @@ the returned **global rank**, not `page_rank`. Page replay adds no observations.
 At most 100 candidates are retained; this is not an exhaustive corpus count.
 Start a new run if the query/filters change or the current device lacks the
 original frozen chunks. Unreturned candidates are not read/used/judged.
+
+Use `search --no-observe` only for deliberate diagnostics such as checking a
+repair, not for normal task retrieval. Its returned rows have no stable run/hit
+receipt and cannot be opened, marked used or evaluated through search actions.
+The optional scoped MCP equivalent is `obsdog_search_probe` when the connected
+CLI supports it. A version mismatch in a long-running MCP session requires a
+reconnect; do not assume an upgraded binary changed the existing process.
 
 ## Follow authority, not just a familiar answer
 

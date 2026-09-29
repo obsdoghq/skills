@@ -73,6 +73,12 @@ Use structure operations only when the installed CLI help exposes them:
 - `block lineage --id <id>` reads direct exact-revision split/merge edges and moves for an active or retired identity.
 
 Do not copy labels, comments, evaluations, or verification state from retired predecessors to successors unless a separate attributable policy explicitly requires it. Verify successor IDs and current Markdown after split/merge, verify the complete subtree after move, and use `block lineage` for provenance. Do not edit the SQLite database directly.
+On CLI v0.2.12+, direct split/merge reject successors whose Markdown kind or
+whole-document layout would disagree with stored structure. They do not add a
+new heading or another block kind. `obsdog doctor` can report older layout
+mismatches, but does not repair them. Do not force a mixed-kind split or rewrite
+SQLite to bypass the guard; preserve the exact revision and seek a reviewed
+structural repair path when needed.
 
 ## Labels and comments
 
