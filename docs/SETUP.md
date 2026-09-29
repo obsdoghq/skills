@@ -156,8 +156,16 @@ claude plugin marketplace update obsdog-skills
 claude plugin update obsdog@obsdog-skills
 ```
 
-Restart an existing agent session to load changed skill metadata. The plugin
-never overwrites AGENTS.md or CLAUDE.md: compare any newer optional routing
+After updating, restart any running `obsdog dashboard serve` or
+`obsdog wiki serve` process with its previous Space/port flags; a browser
+refresh alone keeps the old server. Reconnect existing agent sessions so
+host-owned `obsdog mcp` processes and skill metadata load the new versions.
+Check `obsdog version`
+in a new shell and, when MCP is enabled, from the reconnected client. See the
+[local dashboard lifecycle](https://github.com/obsdoghq/obsdog-releases/blob/main/guides/local-dashboard.md).
+The installer does not terminate user-managed processes.
+
+The plugin never overwrites AGENTS.md or CLAUDE.md: compare any newer optional routing
 snippet with your existing rule and merge only the desired change. Do not
 remove organization policy or silently grant capture/sync authority.
 

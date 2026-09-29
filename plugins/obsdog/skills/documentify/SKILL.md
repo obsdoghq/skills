@@ -86,6 +86,12 @@ already read specialist note rather than copying its whole procedure. Re-read
 the resulting references and map; no separate human review is required for an
 otherwise authorized correction. Record an unresolved target as a limitation.
 
+At completion, report the imported documents, which relationships were reviewed,
+resolved links, unresolved targets, and notes intentionally left standalone.
+This is a review trail, not a minimum link count or evidence of better search
+ranking. Confirm graph changes by reading the resulting references or graph;
+an import/update response alone does not establish that a target resolved.
+
 Use a current-revision `question` comment for a genuinely uncertain relation;
 it appears as an opt-in proposal, not a citation. No link quota: independently
 useful notes may remain isolated. Do not infer relationships from shared tags or

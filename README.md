@@ -110,6 +110,12 @@ map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
+Plugin v0.3.13 brings running-dashboard and MCP restart checks into the AI
+client update guide. `documentify` now separates imported, relation-reviewed,
+resolved, unresolved, and intentionally standalone documents at handoff;
+authored references are verified without treating links as a quota or a
+search-quality claim.
+
 Plugin v0.3.12 makes the no-hit completion owner explicit: when source-backed
 work reveals a reusable answer after a miss, the same agent closes the
 remember/maintain/no-write decision before finishing. Delegated work reports
