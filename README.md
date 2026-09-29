@@ -110,6 +110,11 @@ map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
+Plugin v0.3.8 makes the create-only `document import` identity boundary
+explicit: find and inspect an existing canonical note before import, update
+its current blocks or use care when it exists, and reserve new import for a
+genuinely new document. The guide also distinguishes managed plugin updates
+from hand-made links into versioned caches.
 Plugin v0.3.7 adds a selective infrastructure repository map to documentify
 and the optional onboarding guide; code and runbooks remain in their source repos.
 Plugin v0.3.6 connects bounded no-hit source discovery to selective capture and

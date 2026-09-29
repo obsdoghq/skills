@@ -151,6 +151,14 @@ never overwrites AGENTS.md or CLAUDE.md: compare any newer optional routing
 snippet with your existing rule and merge only the desired change. Do not
 remove organization policy or silently grant capture/sync authority.
 
+Use the client's plugin manager for updates. Hand-made links from a global
+skills directory into a version-numbered plugin cache are **not** managed by
+this installer and can keep loading an old skill after the marketplace updates.
+If you use such links, verify every resolved `SKILL.md` after an update or
+remove the duplicate manual links and use the plugin-provided skills. Do not
+infer an effective skill version from `claude plugin update` when working in
+Codex (or vice versa); check the client you are actually using.
+
 ## Copyable setup request
 
 Paste into your AI client after installing the CLI and plugin:

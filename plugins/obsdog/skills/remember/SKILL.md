@@ -44,6 +44,32 @@ elsewhere. No reuse/discovery value means no extra note. Explicit preservation
 intent is respected; read access alone does not authorize a private-source copy.
 Do not create a parallel task log, API manual or repository mirror.
 
+### Check identity before creating
+
+`document import` **always creates a new document**; it is not an upsert by
+title, file path or Markdown heading. A `document read` → edit temporary file
+→ `document import` round trip creates a second document and changes the source
+path. Before a new note, query the selected Space for its distinctive subject
+and inspect likely documents, for example:
+
+```sh
+obsdog search --space <space-id> --query "<subject or source name>" --actor-type agent --actor <agent-id> --format json
+obsdog document list --space <space-id> --format json
+obsdog document read --space <space-id> --id <candidate-document-id> --format json
+```
+
+Search results are candidates, not proof of absence; a bounded reformulation
+or source-path comparison may be needed. If the same canonical answer exists,
+read its current block revisions and use `obsdog block update --id <block-id>
+--base-revision <revision-id> --content <text> --reason <reason> --actor-type
+agent --actor <agent-id> --space <space-id> --format json`, or use a reviewed
+care plan for structural change. Never re-import it to "fix" the title. Only
+when there is no existing canonical note should the new-note import below run.
+CLI versions with duplicate protection fail on the same source/content and
+report an existing ID; do not bypass that result with `--fork` unless the
+user actually intends a distinct document. Read back the **existing or newly
+updated** document, not only a newly imported one.
+
 A useful note serves one reader/job with scope, evidence and limitations. Keep
 blocks independently revisable but context-complete: retain prerequisites,
 warnings and code/table context. Do not atomize sentences or split for a token
@@ -55,7 +81,7 @@ note; route substantial split/merge or retirement to the maintenance workflow.
   exact checked version/section, observation date/method and applicability.
   Preserve necessary qualifications in the body. Import/edit time is not source
   freshness; a copied source is not another independent confirmation.
-- On CLI v0.2.0+, import with `obsdog document import --space <space-id> --file <file> --actor-type agent --actor <agent-id> --format json`. Check installed help first; do not fall back to default human authorship if attribution flags are absent.
+- On CLI v0.2.0+, create a genuinely new note with `obsdog document import --space <space-id> --file <file> --actor-type agent --actor <agent-id> --format json`. Check installed help first; do not fall back to default human authorship if attribution flags are absent.
 - Treat headings and leaf Markdown regions as stable addressable blocks after import. Do not fabricate block identifiers.
 - Read the imported document back and verify its title, block count, and exact Space.
 - Suggest labels only after discovering definitions. Agents normally use `--state suggested`, a rationale, and calibrated confidence. Protected verification remains subject to human or disclosed verifier review.
