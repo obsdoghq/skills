@@ -1,5 +1,15 @@
 # Workflow changes
 
+## 0.3.17 — candidate, 2026-09-30
+
+- Skill additions/removals/renames: none. All four workflows remain.
+- Upgrade and missing-command checks are discoverable in the installed skill
+  entrypoints, including reconnecting host-owned MCPs and the running viewer.
+- The optional routing snippet has a revision marker. Review only an existing
+  ObsDog section in AGENTS.md/CLAUDE.md; no file is overwritten automatically.
+- No hooks, implicit upload, automatic restart, schema migration or recall
+  policy change is introduced. Publication remains separate from this candidate.
+
 ## 0.3.16 — 2026-09-30
 
 - Skill additions/removals/renames: none. The same four entrypoints remain.

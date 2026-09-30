@@ -48,3 +48,5 @@ Follow any explicit restrictions on Space, sources, storage, or uploads. Honor r
 If saving is unavailable, disclose the relevant limitation and continue the original task.
 
 Read [CLI usage](references/cli.md) when creating or updating documents, selecting a Space, adding links or metadata, or verifying a write.
+
+After an upgrade or an unexpected missing write command, use the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance). A fresh shell does not update a running MCP connection.

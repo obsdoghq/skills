@@ -110,7 +110,8 @@ map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
-Plugin v0.3.16 keeps four workflows but shortens their entrypoints. Find recalls
+Plugin v0.3.17 keeps four short workflows and links runtime/update checks from
+their installed entrypoints. Find recalls
 throughout work; remember creates and updates individual findings; maintain
 organizes/reconciles the knowledge base; documentify builds connected explanations
 from authorized sources. CLI mechanics live in focused references. Capture is

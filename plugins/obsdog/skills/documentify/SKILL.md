@@ -50,3 +50,5 @@ Briefly report the knowledge built or expanded, important connections, and remai
 Follow any explicit restrictions on Space, sources, storage, or uploads. Honor read-only and no-memory requests. Keep secrets out of documents and queries.
 
 Read [CLI usage](references/cli.md) when saving or updating documents, connecting links, and verifying results.
+
+For setup or upgrade mismatches, use the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance). Check the effective runtime before interpreting verification results.

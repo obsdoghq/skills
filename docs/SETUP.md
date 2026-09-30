@@ -55,6 +55,8 @@ ObsDog heading if present; do not replace the file or add repeated copies.
 ```md
 ## ObsDog
 
+<!-- Routing snippet: obsdog-routing/2026-09-30; plugin 0.3.17+. -->
+
 - Use ObsDog find throughout the work to retrieve and apply relevant knowledge,
   context, and background. Search again as new questions arise; reuse evidence
   already checked for the same question and scope. If memory misses or is
@@ -165,6 +167,12 @@ restarting/reconnecting; do not terminate unrelated listeners or agent sessions.
 The plugin never overwrites AGENTS.md or CLAUDE.md: compare any newer optional routing
 snippet with your existing rule and merge only the desired change. Do not
 remove organization policy or silently grant capture/sync authority.
+
+The snippet revision marks guidance, not the CLI schema or a migration gate.
+An older custom rule is not automatically wrong. Review new workflow changes
+and merge only the changes you want under the existing ObsDog heading; keep
+command syntax in the installed skills. Do not append another copy at each
+upgrade. The installed skill entrypoints link back to this checklist.
 
 Use the client's plugin manager for updates. Hand-made links from a global
 skills directory into a version-numbered plugin cache are **not** managed by

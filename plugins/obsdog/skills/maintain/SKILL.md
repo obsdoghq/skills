@@ -57,3 +57,5 @@ Follow any explicit restrictions on Space, sources, storage, or uploads. Honor r
 - Read [care execution](references/care-execution.md) when applying structural changes.
 - Read [knowledge-care criteria](references/knowledge-care.md) when selecting canonical sources, reconciling history, or deciding how to consolidate or retire knowledge.
 - Read [retrieval-oriented authoring](references/retrieval-authoring.md) when improving search and navigation.
+
+After a runtime or plugin upgrade, use the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance). Compare only the ObsDog section in AGENTS.md or CLAUDE.md with the recommended routing snippet; never overwrite unrelated instructions.

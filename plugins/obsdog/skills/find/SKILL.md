@@ -48,3 +48,5 @@ Do not manufacture searches, opens, uses, or feedback to increase ranking or usa
 Work within the selected Space and authorized sources. Honor explicit read-only and no-memory requests, along with storage and upload restrictions. Keep secrets out of queries and records.
 
 Read [CLI usage](references/cli.md) when using CLI commands, selecting a Space, adjusting search syntax, paging through results, or recording activity.
+
+Keep installed-runtime checks in the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance). Consult it after an upgrade or a missing command, not before every search.
