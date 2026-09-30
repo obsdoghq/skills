@@ -7,6 +7,12 @@
   entrypoints, including reconnecting host-owned MCPs and the running viewer.
 - The optional routing snippet has a revision marker. Review only an existing
   ObsDog section in AGENTS.md/CLAUDE.md; no file is overwritten automatically.
+- Canonical explanations are question-oriented and updated selectively when
+  relevant sources change. The work-owning agent closes source-backed search
+  repairs with read-back and intended-answer lookup, including delegated handoffs.
+- References document optional authored-link discovery and local source-file
+  probes only when the installed CLI advertises them. These next-CLI candidate
+  commands are not available in published v0.2.19; Markdown navigation remains.
 - No hooks, implicit upload, automatic restart, schema migration or recall
   policy change is introduced. Publication remains separate from this candidate.
 

@@ -24,6 +24,11 @@ invented links or connectivity quota.
 
 Inspect `insights show` and its graph output, or the local dashboard's Graph, when verifying document relationships. `memory show` describes retrieval and co-use observations, not the authored document map. Check installed help for command details.
 
+If installed help exposes `document links`, inspect a changed note's bounded
+outbound references directly using the [find reference](../../find/references/cli.md#follow-authority-not-just-a-familiar-answer).
+This candidate command avoids computing the whole graph and reports unresolved
+targets; it does not certify relationships or record target reads.
+
 An unresolved target remains an explicit limitation. Use a current-revision `question` comment for an uncertain relationship. Shared tags or semantic similarity alone do not establish a citation.
 
 ## Verify retrieval

@@ -63,4 +63,8 @@ Read the created or updated document and verify its Space, identity, title, body
 
 For a diagnostic search after a write, CLI v0.2.12+ supports `search --no-observe`. It creates no run or use handle. Reproduce the original query once when repairing a retrieval miss; if its quotes or filters prevent a match, also check a corrected query that expresses the same intent. Treat diagnostic results as verification, not task-use feedback.
 
+Confirm that the result actually contains the intended answer and current
+document/block revision. A count above zero can still be the wrong answer.
+Return this verification with the saved document in delegated-work handoffs.
+
 Keep JSON stdout machine-clean and keep secrets out of notes, queries, comments, and diagnostics.

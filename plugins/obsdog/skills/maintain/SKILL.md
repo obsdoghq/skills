@@ -13,6 +13,8 @@ When search misses, distinguish missing knowledge from retrieval problems caused
 
 Use comments, labels, evaluations, and usage records as investigation leads. Check accuracy and current applicability against relevant sources.
 
+Start from the affected question, note or source change. Improve that part and its necessary references rather than regenerating the entire library whenever one upstream file changes.
+
 ## Preserve meaning and history while organizing
 
 Before consolidating notes on the same subject, compare their differences and sources. Distinguish records for different environments, versions, and periods by their scope of applicability.
@@ -37,7 +39,7 @@ Base changes on current documents and revisions, and record agent attribution an
 
 Use supported procedures for structural changes and prepare recovery measures proportionate to their impact. Check continuity of document and block identities and links.
 
-Read back changed content and verify its meaning, applicability, links, and structure. When repairing a retrieval problem, rerun the original search and check the results.
+Read back changed content and verify its meaning, applicability, links, and structure. When repairing a retrieval problem, rerun the original search and check that it finds the intended answer, not merely that some hit exists.
 
 Briefly report what was improved and what remains unresolved.
 

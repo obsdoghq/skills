@@ -71,6 +71,15 @@ Compare `obsdog_version` in that existing connection with a fresh shell's
 
 ## Follow authority, not just a familiar answer
 
+When the installed `obsdog document --help` advertises `links`, use
+`obsdog document links --space <space-id> --id <document-id> --limit 5 --format json`
+to inspect a selected note's direct authored navigation. The scoped MCP equivalent
+is `obsdog_document_links` when present in its actual tool list. This is a next-CLI
+candidate capability, not part of published v0.2.19; older runtimes can read the
+links in the Markdown. Read needed destinations explicitly. The command records
+no exposure/use, does not follow redirects or modify ranking, and reports
+missing/ambiguous/truncated results. A link or title is not its target's evidence.
+
 For heading-only hits, missing entity context or a noisy hub, follow
 [retrieval-oriented authoring](../../maintain/references/retrieval-authoring.md).
 Read the needed source/parent context; a landing-page hit is not acquisition of
@@ -125,6 +134,9 @@ links, or current facts. Use `maintain` for duplication, conflicts across notes,
 and knowledge-base organization. After source-backed work fills a coverage gap
 or fixes an existing note's discoverability, read it back and rerun the original
 query with `--no-observe`. If quotes or filters caused the miss, also check the
-corrected query; a zero-result hint is not answer evidence.
+corrected query. Verify the intended current answer/revision, not merely a
+nonzero count; a zero-result hint is not answer evidence. The work-owning agent
+closes this loop before its handoff, rather than leaving capture to an unspecified
+later agent.
 
 Keep JSON stdout machine-clean. Do not send raw queries, content, paths, Space identifiers, comments, or reasons to external diagnostics.

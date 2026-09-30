@@ -19,6 +19,8 @@ Search for knowledge related to the subject and read promising results.
 
 Create a note for a new subject, or update an existing note when the finding belongs there. Reflect changed facts and decisions while preserving necessary background and history.
 
+Organize the canonical explanation around the question future work needs to answer, not one note per source file or tool call. Extend the relevant section and source context when the subject already has a home.
+
 Use `maintain` to reconcile duplication or conflicts across notes, merge or split documents, or otherwise organize the knowledge base. Use `documentify` to systematically investigate sources and build or expand a knowledge base.
 
 Connect related knowledge using actual document or block identifiers and explain the relationship.

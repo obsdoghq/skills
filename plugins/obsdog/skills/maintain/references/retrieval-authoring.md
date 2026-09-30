@@ -36,6 +36,13 @@ An overview should remain selective; high degree is not a usefulness bonus.
 
 ## Make precise answers discoverable
 
+Keep one canonical explanation for a coherent question, with source pointers and
+scope where readers need them. New evidence can update that explanation or append
+a distinct section using the installed conditional operations. This is not one
+document per source file and does not require recompiling the library. Follow a
+few useful authored links for missing context; do not make every note link back
+to a hub or treat navigation as additional answer evidence.
+
 Prefer a title with the recognizable entity and the actual question or lesson.
 Put the direct answer and its applicability together. Introduce real acronyms
 where first needed. Preserve procedure prerequisites, warnings, code and table
@@ -80,3 +87,7 @@ corresponding denominators, conditions and negative results.
 - [Contextual retrieval](https://www.anthropic.com/engineering/contextual-retrieval):
   document/entity context can matter. Its reported results are not an ObsDog
   benchmark and do not establish that an authored hub improves exact-source hits.
+- [llm-wiki incremental compilation](https://github.com/nvk/llm-wiki/blob/1224fbcdf3827f4ba56d225a9e359f5e8a5594e5/plugins/llm-wiki/skills/wiki/references/compilation.md):
+  map new evidence into the explanation it belongs to. ObsDog retains SQLite,
+  stable identities and source/revision evidence; mandatory crosslinks, full
+  regeneration and an automatic “verified today” stamp are not adopted.

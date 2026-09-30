@@ -85,6 +85,15 @@ abstain from unsupported advice. Preserve failed checks separately from the last
 successful check. Copies of one source are not independent corroboration.
 Typed source records do not imply repository sync, crawling or background checks.
 
+The next CLI candidate adds `care source probe-git --event <source-event-id>
+--repo <explicit-local-checkout>`. Use it only when installed help exposes it.
+For a recorded GitHub source with a full commit and path-like section, it compares
+pinned/HEAD file blobs in a matching checkout without fetching, executing stored
+method text, reading uncommitted files or recording a check. `section_change`
+distinguishes unchanged/changed/removed/added/unknown; unrelated commits do not
+make the source file changed. Inspect the affected claim before updating its
+explanation or source judgment. Failed/unavailable evidence stays unknown.
+
 ### Select history and graph scope deliberately
 
 Summarize work history around actions, findings, decisions and follow-ups with
@@ -231,7 +240,9 @@ types; never substitute the experimental CLI or re-enable held native clients.
    Keep uncertain connections in question comments; actual citations in
    evidence/explanation or canonical prose. Closing a proposal is not promotion.
 6. Verify Markdown, identity/history, context and incoming/outgoing links. Search
-   again when relevant; a maintenance replay is not a fabricated task use.
+   again when relevant using `--no-observe` for a diagnostic check on supported
+   runtimes. Verify the intended answer, not just any hit; a maintenance replay
+   is not a fabricated task use.
    Preserve old evaluation against old revisions and do not inherit verification
    across split/merge.
 7. Sync only the already authorized Space and report material changes/limits.

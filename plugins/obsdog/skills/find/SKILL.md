@@ -35,6 +35,8 @@ Use `documentify` when investigating source material to systematically connect k
 
 Follow the corresponding skill for capture, updates, and verification.
 
+When source-backed work answers a search miss, the agent doing that work completes the corresponding save or repair and checks the original lookup before finishing. For delegated work, return the original query/run, the saved or maintained document, and read-back/retrieval verification; explain a remaining limitation when the loop cannot be closed.
+
 ## Record actual use
 
 Distinguish results returned by search, results actually read, and results applied to the work.

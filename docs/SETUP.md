@@ -79,6 +79,11 @@ No per-note permission question is needed within that standing scope.
 
 These rules guide behavior, not guaranteed automatic execution on every task.
 They do not alter client approvals or grant access to an unauthorized Space.
+When a source-backed answer repairs a search miss, the work-owning agent saves or
+updates it within the approved scope, then returns the document and verification
+in its completion/handoff. Check that the original lookup finds the intended
+answer, not merely any result. Keep this procedure in skills, not a longer global
+routing prompt.
 On CLI v0.2.12+, verify a repair with `obsdog search --no-observe --query
 "<original query>"` in the same Space. This leaves no retrieval run or use
 handle; ordinary task searches should still be observed. Older CLIs record a

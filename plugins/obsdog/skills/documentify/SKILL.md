@@ -23,6 +23,8 @@ Distinguish intended behavior in specifications, implemented behavior in code, a
 
 Organize content around the reader's questions and tasks. Explain the necessary overview, structure, behavior, procedures, and background with supporting source evidence.
 
+Build question-oriented explanations and selective navigation from the sources, not a parallel copy of each file. For later source changes, refresh the affected explanation and references instead of rebuilding unrelated knowledge.
+
 Make each document understandable when found independently through search. Include its subject, applicability, and necessary context. Use real search terms and identifiers in titles and content.
 
 Link explanations to relevant code, documents, and configuration. Record the checked version, date, and environment so readers can assess whether the source has changed.
