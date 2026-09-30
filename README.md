@@ -110,6 +110,11 @@ map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
+Plugin v0.3.15 makes running-dashboard and MCP identity checks discoverable in
+the installed workflows and explains label hiding versus duplicate retirement.
+Use the [update checklist](docs/SETUP.md#updating-cli-and-agent-guidance) after
+an upgrade; installing a plugin does not restart a long-lived CLI process.
+
 Plugin v0.3.14 distinguishes observed task search from the CLI v0.2.12+
 diagnostic probe. After a no-hit repair, agents can check the original query
 without adding a retrieval run. It also explains the direct split/merge guard

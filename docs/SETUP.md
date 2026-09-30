@@ -170,6 +170,18 @@ in a new shell and, when MCP is enabled, from the reconnected client. See the
 [local dashboard lifecycle](https://github.com/obsdoghq/obsdog-releases/blob/main/guides/local-dashboard.md).
 The installer does not terminate user-managed processes.
 
+For a machine-readable check on CLI v0.2.19+, run
+`obsdog dashboard status --port 47777 --format json` (use your actual port).
+This reads only the existing listener and never initializes a library. The
+running dashboard's existing endpoint is
+`http://127.0.0.1:47777/_obsdog/health`: it reports `version`, `channel`,
+`space_id` and `restart_required`; newer viewers also report `started_at`.
+It is not `/api/version` or `/healthz`. A 404 or unverifiable response is not
+evidence that the installed CLI is serving that port. For MCP, invoke
+`obsdog_version` **in the existing connection** and compare with the new shell.
+That process may still be old even when the dashboard is current. Check after
+restarting/reconnecting; do not terminate unrelated listeners or agent sessions.
+
 The plugin never overwrites AGENTS.md or CLAUDE.md: compare any newer optional routing
 snippet with your existing rule and merge only the desired change. Do not
 remove organization policy or silently grant capture/sync authority.

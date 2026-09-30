@@ -34,6 +34,17 @@ a new model provider. Confidence alone is not permission or factual verification
 
 ## Inspect before mutation
 
+When investigating an upgrade or unexpectedly old behavior, identify the
+running process before interpreting results. On CLI v0.2.19+, use
+`obsdog dashboard status --port <port> --format json`; on older compatible
+dashboards, read the loopback `/_obsdog/health` endpoint. Its `version` is the
+listener's version and `restart_required` reports executable replacement, not
+the latest published release. Check `obsdog_version` in an existing MCP
+connection separately. Restart the owned foreground viewer with its previous
+Space/port flags and reconnect host-owned MCP sessions after upgrading; a new
+shell or browser refresh does not replace them. Never kill a port owner by
+guessing. See the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance).
+
 For retrieval complaints, consult
 [the discovery rubric](references/retrieval-authoring.md). Separate missing
 knowledge/context from candidate/ranking failure, and test the intended repair
@@ -81,6 +92,15 @@ SQLite to bypass the guard; preserve the exact revision and seek a reviewed
 structural repair path when needed.
 
 ## Labels and comments
+
+Choose hiding or retirement deliberately. An active `lifecycle:state=deprecated`
+label hides still-active document/block candidates from new default searches;
+`search --include-deprecated` can return them. `document supersede` instead
+retires the duplicate's blocks and records a canonical redirect: those blocks
+are absent even with `--include-deprecated`. Read the original document ID or
+its history for retained evidence, and inspect the Care receipt for conditional
+recovery. Neither operation erases history; neither is a reason to create an
+imported replacement. Frozen traces/pages retain their original evidence.
 
 - Discover definitions with `obsdog label definitions`; do not hard-code a Space registry beyond definitions the CLI returns.
 - Apply labels to the whole authored idea at block level. Comments are separate metadata and never rewrite the document.

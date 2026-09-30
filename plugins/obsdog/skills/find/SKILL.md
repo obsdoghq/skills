@@ -119,6 +119,9 @@ receipt and cannot be opened, marked used or evaluated through search actions.
 The optional scoped MCP equivalent is `obsdog_search_probe` when the connected
 CLI supports it. A version mismatch in a long-running MCP session requires a
 reconnect; do not assume an upgraded binary changed the existing process.
+For upgrade diagnosis, compare `obsdog_version` in that existing connection
+with a fresh shell's `obsdog version`; see the
+[running-viewer and MCP checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance).
 
 ## Follow authority, not just a familiar answer
 
