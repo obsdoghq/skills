@@ -1,5 +1,10 @@
 # ObsDog Skills
 
+Internal implementation is tracked in Project draft tickets, not duplicate Issues.
+Use [GitHub issues](https://github.com/obsdoghq/skills/issues) for product feedback and follow
+[the feedback guide](https://github.com/obsdoghq/obsdog-releases/blob/main/FEEDBACK.md);
+private execution plans do not belong here.
+
 Official skills and plugins for [ObsDog](https://obsdog.ai), the
 local-first knowledge tool for people and AI. The same four workflows support
 Codex and Claude Code. This repository is public; installing a plugin does not

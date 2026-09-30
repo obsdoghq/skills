@@ -1,5 +1,16 @@
 # AGENTS.md
 
+## Contribution tracking
+
+- Track internal work and verification only in the team's Project draft tickets,
+  not repository Issues or a mutable TODO.md checklist. Issues remain public
+  feedback intake, not a second implementation tracker. Never copy private
+  ticket bodies or access details into this repository.
+- Keep public acceptance evidence in the PR and relevant public docs. Do not
+  mark package validation as actual client-session invocation or delivery.
+
+## Packaging and publication
+
 - `plugins/obsdog/skills/` contains the authored workflows.
 - The plugin name is `obsdog`; clients expose its skills with the `obsdog:` prefix.
 - Keep local MCP disabled by default until access to the exact configured Space is authorized; cwd is not a Space selector.
