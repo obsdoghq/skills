@@ -8,10 +8,10 @@ grant access to any private Space.
 The single `obsdog` plugin intentionally groups four user workflows so
 clients display a stable namespace:
 
-- `obsdog:find` — recall prior project context, open, use and trace exact revisions;
-- `obsdog:remember` — capture requested or already-authorized reusable learning;
-- `obsdog:maintain` — evolve, organize, review, and recover knowledge;
-- `obsdog:documentify` — turn an authorized repository into auditable knowledge.
+- `obsdog:find` — retrieve and apply knowledge and context throughout work;
+- `obsdog:remember` — capture findings and update existing notes;
+- `obsdog:maintain` — organize, reconcile and improve the knowledge base;
+- `obsdog:documentify` — investigate sources and build connected explanations.
 
 The namespace is provided by the plugin. Portable skill folders keep the short
 names so both clients load the same instructions. Claude Code exposes commands
@@ -110,57 +110,17 @@ map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
-Plugin v0.3.15 makes running-dashboard and MCP identity checks discoverable in
-the installed workflows and explains label hiding versus duplicate retirement.
-Use the [update checklist](docs/SETUP.md#updating-cli-and-agent-guidance) after
-an upgrade; installing a plugin does not restart a long-lived CLI process.
+Plugin v0.3.16 keeps four workflows but shortens their entrypoints. Find recalls
+throughout work; remember creates and updates individual findings; maintain
+organizes/reconciles the knowledge base; documentify builds connected explanations
+from authorized sources. CLI mechanics live in focused references. Capture is
+independent of search success. There are no new hooks, uploads or automatic jobs,
+and no measured invocation or retrieval-quality gain is claimed.
 
-Plugin v0.3.14 distinguishes observed task search from the CLI v0.2.12+
-diagnostic probe. After a no-hit repair, agents can check the original query
-without adding a retrieval run. It also explains the direct split/merge guard
-and read-only legacy layout diagnosis; these do not repair old structure.
-
-Plugin v0.3.13 brings running-dashboard and MCP restart checks into the AI
-client update guide. `documentify` now separates imported, relation-reviewed,
-resolved, unresolved, and intentionally standalone documents at handoff;
-authored references are verified without treating links as a quota or a
-search-quality claim.
-
-Plugin v0.3.12 makes the no-hit completion owner explicit: when source-backed
-work reveals a reusable answer after a miss, the same agent closes the
-remember/maintain/no-write decision before finishing. Delegated work reports
-that disposition to its parent. A miss alone never requires a new note.
-Plugin v0.3.10 guides exact-revision full-document update, title correction and
-evidence-backed duplicate supersession on CLI v0.2.10+, while retaining
-block-level correction and structural Care on older compatible installs.
-Plugin v0.3.8 makes the create-only `document import` identity boundary
-explicit: find and inspect an existing canonical note before import, update
-its current blocks or use care when it exists, and reserve new import for a
-genuinely new document. The guide also distinguishes managed plugin updates
-from hand-made links into versioned caches.
-Plugin v0.3.7 adds a selective infrastructure repository map to documentify
-and the optional onboarding guide; code and runbooks remain in their source repos.
-Plugin v0.3.6 connects bounded no-hit source discovery to selective capture and
-removes the redundant report skill; use `obsdog dashboard serve` for local
-visibility. [AI client integration decisions](docs/AI_CLIENT_INTEGRATION.md)
-explain the instruction-file, MCP and hook boundaries. Plugin v0.3.5 added concrete task-entry recall and authorized completion-capture
-gates. It does not search merely because a name appears or save every session.
-
-Migration from plugin 0.3.5 or earlier: `obsdog:report` was removed, not renamed.
-Use `obsdog dashboard serve` for the live local view, `obsdog insights show` or
-`obsdog metrics summary` for CLI data, and explicit HTML export when needed.
-Plugin-managed upgrades replace its skill set; if you made your own symlink to
-a versioned plugin cache, remove that stale link and use the supported plugin
-installer instead. Do not point a new link at another versioned cache folder.
-Bounded maintenance uses exact plans, actual outcome receipts and conditional
-recovery; connected care requires server v0.1.29+ and compatible active writers.
-No hooks, blanket transcript collection or background worker are installed.
-
-Plugin v0.3.4 uses frozen result pages with global ranks, exact relative-reference
-readback after documentification, and concise observed-memory summaries. It keeps
-authored references, observed query/co-use and unconfirmed comment proposals
-distinct. First-page use needs real page evidence, not an assumed Top 10. These
-workflows never manufacture links or ratings just to fill a graph or dashboard.
+Use the [update checklist](docs/SETUP.md#updating-cli-and-agent-guidance) to restart
+your dashboard and reconnect long-lived MCP sessions after a CLI upgrade. See
+[workflow changes and migration notes](CHANGELOG.md) for earlier versions,
+including the removal of `obsdog:report`.
 
 ```sh
 obsdog document list

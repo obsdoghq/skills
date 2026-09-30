@@ -53,48 +53,27 @@ approval. Merge once under an existing
 ObsDog heading if present; do not replace the file or add repeated copies.
 
 ```md
-## ObsDog knowledge
+## ObsDog
 
-- Use ObsDog find early for prior decisions/fixes/incidents, existing internal
-  behavior/configuration/conventions, and nontrivial debugging/design/migrations
-  where project history could change the approach, even without an ObsDog request.
-  Search a few specific terms, open promising hits and verify current source
-  evidence. No useful hit or unavailable memory must not block the actual task.
-- After a bounded no-hit retry, use authorized sources and revisit the original
-  query. The agent doing the source-backed work decides before finishing: use
-  remember for verified missing reusable knowledge, maintain for a missed
-  existing note, or no write with a short reason. Read back a repair and retry
-  the original query once; a diagnostic retry is not task-use feedback. For
-  delegated work, return the no-hit run ID, disposition and repair verification
-  to the parent, which checks the handoff. A no-hit alone is not a reason to save.
-- When repository or infrastructure onboarding is requested, use documentify
-  on authorized sources to build a small question-to-source map. Keep maintained
-  architecture and procedures in their owning repos; do not copy a file tree
-  into ObsDog or start a new mapping task during unrelated work.
-- Skip incidental recall for general concepts, supplied-text transformations and
-  name mentions alone. Reuse already-read task evidence instead of searching
-  every follow-up. Honor explicit source restrictions and no-memory requests.
-- Honor an explicitly selected Space on every command; a broken binding must
-  not fall back. Otherwise use Personal for reusable knowledge from current
-  work, including private projects. Private repository status alone is not a
-  reason to skip a concise note or ask for another Space. Respect explicit
-  Org-only and no-upload restrictions.
-- I authorize relevant capture into my selected Personal Space in its current,
-  already-reviewed sync mode, plus supported maintenance during active
-  tasks. At meaningful completion, use remember for verified reusable findings
-  or durable decisions: check the canonical home and duplicates, retain source,
-  checked date/version and scope, then read back. No useful new learning means
-  no write. Do not save chatter, raw logs, secrets or unverified claims as facts.
-  Read-only/no-memory requests override this rule.
-- Attribute agent actions; distinguish returned, opened, used and useful.
-  Record use only when knowledge actually supports the work, with honest reasons.
-- Do not enable login, sync, sharing, publishing, telemetry or background jobs
-  from this instruction. If the selected Space's upload mode conflicts with
-  an explicit source restriction, do not write that material there.
+- Use ObsDog find throughout the work to retrieve and apply relevant knowledge,
+  context, and background. Search again as new questions arise; reuse evidence
+  already checked for the same question and scope. If memory misses or is
+  unavailable, continue from authorized source material.
+- Use remember to capture new knowledge and update existing notes with findings
+  from the work, regardless of whether retrieval succeeded. Use maintain to
+  organize and improve the knowledge base.
+- Use documentify to investigate source material and build or expand connected
+  knowledge that future work can find and use.
 ```
 
-For **search-only** use, replace the capture/maintenance permission bullet with:
+For **search-only** use, replace the remember/maintain and documentify bullets with:
 “Search and read only. Ask before remembering or changing knowledge.”
+
+Adopting the write workflows authorizes ongoing capture and supported
+maintenance in your selected, already-reviewed storage mode. Follow explicit
+Space/source/upload restrictions and read-only/no-memory requests. With no
+explicit boundary, use Personal; a broken explicit selection does not fall back.
+No per-note permission question is needed within that standing scope.
 
 These rules guide behavior, not guaranteed automatic execution on every task.
 They do not alter client approvals or grant access to an unauthorized Space.
@@ -106,7 +85,7 @@ unbiased product traffic.
 Use `obsdog dashboard serve` for local visibility and `obsdog insights show`
 for machine-readable measures. HTML export remains an explicit CLI option.
 
-This is an entry/exit decision during active work, not a hook that records every
+This is a workflow throughout active work, not a hook that records every
 tool call or saves every session. The plugin does not install automatic recall,
 transcript collection or background maintenance. See the
 [synthetic evaluation cases and measurement limits](EVALUATION.md) for how missed
@@ -143,8 +122,9 @@ questions to the owning repo, maintained docs and code/configuration entry point
 instead of a file-tree dump.
 ```
 
-Use `documentify` only when broader repository documentation is itself the
-task. For a few source pointers or lessons, use `find` then `remember`.
+Use `documentify` for systematic source investigation and connected explanations,
+including multiple repositories, docs, configurations, infrastructure or work
+records within the agreed scope. For an individual finding, use `remember`.
 
 ## Updating CLI and agent guidance
 

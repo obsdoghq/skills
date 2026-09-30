@@ -559,14 +559,13 @@
           "verify_source",
           "write_note",
           "readback",
-          "rerun_original_query",
-          "report_no_hit_disposition"
+          "rerun_original_query"
         ],
         "forbidden_actions": [
           "defer_capture_to_parent",
           "invent_rating"
         ],
-        "rationale": "The worker closes the authorized source-backed gap and gives the parent a verifiable same-task disposition."
+        "rationale": "The worker captures the source-backed finding in the same task and verifies its content and retrieval without a required report template."
       }
     },
     {
@@ -581,8 +580,7 @@
           "verify_source",
           "update_note",
           "readback",
-          "rerun_original_query",
-          "report_no_hit_disposition"
+          "rerun_original_query"
         ],
         "forbidden_actions": [
           "duplicate_note",
@@ -600,14 +598,37 @@
         "decision": "skip",
         "required_actions": [
           "check_duplicates",
-          "report_no_hit_disposition",
           "continue_task"
         ],
         "forbidden_actions": [
           "write_note",
           "update_note"
         ],
-        "rationale": "The worker reports a justified no-write so the parent can distinguish closure from omission."
+        "rationale": "Reuse the existing answer for this ambiguous query rather than adding a duplicate or changing unrelated content."
+      }
+    },
+    {
+      "id": "mid-task-new-component-question",
+      "phase": "entry",
+      "prompt": "The investigation now points at the QueueBridge retry configuration. Check how it works.",
+      "context": "Earlier memory covered the renderer only. The task now has a new component question and authorized source access.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": ["search_specific_terms", "verify_source", "continue_task"],
+        "forbidden_actions": ["reuse_unrelated_evidence", "enroll_sync"],
+        "rationale": "Recall is available throughout work when a new question arises, not only at task initialization."
+      }
+    },
+    {
+      "id": "successful-recall-new-finding-update",
+      "phase": "completion",
+      "prompt": "Finish the QueueBridge fix after reading its existing note.",
+      "context": "A successful lookup found the matching note. Current tests establish a new applicability detail. Standing capture permission covers ordinary updates in the same Space.",
+      "expected": {
+        "decision": "update",
+        "required_actions": ["check_duplicates", "verify_source", "update_note", "readback"],
+        "forbidden_actions": ["duplicate_note", "invent_rating"],
+        "rationale": "Remember incorporates the individual finding into the existing identity even when the initial retrieval succeeded."
       }
     },
     {

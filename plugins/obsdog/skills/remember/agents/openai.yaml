@@ -1,4 +1,4 @@
 interface:
   display_name: "Remember with ObsDog"
-  short_description: "Capture durable, attributable knowledge safely."
-  default_prompt: "Use $remember to preserve this as structured knowledge in my selected ObsDog Space."
+  short_description: "Capture and update knowledge for future work."
+  default_prompt: "Use $remember to capture this finding or update the matching note in my selected ObsDog Space."

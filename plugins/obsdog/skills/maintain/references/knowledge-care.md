@@ -42,19 +42,22 @@ For entity overviews, categories, discovery failures or hit-rate concerns, read
 [retrieval-oriented authoring](retrieval-authoring.md) before restructuring.
 Repair the observed question-to-source path, not the graph's visual density.
 
-### Choose the authoritative home first
+### Preserve the authoritative home
 
-Ask what future question the knowledge answers and where its owner maintains
-the answer. Code/API behavior, invariants and project runbooks belong with code
-or the designated repository docs. Fix them there when that write is in scope;
-an ObsDog note is not a substitute. If source writes are not authorized, retain
-a clearly provisional explanation/gap only when useful; do not claim the source
-was corrected. Reading a private repository does not authorize uploading it.
+Identify the subject and where its owner maintains the source. Keep code/API
+contracts and project runbooks with their owning source; update that source when
+the task includes it. ObsDog can hold an explanation, rationale, investigation,
+work context or a synthesis across sources, not just a navigation pointer. Link
+the maintained source and record what was checked rather than treating the note
+as a competing upstream authority. If source writes are not in scope, describe
+the finding accurately without claiming that upstream was corrected. Follow any
+explicit source/Space/upload restriction; standing approved capture is enough
+within that scope, including for private projects.
 
-Choose the smallest useful representation. CLI v0.1.14+ can record these as typed
+Choose the representation that explains the subject. CLI v0.1.14+ records typed
 source roles, separate from the Markdown/block type:
 
-- **Native:** a Space-owned decision, durable preference or reusable lesson.
+- **Native:** a Space-owned decision, preference, lesson or established work context.
 - **Pointer:** where the maintained answer lives, what it helps with and scope;
   no copied manual or bare bookmark dump.
 - **Derived:** the extra synthesis or tested lesson, citing its actual evidence;
@@ -62,8 +65,8 @@ source roles, separate from the Markdown/block type:
 - **Snapshot:** minimal authorized evidence needed offline or for reproducibility,
   with source/version/capture date and limitations; not a fresh or independent
   confirmation of its source.
-- **No capture:** transient progress, a routine success log or a duplicate with
-  no discovery/reuse value. Explicit preservation requests still count as intent.
+- Raw transcripts, secrets and redundant copies are not authored knowledge.
+  Extract their established facts, actions, findings, rationale and follow-ups.
 
 Authority is claim-specific: spec is intent, code/tests show a version's
 implementation, runtime evidence shows an observed environment, and an ADR
@@ -84,17 +87,18 @@ Typed source records do not imply repository sync, crawling or background checks
 
 ### Select history and graph scope deliberately
 
-Do not append work diaries to current guidance. Keep an important rejected option,
-incident cause or rationale when it helps future work; link to the authoritative
-ADR/postmortem rather than copying its chronology. Current answer first, relevant
-history reachable. Temporary context belongs in the task system unless deliberately
-retained as scoped working memory. Age alone is not staleness. Never interpret
+Summarize work history around actions, findings, decisions and follow-ups with
+its date and scope. Keep current guidance distinct from historical context.
+Link authoritative ADRs/postmortems and synthesize the relevant background;
+a raw chronology is not required. Working context can use its disclosed horizon.
+Age alone is not staleness. Never interpret
 "don't save unhelpful history" as permission to prune revisions, audit, evaluations
 or backups. Follow actual retention/removal authority.
 
 Use supported lifecycle/horizon labels only after registry/policy checks. CLI
 v0.1.14+ also supports explicit source-role/temporal filters. Legacy unclassified
-notes stay unknown. Document labels do not automatically classify all blocks. Do not mass-archive legacy imports
+notes stay unknown. Document labels participate in search filtering on CLI
+v0.2.8+ without creating block assignments. Do not mass-archive legacy imports
 to comply with a new guideline.
 
 Keep one authorized Space with overlapping topic/project/source views unless
@@ -111,8 +115,9 @@ No quota for links or universal ontology is needed.
 
 ### Then choose a bounded operation
 
-- Add only durable knowledge with no existing canonical answer. Search first.
-- Update an existing block when the subject is the same and evidence changed.
+- Use remember to save individual findings and update existing notes. Search
+  related knowledge, then add a new subject or expand the matching note.
+- Use maintain for reconciliation, organization and structural repairs below.
 - Split distinct questions or independently changing claims; keep the minimum
   context needed to understand each successor. A long procedure, warning plus
   command, table, or code example can be one coherent unit. Do not split solely
@@ -132,8 +137,9 @@ Use only capabilities exposed by the installed runtime. Stable block split/merge
 does not imply atomic cross-document merge/redirect support. For connected Spaces,
 verify sync and recovery support for structural operations before applying them.
 If unsupported, leave an AI-deferred proposal with its capability gap; no DB edit,
-copy-delete workaround or experimental upgrade. On the currently deployed history-adoption transport,
-structural round-trip acceptance is still pending: use comments/revisions only.
+copy-delete workaround or experimental upgrade. Confirm the installed pair's
+capabilities and the exact Space's protocol preparation using
+[care execution](care-execution.md); deployment alone is not preparation.
 
 ## Review without a magical score
 
@@ -278,8 +284,9 @@ chronologically held-out baseline before claiming performance gains.
 
 ## Counterexamples to check
 
-- A maintained API/reference page: keep it in the repository; add a pointer only
-  for discovery, not an independently updated duplicate.
+- A maintained API/reference page: keep its contract upstream. Use an ObsDog
+  pointer when navigation is enough, or a grounded explanation when context or
+  multiple sources need synthesis; cite the checked version in either case.
 - A source is accessible but export is out of scope: no copy into another Space,
   and no title/snippet leakage through a supposedly harmless pointer.
 - A moving branch changed: inspect the relevant version/claim; do not refresh a

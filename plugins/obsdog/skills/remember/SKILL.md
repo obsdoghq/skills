@@ -1,135 +1,50 @@
 ---
 name: remember
-description: Save durable, source-grounded knowledge in an ObsDog Space when explicitly requested or when standing capture permission covers reusable learning from ordinary work. At meaningful milestones consider tested fixes, operating lessons and durable decisions; skip duplicates, transient chat and unsupported claims. Plugin installation alone does not authorize capture.
+description: Capture and update knowledge, context, and background in ObsDog so future work can find and use it. Record established facts, decisions and rationale, solutions, procedures, code and document locations, structures and relationships, work context, and investigation results. Use throughout the work when the user requests memory or standing instructions authorize ongoing capture.
 ---
 
 # Remember with ObsDog
 
-Resolve the target Space and durable intent from the request and existing scope;
-ask only if either is materially ambiguous. With capture already authorized, check,
-import and read back the note yourself rather than asking for each routine save.
-Preserve user-authored wording when supplied; distinguish facts, hypotheses,
-decisions and follow-ups rather than silently upgrading certainty.
+## Capture knowledge established during the work
 
-## Consider capture at a meaningful milestone
+Record facts, decisions, explanations, and context established during the work so they can be found and used later. Use both user-provided information and findings checked against source material.
 
-An existing instruction authorizing proactive capture is sufficient intent; do
-not require another "remember this" after each relevant fix or investigation.
-Without that permission or an explicit capture request, do not write. Search-only
-and no-memory instructions take precedence. Inspect the selected Space's sync
-mode when establishing its capture scope: a connected Space can upload. Once
-the owner has authorized that current mode, do not ask again merely because
-the next source repository is private. An explicit project/Org-only or
-no-upload restriction still takes precedence.
+When standing instructions authorize ongoing capture, do not wait for a separate save request each time. Record findings as they become clear and continue the work.
 
-For proactive capture, select a verified reusable finding, tested procedure or
-explicit durable decision. Check whether it would change a future answer or
-prevent a repeated mistake, and whether a canonical note already covers it.
-Prefer a bounded update or source pointer when the authoritative content lives
-elsewhere. Keep checked source/version/date, applicability and limitations.
-Private project status alone does not prevent a concise, authorized note in
-Personal. An explicit Org-only or no-upload restriction does: a connected
-Personal Space may sync new content. Do not treat every private repository as
-ineligible for capture.
+Distinguish facts, decisions, hypotheses, and unresolved questions. Preserve the user's wording and meaning, and keep certainty within what the evidence establishes.
 
-Do not convert raw transcripts, logs, temporary progress, secrets or untested
-hypotheses into factual memory. An explicit request to retain a hypothesis can
-preserve it clearly labeled; proactive speculation is not verified learning.
-Nothing useful or new means no write, not a forced summary, rating or approval
-question. Briefly disclose material captures without adding routine housekeeping
-noise to every response. Continue the user's task if memory is unavailable.
+## Incorporate findings into existing knowledge
 
-## Capture
+Search for knowledge related to the subject and read promising results.
 
-Before choosing what to store, read the bundled
-[authoring and care criteria](../maintain/references/knowledge-care.md).
-Find the authoritative home: code-local contracts/runbooks stay in their source
-repository; a Space-owned lesson can be native. Choose a useful pointer, an
-attributed synthesis or a justified minimal snapshot when the original lives
-elsewhere. No reuse/discovery value means no extra note. Explicit preservation
-intent is respected; do not reproduce restricted source material merely
-because it is readable.
-Do not create a parallel task log, API manual or repository mirror.
+Create a note for a new subject, or update an existing note when the finding belongs there. Reflect changed facts and decisions while preserving necessary background and history.
 
-### Check identity before creating
+Use `maintain` to reconcile duplication or conflicts across notes, merge or split documents, or otherwise organize the knowledge base. Use `documentify` to systematically investigate sources and build or expand a knowledge base.
 
-`document import` **always creates a new document**; it is not an upsert by
-title, file path or Markdown heading. A `document read` → edit temporary file
-→ `document import` round trip creates a second document and changes the source
-path. Before a new note, query the selected Space for its distinctive subject
-and inspect likely documents, for example:
+Connect related knowledge using actual document or block identifiers and explain the relationship.
 
-```sh
-obsdog search --space <space-id> --query "<subject or source name>" --actor-type agent --actor <agent-id> --format json
-obsdog document list --space <space-id> --format json
-obsdog document read --space <space-id> --id <candidate-document-id> --format json
-```
+## Write for future retrieval and understanding
 
-Search results are candidates, not proof of absence; a bounded reformulation
-or source-path comparison may be needed. If the same canonical answer exists,
-read its current revision. For a small correction, use `obsdog block update`
-with that block's exact base revision and agent attribution. On CLI v0.2.10+,
-`obsdog document update --id <document-id> --base-revision
-<document-revision-id> --file <edited-markdown> --reason <reason> --actor-type
-agent --actor <agent-id> --space <space-id> --format json` replaces the full
-Markdown without creating a second document, provided its block structure is
-unchanged. `document rename` changes the stored title independently of the H1.
-Use a reviewed care plan for structural change; never re-import an existing
-note to "fix" its content or title. Only
-when there is no existing canonical note should the new-note import below run.
-CLI versions with duplicate protection fail on the same source/content and
-report an existing ID; do not bypass that result with `--fork` unless the
-user actually intends a distinct document. Read back the **existing or newly
-updated** document, not only a newly imported one.
+Use a descriptive title and terms people will search for. Include the background, scope, and rationale needed to understand the note without reading the current conversation.
 
-A useful note serves one reader/job with scope, evidence and limitations. Keep
-blocks independently revisable but context-complete: retain prerequisites,
-warnings and code/table context. Do not atomize sentences or split for a token
-quota. Update a canonical answer instead of adding another version as a new
-note; route substantial split/merge or retirement to the maintenance workflow.
+Link source-backed knowledge to its origin and location. For claims about the current state, include the checked version, environment, date, or other details needed to judge applicability.
 
-- Prefer concise canonical Markdown with a descriptive title and source or decision context when available.
-- For externally grounded claims, distinguish the current source link from the
-  exact checked version/section, observation date/method and applicability.
-  Preserve necessary qualifications in the body. Import/edit time is not source
-  freshness; a copied source is not another independent confirmation.
-- On CLI v0.2.0+, create a genuinely new note with `obsdog document import --space <space-id> --file <file> --actor-type agent --actor <agent-id> --format json`. Check installed help first; do not fall back to default human authorship if attribution flags are absent.
-- Treat headings and leaf Markdown regions as stable addressable blocks after import. Do not fabricate block identifiers.
-- Read the imported document back and verify its title, block count, and exact Space.
-- Suggest labels only after discovering definitions. Agents normally use `--state suggested`, a rationale, and calibrated confidence. Protected verification remains subject to human or disclosed verifier review.
-- Put explanations, questions, corrections, and evidence in metadata comments when they should not alter canonical prose.
-- Keep current guidance separate from selected historical rationale. Skip routine
-  progress chatter; never prune revisions or evaluations as "unnecessary history".
-  No new source-role flags, automatic archive filter or retention policy is added.
+Summarize work history around what was done, what was established, conclusions reached, and remaining follow-ups.
 
-## Connect relevant knowledge
+Extract relevant facts and context from raw logs and conversations, and leave out secrets.
 
-When recurring specialist notes lack orientation, apply the optional entity
-overview in [retrieval-oriented authoring](../maintain/references/retrieval-authoring.md).
-Capture a small, sourced introduction and selective question-to-note routes,
-not a new document/category for every entity or a keyword-filled hub.
+## Save and verify
 
-Search the selected Space for an existing note before creating a duplicate. Open
-relevant results and, when they genuinely support the new note, cite their real
-stable document/block IDs with Markdown links, e.g. `[Related decision](<returned-document-id>)`.
-Do not guess IDs from titles. Keep citations proportionate; an isolated note is
-better than a fabricated relationship.
+Save to the selected Space with agent attribution. Preserve document identity when updating existing notes. Do not re-import an existing note as a new document.
 
-For a plausible but unconfirmed connection, inspect `comment list` to avoid
-duplicates and use an attributable `question` comment on the exact current block:
+Read back the saved content and verify the target Space, title, body, and links. Check that the knowledge can be found through search.
 
-```sh
-obsdog comment add --space <space-id> --type block --id <block-id> --relation question --body "Possible connection: [Related note](<document-id>). Explain the specific relationship and uncertainty." --actor-type agent --actor <agent-id> --format json
-```
+Briefly tell the user what knowledge was saved and where.
 
-Read the comment back. The hosted graph separates current open question-comment
-links as opt-in proposals; they do not increase reference strength or node size.
-Use `evidence`/`explanation` only for an actual recorded citation with a concrete
-reason, not to promote a guess. A link is not a correctness or usefulness rating.
+## Honor applicable restrictions
 
-Without an explicit boundary, v0.2.0 can capture into Personal from any directory
-without `init`; its first capture lazily creates the local library. Respect an
-existing project/Org binding and fail visibly if it is broken. Default selection
-does not merge libraries or connect sync. Do not connect sync or import unrelated
-files without authorization. Never place credentials, access tokens, or secret
-values in remembered content. Keep capture usable without login or network.
+Follow any explicit restrictions on Space, sources, storage, or uploads. Honor read-only and no-memory requests.
+
+If saving is unavailable, disclose the relevant limitation and continue the original task.
+
+Read [CLI usage](references/cli.md) when creating or updating documents, selecting a Space, adding links or metadata, or verifying a write.

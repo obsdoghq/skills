@@ -1,4 +1,4 @@
 interface:
   display_name: "Documentify with ObsDog"
-  short_description: "Turn a codebase into reviewable knowledge."
-  default_prompt: "Use $documentify to create auditable Markdown knowledge from this repository for my ObsDog Space."
+  short_description: "Build connected knowledge from source material."
+  default_prompt: "Use $documentify to investigate relevant sources and build or expand connected knowledge in my ObsDog Space."

@@ -1,4 +1,4 @@
 interface:
   display_name: "Find with ObsDog"
-  short_description: "Find, open, and measure useful knowledge."
-  default_prompt: "Use $find to answer from my ObsDog Space and record only sources actually opened and used."
+  short_description: "Retrieve context throughout the work."
+  default_prompt: "Use $find to retrieve relevant knowledge and context throughout this work and record only sources actually opened and used."
