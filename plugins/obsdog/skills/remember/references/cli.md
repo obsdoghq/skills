@@ -27,20 +27,39 @@ obsdog document import --space <space-id> --file <markdown-file> --actor-type ag
 
 If duplicate protection returns an existing ID, inspect and update that note. Do not bypass the result with `--fork` unless a distinct document is intended.
 
-For a small correction, use `block update` with the exact current base revision, a concrete reason, and agent attribution. Check its installed help for the supported flags.
+For a small correction that fits an existing Markdown block, use `block update`
+with its exact current base revision, a concrete reason, and agent attribution.
+Preserve that block's kind/depth; this ordinary revision path does not prepare
+atomic Care. Check installed help for the supported flags.
 
-On CLI v0.2.10+, a full Markdown update can preserve document identity when block structure is unchanged:
+On CLI v0.2.10+, a full Markdown update can preserve document identity when
+block structure is unchanged. Unlike ordinary `block update`, this is atomic
+Care even without a layout change: connected Spaces require verified
+protocol-2 preparation and compatible active writers before local commit.
+`document rename` has the same requirement.
 
 ```sh
 obsdog document update --id <document-id> --base-revision <document-revision-id> --file <edited-markdown> --reason "<reason>" --actor-type agent --actor <agent-id> --space <space-id> --format json
 ```
 
-This operation preserves block count, order, kind, depth, and parent context. Use `document rename` with the current base revision for a stored-title correction. The stored title and H1 are distinct.
+This operation preserves block count, order, kind, depth, and parent context.
+Use `document rename` with the current base revision for a stored-title
+correction. The stored title and H1 are distinct.
 
 On CLI v0.2.14+, use `document append --id <document-id> --base-revision
 <document-revision-id> --file <new-markdown> --reason "<reason>"` with the same
 Space/actor flags for new sections at the end. Existing blocks stay intact;
-connected append requires server v0.1.34+ and compatible active writers.
+connected append requires verified protocol-2 preparation, compatible active
+writers and the exact server's `document_append_v1` capability (v0.1.34+).
+Version numbers or standing capture permission alone do not prepare a Space.
+Local-only Spaces need no server preparation. Once a supported connection is
+deliberately prepared and capture is authorized, no per-edit approval is needed.
+If new blocks cannot be added, preserve a scoped private draft with the exact
+target/base revision and continue the task. Do not silently prepare the library,
+re-import the same note or force a multi-block section into one block update.
+Read the [care execution reference](../../maintain/references/care-execution.md)
+for that compatibility transition, not as a step before every ordinary capture.
+
 For source records after ordinary protocol-1 edits, a compatible receiver must
 retain the edit's document revision. A failed sync is queued delivery, not an
 excuse to discard care or re-import the document.

@@ -27,6 +27,7 @@ Do not include credentials or copy a private source outside its permitted home.
 | --- | --- |
 | `update-block` | One document/block, complete `content`; same authored kind/depth. |
 | `update-document` | One document, complete replacement Markdown with unchanged block structure and/or a stored `title`; exact document head. |
+| `append-document` | One exact document head, a heading-led Markdown suffix of at most 20 new blocks; preserve every existing block identity/revision. Requires the append capability on a connected Space. |
 | `supersede-document` | Two exact document heads, duplicate source first and active canonical target second; no block copy or target revision change. Require concrete duplicate evidence. |
 | `split-block` | One leaf, 2–20 explicit `parts`; each stays context-complete. |
 | `merge-blocks` | 2–20 contiguous sibling leaves; reconciled `content`. |
@@ -39,11 +40,17 @@ relative/reference-style links to exact stable targets first when supported;
 do not strip a link to force an extraction. No cross-Space move or hard deletion.
 
 On CLI v0.2.10+, prefer `obsdog document update`, `document rename` or
-`document supersede` when those exact operations fit. These high-level commands
+`document supersede` when those exact operations fit; v0.2.14+ also offers
+`document append` for a bounded new section. These high-level commands
 construct the Care plan and return its receipt; `document import` never edits an
 existing identity. A replacement that changes block boundaries is deferred
 rather than guessed. An exact-ID read of a superseded document retains its
 redirect and history; ordinary search omits its retired blocks.
+All four document operations require protocol-2 preparation on a connected
+Space, including a title-only rename or same-layout update. Append additionally
+requires that exact server's `document_append_v1` capability (v0.1.34+).
+Server/client versions alone do not satisfy preparation. Local-only operations
+need no server; ordinary content-only `block update` is a separate revision path.
 
 ```sh
 obsdog care check --space SPACE_ID --file plan.json --format json
