@@ -43,6 +43,8 @@ Read back the saved content and verify the target Space, title, body, and links.
 
 Briefly tell the user what knowledge was saved and where.
 
+At delegation, interruption or input-required boundaries, use the [capture checkpoints](references/checkpoints.md). Return the actual capture disposition and evidence; a draft or planned write is not a saved result. Keep ordinary supported capture separate from an unavailable atomic operation.
+
 ## Honor applicable restrictions
 
 Follow any explicit restrictions on Space, sources, storage, or uploads. Honor read-only and no-memory requests.

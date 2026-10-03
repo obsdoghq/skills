@@ -37,6 +37,8 @@ Follow the corresponding skill for capture, updates, and verification.
 
 When source-backed work answers a search miss, the agent doing that work completes the corresponding save or repair and checks the original lookup before finishing. For delegated work, return the original query/run, the saved or maintained document, and read-back/retrieval verification; explain a remaining limitation when the loop cannot be closed.
 
+Use the [capture checkpoints](../remember/references/checkpoints.md) before delegation, pause or handoff. Search success, source progress and capture completion are separate; the parent verifies an actual write/read-back receipt rather than treating a worker's promise as stored knowledge.
+
 ## Record actual use
 
 Distinguish results returned by search, results actually read, and results applied to the work.

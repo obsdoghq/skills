@@ -57,6 +57,27 @@ access or duplicate a search through both transports. The skills remain useful
 with either transport because they carry workflow and evidence rules; MCP
 carries typed tools and enforces scope.
 
+## Capture at delegated and interrupted boundaries
+
+Include this compact checkpoint in the host's existing task handoff when the
+user has authorized capture; it is not a new automatic hook or permission:
+
+> Before delegating or yielding for input, return the capture disposition:
+> what was established, the actual saved target/revision and read-back/retrieval
+> checks, or the exact missing prerequisite. Capture new learning even after a
+> successful search. Do not promise that a parent will save it without returning
+> a real receipt or an explicitly unsaved private draft. No-memory prohibits
+> saving or persisting a draft. The parent verifies evidence before accepting
+> capture as complete; do not duplicate the write to perform that read-back.
+
+Use the packaged [capture checkpoints](../plugins/obsdog/skills/remember/references/checkpoints.md)
+for six concrete paths, including repaired misses, pauses and unavailable atomic
+preparation. The original task may continue with a blocked capture disposition.
+An unrelated unsupported atomic operation does not block ordinary supported
+capture. Installed instruction loading, actual host invocation and actual saved
+knowledge require separate checks; passing static packaging tests proves none
+of those operating outcomes. Do not automatically edit a user's host files.
+
 ## Primary references
 
 - [Codex AGENTS.md discovery and precedence](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
