@@ -81,13 +81,25 @@ class PublicationTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     CHECK.audit(root, paths, True, excludes)
 
-    def test_unknown_binary_and_symlink_are_not_silently_skipped(self):
+    def test_unknown_binary_is_not_silently_skipped(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             (root / "opaque.data").write_bytes(b"\xff")
-            (root / "link.txt").symlink_to(root / "opaque.data")
             problems, _, _ = CHECK.audit(root, [], True, [])
-            self.assertEqual({p[2] for p in problems}, {"unknown-binary-requires-review", "symlink-not-allowed"})
+            self.assertEqual({p[2] for p in problems}, {"unknown-binary-requires-review"})
+
+    def test_symlink_is_not_silently_skipped(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "target.txt").write_text("public fixture", encoding="utf-8")
+            try:
+                (root / "link.txt").symlink_to(root / "target.txt")
+            except OSError as error:
+                if sys.platform == "win32" and error.winerror == 1314:
+                    self.skipTest("Windows account lacks symbolic-link creation privilege")
+                raise
+            problems, _, _ = CHECK.audit(root, [], True, [])
+            self.assertEqual({p[2] for p in problems}, {"symlink-not-allowed"})
 
 
 if __name__ == "__main__":

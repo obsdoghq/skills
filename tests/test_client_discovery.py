@@ -1,13 +1,15 @@
 """Guard the default-disabled boundary without connecting to any real Space."""
 
 import json
+import os
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from validate import verify_client_mcp_boundary
+from validate import verify_client_mcp_boundary, verify_live_mcp_boundary
 
 
 class ClientDiscoveryTests(unittest.TestCase):
@@ -43,6 +45,20 @@ class ClientDiscoveryTests(unittest.TestCase):
         self.configuration["mcpServers"]["extra"] = {"enabled": False}
         with self.assertRaises(AssertionError):
             verify_client_mcp_boundary(self.root, self.codex, {})
+
+    def test_live_stub_does_not_inherit_credentials_or_unrelated_environment(self):
+        mcp = {"command": "obsdog", "args": ["mcp", "--space", "personal"],
+               "env_vars": ["PATH"], "startup_timeout_sec": 10}
+        with patch.dict(os.environ, {"OBSDOG_SYNC_TOKEN": "synthetic-fixture",
+                                    "OBSDOG_CREDENTIALS_BACKEND": "synthetic-fixture",
+                                    "UNRELATED_PARENT_VALUE": "synthetic-fixture"}):
+            verify_live_mcp_boundary(mcp)
+
+    def test_live_stub_rejects_changed_space_arguments(self):
+        mcp = {"command": "obsdog", "args": ["mcp", "--space", "other-fixture"],
+               "env_vars": ["PATH"], "startup_timeout_sec": 10}
+        with self.assertRaises(AssertionError):
+            verify_live_mcp_boundary(mcp)
 
 
 if __name__ == "__main__":

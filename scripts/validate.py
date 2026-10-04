@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -53,8 +54,21 @@ def verify_live_mcp_boundary(mcp: dict) -> None:
         stub.chmod(0o700)
 
         declared_environment = {name: str(binary_dir) for name in mcp["env_vars"]}
+        command = [mcp["command"], *mcp["args"]]
+        allowed_environment = {"PATH", "LC_CTYPE", "__CF_USER_TEXT_ENCODING"}
+        if os.name == "nt":
+            # Windows cannot execute a Unix shebang. Resolve the declared stub
+            # through cmd's PATH while using an absolute Python interpreter.
+            (binary_dir / "obsdog.cmd").write_text(
+                "@echo off\n"
+                + subprocess.list2cmdline([sys.executable, str(stub)]) + " %*\n",
+                encoding="utf-8",
+            )
+            declared_environment["SYSTEMROOT"] = os.environ["SYSTEMROOT"]
+            command = [os.environ["COMSPEC"], "/d", "/c", *command]
+            allowed_environment.update({"SYSTEMROOT", "COMSPEC", "PATHEXT", "PROMPT"})
         completed = subprocess.run(
-            [mcp["command"], *mcp["args"]],
+            command,
             cwd=selected_space,
             env=declared_environment,
             check=False,
@@ -66,9 +80,7 @@ def verify_live_mcp_boundary(mcp: dict) -> None:
         observed = json.loads(capture.read_text(encoding="utf-8"))
         assert observed["argv"] == ["mcp", "--space", "personal"]
         assert Path(observed["cwd"]).resolve() == selected_space.resolve()
-        assert set(observed["env"]).issubset(
-            {"PATH", "LC_CTYPE", "__CF_USER_TEXT_ENCODING"}
-        ), observed
+        assert set(observed["env"]).issubset(allowed_environment), observed
         assert "OBSDOG_SYNC_TOKEN" not in observed["env"]
 
 
