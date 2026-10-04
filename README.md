@@ -227,6 +227,15 @@ fixed `mcp --space personal` arguments independently of its working directory, i
 only the declared `PATH` plus operating-system locale bootstrap variables, and
 receives no sync credential.
 
+On native Windows the harmless validation stub uses a temporary `.cmd` launcher
+and the current Python interpreter because Windows does not execute Unix
+shebangs. Only the declared PATH and required operating-system bootstrap
+variables reach that child. This validates packaging; it does not invoke an
+agent session, enable MCP or connect a knowledge Space.
+The symlink publication fixture reports an explicit skip if the Windows account
+lacks symbolic-link creation privilege; the independent binary-content refusal
+still executes. Linux CI continues to execute the symlink rejection fixture.
+
 Validation checks the entire public checkout, documentation and metadata for accidental internal
 details. This is a limited publication check, not a comprehensive secret audit.
 Deployment and runner administration are not part of the plugin package.
