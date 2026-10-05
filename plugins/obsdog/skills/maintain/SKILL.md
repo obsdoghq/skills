@@ -5,6 +5,16 @@ description: Improve the quality, structure, and discoverability of knowledge in
 
 # Maintain ObsDog
 
+## Use the selected runtime
+
+For a selected, authorized remote ObsDog connection, read
+[remote MCP](../find/references/remote-mcp.md). Apply only care operations
+advertised by its current capabilities and tool schemas. Supported block
+corrections and navigation notes can improve knowledge without the CLI.
+Unavailable rename, append, merge, split, supersede, label or feedback operations
+remain proposals; do not emulate them with copy-delete or a local-library
+fallback. For a selected local library, use the CLI and care references below.
+
 ## Identify what needs maintenance
 
 Start from the user's request or a problem found during the work. Read the relevant notes and surrounding context to identify what makes the knowledge difficult to understand, find, or apply.
@@ -60,4 +70,7 @@ Follow any explicit restrictions on Space, sources, storage, or uploads. Honor r
 - Read [knowledge-care criteria](references/knowledge-care.md) when selecting canonical sources, reconciling history, or deciding how to consolidate or retire knowledge.
 - Read [retrieval-oriented authoring](references/retrieval-authoring.md) when improving search and navigation.
 
-After a runtime or plugin upgrade, use the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance). Compare only the ObsDog section in AGENTS.md or CLAUDE.md with the recommended routing snippet; never overwrite unrelated instructions.
+After a runtime or plugin upgrade, use the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance).
+The optional Codex start hook supplies routing context without editing user
+instruction files. For clients using the optional file-based rule, compare only
+the ObsDog section; never overwrite unrelated instructions.

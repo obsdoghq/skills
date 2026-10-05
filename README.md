@@ -7,7 +7,7 @@ private execution plans do not belong here.
 
 Official skills and plugins for [ObsDog](https://obsdog.ai), the
 local-first knowledge tool for people and AI. The same four workflows support
-Codex and Claude Code. This repository is public; installing a plugin does not
+an authorized remote MCP connection or a selected local CLI library. This repository is public; installing a plugin does not
 grant access to any private Space.
 
 The single `obsdog` plugin intentionally groups four user workflows so
@@ -28,8 +28,14 @@ this user plugin. They remain separate internal evaluation work.
 
 ## Requirements and data boundaries
 
-Use [ObsDog CLI v0.2.4 or newer](https://github.com/obsdoghq/obsdog-releases)
-for the current workflow set, including Living memory and source-aware care.
+Choose the authorized runtime first. Remote search, reads and supported writes
+use the connected MCP tools without installing the ObsDog CLI. Their actual
+catalog, selected Space and read/write policy define what is available; a denied
+remote write is not permission to switch to a local copy. See the
+[remote MCP reference](plugins/obsdog/skills/find/references/remote-mcp.md).
+
+For a local library, use [ObsDog CLI v0.2.4 or newer](https://github.com/obsdoghq/obsdog-releases)
+for the local workflow set, including Living memory and source-aware care.
 The skills inspect installed capabilities before using a command. Keep explicit
 agent authorship on import/update as well as search/open/use. Evaluation identity is
 separate. With no explicit boundary, commands share Personal across directories;
@@ -42,6 +48,20 @@ this plugin does not install the CLI; the explicit Quick Start below can prepare
 both.
 
 ## Install
+
+### Connected remote app
+
+Connect the ObsDog remote MCP app in a supported client, then install a private
+plugin version containing these four skills and that exact registered app
+mapping. ChatGPT and dots use the plugin skills and connected tools; they do not
+need an ObsDog CLI installation. The
+[private bundle guide](docs/PRIVATE_PLUGIN.md) describes packaging and separate
+client checks. This repository does not include a registered app ID or credential.
+
+In local Codex, review the packaged SessionStart command hook before trusting
+it. It adds short workflow guidance without editing AGENTS.md. ChatGPT and dots
+do not run this personal command hook; use the installed skills and an explicit
+task instruction or an approved persistent preference there.
 
 ### Quick Start: CLI + plugin together
 
@@ -79,7 +99,7 @@ obsdog version
 obsdog document list
 ```
 
-The current skills require CLI **v0.2.4+**. `command not found` means the CLI is
+The local workflow requires CLI **v0.2.4+**. `command not found` means the CLI is
 missing or not on your client process's `PATH`; see the guide before proceeding.
 An empty document list is normal for a new Personal Space. No login or project
 initialization is required. Do not install both Homebrew and standalone copies.
@@ -106,8 +126,8 @@ client loads the skill and can run `obsdog version`. An empty result is okay for
 a new Space; a missing skill or executable is not successful setup. CLI smoke
 tests alone do not verify next-session skill invocation.
 
-For ongoing AI-managed knowledge, add the short **optional**
-[global instruction snippet and setup prompt](docs/SETUP.md#optional-proactive-use).
+For ongoing AI-managed knowledge, review the optional Codex start hook or use
+the [global instruction snippet and setup prompt](docs/SETUP.md#optional-proactive-use).
 Manual skill invocation works without changing global instructions.
 For an empty library, the [optional bootstrap guide](docs/SETUP.md#optional-first-library-bootstrap)
 can propose a few source pointers or a task-oriented infrastructure repository
@@ -115,12 +135,13 @@ map before any import; installation itself does not scan repositories.
 
 ## Browse your documents
 
-Plugin v0.3.17 keeps four short workflows and links runtime/update checks from
+Plugin v0.3.18 keeps four short workflows and adds remote MCP routing to
 their installed entrypoints. Find recalls
 throughout work; remember creates and updates individual findings; maintain
 organizes/reconciles the knowledge base; documentify builds connected explanations
-from authorized sources. CLI mechanics live in focused references. Capture is
-independent of search success. There are no new hooks, uploads or automatic jobs,
+from authorized sources. Runtime mechanics live in focused references. Capture is
+independent of search success. The optional Codex start hook injects routing
+context only; it does not collect transcripts, upload knowledge or start jobs,
 and no measured invocation or retrieval-quality gain is claimed.
 
 Use the [update checklist](docs/SETUP.md#updating-cli-and-agent-guidance) to restart
@@ -161,8 +182,11 @@ claude plugin uninstall obsdog@obsdog-skills
 The Codex-only MCP declaration inside `.codex-plugin/plugin.json` is disabled by
 default. Claude Code receives CLI-driven skills with **no automatically loaded
 MCP server**. Both clients can use all four skills through the installed CLI.
-The existing stdio MCP covers scoped discovery/read and retrieval observations,
+The local stdio MCP covers scoped discovery/read and retrieval observations,
 not remember, direct use, feedback or care writes; it is not a full CLI replacement.
+An independently authorized hosted MCP app can also expose document creation
+and block updates. The skills use only the actual tools and policy of the
+selected connection; unsupported structural operations stay proposals.
 Enable or configure an optional MCP connection only after confirming access to
 the exact selected Space. The Codex declaration uses `mcp --space personal`;
 for another authorized Space, explicitly use `obsdog mcp --space <space-id>`.
@@ -202,7 +226,7 @@ Never invent historical trends or present AI judgments as human verification.
 `obsdog dashboard serve` provides Knowledge, Graph, Activity and Sources on this
 device without login or sync. `obsdog insights show` supplies bounded JSON and
 actual UTC event windows. Source checks can record private-clone evidence with
-`care source`; the MCP remains read-only for care mutations. Substring search
+`care source`; the local stdio MCP remains read-only for care mutations. Substring search
 ignores spaces while preserving original text and earlier traces.
 
 Actual open/use/evaluation records can strengthen query associations and co-use
@@ -226,6 +250,12 @@ temporary harmless stub. The integration check proves the process receives the
 fixed `mcp --space personal` arguments independently of its working directory, inherits
 only the declared `PATH` plus operating-system locale bootstrap variables, and
 receives no sync credential.
+
+Validation also executes the SessionStart script with untrusted event input and
+an unrelated working directory, checks that existing files stay unchanged, and
+builds a synthetic private bundle to verify app identity and connection boundaries.
+The optional hook command currently requires `python3` on a POSIX client. Its
+launcher test explicitly skips native Windows; this is not Windows hook acceptance.
 
 On native Windows the harmless validation stub uses a temporary `.cmd` launcher
 and the current Python interpreter because Windows does not execute Unix

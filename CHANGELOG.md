@@ -1,5 +1,23 @@
 # Workflow changes
 
+## 0.3.18 — candidate, 2026-10-05
+
+- The same four skills now route to an already-authorized remote MCP connection
+  or a selected local CLI library. Remote search, reads, creation and supported
+  block updates do not require the ObsDog CLI.
+- Hosted writes preserve actual scope, exact base revisions, request identity,
+  accepted receipt and read-back checks. Unsupported care operations stay
+  proposals; the skills do not switch runtimes to bypass policy.
+- An optional local Codex SessionStart command hook injects short workflow
+  guidance. It reads its packaged context only and does not edit AGENTS.md,
+  collect transcripts, change sync or write knowledge. Client trust review and
+  a POSIX `python3` launcher are required. ChatGPT and dots use skills without
+  this personal command hook.
+- A private bundler reuses one explicitly selected registered app mapping and
+  omits the local MCP declaration. No real app ID or credential ships here.
+- Validation executes the hook and synthetic packaging boundary checks. These
+  tests do not demonstrate actual client invocation or cloud delivery.
+
 ## 0.3.17 — candidate, 2026-09-30
 
 - Skill additions/removals/renames: none. All four workflows remain.

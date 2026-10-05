@@ -1,6 +1,6 @@
 {
   "name": "obsdog",
-  "version": "0.3.17",
+  "version": "0.3.18",
   "description": "Find, remember, maintain, and documentify measurable knowledge in ObsDog Spaces.",
   "author": {
     "name": "ObsDog",
@@ -10,20 +10,32 @@
   "interface": {
     "displayName": "ObsDog",
     "shortDescription": "Work with measurable knowledge in four focused ways.",
-    "longDescription": "Four ObsDog knowledge workflows with task-aware recall, authorized selective capture and bounded care. Plugin installation does not install the CLI. First run obsdog version and install CLI v0.2.4+ from https://github.com/obsdoghq/obsdog-releases if needed. Then verify find in a fresh session. Optional global instructions: https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md . No login, sync or automatic upload is enabled.",
+    "longDescription": "Four knowledge workflows for an already-authorized remote ObsDog connection or a selected local CLI library. Remote search, reads and supported writes do not require the ObsDog CLI. Review the optional Codex start hook before trusting it. Installation does not enable cloud sync or authorize capture. Setup: https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md .",
     "developerName": "ObsDog",
     "category": "Productivity",
-    "capabilities": ["Knowledge discovery", "Durable capture", "Knowledge maintenance", "Repository documentation"],
+    "capabilities": [
+      "Knowledge discovery",
+      "Durable capture",
+      "Knowledge maintenance",
+      "Repository documentation"
+    ],
     "defaultPrompt": "Use ObsDog to search my selected Personal Space and measure only what is actually opened and used."
   },
   "mcpServers": {
     "obsdog": {
       "command": "obsdog",
-      "args": ["mcp", "--space", "personal"],
+      "args": [
+        "mcp",
+        "--space",
+        "personal"
+      ],
       "enabled": false,
-      "env_vars": ["PATH"],
+      "env_vars": [
+        "PATH"
+      ],
       "startup_timeout_sec": 10,
       "tool_timeout_sec": 120
     }
-  }
+  },
+  "hooks": "./hooks/codex.json"
 }

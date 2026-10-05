@@ -1,17 +1,20 @@
 # AI client integration decisions
 
-Checked 2026-09-29 against the current plugin and CLI. This page distinguishes
+Remote packaging and hooks checked 2026-10-05 against official client docs;
+local CLI behavior retains the earlier checked contract. This page distinguishes
 instruction routing from actual tool access; neither a prompt nor a plugin
 installation grants access to an unauthorized Space.
 
 ## Recommended shape
 
-1. Install the CLI and the ObsDog plugin. The four skills describe *when* and
-   *how* to find, remember, maintain and documentify. The CLI is the complete
-   local interface and keeps the selected Space, actor and evaluation records.
-2. For proactive use, add the short, reviewed [routing rule](SETUP.md#optional-proactive-use)
-   to the user's instruction file. It is deliberately optional and does not
-   alter permissions, start hooks, or upload data.
+1. Install the four ObsDog skills with the selected runtime. A private connected
+   app package uses authorized remote MCP tools without the ObsDog CLI. A local
+   library uses the CLI. The skills describe *when* and *how* to find, remember,
+   maintain and documentify while preserving actual capabilities and scope.
+2. For proactive use in local Codex, review and trust the optional SessionStart
+   command hook. It supplies short routing guidance without editing AGENTS.md.
+   File-based clients can instead adopt the reviewed
+   [routing rule](SETUP.md#optional-proactive-use). Neither path authorizes capture.
 3. Use `obsdog dashboard serve` for local state and trends. `obsdog insights
    show` is the machine-readable view. The older `obsdog report create` remains
    an explicit portable HTML export, not a separate everyday skill.
@@ -27,7 +30,8 @@ capture and Space choices. Codex documents discovery of `AGENTS.md` and
 RTK-style `@file` expansion as a Codex import contract. A bare pointer could be
 read as plain text and leave the routing rule inactive. For Codex, keep the short
 actual routing rule in the loaded `AGENTS.md`, with a normal link to this guide
-for details. Never blindly append to a symlinked or overridden instruction
+for details, or use the reviewed start hook without editing that file. Never
+blindly append to a symlinked or overridden instruction
 file. Do not copy the entire skill into every project.
 
 RTK's hook rewrites eligible shell commands before execution; its awareness
@@ -37,7 +41,7 @@ task meaning, source authority, permission and Space scope. A generic
 shallow recall could be a separate, opt-in product with its own privacy and
 quality evaluation; it is not installed by this plugin.
 
-## MCP is supported, but not a replacement for the full workflow
+## Local and hosted MCP expose different capabilities
 
 `obsdog mcp --space personal` serves local stdio MCP. The current server has
 version/Space status, search, result paging/open, document read, trace,
@@ -55,7 +59,45 @@ Space. Keep CLI as the documented complete path; use an already-authorized MCP
 for its supported read/discovery tasks, not as a reason to add broad remote
 access or duplicate a search through both transports. The skills remain useful
 with either transport because they carry workflow and evidence rules; MCP
-carries typed tools and enforces scope.
+carries typed tools and enforces scope. This limitation describes local stdio,
+not every hosted ObsDog connection.
+
+The hosted MCP catalog can include search, frozen result paging/open, exact
+document/block reads, revision paging, document creation, block updates and
+request-receipt lookup. Read the actual catalog and capabilities. Creation and
+updates require the selected Space's write policy, current paired base revisions
+where applicable, stable request identity and exact read-back. Append, direct
+use, feedback and structural care are not implied by write scope. The packaged
+[remote reference](../plugins/obsdog/skills/find/references/remote-mcp.md)
+describes these boundaries; unavailable operations do not trigger CLI fallback.
+
+## One private plugin, four skills, client-specific routing
+
+The private package combines one existing registered app mapping, all four
+skills and an optional Codex hook. The registered app supplies remote tools and
+authentication. The package does not create a second MCP connection. Follow the
+[bundle guide](PRIVATE_PLUGIN.md) and keep private app IDs outside this public
+checkout. A private upload is separate from a public marketplace submission.
+
+| Client | Skills and remote tools | Proactive guidance |
+| --- | --- | --- |
+| Local Codex | Installed plugin and authorized connection | Reviewed SessionStart command hook, or existing instructions |
+| ChatGPT | Installed supported plugin and connected app | Select the plugin for the task; optionally adopt a user-approved preference |
+| dots | Supported installed/enabled account plugin and its connection | Give the task or dot a clear approved instruction; selection is task-dependent |
+
+The hook reads only its packaged context and prints SessionStart
+`additionalContext`. It does not read the event's transcript or working
+directory, run ObsDog, search, capture or modify instruction files. The packaged
+POSIX command requires `python3`. Non-managed command hooks require the client's
+trust review; installing the plugin is not that review. Changed commands can
+require review again.
+
+Personal command hooks do not run in cloud-orchestrated ChatGPT/dots tasks,
+even when a local computer provides executor tools. Plugin skills are considered
+from their descriptions and loaded when selected. Do not claim they run on every
+task merely because installed. dots can use supported connected account plugins;
+local skill files need an available connected computer. This private remote app
+package avoids that local ObsDog CLI dependency.
 
 ## Capture at delegated and interrupted boundaries
 
@@ -85,4 +127,8 @@ of those operating outcomes. Do not automatically edit a user's host files.
 - [Claude Code plugin-provided MCP startup](https://code.claude.com/docs/en/mcp#plugin-provided-mcp-servers)
 - [OpenAI plugin architecture: skills, MCP and hooks](https://developers.openai.com/plugins/concepts/plugins)
 - [OpenAI skills versus MCP tools](https://developers.openai.com/plugins/concepts/skills)
+- [OpenAI plugin packaging and registered app mapping](https://developers.openai.com/plugins/build/plugins)
+- [ChatGPT/Codex hook execution and trust](https://learn.chatgpt.com/docs/hooks)
+- [Plugin skill loading](https://learn.chatgpt.com/docs/skills-and-plugins)
+- [dots computers and connected apps](https://learn.chatgpt.com/docs/dots/computers-and-apps)
 - [RTK supported-agent integration](https://github.com/rtk-ai/rtk/blob/develop/docs/guide/getting-started/supported-agents.md)

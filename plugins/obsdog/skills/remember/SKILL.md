@@ -5,6 +5,14 @@ description: Capture and update knowledge, context, and background in ObsDog so 
 
 # Remember with ObsDog
 
+## Use the selected runtime
+
+For a selected, authorized remote ObsDog connection, use
+[remote MCP](../find/references/remote-mcp.md) to create documents or update
+existing blocks. CLI installation is not required. Use the local CLI reference
+only for a selected local library. A missing hosted write capability is not
+permission to create a different local copy or change sync settings.
+
 ## Capture knowledge established during the work
 
 Record facts, decisions, explanations, and context established during the work so they can be found and used later. Use both user-provided information and findings checked against source material.
@@ -51,6 +59,8 @@ Follow any explicit restrictions on Space, sources, storage, or uploads. Honor r
 
 If saving is unavailable, disclose the relevant limitation and continue the original task.
 
-Read [CLI usage](references/cli.md) when creating or updating documents, selecting a Space, adding links or metadata, or verifying a write.
+Read [CLI usage](references/cli.md) for local authoring, or the remote MCP
+reference above for hosted authoring. Preserve current document and block
+revisions, request identity and selected Space in either path.
 
 After an upgrade or an unexpected missing write command, use the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance). A fresh shell does not update a running MCP connection.

@@ -5,6 +5,15 @@ description: Investigate source material to organize knowledge, context, backgro
 
 # Documentify with ObsDog
 
+## Use the selected runtime
+
+For a selected, authorized remote ObsDog connection, use
+[remote MCP](../find/references/remote-mcp.md) for searches, exact reads and
+supported authoring. Investigate authorized sources with the client's available
+tools; no ObsDog CLI is required. Use the CLI reference for a selected local
+library. Keep investigation results within the approved source, Space and upload
+boundaries, and do not switch runtimes to work around unavailable operations.
+
 ## Define the subject and questions
 
 Use the subject and scope of the current work to determine what needs to be understood and explained. Infer scope from the user's purpose and ongoing work, and resolve choices directly when existing context is sufficient.
@@ -51,6 +60,7 @@ Briefly report the knowledge built or expanded, important connections, and remai
 
 Follow any explicit restrictions on Space, sources, storage, or uploads. Honor read-only and no-memory requests. Keep secrets out of documents and queries.
 
-Read [CLI usage](references/cli.md) when saving or updating documents, connecting links, and verifying results.
+Read [CLI usage](references/cli.md) for local writes and verification, or the
+remote MCP reference above for hosted writes and verification.
 
 For setup or upgrade mismatches, use the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance). Check the effective runtime before interpreting verification results.
