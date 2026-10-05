@@ -84,6 +84,27 @@ def verify_live_mcp_boundary(mcp: dict) -> None:
         assert "OBSDOG_SYNC_TOKEN" not in observed["env"]
 
 
+def verify_hook_boundary(plugin: Path, codex: dict, claude: dict) -> None:
+    """Keep the optional command in Codex and inside the packaged resources."""
+    assert "hooks" not in claude, "Claude has no automatic command hook"
+    assert not (plugin / "hooks" / "hooks.json").exists()
+    selected = codex["hooks"]
+    assert selected.startswith("./") and ".." not in Path(selected).parts
+    hook_path = (plugin / selected[2:]).resolve()
+    assert hook_path.is_relative_to(plugin.resolve())
+    config = load_json(hook_path)
+    assert set(config["hooks"]) == {"SessionStart"}
+    commands = [
+        hook for rule in config["hooks"]["SessionStart"] for hook in rule["hooks"]
+    ]
+    assert len(commands) == 1 and commands[0]["type"] == "command"
+    assert 0 < commands[0]["timeout"] <= 5
+    assert 0 < commands[0]["additionalContextLimit"] <= 4096
+    assert (plugin / "hooks" / "session_start.py").is_file()
+    context = (plugin / "hooks" / "context.md").read_bytes()
+    assert len(context) < commands[0]["additionalContextLimit"]
+
+
 def main() -> None:
     codex = load_json(PLUGIN / ".codex-plugin" / "plugin.json")
     claude = load_json(PLUGIN / ".claude-plugin" / "plugin.json")
@@ -102,6 +123,7 @@ def main() -> None:
     assert "cwd" not in mcp, "The plugin directory must not select a Space"
     assert mcp["env_vars"] == ["PATH"]
     verify_live_mcp_boundary(mcp)
+    verify_hook_boundary(PLUGIN, codex, claude)
 
     skill_directories = {
         path.name for path in (PLUGIN / "skills").iterdir() if path.is_dir()

@@ -5,11 +5,15 @@ Consult the relevant sections for command syntax and retrieval mechanics. Check 
 ## Select the boundary
 
 Use the selected Space locally and offline when possible. An already scoped
-ObsDog MCP server can handle supported discovery/read calls, but it does not
-provide the complete use, feedback and capture workflow. For those operations
+local stdio MCP server can handle supported discovery/read calls, but it does not
+provide the complete use, feedback and capture workflow. For those local operations
 inspect `obsdog --help` and `obsdog space status --space <space-id> --format
 json` and use the CLI. Avoid repeating a search through both transports solely
 to switch interfaces. Never crawl for other private Spaces.
+
+For an authorized hosted connection, use the [remote MCP reference](remote-mcp.md)
+instead. Its actual tools can include creation and block updates. This local
+reference is not permission to switch runtimes when a hosted operation is denied.
 
 CLI v0.2.0 defaults to the same Personal library across directories without
 `init`. Use `--space personal` only when no explicit project/Org boundary applies;

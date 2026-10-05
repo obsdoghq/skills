@@ -1,7 +1,7 @@
 {
   "name": "obsdog",
-  "version": "0.3.17",
-  "description": "Task-aware recall, authorized capture and bounded care in four workflows; requires the separately installed ObsDog CLI v0.2.4+. Verify obsdog version; installation and feedback: https://github.com/obsdoghq/obsdog-releases .",
+  "version": "0.3.18",
+  "description": "Four knowledge workflows for an authorized remote ObsDog MCP connection or a selected local library. Local CLI workflows require the separately installed ObsDog CLI v0.2.4+. Installation grants no Space, capture or upload authority.",
   "author": {
     "name": "ObsDog",
     "url": "https://obsdog.ai"
@@ -9,6 +9,12 @@
   "homepage": "https://obsdog.ai",
   "repository": "https://github.com/obsdoghq/skills",
   "license": "Proprietary",
-  "keywords": ["obsdog", "knowledge", "search", "documentation", "mcp"],
+  "keywords": [
+    "obsdog",
+    "knowledge",
+    "search",
+    "documentation",
+    "mcp"
+  ],
   "skills": "./skills/"
 }

@@ -5,6 +5,14 @@ description: Find and apply knowledge, context, and background relevant to the w
 
 # Find with ObsDog
 
+## Use the selected runtime
+
+When the selected, authorized ObsDog connection exposes remote MCP tools, use
+[remote MCP](references/remote-mcp.md). Search and read through those tools
+without checking for or installing the ObsDog CLI. For a selected local library,
+use the existing CLI reference instead. Preserve the selected Space and storage
+mode; unavailable remote operations do not authorize a switch to local storage.
+
 ## Find knowledge for the work
 
 Use ObsDog throughout the work to find knowledge and context. Do not wait for an explicit user request or certainty that a relevant note exists.
@@ -51,6 +59,9 @@ Do not manufacture searches, opens, uses, or feedback to increase ranking or usa
 
 Work within the selected Space and authorized sources. Honor explicit read-only and no-memory requests, along with storage and upload restrictions. Keep secrets out of queries and records.
 
-Read [CLI usage](references/cli.md) when using CLI commands, selecting a Space, adjusting search syntax, paging through results, or recording activity.
+Read [CLI usage](references/cli.md) for a selected local runtime, or the remote
+MCP reference above for hosted calls. Use only attribution and observation
+operations exposed by that runtime; do not require a CLI to manufacture missing
+remote use or feedback records.
 
 Keep installed-runtime checks in the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance). Consult it after an upgrade or a missing command, not before every search.

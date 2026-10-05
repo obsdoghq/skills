@@ -1,7 +1,8 @@
 # Set up ObsDog for your AI client
 
-The CLI stores and operates on knowledge. The plugin teaches four workflows.
-Install both using the [Quick Start](../README.md#quick-start-cli--plugin-together),
+The plugin teaches four workflows for a selected local CLI library or an
+already-authorized remote MCP connection. Remote tools need no ObsDog CLI.
+For the local path, install both using the [Quick Start](../README.md#quick-start-cli--plugin-together),
 or use the documented separate steps. The user-invoked setup helper composes
 the public Homebrew CLI and agent marketplace; there is no plugin post-install
 download, automatic knowledge upload or automatic global-file edit.
@@ -11,7 +12,22 @@ has no automatically discovered plugin MCP server. This avoids relying on one
 client's enablement flags in another client. Updating the plugin does not enable
 a connection or modify an independently configured MCP server.
 
-## Readiness checklist
+## Remote readiness checklist
+
+1. The client lists the plugin's four skills and its connected ObsDog app.
+2. Inspect the actual remote capabilities and permitted Spaces. Preserve the
+   selected exact Space and policy; read access is not write permission.
+3. In a fresh task, select find and search/open a harmless existing note. This
+   checks actual skill invocation and tool access separately from installation.
+4. If writes are authorized, check a bounded write receipt and read the exact
+   accepted revision back. An unavailable tool remains unavailable; do not
+   install or use the CLI to bypass the connected app's policy.
+
+Use the [private bundle guide](PRIVATE_PLUGIN.md) to combine skills with an
+existing registered app. Package validation, installation, model invocation
+and read/write acceptance are distinct checks.
+
+## Local readiness checklist
 
 1. `obsdog version` prints v0.2.4 or newer **inside the agent's environment**.
    If a desktop client inherited an older PATH, restart the client after fixing
@@ -31,7 +47,19 @@ required. Installation does not ingest a repository or upload a Space.
 
 ## Optional proactive use
 
-If you want the AI to use ObsDog during ordinary work, put this **small routing
+Local Codex can load the short routing context from the packaged SessionStart
+command hook after the client reviews and trusts that command. It reads only
+its own static context file and emits `additionalContext`; it does not edit
+AGENTS.md, collect transcripts or perform searches/writes. The POSIX launcher
+requires `python3`. Review changed hook commands again when the client asks.
+
+ChatGPT and dots use plugin skills when selected for a relevant task; this
+personal command hook does not run in their cloud orchestration. To request
+ongoing proactive use there, adopt a short approved preference or include the
+rule in the task. Installing a plugin alone does not guarantee selection on
+every task or authorize capture. See [client integration](AI_CLIENT_INTEGRATION.md).
+
+If you prefer file-based instructions, put this **small routing
 rule** in your user-level instructions. Leave procedures and command syntax in
 the versioned skills, not in every project prompt. This is not required for
 explicit skill invocation and is not a security boundary enforced by the CLI.
@@ -92,9 +120,9 @@ unbiased product traffic.
 Use `obsdog dashboard serve` for local visibility and `obsdog insights show`
 for machine-readable measures. HTML export remains an explicit CLI option.
 
-This is a workflow throughout active work, not a hook that records every
-tool call or saves every session. The plugin does not install automatic recall,
-transcript collection or background maintenance. See the
+This is a workflow throughout active work. The start hook supplies instructions
+only; it does not record tool calls, save sessions or run background maintenance.
+See the
 [synthetic evaluation cases and measurement limits](EVALUATION.md) for how missed
 recall and unsafe capture should be checked independently of search ranking.
 
