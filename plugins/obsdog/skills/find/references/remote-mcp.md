@@ -66,6 +66,16 @@ from a consistent current read. Preserve the block's type, depth and identity.
 This is a single-block update, not an atomic document rewrite or append.
 Historical reads with unknown document context are not current write bases.
 
+The Markdown must parse as exactly one block. `One paragraph.\nA second line.`
+is one paragraph; `One paragraph.\n\nAnother paragraph.` is two blocks, as is
+`- One\n- Two`. Blank lines separate paragraphs and separate list items count
+as separate blocks. Preserve the original block type and depth and change its
+content. A bounded `invalid_argument` may explain the expected/actual block
+count, type/depth rule or unchanged content. Treat it as a definitive refusal,
+correct the input and use a fresh request key for that new intent. Do not split
+a structural multi-block change into sequential edits unless each edit is
+independently authorized and preserves the required document topology.
+
 Keep the exact request_id and arguments after a lost response. Resolve that
 original request with obsdog_request_get using space_id, request_id and tool
 before a retry; a retry is the same intent and payload, not a new create.
