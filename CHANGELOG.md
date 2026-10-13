@@ -1,5 +1,17 @@
 # Workflow changes
 
+## 0.3.20 — 2026-10-13
+
+- Remote authoring checks the current authoring_motivation capability before
+  attaching motivating_retrieval. A tool schema or retained motivation receipt
+  reader does not grant permission to create new motivation declarations.
+- An authorized ordinary write can omit unavailable optional motivation while
+  preserving supported source references and true citations. A definitive
+  capability refusal requires a corrected intent and a new request key; an
+  unknown outcome still keeps the original key and exact arguments.
+- No hooks, access scopes, sync settings or server features change. Private
+  bundle installation and actual client invocation remain separate checks.
+
 ## 0.3.19 — 2026-10-13
 
 - Find distinguishes local CLI use records from remote response-preparation

@@ -20,8 +20,12 @@ a connection or modify an independently configured MCP server.
 3. In a fresh task, select find and search/open a harmless existing note. This
    checks actual skill invocation and tool access separately from installation.
 4. If writes are authorized, check a bounded write receipt and read the exact
-   accepted revision back. An unavailable tool remains unavailable; do not
-   install or use the CLI to bypass the connected app's policy.
+   accepted revision back. Include optional motivating_retrieval only when
+   authoring_motivation is currently available; authoring_motivation_receipts
+   alone only supports retained read-back. An otherwise authorized ordinary
+   write can omit that unavailable optional field while preserving true source
+   citations. An unavailable tool remains unavailable; do not install or use
+   the CLI to bypass the connected app's policy.
 
 Use the [private bundle guide](PRIVATE_PLUGIN.md) to combine skills with an
 existing registered app. Package validation, installation, model invocation

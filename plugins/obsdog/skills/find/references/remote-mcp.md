@@ -80,9 +80,20 @@ Search for an existing explanation before creating a new document. Read the
 current document and target block before editing; preserve their identity.
 
 obsdog_document_create accepts space_id, request_id, title and markdown.
-Use a new non-sensitive request_id for a new intent. Provide source_refs or
-motivating_retrieval only when their exact IDs and revisions were actually read
-and support this save; never fabricate an authoring motivation.
+Use a new non-sensitive request_id for a new intent. Provide source_refs only
+when their authorized exact IDs and revisions were actually read and support
+this save. Source references do not by themselves declare a motivating retrieval.
+
+Before adding motivating_retrieval to any supported create, update or append,
+check that the current connection reports authoring_motivation as available.
+Its presence in a tool schema is not permission to use it, and availability of
+authoring_motivation_receipts permits retained read-back rather than new
+motivation writes. The target must also be an exact prepared retrieval that
+supports this save; never fabricate an authoring motivation. When this optional
+capability is unavailable, omit motivating_retrieval from an otherwise
+authorized ordinary write. Preserve supported source_refs and true source
+citations in the Markdown. If the task specifically requires the unavailable
+motivation declaration, report that limitation instead of claiming it was saved.
 
 obsdog_block_update requires space_id, request_id, document_id, doc_version,
 block_id, expected_revision_id, markdown and reason. Obtain both write bases
@@ -99,6 +110,12 @@ count, type/depth rule or unchanged content. Treat it as a definitive refusal,
 correct the input and use a fresh request key for that new intent. Do not split
 a structural multi-block change into sequential edits unless each edit is
 independently authorized and preserves the required document topology.
+
+A definitive capability_unavailable refusal is not an unknown commit. Recheck
+the current capabilities and report which field or operation is unavailable.
+If an ordinary write remains authorized without an unavailable optional field,
+plan that corrected payload with a new request_id. Do not silently retry a
+different payload with the original key or enable a feature to force it through.
 
 Keep the exact request_id and arguments after a lost response. Resolve that
 original request with obsdog_request_get using space_id, request_id and tool
