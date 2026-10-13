@@ -27,6 +27,14 @@ Use the [private bundle guide](PRIVATE_PLUGIN.md) to combine skills with an
 existing registered app. Package validation, installation, model invocation
 and read/write acceptance are distinct checks.
 
+The web's **First-page use over time** graph includes eligible synchronized
+client searches, not remote MCP search/open calls. Check **Remote MCP activity**
+for retained hosted submissions and authoring outcomes. A gap or zero rating
+count alone does not diagnose a connection or skill failure. Inspect actual
+capabilities before expecting use/feedback tools, and keep response preparation,
+content read and evidence applied distinct. See the installed find skill's
+[observation limits](../plugins/obsdog/skills/find/references/remote-mcp.md#interpret-dashboard-observations).
+
 ## Local readiness checklist
 
 1. `obsdog version` prints v0.2.4 or newer **inside the agent's environment**.

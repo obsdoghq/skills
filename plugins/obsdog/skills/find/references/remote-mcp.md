@@ -50,6 +50,30 @@ Distinguish returned results, exact content actually read, and evidence used in
 the answer. If use/feedback tools are unavailable, describe genuine use in the
 answer when relevant; do not invent telemetry or require the CLI to record it.
 
+## Interpret dashboard observations
+
+The web's **First-page use over time** graph covers synchronized client search
+records with completed, eligible page evidence. Remote MCP search/open calls
+do not enter that cohort. A gap means no eligible sample on that day; it does
+not establish a broken MCP connection. The last eligible sample date is scoped
+to the selected window and actor, not a last-sync timestamp. A failed insights
+request is an unavailable projection, not an empty sample.
+
+**Remote MCP activity** separately projects retained use declarations, feedback
+submissions and applied/conflicted authoring outcomes when available. These
+counts do not prove model use, successful task completion or current tool
+availability. Zero declarations or ratings cannot distinguish an unused tool
+from an unavailable one; check the connection's actual capabilities and schemas.
+
+Use `server_response_prepared` as the stated boundary for hosted search/read
+receipts. A read-back for mutation verification is diagnostic, not a new product
+use or usefulness rating. Record a genuine use or judgment only if the runtime
+exposes an authorized writer and the evidence satisfies its exact-target and
+rubric requirements. Do not expand consent, enable a feature, create CLI events
+or backfill imagined uses to fill the graph. Investigate an actual tool error
+with its bounded receipt and current connection rather than inferring one from
+the graph's gap.
+
 ## Remember and update
 
 Search for an existing explanation before creating a new document. Read the

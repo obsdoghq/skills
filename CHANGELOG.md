@@ -1,5 +1,17 @@
 # Workflow changes
 
+## 0.3.19 — 2026-10-13
+
+- Find distinguishes local CLI use records from remote response-preparation
+  receipts. Genuine hosted use and feedback require an available, authorized
+  writer and exact evidence; unavailable tools do not justify runtime changes.
+- Remote guidance explains the synchronized-client first-page chart, scoped
+  sample dates and separate retained MCP counts. Gaps and zero submissions do
+  not establish a broken connection or prove current tool availability.
+- No skill names, hook commands, access scopes, sync settings or telemetry
+  writers change. Source packaging and an updated client installation remain
+  separate checks.
+
 ## 0.3.18 — candidate, 2026-10-05
 
 - The same four skills now route to an already-authorized remote MCP connection

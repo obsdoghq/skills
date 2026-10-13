@@ -51,7 +51,17 @@ Use the [capture checkpoints](../remember/references/checkpoints.md) before dele
 
 Distinguish results returned by search, results actually read, and results applied to the work.
 
-Use `open` to read and record selected results, and `use` to record results that supported an answer or decision. Preserve the retrieval run, result rank, and exact revision, and attribute activity to an agent.
+For a selected local CLI library, use `open` to read selected results and `use`
+to record results that supported an answer or decision. Preserve the retrieval
+run, result rank and exact revision, with agent attribution.
+
+For remote MCP, search/open receipts establish `server_response_prepared`;
+they do not prove delivery, model use or a usefulness judgment. Read the exact
+content and apply it to the work. Submit genuine use or feedback only through
+an available, authorized tool with its required exact target. If that tool is
+unavailable, report the limitation without switching runtimes or fabricating a
+record. See [remote observation limits](references/remote-mcp.md#interpret-dashboard-observations)
+when diagnosing missing dashboard activity.
 
 Do not manufacture searches, opens, uses, or feedback to increase ranking or usage counts.
 
