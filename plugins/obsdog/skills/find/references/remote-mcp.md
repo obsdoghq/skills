@@ -50,29 +50,47 @@ Distinguish returned results, exact content actually read, and evidence used in
 the answer. If use/feedback tools are unavailable, describe genuine use in the
 answer when relevant; do not invent telemetry or require the CLI to record it.
 
+## Complete searches and declare real use
+
+Prefer the native `obsdog_search` when it is available for the selected Space:
+its response retains the retrieval run, frozen ranks and exact revisions. The
+compatibility `search(query)` wrapper may expose only result IDs; do not repeat
+a search to manufacture a missing completion record.
+
+When a received native response reports `metadata.completion_available: true`
+and the authorized catalog includes `obsdog_search_complete`, acknowledge that
+response with its exact Space and retrieval run plus a stable new request ID.
+The server supplies page bounds and time. Acknowledgment records received search
+results, including a genuine zero-result search; it does not declare result use.
+Retry only the identical original completion request after an uncertain response.
+
+Open a promising exact result, read the necessary content, and use the evidence
+in the task. Only then call an available authorized `obsdog_use`, preserving its
+exact run, hit, document revision, block and revision. A diagnostic read-back or
+an open that did not support the task is not direct use. Use the current tool's
+versioned rubric for feedback only when there is an actual judgment to report.
+Do not invent a use, rating or completion to increase counts or fill old gaps.
+
 ## Interpret dashboard observations
 
-The web's **First-page use over time** graph covers synchronized client search
-records with completed, eligible page evidence. Remote MCP search/open calls
-do not enter that cohort. A gap means no eligible sample on that day; it does
-not establish a broken MCP connection. The last eligible sample date is scoped
-to the selected window and actor, not a last-sync timestamp. A failed insights
-request is an unavailable projection, not an empty sample.
+Check the returned source coverage. On a qualified workflow server, **First-page
+use over time** combines eligible synchronized-client searches and retained MCP
+searches with client-declared completion and exact open/use evidence. The view
+shows both contributions and the MCP retention window. Prepared-only searches,
+direct reads, feedback and writes do not enter that MCP denominator or numerator.
+Repeated use of a run counts once. A gap means no eligible sample; a run with a
+completed eligible first page but no use declaration is a genuine 0% sample.
 
-**Remote MCP activity** separately projects retained use declarations, feedback
-submissions and applied/conflicted authoring outcomes when available. These
-counts do not prove model use, successful task completion or current tool
-availability. Zero declarations or ratings cannot distinguish an unused tool
-from an unavailable one; check the connection's actual capabilities and schemas.
+An older server may expose only synchronized-client metrics and separate
+**Remote MCP activity**. Do not infer combined coverage from the plugin version.
+The remote activity projection retains use declarations, ratings and authoring
+outcomes separately; those counts do not prove model consumption or task success.
+Unavailable or malformed coverage is unknown, never zero. Historical queries,
+delivery or use are not reconstructed from current content after retention ends.
 
-Use `server_response_prepared` as the stated boundary for hosted search/read
-receipts. A read-back for mutation verification is diagnostic, not a new product
-use or usefulness rating. Record a genuine use or judgment only if the runtime
-exposes an authorized writer and the evidence satisfies its exact-target and
-rubric requirements. Do not expand consent, enable a feature, create CLI events
-or backfill imagined uses to fill the graph. Investigate an actual tool error
-with its bounded receipt and current connection rather than inferring one from
-the graph's gap.
+Search/open receipts state `server_response_prepared`. Explicit completion is
+`client-declared-receipt`, and use is an attributable agent declaration. Current
+capabilities, not an old graph's gap, determine which writers are available.
 
 ## Remember and update
 
@@ -136,12 +154,50 @@ Server attribution comes from the authenticated connection. Do not pass CLI
 actor flags or impersonate another caller. Search and write receipts establish
 their stated server boundary, not a human judgment or cold-replica delivery.
 
+## Extended knowledge workflows
+
+Use these only when present and available in the selected connection's actual
+catalog and scopes. Missing tools remain visible proposals; they never authorize
+a local-library fallback or a second connection.
+
+- `obsdog_inspect` reads bounded documents, history, outbound links, registered
+  labels, suggestions, comments/status history, annotations/anchor history,
+  Care/source checks/runs/lineage, memory, metrics and insights. Respect cursors,
+  truncation and retained-prefix coverage. Current applicability is distinct from
+  the original recorded fact. Stored URLs and paths stay inert.
+- Trace list/show/compare/recovery use retained connection-owned search evidence.
+  Compare exact named runs. Missing rank outside retained first pages is unknown;
+  improved rank is not usefulness. Recovery requires the exact original query,
+  an acknowledged zero-result run and a later acknowledged hit.
+- `obsdog_care` checks, applies, defers or compensates bounded document/block
+  plans at exact revisions. Use supported rename/update/append/supersede,
+  split/merge or extract/merge actions with actual source evidence. Check does
+  not reserve a revision. Compensation adds history and refuses a later author;
+  it is not a reset to an old snapshot. Retain full Care and mutation receipts.
+- `obsdog_block_move` preserves block IDs, content and revision identities while
+  moving one complete subtree in the same document. Pass exact document, root
+  and anchor bases. A missing retired-history proof is unavailable.
+- `obsdog_metadata` adds registered labels, comments/status changes and
+  Unicode-scalar range annotations at exact targets. An agent may suggest a
+  protected label, but cannot apply it as human verification. Preserve expected
+  statuses and original request identity; inspect current applicability/history.
+- `obsdog_care_record` records an attributable source/check declaration or agent
+  review with explicit causal predecessors. Source locators are evidence, not
+  authority to visit or execute them. Never turn an agent review into a human one.
+
+Content-changing writes require the current exact document and block bases,
+actual write policy, read-back and genuine supporting evidence. After a bounded
+conflict, read the current state and reconcile a new intent with a new key.
+After an uncertain response, resolve the original durable request with
+`obsdog_request_get`; do not cycle new keys. A retained receipt remains a commit
+fact even when later revisions differ. Optional motivating-retrieval fields are
+used only on supported tools when that capability is actually available.
+
 ## Capability limits
 
-The tool catalog and capabilities can differ between connections and versions.
-Do not infer append or structural care from block-update support, or feedback
-support from read/write scopes. When an operation is unavailable, keep the
-finding or proposed repair visible and report it. Do not replace a canonical
-document with a duplicate, delete accepted history, or switch to the CLI to
-bypass hosted policy. The local CLI workflow remains available only when the
-user selected and authorized that separate runtime.
+Tools, effective scopes and exact-Space readiness vary by server and connection.
+A workflow package does not enable server flags, qualify a sync consumer or grant
+OAuth consent. Local filesystem import/export, backups, auth, sync, self-update,
+Git probes and evaluation dataset files remain device operations. Full hosted
+Care and canonical MCP evidence require admitted consumers; do not bypass a
+compatibility refusal or replace a canonical document with a duplicate.

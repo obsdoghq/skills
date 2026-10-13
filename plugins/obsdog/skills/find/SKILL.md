@@ -55,13 +55,14 @@ For a selected local CLI library, use `open` to read selected results and `use`
 to record results that supported an answer or decision. Preserve the retrieval
 run, result rank and exact revision, with agent attribution.
 
-For remote MCP, search/open receipts establish `server_response_prepared`;
-they do not prove delivery, model use or a usefulness judgment. Read the exact
-content and apply it to the work. Submit genuine use or feedback only through
-an available, authorized tool with its required exact target. If that tool is
-unavailable, report the limitation without switching runtimes or fabricating a
-record. See [remote observation limits](references/remote-mcp.md#interpret-dashboard-observations)
-when diagnosing missing dashboard activity.
+For remote MCP, acknowledge a received native search when its metadata and
+actual tools support `obsdog_search_complete`. Search/open receipts alone state
+`server_response_prepared`; completion is a client-declared receipt, not use.
+Read the exact content and apply it to the work before declaring direct use.
+Submit genuine use or feedback only through an available authorized tool with
+its required exact target. If unavailable, report the limitation without switching
+runtimes or inventing a record. See the [remote workflow and observation
+reference](references/remote-mcp.md) for completion, use and dashboard coverage.
 
 Do not manufacture searches, opens, uses, or feedback to increase ranking or usage counts.
 
