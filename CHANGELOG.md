@@ -1,5 +1,13 @@
 # Workflow changes
 
+## 0.3.21 — 2026-10-13
+
+Guide supported hosted search receipt acknowledgment, exact explicit-use/feedback,
+structural Care, block movement, metadata and source declarations. Explain
+per-source first-page coverage and retained history without claiming server
+activation, OAuth expansion, human verification or a local CLI requirement.
+
+
 ## 0.3.20 — 2026-10-13
 
 - Remote authoring checks the current authoring_motivation capability before

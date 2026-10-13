@@ -9,8 +9,10 @@ description: Improve the quality, structure, and discoverability of knowledge in
 
 For a selected, authorized remote ObsDog connection, read
 [remote MCP](../find/references/remote-mcp.md). Apply only care operations
-advertised by its current capabilities and tool schemas. Supported block
-corrections and navigation notes can improve knowledge without the CLI.
+advertised by its current capabilities and tool schemas. Use available hosted Care, metadata and inspection tools at exact current
+revisions. A check reserves no head; compensation preserves history and refuses
+a later writer. Protected label review remains a real human action. Supported
+block corrections and navigation notes can improve knowledge without the CLI.
 Unavailable rename, append, merge, split, supersede, label or feedback operations
 remain proposals; do not emulate them with copy-delete or a local-library
 fallback. For a selected local library, use the CLI and care references below.

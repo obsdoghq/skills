@@ -64,7 +64,10 @@ not every hosted ObsDog connection.
 
 The hosted MCP catalog can include search, frozen result paging/open, exact
 document/block reads, revision paging, document creation, block updates and
-request-receipt lookup. Read the actual catalog and capabilities. Creation and
+request-receipt lookup. Qualified workflow deployments can also expose search
+completion, explicit use/feedback, structural Care, block movement, metadata
+and source-check declarations with bounded inspection/history. Read the actual
+catalog, capabilities and exact-Space readiness. Creation and
 updates require the selected Space's write policy, current paired base revisions
 where applicable, stable request identity and exact read-back. Append, direct
 use, feedback and structural care are not implied by write scope. The packaged
