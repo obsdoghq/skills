@@ -95,12 +95,17 @@ ObsDog heading if present; do not replace the file or add repeated copies.
 ```md
 ## ObsDog
 
-<!-- Routing snippet: obsdog-routing/2026-09-30; plugin 0.3.17+. -->
+<!-- Routing snippet: obsdog-routing/2026-10-19; feedback guidance. -->
 
 - Use ObsDog find throughout the work to retrieve and apply relevant knowledge,
   context, and background. Search again as new questions arise; reuse evidence
   already checked for the same question and scope. If memory misses or is
   unavailable, continue from authorized source material.
+- When feedback writes are authorized and inspected evidence supports a judgment,
+  evaluate it yourself with agent attribution and a reason; do not wait for the
+  user to rate each hit. Record only real use. At search conclusion, distinguish
+  no results, no useful inspected result and insufficient evidence to judge.
+  Leave uninspected hits unjudged; never invent use or ratings.
 - Use remember to capture new knowledge and update existing notes with findings
   from the work, regardless of whether retrieval succeeded. Use maintain to
   organize and improve the knowledge base.
@@ -108,11 +113,13 @@ ObsDog heading if present; do not replace the file or add repeated copies.
   knowledge that future work can find and use.
 ```
 
-For **search-only** use, replace the remember/maintain and documentify bullets with:
+For **search-only** use, remove the feedback bullet and replace the
+remember/maintain and documentify bullets with:
 “Search and read only. Ask before remembering or changing knowledge.”
 
-Adopting the write workflows authorizes ongoing capture and supported
-maintenance in your selected, already-reviewed storage mode. Follow explicit
+Adopting the write workflows authorizes ongoing capture, supported maintenance
+and attributed evaluation of observed outcomes in your selected, already-reviewed
+storage mode. This does not grant a missing runtime write scope. Follow explicit
 Space/source/upload restrictions and read-only/no-memory requests. With no
 explicit boundary, use Personal; a broken explicit selection does not fall back.
 No per-note permission question is needed within that standing scope.

@@ -127,6 +127,30 @@ feedback. Evaluator flags do not replace retrieval actor flags; preserve the
 exact target revision and Space. Read-only requests and missing evidence mean
 no feedback write; an AI assessment does not prove that a human found it useful.
 
+All four local kinds require `search open` for that exact run and global rank.
+The allowed values and additional evidence requirements are:
+
+| Kind | Allowed values | Additional requirement |
+| --- | --- | --- |
+| relevance | relevant, partially_relevant, irrelevant, noise | Judge the query-hit relationship; downstream use is not required. |
+| usefulness | useful, partially_useful, not_useful | Record genuine `search use` first, then judge the observed task outcome. |
+| correctness | correct, partially_correct, incorrect, unverifiable | Assess the opened claims against evidence; downstream use is not required. |
+| freshness | current, review_due, stale, time_independent | Apply the relevant time/review policy; downstream use is not required. |
+
+For a used result, the order is `search` → `search open --run RUN --rank N` →
+`search use --run RUN --rank N` → `feedback add --run RUN --rank N --kind
+usefulness`. Preserve Space and actor flags throughout; evaluator attribution
+is supplied separately. An opened but rejected result can instead receive
+`feedback add --kind relevance --value irrelevant` or `noise` without `use`.
+Never record fictitious use to unlock `not_useful`.
+
+Evaluate only kinds for which work supplies evidence. An unrelated result is
+not automatically incorrect or stale. At search conclusion, report zero results,
+no useful result within the inspected scope, useful evidence, or insufficient
+evidence to judge. This report is not a run-level `feedback add` record; that
+command targets an actual hit. Positive-only samples may reflect selection
+bias, but do not manufacture negative ratings to change a percentage.
+
 CLI v0.2.3 defaults the evaluator ID to `local-<evaluator-type>`, matching the
 default search caller. Keep an explicit task-specific ID on both sides when
 one was used; a distinct evaluator is retained but does not impersonate the
