@@ -1,5 +1,21 @@
 # Workflow changes
 
+## 0.3.22 — 2026-10-19
+
+- Routing, packaged session context and find now direct authorized agent
+  evaluation of observed outcomes with attribution and a reason. Distinguish
+  no results, no useful inspected results and insufficient evidence without
+  inventing a persisted run rating or requiring users to score every hit.
+- The CLI reference lists all four rubric kinds, values and open/use/evidence
+  preconditions. Rejected hits use relevance without fictional downstream use;
+  hosted guidance follows only the current tool's supported kinds and values.
+- Positive and negative observed outcomes remain honest; uninspected hits stay
+  unjudged. There is no rating quota, new hook command, permission expansion,
+  schema/ranking change or installed-client/publication claim.
+- Keep feedback authorization separate from knowledge-write authorization,
+  make the exact-hit examples complete, and distinguish enforced open/use
+  state from the caller's claim evidence, policy and outcome assessments.
+
 ## 0.3.21 — 2026-10-13
 
 Guide supported hosted search receipt acknowledgment, exact explicit-use/feedback,

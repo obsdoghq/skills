@@ -47,13 +47,28 @@ When source-backed work answers a search miss, the agent doing that work complet
 
 Use the [capture checkpoints](../remember/references/checkpoints.md) before delegation, pause or handoff. Search success, source progress and capture completion are separate; the parent verifies an actual write/read-back receipt rather than treating a worker's promise as stored knowledge.
 
-## Record actual use
+## Record actual use and observed evaluations
 
 Distinguish results returned by search, results actually read, and results applied to the work.
 
 For a selected local CLI library, use `open` to read selected results and `use`
 to record results that supported an answer or decision. Preserve the retrieval
 run, result rank and exact revision, with agent attribution.
+
+When feedback writes are authorized and actual work supplies evidence, evaluate
+the inspected result yourself with agent attribution and a reason. Do not wait
+for the user to rate each hit. Read the selected runtime's feedback reference
+before writing: use relevance for an opened result rejected for this query;
+usefulness requires real recorded use. Correctness and freshness require their
+own evidence and are not mandatory ratings after each search.
+
+At a meaningful search conclusion, state whether no results were returned,
+none of the inspected results helped, evidence supported the task, or evidence
+was insufficient to judge. Name the inspected scope; do not claim that the
+library has no answer. Continue the task when nothing helps. This statement is
+not a persisted run evaluation. Noise on one hit can coexist with useful hits.
+Leave unopened hits unjudged. Record positive and negative observed outcomes
+honestly; do not target a rating distribution or invent use to permit feedback.
 
 For remote MCP, acknowledge a received native search when its metadata and
 actual tools support `obsdog_search_complete`. Search/open receipts alone state

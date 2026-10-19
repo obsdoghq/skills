@@ -71,6 +71,16 @@ an open that did not support the task is not direct use. Use the current tool's
 versioned rubric for feedback only when there is an actual judgment to report.
 Do not invent a use, rating or completion to increase counts or fill old gaps.
 
+When feedback writes are authorized and inspected evidence supports a judgment,
+submit it yourself with truthful agent attribution and a reason. Do not wait for
+the user to rate each hit. Use only the kinds and values exposed by the current
+tool: local CLI correctness/freshness kinds are not automatically hosted options.
+Use relevance for an opened result rejected for the query; usefulness requires
+genuine direct use and its observed task outcome. Never invent use to rate a
+rejected hit. A completion acknowledgment, including one for zero results, is
+not an evaluation. Report no useful inspected result or insufficient evidence
+in the task conclusion without inventing a run-level feedback operation.
+
 ## Interpret dashboard observations
 
 Check the returned source coverage. On a qualified workflow server, **First-page
