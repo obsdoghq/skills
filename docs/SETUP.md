@@ -117,9 +117,10 @@ For **search-only** use, remove the feedback bullet and replace the
 remember/maintain and documentify bullets with:
 “Search and read only. Ask before remembering or changing knowledge.”
 
-Adopting the write workflows authorizes ongoing capture, supported maintenance
-and attributed evaluation of observed outcomes in your selected, already-reviewed
-storage mode. This does not grant a missing runtime write scope. Follow explicit
+Adopting the write workflows authorizes ongoing capture and supported
+maintenance in your selected, already-reviewed storage mode. Feedback remains
+conditional on separately authorized feedback operations and their runtime
+scopes; general knowledge-write permission does not grant it. Follow explicit
 Space/source/upload restrictions and read-only/no-memory requests. With no
 explicit boundary, use Personal; a broken explicit selection does not fall back.
 No per-note permission question is needed within that standing scope.

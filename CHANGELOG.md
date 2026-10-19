@@ -1,6 +1,6 @@
 # Workflow changes
 
-## Unreleased — 2026-10-19
+## 0.3.22 — 2026-10-19
 
 - Routing, packaged session context and find now direct authorized agent
   evaluation of observed outcomes with attribution and a reason. Distinguish
@@ -12,6 +12,9 @@
 - Positive and negative observed outcomes remain honest; uninspected hits stay
   unjudged. There is no rating quota, new hook command, permission expansion,
   schema/ranking change or installed-client/publication claim.
+- Keep feedback authorization separate from knowledge-write authorization,
+  make the exact-hit examples complete, and distinguish enforced open/use
+  state from the caller's claim evidence, policy and outcome assessments.
 
 ## 0.3.21 — 2026-10-13
 

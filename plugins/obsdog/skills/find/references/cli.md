@@ -128,9 +128,9 @@ exact target revision and Space. Read-only requests and missing evidence mean
 no feedback write; an AI assessment does not prove that a human found it useful.
 
 All four local kinds require `search open` for that exact run and global rank.
-The allowed values and additional evidence requirements are:
+The allowed values and caller responsibilities are:
 
-| Kind | Allowed values | Additional requirement |
+| Kind | Allowed values | Recorded state and caller responsibility |
 | --- | --- | --- |
 | relevance | relevant, partially_relevant, irrelevant, noise | Judge the query-hit relationship; downstream use is not required. |
 | usefulness | useful, partially_useful, not_useful | Record genuine `search use` first, then judge the observed task outcome. |
@@ -138,11 +138,19 @@ The allowed values and additional evidence requirements are:
 | freshness | current, review_due, stale, time_independent | Apply the relevant time/review policy; downstream use is not required. |
 
 For a used result, the order is `search` → `search open --run RUN --rank N` →
-`search use --run RUN --rank N` → `feedback add --run RUN --rank N --kind
-usefulness`. Preserve Space and actor flags throughout; evaluator attribution
+`search use --run RUN --rank N` →
+`feedback add --run RUN --rank N --kind usefulness --value useful`.
+Choose `partially_useful` or `not_useful` instead when that is the observed
+outcome. Preserve Space and actor flags throughout; evaluator attribution
 is supplied separately. An opened but rejected result can instead receive
-`feedback add --kind relevance --value irrelevant` or `noise` without `use`.
+`feedback add --run RUN --rank N --kind relevance --value irrelevant`, or the
+same exact target with `--value noise`, without `use`.
 Never record fictitious use to unlock `not_useful`.
+
+The CLI enforces the recorded open/use preconditions. Claim evidence,
+time/review policy and task-outcome judgments are caller responsibilities;
+the command does not independently verify them or require its optional reason
+field for every evaluator. The agent workflow still supplies an honest reason.
 
 Evaluate only kinds for which work supplies evidence. An unrelated result is
 not automatically incorrect or stale. At search conclusion, report zero results,
