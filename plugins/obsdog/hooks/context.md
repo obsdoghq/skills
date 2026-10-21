@@ -5,10 +5,18 @@ knowledge, context and background. Search again as new questions arise; reuse
 evidence already checked for the same question and scope. If retrieval misses or
 is unavailable, continue from authorized source material.
 
-Use remember to capture findings and update existing notes when the user has
-requested memory or standing instructions authorize ongoing capture. Reuse that
-permission within its selected storage mode and scope. Use maintain for bounded
-care and documentify for source investigation and connected explanations.
+Resolve capture permission from the user's request or existing standing
+instructions; reuse it within the selected storage mode and scope. When allowed,
+use remember as reusable facts, decisions, fixes or changed procedures become
+established, including after a successful search. Update the matching note before
+creating another. Do not wait for the user to say "remember" again.
+
+Before completing a substantive task, pausing or handing it off, check whether
+new knowledge needs capture. Finish authorized writes and read them back, or
+identify the actual missing prerequisite. No new learning is a valid no-write;
+do not create notes to meet a quota. Report material saved knowledge or a blocker
+briefly in the task response. Use maintain for bounded care and documentify for
+source investigation and connected explanations.
 
 Use the selected, authorized remote MCP tools without requiring the ObsDog CLI,
 or the CLI for a selected local library. Load the corresponding installed skill

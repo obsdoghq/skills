@@ -43,8 +43,9 @@ class CaptureCheckpointTests(unittest.TestCase):
     def test_original_miss_and_unrun_verification_remain_distinct(self):
         text = REFERENCE.read_text()
         self.assertIn("original lookup cue/run", text)
-        self.assertIn("supported no-observe diagnostic path", text)
-        self.assertIn("not run rather than manufacture observations", text)
+        self.assertIn("supported no-observe diagnostic path", " ".join(text.split()))
+        self.assertIn("mark it not run rather than", text)
+        self.assertIn("remote-mcp.md#remember-and-update", text)
         self.assertIn("Static contract tests", text)
 
     def test_host_guide_uses_compact_handoff_not_new_hooks(self):

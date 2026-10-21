@@ -614,8 +614,15 @@
       "context": "Earlier memory covered the renderer only. The task now has a new component question and authorized source access.",
       "expected": {
         "decision": "recall",
-        "required_actions": ["search_specific_terms", "verify_source", "continue_task"],
-        "forbidden_actions": ["reuse_unrelated_evidence", "enroll_sync"],
+        "required_actions": [
+          "search_specific_terms",
+          "verify_source",
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "reuse_unrelated_evidence",
+          "enroll_sync"
+        ],
         "rationale": "Recall is available throughout work when a new question arises, not only at task initialization."
       }
     },
@@ -626,8 +633,16 @@
       "context": "A successful lookup found the matching note. Current tests establish a new applicability detail. Standing capture permission covers ordinary updates in the same Space.",
       "expected": {
         "decision": "update",
-        "required_actions": ["check_duplicates", "verify_source", "update_note", "readback"],
-        "forbidden_actions": ["duplicate_note", "invent_rating"],
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "update_note",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "duplicate_note",
+          "invent_rating"
+        ],
         "rationale": "Remember incorporates the individual finding into the existing identity even when the initial retrieval succeeded."
       }
     },
@@ -646,6 +661,82 @@
           "invent_rating"
         ],
         "rationale": "A task can finish successfully without a capture."
+      }
+    },
+    {
+      "id": "pause-with-established-finding",
+      "phase": "completion",
+      "prompt": "Pause while I decide the product direction.",
+      "context": "Standing capture permission covers the selected hosted Space. A separate retry deadline fix has been source-checked and tested, while the product decision remains unresolved.",
+      "expected": {
+        "decision": "create",
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "write_note",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "promote_hypothesis",
+          "defer_capture_to_parent"
+        ],
+        "rationale": "Capture the established reusable finding before yielding without presenting unresolved choices as facts."
+      }
+    },
+    {
+      "id": "hosted-write-without-capture-intent",
+      "phase": "completion",
+      "prompt": "Finish the verified fix.",
+      "context": "Hosted direct policy and app allow-actions setting permit writes technically, but there is no user request or standing instruction for capture.",
+      "expected": {
+        "decision": "skip",
+        "required_actions": [
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "write_note",
+          "update_note"
+        ],
+        "rationale": "Available capabilities and approval settings do not establish ongoing capture intent."
+      }
+    },
+    {
+      "id": "hosted-append-local-stale-limit",
+      "phase": "completion",
+      "prompt": "Finish the verified migration and update its existing note.",
+      "context": "Standing capture permission applies to the selected hosted Space. Current hosted capabilities support append; an unrelated older local CLI guide says local atomic preparation is unavailable.",
+      "expected": {
+        "decision": "update",
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "update_note",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "install_cli",
+          "change_space"
+        ],
+        "rationale": "Use the selected hosted capability without importing an unrelated local limitation."
+      }
+    },
+    {
+      "id": "committed-readback-unavailable",
+      "phase": "completion",
+      "prompt": "Finish saving the tested lesson.",
+      "context": "The authorized write returned an applied receipt and exact revision, but exact read-back is temporarily unavailable.",
+      "expected": {
+        "decision": "defer",
+        "required_actions": [
+          "retain_receipt",
+          "report_verification_pending",
+          "continue_task"
+        ],
+        "forbidden_actions": [
+          "duplicate_note",
+          "claim_readback_verified"
+        ],
+        "rationale": "A committed write is saved but not verified; do not create a replacement or fabricate verification."
       }
     }
   ]

@@ -98,6 +98,12 @@ outcomes separately; those counts do not prove model consumption or task success
 Unavailable or malformed coverage is unknown, never zero. Historical queries,
 delivery or use are not reconstructed from current content after retention ends.
 
+For capture activity, inspect the hosted authoring outcome series and its
+coverage. A legacy or qualified-search `updates` field is not necessarily the
+count of hosted writes. Applied authoring operations are not distinct notes,
+verified read-backs or the number of eligible tasks captured; do not infer
+capture quality from a read/write ratio.
+
 Search/open receipts state `server_response_prepared`. Explicit completion is
 `client-declared-receipt`, and use is an attributable agent declaration. Current
 capabilities, not an old graph's gap, determine which writers are available.
@@ -159,6 +165,10 @@ After repairing a search miss, check that the original lookup finds the intended
 answer. Use a non-observing probe only if actually available. If the hosted
 runtime lacks one, state that a bounded diagnostic search is observed instead
 of passing unsupported no-observe flags or pretending it is unbiased traffic.
+Follow the normal supported completion acknowledgment rules for that response,
+but declare no task use for the diagnostic check. Without a runtime-supported
+exclusion, it may enter an eligible search denominator; a prose diagnostic label
+does not remove its measurement effect.
 
 Server attribution comes from the authenticated connection. Do not pass CLI
 actor flags or impersonate another caller. Search and write receipts establish

@@ -1,5 +1,17 @@
 # Workflow changes
 
+## 0.3.23 — 2026-10-21
+
+- Make capture triggers and completion/read-back decisions visible in routing
+  and the remember entrypoint, including successful-retrieval/new-learning work.
+- Unify hosted diagnostic verification with the runtime reference; preserve
+  no-memory, source/upload boundaries, exact revisions and honest observations.
+- Balance the default plugin prompt between recall and authorized capture.
+- Add optional owner-reviewed capture preferences to private connected bundles,
+  without changing public defaults or creating another connection.
+- Document the research rationale, plugin-only setup and separate behavioral,
+  publication, installation and invocation checks.
+
 ## 0.3.22 — 2026-10-19
 
 - Routing, packaged session context and find now direct authorized agent

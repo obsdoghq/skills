@@ -1,9 +1,17 @@
-# Capture checkpoints and delegation
+# Capture checkpoints at completion and handoff
 
 These are workflow examples, not new tool endpoints, automatic hooks or evidence
 that a host has invoked a skill. Use the selected Space and the user's existing
 capture authorization. A completed search and a completed capture are different
 outcomes. Keep this checkpoint in the existing task handoff, not a second ledger.
+
+## Before task completion
+
+Check the findings established during this task, even when retrieval succeeded.
+For an authorized reusable addition, update its existing home or create a note,
+then verify the accepted revision. If there is no new knowledge, no capture is
+needed. If a write or verification is blocked, report the actual limitation.
+Use the dispositions below without imposing a fixed final-answer template.
 
 ## Before delegation
 
@@ -30,6 +38,8 @@ public issue, repository or log.
   Space/document/block/revision from the real receipt when a write occurred.
 - **Checks:** what was actually read back and retrieved, with unknown/not-run
   checks explicit. Existing `open`/`use` observations are not authoring receipts.
+  Keep commit, read-back and discovery outcomes separate: a successful read-back
+  does not mean a required lookup repair succeeded.
 - **Resume:** exact missing permission, capability, base revision or source fact;
   no unconditional retry or fabricated deadline.
 
@@ -42,18 +52,23 @@ verification. Do not repeat a write merely because the parent needs to read it.
 ### Successful hit with new learning
 
 Reuse the checked evidence, then capture genuinely new source-backed findings
-through the ordinary authorized path. Read back the exact target and check its
-retrievability. Search success does not suppress capture; no new finding means
+through the ordinary authorized path. Read back the exact target. Check retrieval
+for a new note or discovery repair; an ordinary content correction does not
+require another search. Search success does not suppress capture; no new finding means
 no-new-knowledge, not an invented update for a metric.
 
 ### Repaired search miss
 
 Preserve the original lookup cue/run when available. Investigate authorized
 sources, save or repair the matching canonical note, then test that original
-cue without recording a diagnostic retry as independent successful use. Use the
-supported no-observe diagnostic path when available; otherwise mark this check
-not run rather than manufacture observations. A different convenient query is
-not proof that the original miss was repaired.
+cue without recording a diagnostic retry as independent successful use. Follow
+the selected runtime's verification policy: use its supported no-observe
+diagnostic path when available. For hosted MCP without that path, the
+[remote reference](../../find/references/remote-mcp.md#remember-and-update)
+allows one bounded, explicitly diagnostic search; its observation is not task
+use. If the check is unavailable or prohibited, mark it not run rather than
+manufacture observations. A different convenient query is not proof that the
+original miss was repaired.
 
 ### Pause or input required
 
@@ -61,6 +76,8 @@ Before yielding, capture already-established reusable knowledge within existing
 authorization; distinguish it from unresolved decisions. Return a partial or
 blocked disposition and the exact missing input. Do not turn a source-checked
 partial result into a claim that the whole task succeeded.
+An instruction to stop all actions or stop saving overrides this ordinary
+decision-pause checkpoint; do not continue writes after that instruction.
 
 ### Delegated result
 
@@ -88,7 +105,8 @@ broader upload. Never describe that draft as a committed receipt.
 
 ## Boundaries
 
-Use the existing [remember workflow](../SKILL.md) and [CLI reference](cli.md).
+Use the existing [remember workflow](../SKILL.md) and the selected runtime's
+[remote](../../find/references/remote-mcp.md) or [CLI reference](cli.md).
 Do not add automatic network collection, host instruction edits, hooks, new
 schemas or permissions as part of capture. Static contract tests can detect a
 missing example or link, but actual host invocation and successful knowledge
