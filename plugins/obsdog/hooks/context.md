@@ -29,7 +29,3 @@ how things work and why. Keep reading and writing as understanding develops.
 Save accumulated context at phase changes, verification, completion and handoff.
 Read back the saved revision. For a new note or search repair, check that the
 task's lookup finds it. Return saved locations and any unfinished write or check.
-
-Follow the selected runtime reference for tool arguments, revision handling and
-read-back. Respect the user's source/upload scope and explicit read-only or
-no-memory requests. Keep secrets out of saved content.
