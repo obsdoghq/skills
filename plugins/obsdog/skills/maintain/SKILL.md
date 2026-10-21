@@ -1,67 +1,48 @@
 ---
 name: maintain
-description: Read and update existing ObsDog knowledge during work. Incorporate findings, correct explanations, reconcile related notes, refresh source context and improve links so ongoing work continually improves the knowledge base. Apply requested maintenance and continue with updates identified while reading.
+description: Update existing ObsDog knowledge while reading and working. Incorporate findings, correct explanations, reconcile related notes and improve links as the task develops.
 ---
 
 # Maintain ObsDog
 
-Make memory truly useful by improving the notes being read and used.
-[Observe → Diagnose → Improve → Observe](https://github.com/obsdoghq/obsdog/blob/main/docs/MISSION.md)
-means reading the existing explanation, understanding the issue, updating it and
-checking the saved result.
+Improve the explanations the task reads and uses. Incorporate the findings as
+they arise so the next lookup reaches the current understanding.
 
-## Read the notes and sources
+## Read and update
 
-Start with the task's question, the retrieved note or the source that changed.
-Read surrounding context, linked explanations and the relevant source sections.
-Compare versions, environments, decisions and procedures to understand where
-findings belong.
+Read the relevant note, its surrounding context, linked notes and source sections.
+Compare the explanation with the behavior, version or environment being checked.
+Add findings, prerequisites, procedure changes and the reasons for decisions.
 
-For a search miss, find the answer through related terms and sources. Add the
-original task vocabulary and navigation to the appropriate explanation.
+When sources differ, record each observation with its scope and the question
+still being investigated. Update the explanation as further checks resolve it.
+Use `remember` to capture the investigation state and next checks along the way.
 
-## Update as understanding develops
+## Connect and organize
 
-Within existing maintenance permission, incorporate new findings and source
-context into the existing notes. Correct factual errors from checked evidence,
-add missing prerequisites, refresh procedures and explain changed applicability.
+Read both ends of a relationship and link the notes with the question the link
+answers. Connect overviews to procedures, source locations and detailed explanations.
+Add the task's vocabulary when repairing a lookup that missed the answer.
 
-When sources disagree or a conclusion is still being investigated, write the
-competing observations, their scope and the next check into the note. Update that
-section as the investigation progresses. Preserve established content alongside
-its qualification until the evidence resolves the difference.
-
-Combine overlapping explanations around their subject, split independently
-changing subjects when needed, and keep the background and decision history that
-connects them. Link superseded guidance to the current explanation.
-
-Read both ends of a relationship and link them with the question the link answers.
-Add source pointers and navigation between overviews, procedures and detailed
-explanations. Use supported labels and comments for context and follow-up checks.
+Combine overlapping explanations around their subject. Split subjects that need
+independent explanations. Keep decision history and connect superseded guidance
+to its current replacement. Use the runtime's supported structural operations.
 
 ## Apply and verify
 
-Read the current document and block revisions, apply the supported update with
-agent attribution and a reason, then read back the accepted revision. Check the
-content, source applicability, structure and links. After a discovery repair,
-check that the original lookup reaches the answer using the runtime's diagnostic
-policy. Report the saved location and what the checks established.
+Read the current revision, apply the update, then read back the accepted revision.
+Check the explanation, structure and links. After a search repair, check the
+original lookup. Return the saved locations and any unfinished verification.
 
-When the updated knowledge is used in subsequent work, record its actual use and
-supported feedback through the selected runtime. Capture further findings in the
-same explanation with `remember`.
+## Tools and destination
 
-## Runtime and structural operations
+Use [remote MCP](../find/references/remote-mcp.md) for the connected account and
+the Space selected for the task. Resolve that destination from the current tools
+when needed. For an explicitly selected local library, use
+[CLI usage](references/cli.md). Follow source/upload scope and explicit read-only
+or no-memory requests.
 
-For the selected hosted connection, use
-[remote MCP](../find/references/remote-mcp.md) and the currently exposed Care,
-metadata, inspection and write tools. For a local library, use
-[CLI usage](references/cli.md). Preserve the user's selected Space, source/upload
-scope and explicit read-only/no-memory instructions.
-
-For merge, split, move, supersede or recovery operations, read
-[care execution](references/care-execution.md) for current capabilities and exact
-revision handling. On conflict, read the current state and reconcile the update.
-For source ownership and history details, consult
-[knowledge-care criteria](references/knowledge-care.md). For search entry points
-and navigation, consult [retrieval authoring](references/retrieval-authoring.md).
+For merge, split, move and supersede operations, read
+[care execution](references/care-execution.md). For source ownership and history,
+read [knowledge care](references/knowledge-care.md). For lookup vocabulary and
+navigation, read [retrieval authoring](references/retrieval-authoring.md).

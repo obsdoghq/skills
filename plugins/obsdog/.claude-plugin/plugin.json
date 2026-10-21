@@ -1,7 +1,7 @@
 {
   "name": "obsdog",
-  "version": "0.3.24",
-  "description": "Read and write ObsDog knowledge throughout work with four workflows: find context, capture findings and work state, update notes, and build source-backed explanations. Use the selected remote connection or local library; local workflows require the separate CLI v0.2.4+.",
+  "version": "0.3.25",
+  "description": "Read and write ObsDog knowledge throughout work: find context, remember findings, maintain notes and document source investigations. Use the connected account and selected Space, or an explicitly selected local library.",
   "author": {
     "name": "ObsDog",
     "url": "https://obsdog.ai"

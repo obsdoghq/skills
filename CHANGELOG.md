@@ -1,5 +1,18 @@
 # Workflow changes
 
+## 0.3.25 — 2026-10-22
+
+- Rewrite the hook and four workflow entrypoints around reading, investigating,
+  writing, updating and verifying throughout the task.
+- Resolve the current account and available Spaces through connected tools.
+  Reuse the selected Space, use a sole destination automatically, and resolve
+  multiple-destination ambiguity before writing.
+- Remove generated owner capture policies and the capture-policy bundler option.
+  Updated bundles carry shared instructions without personal Space IDs or
+  packaged owner consent; the registered app mapping remains unchanged.
+- Check legacy-policy removal and identical workflow content across distinct
+  registered app fixtures, alongside packaging and publication boundaries.
+
 ## 0.3.24 — 2026-10-22
 
 - Align the workflows with Knowledge, made observable. Make memory truly useful.

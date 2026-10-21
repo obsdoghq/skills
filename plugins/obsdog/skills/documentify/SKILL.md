@@ -1,55 +1,52 @@
 ---
 name: documentify
-description: Investigate sources and write connected explanations in ObsDog. Read code, documents, configuration and work records to explain the task's questions, then expand existing notes and record findings as the investigation progresses.
+description: Investigate code, documents, configuration and work records, then write connected explanations in ObsDog. Build and update the explanation as sources reveal behavior, structure, procedures and rationale.
 ---
 
 # Documentify with ObsDog
 
-Make memory truly useful by connecting source investigation to written knowledge.
-Follow the [mission](https://github.com/obsdoghq/obsdog/blob/main/docs/MISSION.md)
-through reading, explanation, updates and verification.
+Turn source investigation into explanations that later work can find and use.
+Read and write together as the task's questions develop.
 
-## Find and read the existing context
+## Investigate the questions
 
-Identify the subject and questions from the user's request and ongoing work.
-Search ObsDog for existing explanations, prior decisions, related investigations
-and source pointers. Open them and read the context and linked sources.
+Identify the subject and questions from the user's task. Search ObsDog for the
+existing explanation, prior decisions and related investigations. Open the notes
+and follow their links to source material.
 
-Use terms discovered in the sources to search additional questions. Follow
-relevant code, documents, configuration, tests, issues and work records to explain
-component roles, behavior, data flow, procedures and rationale.
+Read the code, documents, configuration, tests, issues or work records needed to
+explain component roles, relationships, behavior, data flow, procedures and reasons.
+Search again with names and terms found in those sources.
 
-## Write while investigating
+## Build the explanation as you go
 
-Update the existing explanation as each part of the subject becomes understood.
-Create a document for a subject that has no existing home. Include source
-locations, roles, relationships, observed behavior, decisions and their reasons.
+Update the existing note as each part of the subject becomes understood. Create
+a note when the subject has no existing home. Write the explanation, source
+locations, decisions, attempted approaches and results.
 
-Write preliminary explanations and unresolved questions with their current
-status, supporting observations and next checks. Distinguish intended behavior
-in specifications, implemented behavior in code and observations from a running
-environment. Revisit those sections as further evidence arrives.
+Record preliminary explanations, competing observations and open questions with
+their current status and next check. Distinguish what a specification describes,
+what the code implements and what was observed in a running environment. Revise
+those statements as checks supply more evidence.
 
-Organize the explanation around readers' questions and tasks. Connect the
-overview, procedures and detailed knowledge with links that explain what each
-destination answers. When several sources are needed, write their combined
-explanation and cite each source's contribution.
+Organize around readers' questions. Connect the overview, procedures and detailed
+explanations with links that state what each destination answers. Include the
+source version, date or environment needed to apply the explanation.
 
-## Integrate and verify
+## Save, connect and verify
 
-Use `remember` for individual saves and `maintain` to reconcile overlapping notes
-or apply structural changes. Preserve existing document identities and include
-source versions, dates, environments and the context needed to apply the answer.
+Use `remember` for ongoing saves and `maintain` to reconcile related notes or
+change their structure. Save the current explanation and next checks at phase
+changes and before completion or handoff.
 
-Read back saved documents and follow their links. Search representative task
-questions, open the results and follow the navigation to the detailed answer
-using the runtime's diagnostic policy. At completion or handoff, save the current
-explanation and open questions, and return the saved locations and checks.
+Read back saved content and check its links. For a new explanation or search
+repair, check that the task's question reaches the answer. Return saved locations
+and any unfinished write or check.
 
-## Runtime
+## Tools and destination
 
-Use [remote MCP](../find/references/remote-mcp.md) for the selected hosted
-connection, or [CLI usage](references/cli.md) for a selected local library.
-Investigate with the available source tools and write within the user's selected
-Space and source/upload scope. Honor explicit read-only/no-memory instructions
-and keep secrets out of documents and queries.
+Use [remote MCP](../find/references/remote-mcp.md) for the connected account and
+the Space selected for this task. Resolve available Spaces from the current tools
+when needed. For an explicitly selected local library, use
+[CLI usage](references/cli.md). Follow the user's source/upload scope and explicit
+read-only or no-memory requests. Keep secrets out of saved content.

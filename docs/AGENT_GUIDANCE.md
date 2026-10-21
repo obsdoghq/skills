@@ -8,7 +8,7 @@ from [central PR #127](https://github.com/obsdoghq/obsdog/pull/127) is
 This alignment was checked against merge commit
 `e334027ebfe94906da4db62e53d9061cb3100d6b` on 2026-10-22.
 
-The owner's current priority is active knowledge use: read extensively for the
+The workflow priority is active knowledge use: read extensively for the
 task and write what the work produces throughout its progress. The mission
 explains why agents do this. Entry instructions specify the concrete lookup and
 writing actions, with runtime mechanics in the relevant references.
@@ -38,9 +38,12 @@ entrypoint should make the next read or write clear.
 
 Reuse the user's existing capture permission, selected Space and source scope.
 Explicit read-only/no-memory instructions still define the task boundary.
-Private bundles preserve the owner's existing policy; keep real identifiers
-outside this public repository. Exact revisions, idempotent requests, supported
-operations and read-back belong in runtime references.
+Resolve account and Space selection from the current connection. Reuse the
+user's selected destination or the sole available Space; resolve a choice among
+several destinations before writing. Shared workflows carry no personal Space
+IDs or packaged owner permission. The registered app mapping stays in its
+manifest. Exact revisions, idempotent requests, supported operations and read-back
+belong in runtime references.
 
 The optional SessionStart hook supplies these instructions in supported local
 Codex sessions. The same four entrypoints guide other supported clients. Package

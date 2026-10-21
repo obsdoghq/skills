@@ -49,42 +49,25 @@ supported version-upload flow. Confirm the accepted version, four skills and
 existing app connection. If a client does not offer this flow, use its documented
 private plugin builder; do not claim a source checkout is already installed.
 
-## Optional owner-approved capture preferences
+## Resolve the user's destination at runtime
 
-A plugin-only installation can carry existing owner-approved capture preferences
-without a second local skill or AGENTS.md snippet. This is optional, private
-operator configuration, not consent inferred from installation, OAuth scopes,
-an allow-actions setting or a retrieved note. Only supply it when the owner
-has authorized these operations and the selected hosted Space/upload scope.
+Ship the same workflows for every installer. The registered app ID in
+`.app.json` identifies the connected app; OAuth identifies the current account.
+Do not put an account ID, Space ID or an owner's standing preferences in the
+hook or skills. The bundler copies the shared authored workflows and the exact
+registered app mapping, not instruction files from the previous installation.
 
-Keep a reviewed JSON file outside this public checkout:
+Use the connected tools to inspect current capabilities and available Spaces.
+Reuse the user's task selection. If no selection exists and exactly one Space
+is available, use it automatically. Resolve a genuine choice between several
+possible destinations once before writing. Use the identifiers returned for that
+connection and keep the selection during the task.
 
-```json
-{
-  "schema": "obsdog.private-capture-policy/v1",
-  "app_id": "asdk_app_FROM_REGISTRATION",
-  "space_id": "spc_FROM_OWNER_SELECTION",
-  "allow": ["capture", "maintenance", "feedback"]
-}
-```
-
-Pass it with `--capture-policy <private-policy-json>` to the bundler. Choose only
-the authorized operations; feedback is separate from capture. The bundler checks
-the app binding and allowed fields, renders fixed bounded instructions, links
-them from all four skill entrypoints, and includes them in the optional static
-Codex context. It rejects arbitrary instruction fields and an oversized hook
-context. Existing user restrictions override the preferences. The server still
-enforces access and capabilities; this file is not an access token.
-
-When updating a package that already contains `owner-capture-policy.md`, explicitly
-provide its reviewed policy source again. The bundler refuses to silently drop
-it. Change or remove standing preferences only at the owner's direction. Ordinary
-updates within unchanged authorization need no fresh per-note consent.
-
-The four skills can read the same packaged preference in clients without command
-hooks, but package presence does not prove a host loaded it. Check actual skill
-selection and the interpreted scope on each host. Never turn a generic public
-package into a grant of permission for all users.
+Updates from older bundles remove the generated `owner-capture-policy.md` and
+its injected instructions. The `--capture-policy` option has been removed.
+Capture follows the current user's task scope and preferences; an older package
+creator's permission is not an installer's permission. Keep personal preferences
+in the user's own instructions rather than distributing them in the plugin.
 
 ## Check each client separately
 
