@@ -1,5 +1,11 @@
 # Workflow changes
 
+## 0.3.26 — 2026-10-22
+
+- Remove the final runtime-reference and scope paragraph from the injected
+  routing context at the user’s request. The hook now ends with saving,
+  read-back, discovery checks and returning the saved locations.
+
 ## 0.3.25 — 2026-10-22
 
 - Rewrite the hook and four workflow entrypoints around reading, investigating,
