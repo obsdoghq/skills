@@ -1,22 +1,35 @@
 # ObsDog Skills
 
+**Knowledge, made observable.**
+
+**Make memory truly useful.** These skills make reading and writing knowledge
+part of ongoing work: search the task's questions, read related context, write
+findings and work state, update the explanation, and read back the result.
+**Observe → Diagnose → Improve → Observe.** The
+[canonical mission](https://github.com/obsdoghq/obsdog/blob/main/docs/MISSION.md)
+defines the purpose of this continuous use.
+
 Internal implementation is tracked in Project draft tickets, not duplicate Issues.
 Use [GitHub issues](https://github.com/obsdoghq/skills/issues) for product feedback and follow
 [the feedback guide](https://github.com/obsdoghq/obsdog-releases/blob/main/FEEDBACK.md);
 private execution plans do not belong here.
 
 Official skills and plugins for [ObsDog](https://obsdog.ai), the
-local-first knowledge tool for people and AI. The same four workflows support
+knowledge observability platform for humans and AI. The same four workflows support
 an authorized remote MCP connection or a selected local CLI library. This repository is public; installing a plugin does not
 grant access to any private Space.
 
 The single `obsdog` plugin intentionally groups four user workflows so
 clients display a stable namespace:
 
-- `obsdog:find` — retrieve and apply knowledge and context throughout work;
-- `obsdog:remember` — capture findings and update existing notes;
-- `obsdog:maintain` — organize, reconcile and improve the knowledge base;
-- `obsdog:documentify` — investigate sources and build connected explanations.
+- `obsdog:find` — search and read context throughout the task;
+- `obsdog:remember` — write findings, decisions and investigation state as work progresses;
+- `obsdog:maintain` — read and update existing explanations and relationships;
+- `obsdog:documentify` — investigate sources and write connected explanations.
+
+Write preliminary findings and open questions with their status and next checks,
+then update the same notes as understanding develops. Save accumulated context
+at phase transitions, completion and handoff, and read back accepted writes.
 
 The namespace is provided by the plugin. Portable skill folders keep the short
 names so both clients load the same instructions. Claude Code exposes commands

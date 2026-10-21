@@ -1,5 +1,16 @@
 # AGENTS.md
 
+## Mission and workflow guidance
+
+- Follow the [canonical mission](https://github.com/obsdoghq/obsdog/blob/main/docs/MISSION.md):
+  **Knowledge, made observable.** and **Make memory truly useful.**
+- Prioritize active lookup and ongoing writing. Give concrete actions for search,
+  contextual reading, capture, updates and read-back throughout the task.
+- Record preliminary observations, hypotheses and open questions with their
+  status and next check. Update them as evidence arrives; avoid subjective
+  “valuable enough” or “fully confirmed” gates before writing.
+- Keep runtime mechanics in references and preserve existing task/Space scope.
+
 ## Contribution tracking
 
 - Track internal work and verification only in the team's Project draft tickets,

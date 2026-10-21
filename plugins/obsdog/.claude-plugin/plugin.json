@@ -1,7 +1,7 @@
 {
   "name": "obsdog",
-  "version": "0.3.23",
-  "description": "Four knowledge workflows for an authorized remote ObsDog MCP connection or a selected local library. Local CLI workflows require the separately installed ObsDog CLI v0.2.4+. Installation grants no Space, capture or upload authority.",
+  "version": "0.3.24",
+  "description": "Read and write ObsDog knowledge throughout work with four workflows: find context, capture findings and work state, update notes, and build source-backed explanations. Use the selected remote connection or local library; local workflows require the separate CLI v0.2.4+.",
   "author": {
     "name": "ObsDog",
     "url": "https://obsdog.ai"

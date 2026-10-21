@@ -7,10 +7,11 @@ outcomes. Keep this checkpoint in the existing task handoff, not a second ledger
 
 ## Before task completion
 
-Check the findings established during this task, even when retrieval succeeded.
-For an authorized reusable addition, update its existing home or create a note,
-then verify the accepted revision. If there is no new knowledge, no capture is
-needed. If a write or verification is blocked, report the actual limitation.
+Save the findings, decisions, attempts and current investigation context from
+this task, including after successful retrieval. Update the existing home or
+create a note, then verify the accepted revision. Save unresolved questions and
+preliminary explanations with their status and next checks. If a write or
+verification fails, report the actual limitation.
 Use the dispositions below without imposing a fixed final-answer template.
 
 ## Before delegation
@@ -20,8 +21,9 @@ capture is allowed, and the exact existing target when already known. The worker
 checks capability for that operation without widening access. Assign one capture
 owner; other workers return findings instead of racing to write the same note.
 
-> Investigate the scoped question. Capture source-checked new knowledge during
-> the work when authorized, even after a successful search. Before handing back,
+> Investigate the scoped question. Capture findings and work context during
+> the authorized work, even after a successful search. Label preliminary results
+> and unresolved questions with their status and next check. Before handing back,
 > return the capture disposition, actual target/revision receipt, read-back and
 > retrieval verification, or the missing prerequisite. Preserve the original
 > lookup cue for a miss. Do not invent a successful write or a replacement target.
@@ -33,8 +35,8 @@ operations, not from this example. Do not export private receipt details to a
 public issue, repository or log.
 
 - **Disposition:** saved-and-verified, saved-readback-pending, draft-only,
-  blocked, no-new-knowledge, or prohibited. A proposal is never saved-and-verified.
-- **Evidence:** established finding and source applicability; exact selected
+  blocked or prohibited. A proposal is never saved-and-verified.
+- **Evidence:** findings, work context and source applicability; exact selected
   Space/document/block/revision from the real receipt when a write occurred.
 - **Checks:** what was actually read back and retrieved, with unknown/not-run
   checks explicit. Existing `open`/`use` observations are not authoring receipts.
@@ -51,11 +53,11 @@ verification. Do not repeat a write merely because the parent needs to read it.
 
 ### Successful hit with new learning
 
-Reuse the checked evidence, then capture genuinely new source-backed findings
-through the ordinary authorized path. Read back the exact target. Check retrieval
+Use the retrieved context, then write the task's additional findings, decisions
+and investigation state through the authorized path. Read back the exact target. Check retrieval
 for a new note or discovery repair; an ordinary content correction does not
-require another search. Search success does not suppress capture; no new finding means
-no-new-knowledge, not an invented update for a metric.
+require another search. Successful retrieval leads into ongoing capture as work
+adds context and understanding.
 
 ### Repaired search miss
 
@@ -72,10 +74,9 @@ original miss was repaired.
 
 ### Pause or input required
 
-Before yielding, capture already-established reusable knowledge within existing
-authorization; distinguish it from unresolved decisions. Return a partial or
-blocked disposition and the exact missing input. Do not turn a source-checked
-partial result into a claim that the whole task succeeded.
+Before yielding, save findings and the current investigation state within existing
+authorization. Include unresolved decisions, preliminary explanations and the
+exact next input or check. Return the saved location and its partial-work status.
 An instruction to stop all actions or stop saving overrides this ordinary
 decision-pause checkpoint; do not continue writes after that instruction.
 

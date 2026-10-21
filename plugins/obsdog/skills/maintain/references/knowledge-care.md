@@ -4,6 +4,13 @@ Use these criteria when a capture or maintenance task needs judgment about
 document boundaries, relationships or quality. They are ObsDog's
 `knowledge-care/v1` rubric, not a universal standard or automatic ranking policy.
 
+The [product mission](https://github.com/obsdoghq/obsdog/blob/main/docs/MISSION.md)
+is **Make memory truly useful.** In an active task, apply
+**Observe → Diagnose → Improve → Observe**: read the notes and sources for the
+task, write what the investigation reveals, update the explanation as evidence
+arrives, and read back the result. Record preliminary observations, hypotheses
+and open questions with their status and next checks while work continues.
+
 ## AI owns routine review and repair
 
 Within existing task/Space write authority, inspect, improve, verify and apply
@@ -14,8 +21,9 @@ of what changed, why, what was checked and how it can be recovered.
 - Evidence and exact-source checks precede a correction; model confidence or
   another AI's agreement is not independent proof. Keep factual judgments,
   mechanical checks and human verification separate.
-- Insufficient evidence means bounded investigation or deferral with the original
-  intact. Unsupported operations mean capability deferral, not a manual repair
+- With incomplete evidence, save the observation, hypothesis, source context and
+  next check alongside the original claim; update it as evidence arrives.
+  Unsupported operations mean capability deferral, not a manual repair
   task for the user. A protected suggested label can remain pending without
   blocking an otherwise justified text correction; never pose as a human reviewer.
 - Ask only for missing authority or a consequential owner-intent choice that
@@ -27,7 +35,8 @@ of what changed, why, what was checked and how it can be recovered.
   entire Space over concurrent work. Bound attempts, changed objects and cost.
 - A reverted/rejected change is not a cue to reapply it. Keep its reason and defer
   until genuinely new evidence or scope exists. Do not repeatedly ask the same
-  question. If nothing useful needs changing, no-op is the right result.
+  question. Incorporate new findings and investigation context into the matching
+  explanation as work progresses.
 
 The present workflow is performed by the authorized agent in an active task.
 It does not claim that a hosted worker, durable care queue or structural recovery
@@ -57,7 +66,7 @@ within that scope, including for private projects.
 Choose the representation that explains the subject. CLI v0.1.14+ records typed
 source roles, separate from the Markdown/block type:
 
-- **Native:** a Space-owned decision, preference, lesson or established work context.
+- **Native:** a Space-owned decision, preference, finding or current work context.
 - **Pointer:** where the maintained answer lives, what it helps with and scope;
   no copied manual or bare bookmark dump.
 - **Derived:** the extra synthesis or tested lesson, citing its actual evidence;
@@ -66,7 +75,7 @@ source roles, separate from the Markdown/block type:
   with source/version/capture date and limitations; not a fresh or independent
   confirmation of its source.
 - Raw transcripts, secrets and redundant copies are not authored knowledge.
-  Extract their established facts, actions, findings, rationale and follow-ups.
+  Extract observations, actions, findings, rationale, current status and follow-ups.
 
 Authority is claim-specific: spec is intent, code/tests show a version's
 implementation, runtime evidence shows an observed environment, and an ADR
@@ -234,11 +243,11 @@ types; never substitute the experimental CLI or re-enable held native clients.
 1. Search/open in the selected Space; preserve scope and existing IDs.
 2. Do the actual user task. Record use only when the evidence genuinely helped.
 3. Evaluate relevant outcomes with a concrete reason, not every returned hit.
-4. Select a bounded improvement justified by those observations or current source.
-   Check current revisions and existing proposals, including rejected ones.
-5. Apply the smallest authorized change using actor/base-revision/reason flags.
-   Keep uncertain connections in question comments; actual citations in
-   evidence/explanation or canonical prose. Closing a proposal is not promotion.
+4. Write the observations, findings and current investigation context into the
+   matching explanation. Check current revisions and existing proposals.
+5. Apply the authorized update using actor/base-revision/reason flags. Record
+   preliminary connections with their status and next check in the explanation
+   or a question comment. Keep source citations alongside the relevant claim.
 6. Verify Markdown, identity/history, context and incoming/outgoing links. Search
    again when relevant using `--no-observe` for a diagnostic check on supported
    runtimes. Verify the intended answer, not just any hit; a maintenance replay
@@ -304,8 +313,9 @@ chronologically held-out baseline before claiming performance gains.
   verification date from an HTTP success or relabel old evidence as current.
 - Offline lookup: disclose cached applicability or inability to check, rather
   than rate the source incorrect or invent a current answer.
-- A task retry log adds no lesson: no new note. A significant rejected design
-  prevents repeated mistakes: retain its rationale. Both preserve system history.
+- A task retry produces an error or unsuccessful result: record the attempted
+  approach, conditions, result and next step in the task's note. Record a rejected
+  design with the alternatives and rationale so the investigation can continue.
 - One useful note belongs to two topics: use views, not duplicate documents,
   cross-Space moves or invented semantic links.
 
@@ -354,6 +364,6 @@ Reviewed 2026-09-28; these inform the rubric, not a claim of external certificat
   distinguish current navigation from exact checked evidence.
 - [AWS ADRs](https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html)
   and [Google SRE postmortems](https://sre.google/sre-book/postmortem-culture/):
-  selective durable rationale/lessons, not a mandatory diary or human approval loop.
+  decision rationale, attempted approaches and incident investigation context.
 - [ALCE](https://aclanthology.org/2023.emnlp-main.398/): citation quality and
   answer correctness are distinct; automatic judgments do not certify our notes.

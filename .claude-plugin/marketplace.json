@@ -11,8 +11,8 @@
     {
       "name": "obsdog",
       "source": "./plugins/obsdog",
-      "description": "Find, remember, maintain, and documentify observable knowledge.",
-      "version": "0.3.23"
+      "description": "Knowledge, made observable. Read and write knowledge throughout work with four ObsDog workflows.",
+      "version": "0.3.24"
     }
   ]
 }

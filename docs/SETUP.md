@@ -110,26 +110,28 @@ ObsDog heading if present; do not replace the file or add repeated copies.
 ```md
 ## ObsDog
 
-<!-- Routing snippet: obsdog-routing/2026-10-19; feedback guidance. -->
+<!-- Routing snippet: obsdog-routing/2026-10-22; mission-aligned workflows. -->
 
-- Use ObsDog find throughout the work to retrieve and apply relevant knowledge,
-  context, and background. Search again as new questions arise; reuse evidence
-  already checked for the same question and scope. If memory misses or is
-  unavailable, continue from authorized source material.
-- When feedback writes are authorized and inspected evidence supports a judgment,
-  evaluate it yourself with agent attribution and a reason; do not wait for the
-  user to rate each hit. Record only real use. At search conclusion, distinguish
-  no results, no useful inspected result and insufficient evidence to judge.
-  Leave uninspected hits unjudged; never invent use or ratings.
-- Use remember to capture new knowledge and update existing notes with findings
-  from the work, regardless of whether retrieval succeeded. Use maintain to
-  organize and improve the knowledge base.
-- Use documentify to investigate source material and build or expand connected
-  knowledge that future work can find and use.
+Knowledge, made observable. Make memory truly useful.
+Follow Observe → Diagnose → Improve → Observe within existing authority.
+
+- Use find at task start and as questions arise. Open matching notes, surrounding
+  context and related sources; expand searches with newly discovered terms.
+- Use remember during investigation, implementation and verification. Write
+  findings, decisions, attempted approaches, results and work context into the
+  matching notes, including after successful retrieval. Save preliminary
+  explanations and open questions with their status and next check.
+- Use maintain to read and update existing explanations and relationships.
+  Use documentify to investigate sources and write connected explanations.
+- Save accumulated context at phase transitions, completion and handoff. Read
+  back accepted writes and check discovery for new notes and retrieval repairs.
+- Record actual search receipt, use and supported feedback through the selected
+  runtime's tools within the corresponding permission.
+
 ```
 
-For **search-only** use, remove the feedback bullet and replace the
-remember/maintain and documentify bullets with:
+For **search-only** use, retain the find bullet and replace the writing,
+verification and feedback bullets with:
 “Search and read only. Ask before remembering or changing knowledge.”
 
 Adopting the write workflows authorizes ongoing capture and supported
@@ -142,9 +144,9 @@ No per-note permission question is needed within that standing scope.
 
 These rules guide behavior, not guaranteed automatic execution on every task.
 They do not alter client approvals or grant access to an unauthorized Space.
-Before completing substantive work, check for reusable findings and close the
-authorized save/read-back loop, including after successful retrieval. No new
-learning is a valid no-write; there is no capture quota.
+During substantive work, write findings and investigation context to the
+matching notes, including after successful retrieval. Save the accumulated
+context and read back the writes before completion or handoff.
 When a source-backed answer repairs a search miss, the work-owning agent saves or
 updates it within the approved scope, then returns the document and verification
 in its completion/handoff. Check that the original lookup finds the intended

@@ -1,78 +1,67 @@
 ---
 name: maintain
-description: Improve the quality, structure, and discoverability of knowledge in ObsDog. Use to organize the knowledge base by reconciling duplicates and conflicts, reviewing outdated knowledge, merging or splitting documents, and improving links and navigation. Apply when the user requests maintenance or a maintenance need is identified during the work.
+description: Read and update existing ObsDog knowledge during work. Incorporate findings, correct explanations, reconcile related notes, refresh source context and improve links so ongoing work continually improves the knowledge base. Apply requested maintenance and continue with updates identified while reading.
 ---
 
 # Maintain ObsDog
 
-## Use the selected runtime
+Make memory truly useful by improving the notes being read and used.
+[Observe → Diagnose → Improve → Observe](https://github.com/obsdoghq/obsdog/blob/main/docs/MISSION.md)
+means reading the existing explanation, understanding the issue, updating it and
+checking the saved result.
 
-For a selected, authorized remote ObsDog connection, read
-[remote MCP](../find/references/remote-mcp.md). Apply only care operations
-advertised by its current capabilities and tool schemas. Use available hosted Care, metadata and inspection tools at exact current
-revisions. A check reserves no head; compensation preserves history and refuses
-a later writer. Protected label review remains a real human action. Supported
-block corrections and navigation notes can improve knowledge without the CLI.
-Unavailable rename, append, merge, split, supersede, label or feedback operations
-remain proposals; do not emulate them with copy-delete or a local-library
-fallback. For a selected local library, use the CLI and care references below.
+## Read the notes and sources
 
-## Identify what needs maintenance
+Start with the task's question, the retrieved note or the source that changed.
+Read surrounding context, linked explanations and the relevant source sections.
+Compare versions, environments, decisions and procedures to understand where
+findings belong.
 
-Start from the user's request or a problem found during the work. Read the relevant notes and surrounding context to identify what makes the knowledge difficult to understand, find, or apply.
+For a search miss, find the answer through related terms and sources. Add the
+original task vocabulary and navigation to the appropriate explanation.
 
-When search misses, distinguish missing knowledge from retrieval problems caused by query wording or structure, and from missing context that has not yet been read.
+## Update as understanding develops
 
-Use comments, labels, evaluations, and usage records as investigation leads. Check accuracy and current applicability against relevant sources.
+Within existing maintenance permission, incorporate new findings and source
+context into the existing notes. Correct factual errors from checked evidence,
+add missing prerequisites, refresh procedures and explain changed applicability.
 
-Start from the affected question, note or source change. Improve that part and its necessary references rather than regenerating the entire library whenever one upstream file changes.
+When sources disagree or a conclusion is still being investigated, write the
+competing observations, their scope and the next check into the note. Update that
+section as the investigation progresses. Preserve established content alongside
+its qualification until the evidence resolves the difference.
 
-## Preserve meaning and history while organizing
+Combine overlapping explanations around their subject, split independently
+changing subjects when needed, and keep the background and decision history that
+connects them. Link superseded guidance to the current explanation.
 
-Before consolidating notes on the same subject, compare their differences and sources. Distinguish records for different environments, versions, and periods by their scope of applicability.
+Read both ends of a relationship and link them with the question the link answers.
+Add source pointers and navigation between overviews, procedures and detailed
+explanations. Use supported labels and comments for context and follow-up checks.
 
-Check evidence to reconcile conflicting claims. If the conflict cannot be resolved, retain the uncertainty and what still needs to be checked.
+## Apply and verify
 
-Merge, split, or reorganize documents around the subjects readers need to find and understand. Preserve necessary background, prerequisites, decision rationale, and history.
+Read the current document and block revisions, apply the supported update with
+agent attribution and a reason, then read back the accepted revision. Check the
+content, source applicability, structure and links. After a discovery repair,
+check that the original lookup reaches the answer using the runtime's diagnostic
+policy. Report the saved location and what the checks established.
 
-Distinguish superseded knowledge from current guidance and link it to its replacement.
+When the updated knowledge is used in subsequent work, record its actual use and
+supported feedback through the selected runtime. Capture further findings in the
+same explanation with `remember`.
 
-## Improve retrieval and connections
+## Runtime and structural operations
 
-Improve titles, content, terminology, and links so real questions lead to the relevant knowledge.
+For the selected hosted connection, use
+[remote MCP](../find/references/remote-mcp.md) and the currently exposed Care,
+metadata, inspection and write tools. For a local library, use
+[CLI usage](references/cli.md). Preserve the user's selected Space, source/upload
+scope and explicit read-only/no-memory instructions.
 
-Read both ends of a proposed relationship and link them when the relationship is established. Write navigation documents to guide readers to related knowledge and source material.
-
-Use labels and comments to express classification, questions, evidence, and follow-up reviews. Distinguish proposed relationships from established ones.
-
-## Apply changes and verify results
-
-Base changes on current documents and revisions, and record agent attribution and the reason for each change. On conflict, read the latest content and reconcile the change.
-
-Use supported procedures for structural changes and prepare recovery measures proportionate to their impact. Check continuity of document and block identities and links.
-
-Read back changed content and verify its meaning, applicability, links, and structure. When repairing a retrieval problem, rerun the original search and check that it finds the intended answer, not merely that some hit exists.
-
-Briefly report what was improved and what remains unresolved.
-
-## Connect to other workflows
-
-Use `remember` to capture or update individual findings from the work.
-
-Use `documentify` to systematically investigate source material and build or expand a knowledge base.
-
-## Honor applicable restrictions
-
-Follow any explicit restrictions on Space, sources, storage, or uploads. Honor read-only and no-memory requests.
-
-## References
-
-- Read [CLI usage](references/cli.md) for commands, revisions, labels, comments, links, and recovery.
-- Read [care execution](references/care-execution.md) when applying structural changes.
-- Read [knowledge-care criteria](references/knowledge-care.md) when selecting canonical sources, reconciling history, or deciding how to consolidate or retire knowledge.
-- Read [retrieval-oriented authoring](references/retrieval-authoring.md) when improving search and navigation.
-
-After a runtime or plugin upgrade, use the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance).
-The optional Codex start hook supplies routing context without editing user
-instruction files. For clients using the optional file-based rule, compare only
-the ObsDog section; never overwrite unrelated instructions.
+For merge, split, move, supersede or recovery operations, read
+[care execution](references/care-execution.md) for current capabilities and exact
+revision handling. On conflict, read the current state and reconcile the update.
+For source ownership and history details, consult
+[knowledge-care criteria](references/knowledge-care.md). For search entry points
+and navigation, consult [retrieval authoring](references/retrieval-authoring.md).

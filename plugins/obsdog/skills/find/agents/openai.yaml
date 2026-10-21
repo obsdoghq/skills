@@ -1,4 +1,4 @@
 interface:
   display_name: "Find with ObsDog"
-  short_description: "Retrieve context throughout the work."
-  default_prompt: "Use $find to retrieve relevant knowledge and context throughout this work and record only sources actually opened and used."
+  short_description: "Search and read knowledge throughout work."
+  default_prompt: "Use $find throughout this task to search and open related notes, read surrounding context and follow the sources needed for each question."

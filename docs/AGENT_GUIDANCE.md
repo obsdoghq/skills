@@ -1,64 +1,72 @@
-# Capture guidance design and evaluation
+# Active reading and writing guidance
 
-Checked against official guidance and public examples on 2026-10-21. These
-sources inform the design; they do not establish measured gains for ObsDog.
+## Product purpose
 
-## Design choices
+The [canonical mission](https://github.com/obsdoghq/obsdog/blob/main/docs/MISSION.md)
+from [central PR #127](https://github.com/obsdoghq/obsdog/pull/127) is
+**Knowledge, made observable.** and **Make memory truly useful.**
+This alignment was checked against merge commit
+`e334027ebfe94906da4db62e53d9061cb3100d6b` on 2026-10-22.
 
-| Evidence | ObsDog application |
+The owner's current priority is active knowledge use: read extensively for the
+task and write what the work produces throughout its progress. The mission
+explains why agents do this. Entry instructions specify the concrete lookup and
+writing actions, with runtime mechanics in the relevant references.
+
+## Translate the mission into actions
+
+| Loop | Action during work |
 | --- | --- |
-| [OpenAI skill authoring](https://developers.openai.com/plugins/build/skills) separates activation conditions, procedures and live authorization. | Put established findings and completion in the remember description; keep exact revisions, capabilities and receipts in the runtime reference. |
-| [Codex skill discovery](https://learn.chatgpt.com/docs/build-skills) loads metadata before the body and may shorten descriptions. | Lead with the capture trigger; keep the decision and completion check in the entrypoint, not only a nested reference. |
-| [Agent Skills best practices](https://agentskills.io/skill-creation/best-practices) favors coherent, task-derived guidance and real execution. | Retain four workflows, remove conflicting diagnostic instructions and evaluate successful-hit/new-learning as well as search misses. |
-| [Anthropic context engineering](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents), published 2025-09-29, recommends concise, high-signal context and representative examples. | Use a short routing hook and load details only for the selected runtime. Do not append every edge case to startup context. |
-| [Anthropic's public skill creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) separates output review, activation testing and baseline comparisons. | Keep synthetic case expectations separate from evaluator inputs; distinguish static packaging, decision reviews and actual host/tool execution. |
-| [OpenAI's gh-fix-ci skill](https://github.com/openai/skills/tree/main/skills/.curated/gh-fix-ci) makes a bounded workflow and its stopping conditions explicit. | Name when to save, what evidence finishes a save and what to report when it cannot complete. Do not copy unrelated approval requirements. |
+| Observe | Search at task start and as questions arise. Open notes, surrounding context, related decisions and source links. Apply them to the task. |
+| Diagnose | Compare the explanation with current sources. Write observations, differences, preliminary explanations and the next checks. |
+| Improve | Update the existing note as findings develop. Add decisions, rationale, attempted approaches, results and work context. Create a home for a new subject and connect related explanations. |
+| Observe again | Read back saved content. Check discovery for a new note or repaired lookup. Record actual use and supported feedback as work applies the knowledge, then incorporate further findings. |
 
-## Completion, not a write quota
+Capture happens during investigation, implementation and verification, including
+after successful retrieval. Save accumulated context at phase transitions,
+completion, pauses and handoffs. Record an unfinished investigation with its
+current status and open questions, then revise the same explanation as evidence
+arrives. Confirmation is a claim status to record, not a prerequisite for writing
+an observation or hypothesis.
 
-The relevant denominator is authorized work that establishes reusable knowledge.
-One task may need several reads and no write, or one update after many reads.
-Measure missed capture opportunities, duplicate notes, unsupported claims and
-receipt/read-back completion. Raw read/write parity is not a quality target.
+Use direct instructions such as “write the observation and next check” and
+“update the matching note.” Avoid subjective save gates such as “only if valuable
+enough,” “only fully established findings,” or “skip uncertain content.” The
+entrypoint should make the next read or write clear.
 
-A meaningful completion check can yield saved-and-verified, verification pending,
-blocked, prohibited or no-new-knowledge. It need not add a visible checklist to
-every response. Preserve the identity of an existing explanation and source
-ownership; transient progress is not a reason to create a note.
+## Runtime and delivery
 
-## Authority and delivery
+Reuse the user's existing capture permission, selected Space and source scope.
+Explicit read-only/no-memory instructions still define the task boundary.
+Private bundles preserve the owner's existing policy; keep real identifiers
+outside this public repository. Exact revisions, idempotent requests, supported
+operations and read-back belong in runtime references.
 
-Public workflow instructions do not grant capture/upload permission. A private
-bundle can carry owner-reviewed standing preferences bound to its existing app
-and exact Space. Never derive those preferences from tool availability or a
-retrieved document. Later user restrictions take precedence. Keep private policy
-files and generated archives outside this repository.
+The optional SessionStart hook supplies these instructions in supported local
+Codex sessions. The same four entrypoints guide other supported clients. Package
+validation, installed files, actual host invocation and real saved content are
+separate acceptance checks; use the [private bundle guide](PRIVATE_PLUGIN.md).
 
-The optional SessionStart hook supplies guidance on supported local Codex hosts;
-it does not execute saves or enforce completion. Other clients use skill
-selection and the same entrypoint. Updating a package is not evidence that an
-already-running chat reloaded it. Follow the separate acceptance steps in the
-[private bundle guide](PRIVATE_PLUGIN.md).
+## Authoring references
 
-## Representative acceptance cases
+The following sources informed the concise trigger/body/reference structure
+checked on 2026-10-21; they do not establish measured model outcomes:
 
-Use the [lifecycle fixtures](../tests/fixtures/knowledge-lifecycle.json) and
-[evaluation method](EVALUATION.md). Include these cases in a host exercise:
+- [OpenAI skill authoring](https://developers.openai.com/plugins/build/skills)
+  separates activation, workflow and live authorization.
+- [Codex discovery](https://learn.chatgpt.com/docs/build-skills) loads descriptions
+  before the body, so concrete lookup/write triggers come first.
+- [Agent Skills guidance](https://agentskills.io/skill-creation/best-practices)
+  favors task-specific instructions and execution-based validation.
+- [Anthropic context engineering](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents)
+  supports concise routing and relevant progressive detail.
 
-- A successful search followed by a verified new applicability detail updates
-  the existing note before completion without another save request.
-- A source-checked search miss creates or repairs the answer and verifies the
-  original lookup using the actual runtime's diagnostic policy.
-- A pause captures established findings within standing permission while
-  leaving unresolved decisions explicit.
-- No new learning, an unchanged duplicate or a no-memory request produces no
-  knowledge write. A readonly request must not produce a private capture draft.
-- Hosted write capability with no capture intent is not consent. Missing
-  capabilities do not cause a CLI installation or a different Space selection.
-- A committed write with failed read-back remains verification pending; an
-  unknown write outcome is resolved using the same request identity.
+## Acceptance
 
-Keep expectations hidden from an independent evaluator. Record source/package
-version, actual actions, accepted revisions and missing checks. A simulated
-decision review is useful for contradictions but is not live host invocation or
-proof of improved real-world capture frequency.
+Use the [lifecycle cases](../tests/fixtures/knowledge-lifecycle.json) and
+[evaluation method](EVALUATION.md). Check that the agent reads across related
+components, continues writing after a successful lookup, saves provisional
+investigation context and failed attempts with their status, and finishes writes
+before handing work over. Test actual saved content and revision read-back when
+a runtime exercise is authorized. Keep synthetic decision reviews distinct from
+real tool execution and subsequent task outcomes.

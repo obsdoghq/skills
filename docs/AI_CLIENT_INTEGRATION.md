@@ -108,8 +108,9 @@ Include this compact checkpoint in the host's existing task handoff when the
 user has authorized capture; it is not a new automatic hook or permission:
 
 > Before delegating or yielding for input, return the capture disposition:
-> what was established, the actual saved target/revision and read-back/retrieval
-> checks, or the exact missing prerequisite. Capture new learning even after a
+> findings, decisions, attempts, current context and open questions with their
+> status, plus the actual saved target/revision and read-back/retrieval checks
+> or the exact tool failure. Capture as work progresses, including after a
 > successful search. Do not promise that a parent will save it without returning
 > a real receipt or an explicitly unsaved private draft. No-memory prohibits
 > saving or persisting a draft. The parent verifies evidence before accepting

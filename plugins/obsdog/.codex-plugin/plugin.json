@@ -1,7 +1,7 @@
 {
   "name": "obsdog",
-  "version": "0.3.23",
-  "description": "Find, remember, maintain, and documentify measurable knowledge in ObsDog Spaces.",
+  "version": "0.3.24",
+  "description": "Search, read, write and update knowledge throughout work to make memory truly useful.",
   "author": {
     "name": "ObsDog",
     "url": "https://obsdog.ai"
@@ -9,8 +9,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "ObsDog",
-    "shortDescription": "Work with measurable knowledge in four focused ways.",
-    "longDescription": "Four knowledge workflows for an already-authorized remote ObsDog connection or a selected local CLI library. Remote search, reads and supported writes do not require the ObsDog CLI. Review the optional Codex start hook before trusting it. Installation does not enable cloud sync or authorize capture. Setup: https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md .",
+    "shortDescription": "Knowledge, made observable.",
+    "longDescription": "Make memory truly useful. Search and read context throughout work, write findings and investigation state as they arise, update existing explanations and read back saved content. Four workflows use the selected remote ObsDog connection or local library. Setup: https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md .",
     "developerName": "ObsDog",
     "category": "Productivity",
     "capabilities": [
@@ -19,7 +19,7 @@
       "Knowledge maintenance",
       "Repository documentation"
     ],
-    "defaultPrompt": "Use ObsDog to find relevant context and, within my existing capture permission, save reusable findings and verify them before finishing."
+    "defaultPrompt": "Use ObsDog throughout this task: search and read related context, write findings, decisions and investigation state as work progresses, update matching notes and read back saved content. Record preliminary findings with their status and next checks."
   },
   "mcpServers": {
     "obsdog": {
