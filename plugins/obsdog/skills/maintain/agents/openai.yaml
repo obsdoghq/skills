@@ -1,4 +1,4 @@
 interface:
   display_name: "Maintain ObsDog"
-  short_description: "Evolve, organize, and review measured knowledge."
-  default_prompt: "Use $maintain to review and improve my ObsDog Space with attributable, recoverable changes."
+  short_description: "Read and update existing knowledge during work."
+  default_prompt: "Use $maintain to read the existing notes and sources, incorporate findings, update explanations and links, and read back the changes."

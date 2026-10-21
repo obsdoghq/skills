@@ -1,5 +1,18 @@
 # Workflow changes
 
+## 0.3.24 — 2026-10-22
+
+- Align the workflows with Knowledge, made observable. Make memory truly useful.
+- Put active search, contextual reading and ongoing writes in the four skill
+  descriptions, bodies, routing hook and default prompts.
+- Capture findings, decisions, attempts, results and investigation context during
+  work. Save preliminary explanations and open questions with their status and
+  next check, then update them as evidence arrives.
+- Replace subjective save gates with direct lookup, update and read-back actions.
+  Preserve selected runtime/Space boundaries and exact write verification.
+- Add synthetic cases for frequent reading and incremental capture, including
+  successful lookups, provisional findings, failed attempts and handoffs.
+
 ## 0.3.23 — 2026-10-21
 
 - Make capture triggers and completion/read-back decisions visible in routing

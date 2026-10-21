@@ -1,93 +1,47 @@
-# Author for the next retrieval
+# Write for the next lookup
 
-Use this when a real lookup exposes missing orientation, weak vocabulary,
-insufficient context or noisy navigation. This is a practical rubric, not a
-proven universal ranking recipe. Follow the existing Space/source/write scope.
+Use this reference to connect task questions, existing notes and source material
+through readable explanations and navigation in the selected Space.
 
-## Diagnose before adding structure
+## Read the question and answer path
 
-Distinguish these failures: the source is absent; its terms do not match the
-question; it is outside the candidate pool; it ranks too low; or a returned leaf
-lacks the context needed to answer. A new category cannot fix all five. Inspect
-the exact query, returned revision and source before choosing a bounded repair.
-Do not assume a sparse graph means poor knowledge or low usage means falsehood.
+Search with the task's project, component, error, procedure and source terms.
+Open the results, containing documents and relevant linked explanations. Follow
+new identifiers and source terminology with further lookups. Read the answer's
+prerequisites and applicability together with its procedure or conclusion.
 
-## Optional entity overview
+## Add context and entry points
 
-If several specialist notes reference an unfamiliar recurring entity and no
-canonical introduction exists, create or improve one short orientation pointer:
+Update the matching explanation with the terms used in the task and source.
+Use a title that names the subject and question. Introduce source-confirmed
+alternate names and acronyms in the content. Keep the direct answer alongside
+its environment, version and prerequisites.
 
-- What it is, its purpose and material boundaries, grounded in the maintained source.
-- Established alternate names/abbreviations in natural prose, not guessed synonyms.
-- Where the authoritative answer lives and which version/section was checked.
-- A few directional links: “For this specific question, read this note because…”.
+For an entity with several detailed notes, write an overview explaining its
+purpose, components and source locations. Link to the detailed notes with the
+question each destination answers. Read both ends and use their actual IDs.
+Use supported topic labels to connect views within the selected Space.
 
-For a fictional project Atlas, an overview might route “what is it?” to the
-maintained introduction, “why is collection not evaluation?” to the corresponding
-lesson, and “how do I diagnose memory?” to the measured troubleshooting note.
-Read the destinations and use their real returned IDs; do not create empty
-category documents, mirror the manual, or force every future query through Atlas.
-The links describe navigation, not proof that the destination's claims are true.
+## Incorporate what investigation reveals
 
-Use overlapping topic/project views in one authorized Space. Only use category
-labels actually supported by its registry. No new Space per topic, duplicate
-notes per category, fabricated ontology edges or reciprocal links for density.
-An overview should remain selective; high degree is not a usefulness bonus.
+Write new findings, source locations and explanations into their existing home.
+Add preliminary observations and open questions with their status and next check,
+then update them as the work progresses. Synthesize sources when the answer spans
+several files, documents or systems. Keep source links and checked versions with
+the explanation.
 
-## Make precise answers discoverable
+Expand the affected section and its navigation as new relationships emerge.
+For independently changing subjects, use supported split or merge operations
+while preserving document/block identity, context and links.
 
-Keep one canonical explanation for a coherent question, with source pointers and
-scope where readers need them. New evidence can update that explanation or append
-a distinct section using the installed conditional operations. This is not one
-document per source file and does not require recompiling the library. Follow a
-few useful authored links for missing context; do not make every note link back
-to a hub or treat navigation as additional answer evidence.
+## Read back and check discovery
 
-Prefer a title with the recognizable entity and the actual question or lesson.
-Put the direct answer and its applicability together. Introduce real acronyms
-where first needed. Preserve procedure prerequisites, warnings, code and table
-context. Split independently changing questions, not every sentence or a token
-quota. Missing context can call for a bounded parent/section read rather than
-duplicating the same introduction in every block.
+Read the accepted revision and verify the answer, qualifications and links.
+For a new entry point or repaired lookup, search with the original task question
+using the runtime's diagnostic policy, open the result and follow it to the answer.
+Use [remote MCP](../../find/references/remote-mcp.md) for hosted observation rules
+or the local CLI's supported diagnostic path. Retain the actual result and any
+remaining lookup problem for the next update.
 
-A heading-only hit is a locator, not the answer. Read the containing document
-using supported commands if needed. Do not attribute that unread body to a
-heading's open/use event. A title can genuinely help navigation; record only that
-actual contribution, and record evidence-use on the exact answer revision when
-the installed interface supports it. Do not invent telemetry to cover a gap.
-
-If a broad query finds only specialists, try a small number of distinctive
-task terms or a source-confirmed alternate name. Do not endlessly requery,
-blindly search other Spaces, force all labels, or rate every returned result.
-An exact-cue adaptive ranker does not imply semantic alias or graph expansion.
-
-## Verify without teaching to the test
-
-Use a small, declared development checklist: entity introduction, a specific
-task, an established alternate term, a confusable entity and an unrelated
-question. Keep expected sources and a read budget before changing content.
-Check both the intended repair and whether precise sources become harder to
-reach. A navigation-hub hit is not answer-source acquisition; charge linked
-reads, output size and maintenance work. Document regression or uncertainty.
-
-Maintenance replay is not genuine task usefulness and must not create positive
-production feedback. Use isolated fixtures for benchmark replays. Do not put
-benchmark question/answer keys into notes or tune aliases on a held-out test.
-Compare authoring separately from index, candidate and ranking changes under
-the same corpus/query/order/state/read budget. Repeated queries are repeated
-episodes, not new independent examples. No percentage-gain claim without the
-corresponding denominators, conditions and negative results.
-
-## References and limits
-
-- [Obsidian aliases](https://obsidian.md/help/aliases): established names can
-  resolve to one identity; this does not add an alias field to ObsDog.
-- [Diátaxis incremental work](https://www.diataxis.fr/how-to-use-diataxis/):
-  improve an observed reader need rather than fill a top-down taxonomy.
-- [Contextual retrieval](https://www.anthropic.com/engineering/contextual-retrieval):
-  document/entity context can matter. Its reported results are not an ObsDog
-  benchmark and do not establish that an authored hub improves exact-source hits.
-- [llm-wiki incremental compilation](https://github.com/nvk/llm-wiki/blob/1224fbcdf3827f4ba56d225a9e359f5e8a5594e5/plugins/llm-wiki/skills/wiki/references/compilation.md):
-  map new evidence into the explanation it belongs to. ObsDog retains SQLite,
-  stable identities and source/revision evidence; mandatory crosslinks, full
-  regeneration and an automatic “verified today” stamp are not adopted.
+When later work applies the explanation, record its real use and supported
+feedback through the selected runtime, then incorporate that work's findings.

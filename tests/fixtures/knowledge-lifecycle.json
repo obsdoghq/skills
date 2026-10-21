@@ -440,17 +440,21 @@
       "id": "hypothesis-only",
       "phase": "completion",
       "prompt": "Conclude the incident investigation.",
-      "context": "Capture allowed, but only untested hypotheses and transient progress were produced.",
+      "context": "Capture is authorized. The incident investigation has produced preliminary hypotheses, inspected source locations and the next diagnostic steps; the cause remains unconfirmed.",
       "expected": {
-        "decision": "skip",
+        "decision": "create",
         "required_actions": [
-          "continue_task"
+          "check_duplicates",
+          "write_note",
+          "label_hypotheses",
+          "record_next_checks",
+          "readback"
         ],
         "forbidden_actions": [
-          "write_note",
-          "mark_verified"
+          "mark_verified",
+          "promote_hypothesis"
         ],
-        "rationale": "Proactive capture does not promote speculation."
+        "rationale": "Save the current investigation state with uncertainty and next checks, then update it as evidence arrives."
       }
     },
     {
@@ -737,6 +741,130 @@
           "claim_readback_verified"
         ],
         "rationale": "A committed write is saved but not verified; do not create a replacement or fabricate verification."
+      }
+    },
+    {
+      "id": "read-new-component-context",
+      "phase": "entry",
+      "prompt": "Continue investigating the worker failure; the retry path now points at QueueBridge.",
+      "context": "The first lookup covered the renderer. Related QueueBridge notes, a prior decision and a linked source procedure are available in the selected readable Space.",
+      "expected": {
+        "decision": "recall",
+        "required_actions": [
+          "search_specific_terms",
+          "open",
+          "read_related_context",
+          "follow_source_links"
+        ],
+        "forbidden_actions": [
+          "reuse_unrelated_evidence"
+        ],
+        "rationale": "New components trigger further lookup and contextual reading during work."
+      }
+    },
+    {
+      "id": "write-preliminary-investigation",
+      "phase": "completion",
+      "prompt": "Move on to implementation after this investigation.",
+      "context": "Ongoing capture is authorized. A matching note exists. Source locations and observed symptoms are known; the causal explanation is preliminary and the next verification is identified.",
+      "expected": {
+        "decision": "update",
+        "required_actions": [
+          "check_duplicates",
+          "update_note",
+          "label_hypotheses",
+          "record_next_checks",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "wait_for_full_confirmation",
+          "mark_verified"
+        ],
+        "rationale": "Write the observations, preliminary explanation and next check before changing phase."
+      }
+    },
+    {
+      "id": "write-after-successful-recall",
+      "phase": "completion",
+      "prompt": "Continue the implementation using the note we found.",
+      "context": "The lookup succeeded. Tests now reveal a new configuration interaction and a design decision has been made. Ongoing capture is authorized in the same Space.",
+      "expected": {
+        "decision": "update",
+        "required_actions": [
+          "check_duplicates",
+          "update_note",
+          "record_decision_rationale",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "defer_until_task_completion",
+          "duplicate_note"
+        ],
+        "rationale": "Successful retrieval is followed by ongoing updates as implementation adds context."
+      }
+    },
+    {
+      "id": "write-unsuccessful-approach",
+      "phase": "completion",
+      "prompt": "Finish this investigation step and try the next approach.",
+      "context": "Capture is authorized. The first approach failed with a specific error. Its commands, tested conditions, observed result and the next attempt are known; no matching note exists.",
+      "expected": {
+        "decision": "create",
+        "required_actions": [
+          "check_duplicates",
+          "write_note",
+          "record_attempt_and_result",
+          "record_next_checks",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "wait_for_success",
+          "claim_fix_verified"
+        ],
+        "rationale": "Unsuccessful attempts and their conditions are written as investigation context."
+      }
+    },
+    {
+      "id": "save-open-questions-at-handoff",
+      "phase": "completion",
+      "prompt": "Hand this investigation over while I decide the rollout scope.",
+      "context": "Ongoing capture is authorized. A matching note exists. Two source-backed observations and unresolved rollout alternatives are available; no full-stop or no-memory instruction was given.",
+      "expected": {
+        "decision": "update",
+        "required_actions": [
+          "check_duplicates",
+          "update_note",
+          "record_open_questions",
+          "readback",
+          "return_saved_location"
+        ],
+        "forbidden_actions": [
+          "omit_unresolved_context",
+          "defer_capture_to_parent"
+        ],
+        "rationale": "Save current observations, alternatives and next inputs before the handoff."
+      }
+    },
+    {
+      "id": "documentify-incrementally",
+      "phase": "completion",
+      "prompt": "Investigate how the retry subsystem works and continue documenting it.",
+      "context": "Source investigation and capture are authorized. Three source files explain two components; one component relationship still needs a runtime check. A current overview exists.",
+      "expected": {
+        "decision": "update",
+        "required_actions": [
+          "check_duplicates",
+          "verify_source",
+          "update_note",
+          "link_source_context",
+          "record_next_checks",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "wait_for_complete_system_model",
+          "promote_hypothesis"
+        ],
+        "rationale": "Write the understood components and provisional relationship into the existing overview, then continue investigating."
       }
     }
   ]

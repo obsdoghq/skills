@@ -1,66 +1,55 @@
 ---
 name: documentify
-description: Investigate source material to organize knowledge, context, background, and relationships into an ObsDog knowledge base. Build or expand explanations of structure, behavior, procedures, and rationale by connecting sources such as code, documents, configuration, infrastructure, issues, and work records so future work can find and use them.
+description: Investigate sources and write connected explanations in ObsDog. Read code, documents, configuration and work records to explain the task's questions, then expand existing notes and record findings as the investigation progresses.
 ---
 
 # Documentify with ObsDog
 
-## Use the selected runtime
+Make memory truly useful by connecting source investigation to written knowledge.
+Follow the [mission](https://github.com/obsdoghq/obsdog/blob/main/docs/MISSION.md)
+through reading, explanation, updates and verification.
 
-For a selected, authorized remote ObsDog connection, use
-[remote MCP](../find/references/remote-mcp.md) for searches, exact reads and
-supported authoring. Investigate authorized sources with the client's available
-tools; no ObsDog CLI is required. Use the CLI reference for a selected local
-library. Keep investigation results within the approved source, Space and upload
-boundaries, and do not switch runtimes to work around unavailable operations.
+## Find and read the existing context
 
-## Define the subject and questions
+Identify the subject and questions from the user's request and ongoing work.
+Search ObsDog for existing explanations, prior decisions, related investigations
+and source pointers. Open them and read the context and linked sources.
 
-Use the subject and scope of the current work to determine what needs to be understood and explained. Infer scope from the user's purpose and ongoing work, and resolve choices directly when existing context is sufficient.
+Use terms discovered in the sources to search additional questions. Follow
+relevant code, documents, configuration, tests, issues and work records to explain
+component roles, behavior, data flow, procedures and rationale.
 
-Search ObsDog for related knowledge to identify what is already explained, what needs expansion, and what can be connected.
+## Write while investigating
 
-## Investigate sources and relationships
+Update the existing explanation as each part of the subject becomes understood.
+Create a document for a subject that has no existing home. Include source
+locations, roles, relationships, observed behavior, decisions and their reasons.
 
-Investigate relevant code, documents, configuration, infrastructure definitions, tests, issues, and work records. As new questions arise, follow relevant sources and existing knowledge to deepen understanding.
+Write preliminary explanations and unresolved questions with their current
+status, supporting observations and next checks. Distinguish intended behavior
+in specifications, implemented behavior in code and observations from a running
+environment. Revisit those sections as further evidence arrives.
 
-Identify roles and responsibilities, relationships between components, behavior and data flows, procedures, and decision rationale.
+Organize the explanation around readers' questions and tasks. Connect the
+overview, procedures and detailed knowledge with links that explain what each
+destination answers. When several sources are needed, write their combined
+explanation and cite each source's contribution.
 
-Distinguish intended behavior in specifications, implemented behavior in code, and observed behavior in a running environment. Make source disagreements and unresolved questions explicit.
+## Integrate and verify
 
-## Write explanations that can be found and used
+Use `remember` for individual saves and `maintain` to reconcile overlapping notes
+or apply structural changes. Preserve existing document identities and include
+source versions, dates, environments and the context needed to apply the answer.
 
-Organize content around the reader's questions and tasks. Explain the necessary overview, structure, behavior, procedures, and background with supporting source evidence.
+Read back saved documents and follow their links. Search representative task
+questions, open the results and follow the navigation to the detailed answer
+using the runtime's diagnostic policy. At completion or handoff, save the current
+explanation and open questions, and return the saved locations and checks.
 
-Build question-oriented explanations and selective navigation from the sources, not a parallel copy of each file. For later source changes, refresh the affected explanation and references instead of rebuilding unrelated knowledge.
+## Runtime
 
-Make each document understandable when found independently through search. Include its subject, applicability, and necessary context. Use real search terms and identifiers in titles and content.
-
-Link explanations to relevant code, documents, and configuration. Record the checked version, date, and environment so readers can assess whether the source has changed.
-
-When a source already explains a subject well, provide essential context and navigation. When understanding requires reading several sources together, synthesize an explanation.
-
-## Integrate with existing knowledge
-
-Compare related notes by purpose and scope. Add new subjects and update existing ones. Preserve document identity and necessary history when updating.
-
-Follow `remember` for individual saves and updates. Use `maintain` for duplicate or conflict resolution and document merging or splitting.
-
-Connect overviews, detailed knowledge, related subjects, and source material according to their actual relationships. Explain what each link helps the reader learn.
-
-## Verify content and navigation
-
-Check explanations against sources, then read back saved documents and links.
-
-Search with representative questions to verify that the knowledge can be found. Check navigation from overviews to detailed knowledge and source material.
-
-Briefly report the knowledge built or expanded, important connections, and remaining uncertainties.
-
-## Honor applicable restrictions
-
-Follow any explicit restrictions on Space, sources, storage, or uploads. Honor read-only and no-memory requests. Keep secrets out of documents and queries.
-
-Read [CLI usage](references/cli.md) for local writes and verification, or the
-remote MCP reference above for hosted writes and verification.
-
-For setup or upgrade mismatches, use the [update checklist](https://github.com/obsdoghq/skills/blob/main/docs/SETUP.md#updating-cli-and-agent-guidance). Check the effective runtime before interpreting verification results.
+Use [remote MCP](../find/references/remote-mcp.md) for the selected hosted
+connection, or [CLI usage](references/cli.md) for a selected local library.
+Investigate with the available source tools and write within the user's selected
+Space and source/upload scope. Honor explicit read-only/no-memory instructions
+and keep secrets out of documents and queries.

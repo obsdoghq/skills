@@ -34,8 +34,8 @@ def render_capture_policy(policy: dict, app: dict) -> str:
             or not set(allowed) <= {"capture", "maintenance", "feedback"}):
         raise ValueError("Use distinct supported capture policy operations")
     actions = {
-        "capture": "Capture established reusable findings and update matching notes during authorized work, without another per-note save request.",
-        "maintenance": "Apply ordinary supported, evidence-backed maintenance within the same scope.",
+        "capture": "Write findings, decisions, attempts, results and work context throughout authorized work. Record preliminary findings with their status and next checks, and update matching notes without another per-note save request.",
+        "maintenance": "Read and update existing explanations and relationships within the same scope using supported operations.",
         "feedback": "Record attributable evaluations supported by inspected evidence and real use, without a rating quota.",
     }
     lines = [
