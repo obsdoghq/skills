@@ -15,7 +15,47 @@ ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / "plugins" / "obsdog"
 
 
-def build_bundle(plugin: Path, registered: Path, output: Path, version: str) -> int:
+def render_capture_policy(policy: dict, app: dict) -> str:
+    """Render bounded owner-supplied preferences, never arbitrary instructions."""
+    if not isinstance(policy, dict) or set(policy) != {"schema", "app_id", "space_id", "allow"}:
+        raise ValueError("Capture policy requires schema, app_id, space_id and allow")
+    if policy["schema"] != "obsdog.private-capture-policy/v1":
+        raise ValueError("Unsupported private capture policy schema")
+    app_id = next(iter(app["apps"].values()))["id"]
+    if policy["app_id"] != app_id:
+        raise ValueError("Capture policy must match the existing registered app")
+    space = policy["space_id"]
+    if not isinstance(space, str) or not re.fullmatch(r"spc_[A-Za-z0-9_-]+", space):
+        raise ValueError("Capture policy needs one exact Space ID")
+    allowed = policy["allow"]
+    if (not isinstance(allowed, list) or not allowed
+            or any(not isinstance(value, str) for value in allowed)
+            or len(set(allowed)) != len(allowed)
+            or not set(allowed) <= {"capture", "maintenance", "feedback"}):
+        raise ValueError("Use distinct supported capture policy operations")
+    actions = {
+        "capture": "Capture established reusable findings and update matching notes during authorized work, without another per-note save request.",
+        "maintenance": "Apply ordinary supported, evidence-backed maintenance within the same scope.",
+        "feedback": "Record attributable evaluations supported by inspected evidence and real use, without a rating quota.",
+    }
+    lines = [
+        "# Owner-approved standing instructions (private bundle)",
+        "",
+        "These owner-supplied preferences carry existing authorization; installation alone grants none.",
+        f"Use only the existing registered app `{app_id}` and selected Space `{space}` through hosted MCP.",
+        "Preserve this selection; an unavailable connection is not permission to switch accounts, Spaces or runtimes.",
+        "",
+        *["- " + actions[value] for value in ("capture", "maintenance", "feedback") if value in allowed],
+        "",
+        "Use only sources authorized for the current task. Existing source/upload restrictions, explicit no-memory/read-only requests and later user changes override these preferences. Keep secrets and raw transcripts out. Do not change sync, enroll Spaces or install a local CLI.",
+        "Operations not listed here need their own authorization. Server scopes and current capabilities still apply.",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def build_bundle(plugin: Path, registered: Path, output: Path, version: str,
+                 capture_policy: dict | None = None) -> int:
     if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", version):
         raise ValueError("Use a three-part plugin version")
     original = json.loads(
@@ -36,6 +76,10 @@ def build_bundle(plugin: Path, registered: Path, output: Path, version: str) -> 
             r"asdk_app_[A-Za-z0-9_-]+", entry["id"]
         ):
             raise ValueError("Use an existing registered OpenAI app ID")
+
+    if (registered / "owner-capture-policy.md").exists() and capture_policy is None:
+        raise ValueError("Explicitly supply the reviewed capture policy when updating this private bundle")
+    policy_text = render_capture_policy(capture_policy, app) if capture_policy is not None else None
 
     manifest = copy.deepcopy(json.loads(
         (plugin / ".codex-plugin" / "plugin.json").read_text(encoding="utf-8")
@@ -60,6 +104,20 @@ def build_bundle(plugin: Path, registered: Path, output: Path, version: str) -> 
         if relative in {".mcp.json", "mcp.json"}:
             raise ValueError("A private registered-app bundle cannot add MCP servers")
         payloads[relative] = path.read_bytes()
+    if policy_text is not None:
+        payloads["owner-capture-policy.md"] = policy_text.encode("utf-8")
+        for relative in list(payloads):
+            if relative.startswith("skills/") and relative.endswith("/SKILL.md"):
+                text = payloads[relative].decode("utf-8")
+                frontmatter, body = text.split("\n---\n", 1)
+                routing = ("\nRead the [owner-approved standing instructions](../../owner-capture-policy.md) "
+                           "for this private connection before choosing a Space or deciding whether to capture.\n")
+                payloads[relative] = (frontmatter + "\n---\n" + routing + body).encode("utf-8")
+        payloads["hooks/context.md"] += ("\n" + policy_text).encode("utf-8")
+        hook = json.loads(payloads["hooks/codex.json"])
+        limit = hook["hooks"]["SessionStart"][0]["hooks"][0]["additionalContextLimit"]
+        if len(payloads["hooks/context.md"]) >= limit:
+            raise ValueError("Private capture context exceeds the declared hook limit")
     payloads[".codex-plugin/plugin.json"] = (
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n"
     ).encode("utf-8")
@@ -80,8 +138,11 @@ def main() -> None:
     parser.add_argument("--registered-plugin-dir", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--version", required=True)
+    parser.add_argument("--capture-policy", type=Path,
+                        help="Optional owner-reviewed private policy JSON; never infer permission")
     args = parser.parse_args()
-    count = build_bundle(PLUGIN, args.registered_plugin_dir, args.output, args.version)
+    policy = json.loads(args.capture_policy.read_text(encoding="utf-8")) if args.capture_policy else None
+    count = build_bundle(PLUGIN, args.registered_plugin_dir, args.output, args.version, policy)
     print(json.dumps({"output": str(args.output), "files": count, "version": args.version}))
 
 

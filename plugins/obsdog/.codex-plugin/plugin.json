@@ -1,6 +1,6 @@
 {
   "name": "obsdog",
-  "version": "0.3.22",
+  "version": "0.3.23",
   "description": "Find, remember, maintain, and documentify measurable knowledge in ObsDog Spaces.",
   "author": {
     "name": "ObsDog",
@@ -19,7 +19,7 @@
       "Knowledge maintenance",
       "Repository documentation"
     ],
-    "defaultPrompt": "Use ObsDog to search my selected Personal Space and measure only what is actually opened and used."
+    "defaultPrompt": "Use ObsDog to find relevant context and, within my existing capture permission, save reusable findings and verify them before finishing."
   },
   "mcpServers": {
     "obsdog": {

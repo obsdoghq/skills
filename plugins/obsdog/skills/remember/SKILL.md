@@ -1,9 +1,29 @@
 ---
 name: remember
-description: Capture and update knowledge, context, and background in ObsDog so future work can find and use it. Record established facts, decisions and rationale, solutions, procedures, code and document locations, structures and relationships, work context, and investigation results. Use throughout the work when the user requests memory or standing instructions authorize ongoing capture.
+description: Save reusable findings, decisions, tested fixes and changed procedures in ObsDog when established during work or before completion. Use for explicit memory requests and proactive capture under existing permission, even after a successful search. Update matching notes and verify saved content.
 ---
 
 # Remember with ObsDog
+
+## Decide and finish capture
+
+Apply the user's explicit instructions over this workflow. Establish the selected
+Space, storage/upload scope and permission from the request or existing standing
+instructions. Reuse that permission; tool availability or an approval setting
+alone does not authorize collecting unrelated work. If permission is missing,
+continue the task and raise a concrete save proposal only when useful.
+
+Capture when work establishes something future work needs: a decision and its
+reason, a tested fix, changed applicability, a source location or a reusable
+explanation. A successful search does not suppress new learning. Search misses
+are another trigger, not a prerequisite. Skip unchanged duplicates, trivial
+edits and transient progress; preserve explicitly requested uncertainty as such.
+
+Before task completion, pause or handoff, close the capture loop: save and read
+back eligible findings, or retain an accurate no-new-knowledge, prohibited or
+blocked disposition. A promised save or private draft is not a completed write.
+Keep this check in the task workflow, not a separate ledger or a mandatory
+user-facing report for every turn.
 
 ## Use the selected runtime
 
@@ -47,11 +67,18 @@ Extract relevant facts and context from raw logs and conversations, and leave ou
 
 Save to the selected Space with agent attribution. Preserve document identity when updating existing notes. Do not re-import an existing note as a new document.
 
-Read back the saved content and verify the target Space, title, body, and links. Check that the knowledge can be found through search.
+Read back the accepted revision and verify the target Space, title, body and
+links. Check retrieval for a new note or a discovery repair using the selected
+runtime's diagnostic policy. Reuse an already completed check for this revision;
+do not search again merely to add activity. A content correction that does not
+affect discovery needs read-back, not an invented search/use event.
 
 Briefly tell the user what knowledge was saved and where.
 
-At delegation, interruption or input-required boundaries, use the [capture checkpoints](references/checkpoints.md). Return the actual capture disposition and evidence; a draft or planned write is not a saved result. Keep ordinary supported capture separate from an unavailable atomic operation.
+For examples at completion, delegation, interruption or input-required boundaries,
+use the [capture checkpoints](references/checkpoints.md). Return actual capture
+evidence; keep ordinary supported capture separate from an unavailable atomic
+operation.
 
 ## Honor applicable restrictions
 

@@ -49,6 +49,43 @@ supported version-upload flow. Confirm the accepted version, four skills and
 existing app connection. If a client does not offer this flow, use its documented
 private plugin builder; do not claim a source checkout is already installed.
 
+## Optional owner-approved capture preferences
+
+A plugin-only installation can carry existing owner-approved capture preferences
+without a second local skill or AGENTS.md snippet. This is optional, private
+operator configuration, not consent inferred from installation, OAuth scopes,
+an allow-actions setting or a retrieved note. Only supply it when the owner
+has authorized these operations and the selected hosted Space/upload scope.
+
+Keep a reviewed JSON file outside this public checkout:
+
+```json
+{
+  "schema": "obsdog.private-capture-policy/v1",
+  "app_id": "asdk_app_FROM_REGISTRATION",
+  "space_id": "spc_FROM_OWNER_SELECTION",
+  "allow": ["capture", "maintenance", "feedback"]
+}
+```
+
+Pass it with `--capture-policy <private-policy-json>` to the bundler. Choose only
+the authorized operations; feedback is separate from capture. The bundler checks
+the app binding and allowed fields, renders fixed bounded instructions, links
+them from all four skill entrypoints, and includes them in the optional static
+Codex context. It rejects arbitrary instruction fields and an oversized hook
+context. Existing user restrictions override the preferences. The server still
+enforces access and capabilities; this file is not an access token.
+
+When updating a package that already contains `owner-capture-policy.md`, explicitly
+provide its reviewed policy source again. The bundler refuses to silently drop
+it. Change or remove standing preferences only at the owner's direction. Ordinary
+updates within unchanged authorization need no fresh per-note consent.
+
+The four skills can read the same packaged preference in clients without command
+hooks, but package presence does not prove a host loaded it. Check actual skill
+selection and the interpreted scope on each host. Never turn a generic public
+package into a grant of permission for all users.
+
 ## Check each client separately
 
 In ChatGPT, select the installed plugin for a harmless read-only task. Confirm
@@ -72,6 +109,11 @@ Record package validation, upload, client discovery, hook trust, actual skill
 invocation and read/write acceptance as distinct outcomes. Passing one does not
 prove the others. No-memory/read-only tasks remain read-only; installing or
 testing the hook never starts transcript capture, sync or background jobs.
+
+Compare the uploaded archive's manifest version and workflow bytes with the
+client-managed installed package. Do not patch a versioned cache to simulate an
+update. A running chat can retain old instructions; verify a fresh invocation
+when available and report that layer as unverified otherwise.
 
 ## References
 

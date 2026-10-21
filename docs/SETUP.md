@@ -39,6 +39,21 @@ and show remote declarations separately. Read the actual capabilities and
 [remote completion/use workflow](../plugins/obsdog/skills/find/references/remote-mcp.md#complete-searches-and-declare-real-use).
 Neither a read nor installing this package fills historical gaps.
 
+## Plugin-only setup
+
+For a connected app, keep one managed plugin as the source of workflows. A
+separate local integration skill, duplicated routing snippets or a manually
+registered connection can keep old runtime restrictions alive after an update.
+Inspect those separately and remove them only when the user requests cleanup.
+Do not remove knowledge stores, credentials or other clients as incidental work.
+
+Keep existing capture intent explicit when retiring an old instruction source.
+A private connected bundle can carry the owner's reviewed preferences through
+[private capture configuration](PRIVATE_PLUGIN.md#optional-owner-approved-capture-preferences).
+Public packages remain neutral. A tool approval preference and writable scopes
+are not, by themselves, a request for ongoing capture. When no standing permission
+exists, continue read-only and offer a concrete capture proposal when relevant.
+
 ## Local readiness checklist
 
 1. `obsdog version` prints v0.2.4 or newer **inside the agent's environment**.
@@ -127,6 +142,9 @@ No per-note permission question is needed within that standing scope.
 
 These rules guide behavior, not guaranteed automatic execution on every task.
 They do not alter client approvals or grant access to an unauthorized Space.
+Before completing substantive work, check for reusable findings and close the
+authorized save/read-back loop, including after successful retrieval. No new
+learning is a valid no-write; there is no capture quota.
 When a source-backed answer repairs a search miss, the work-owning agent saves or
 updates it within the approved scope, then returns the document and verification
 in its completion/handoff. Check that the original lookup finds the intended

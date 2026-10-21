@@ -237,6 +237,9 @@ Browser views observe synced CLI evidence rather than inventing click/use rating
 No background worker, automatic upload or source deletion is enabled by installing
 the plugin. Keep the four skills and their shared reference together.
 
+See [capture guidance design](docs/AGENT_GUIDANCE.md) for the current research
+basis, completion behavior and distinct validation layers.
+
 ## Validate a source checkout
 
 ```sh
