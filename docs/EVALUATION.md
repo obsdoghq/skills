@@ -25,3 +25,19 @@ Report missed reads, omitted context, deferred writes despite available authorit
 existing-note updates, accepted revisions and read-back results. Check that
 hypotheses remain labeled and source evidence is represented accurately.
 Package tests establish structure; real host/tool traces establish execution.
+
+## Account-independent destination cases
+
+- Install the same workflow bundle for two synthetic account contexts. Give each
+  context a different sole authorized Space. Check that each selects the returned
+  Space and that neither uses the package creator's destination.
+- Return several authorized Spaces without a task selection. Check that the agent
+  resolves that destination once before writing, then reuses it for later saves.
+- Start with a task-selected Space among several available destinations. Check that
+  the existing selection is retained without asking again.
+- Update a fixture installation containing an old owner policy. Inspect all
+  packaged Markdown and execute the hook: no previous owner's policy or Space
+  selection may survive in the new shared instructions.
+
+Package comparisons and synthetic decisions do not prove that a fresh client
+invoked the hook or that another real user's runtime completed a write.

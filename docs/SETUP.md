@@ -47,12 +47,12 @@ registered connection can keep old runtime restrictions alive after an update.
 Inspect those separately and remove them only when the user requests cleanup.
 Do not remove knowledge stores, credentials or other clients as incidental work.
 
-Keep existing capture intent explicit when retiring an old instruction source.
-A private connected bundle can carry the owner's reviewed preferences through
-[private capture configuration](PRIVATE_PLUGIN.md#optional-owner-approved-capture-preferences).
-Public packages remain neutral. A tool approval preference and writable scopes
-are not, by themselves, a request for ongoing capture. When no standing permission
-exists, continue read-only and offer a concrete capture proposal when relevant.
+Keep the workflows shared across users. Resolve the current account's Spaces
+from the connected tools and reuse the user's task selection. Use the sole
+available Space automatically; resolve a choice between several destinations
+before writing. Follow the current user's task scope and preferences. The
+[bundle guide](PRIVATE_PLUGIN.md#resolve-the-users-destination-at-runtime)
+explains why personal Space IDs and owner permission are not packaged.
 
 ## Local readiness checklist
 

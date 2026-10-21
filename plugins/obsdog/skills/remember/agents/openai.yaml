@@ -1,4 +1,4 @@
 interface:
   display_name: "Remember with ObsDog"
-  short_description: "Write findings and work context as work progresses."
-  default_prompt: "Use $remember during this task to write findings, decisions, attempts and current context into matching notes, including preliminary findings with their status and next checks."
+  short_description: "Write findings and work state as work progresses."
+  default_prompt: "Use $remember to write findings, decisions, attempts, results and open questions during this task, update their existing notes and read back the saved content."

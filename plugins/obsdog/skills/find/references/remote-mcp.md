@@ -7,11 +7,13 @@ endpoints. OAuth and the server enforce access; a skill does not grant permissio
 
 ## Select the authorized boundary
 
-Use obsdog_capabilities to inspect currently available operations and
-obsdog_spaces_list to resolve the connection's authorized Spaces when the
-selection is not already known. Preserve an explicitly selected Space ID.
-If multiple Spaces could satisfy a write and none is selected, resolve that
-choice before writing. A broken selection does not fall back to another Space.
+Use obsdog_capabilities to inspect the current connection's operations and
+obsdog_spaces_list to discover its authorized Spaces. Reuse the Space selected
+for this task. If no Space has been selected and exactly one is available, use
+that Space automatically. If several destinations remain possible, resolve the
+choice once before writing. Use identifiers returned by the current connection;
+a package's author or a previous user's Space is not the current destination.
+A broken selection does not fall back to another Space.
 
 Respect the current agent_policy, scopes, standing capture permission and the
 user's source/upload restrictions. Consent to connect or read does not authorize

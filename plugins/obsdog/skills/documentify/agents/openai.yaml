@@ -1,4 +1,4 @@
 interface:
   display_name: "Documentify with ObsDog"
-  short_description: "Read sources and write connected explanations."
-  default_prompt: "Use $documentify to investigate the task questions and write connected explanations as findings develop, updating their status and open questions along the way."
+  short_description: "Investigate sources and write connected explanations."
+  default_prompt: "Use $documentify to investigate this subject and build its explanation as work progresses, including source locations, decisions, results and open questions."
