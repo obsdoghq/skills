@@ -26,6 +26,19 @@ existing-note updates, accepted revisions and read-back results. Check that
 hypotheses remain labeled and source evidence is represented accurately.
 Package tests establish structure; real host/tool traces establish execution.
 
+## Observe actions, not matching phrases
+
+Exercise task-start lookup, a successful lookup followed by an update, a search
+miss followed by source investigation and writing, a saved hypothesis revised by
+a check, a failed attempt with its next step, a user correction and an unfinished
+handoff. Inspect calls and saved content, including when each action happened.
+
+Compare the share of eligible tasks with actual reads and accepted writes, the
+number of task steps before the first write, omitted events and failed saves.
+Count a saved revision and its read-back separately. Preserve the same task scope
+and comparable cases across versions. The fixture's expected actions and package
+tests are specifications, not observed agent execution or measured improvements.
+
 ## Account-independent destination cases
 
 - Install the same workflow bundle for two synthetic account contexts. Give each

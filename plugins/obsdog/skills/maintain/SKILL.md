@@ -1,29 +1,35 @@
 ---
 name: maintain
-description: Update existing ObsDog knowledge while reading and working. Incorporate findings, correct explanations, reconcile related notes and improve links as the task develops.
+description: Incorporate findings, user corrections and check results into existing ObsDog explanations as work progresses. Reconcile related notes and update their links and lookup vocabulary.
 ---
 
 # Maintain ObsDog
 
-Improve the explanations the task reads and uses. Incorporate the findings as
-they arise so the next lookup reaches the current understanding.
+Update explanations as reading and work change the current understanding.
+Continue directly from recording a finding to integrating it into the relevant
+section of the existing note.
 
-## Read and update
+## Update when understanding changes
 
-Read the relevant note, its surrounding context, linked notes and source sections.
-Compare the explanation with the behavior, version or environment being checked.
-Add findings, prerequisites, procedure changes and the reasons for decisions.
+Read the note, surrounding context and linked sources. Incorporate findings,
+requirements, decisions, procedure changes and their reasons as they arise.
+When the user corrects a requirement or a check changes a hypothesis, update its
+existing explanation and any affected next steps.
 
-When sources differ, record each observation with its scope and the question
-still being investigated. Update the explanation as further checks resolve it.
-Use `remember` to capture the investigation state and next checks along the way.
+When sources differ, record each observation with its version or environment,
+the unresolved question and next check. Revise those statements as checks progress.
+
+- A test rejects a recorded cause: mark that hypothesis rejected, retain the
+  evidence and explain what will be checked next.
+- A user corrects a deployment requirement: update the requirement and procedure
+  that depended on it, linking the relevant decision.
+- A search misses an existing answer: add the task's question or error term to
+  the matching explanation and check the original lookup after saving.
 
 ## Connect and organize
 
 Read both ends of a relationship and link the notes with the question the link
 answers. Connect overviews to procedures, source locations and detailed explanations.
-Add the task's vocabulary when repairing a lookup that missed the answer.
-
 Combine overlapping explanations around their subject. Split subjects that need
 independent explanations. Keep decision history and connect superseded guidance
 to its current replacement. Use the runtime's supported structural operations.
@@ -32,15 +38,14 @@ to its current replacement. Use the runtime's supported structural operations.
 
 Read the current revision, apply the update, then read back the accepted revision.
 Check the explanation, structure and links. After a search repair, check the
-original lookup. Return the saved locations and any unfinished verification.
+original lookup. Return saved locations and any unfinished verification.
 
 ## Tools and destination
 
 Use [remote MCP](../find/references/remote-mcp.md) for the connected account and
-the Space selected for the task. Resolve that destination from the current tools
-when needed. For an explicitly selected local library, use
-[CLI usage](references/cli.md). Follow source/upload scope and explicit read-only
-or no-memory requests.
+Space selected for the task. Resolve that destination from current tools when
+needed. For an explicitly selected local library, use [CLI usage](references/cli.md).
+Follow source/upload scope and explicit read-only or no-memory requests.
 
 For merge, split, move and supersede operations, read
 [care execution](references/care-execution.md). For source ownership and history,

@@ -1,44 +1,42 @@
 ---
 name: find
-description: Search and read ObsDog knowledge at task start and as questions arise during work. Open related notes and sources, apply the context, and connect the findings to ongoing writing.
+description: Search and read ObsDog at task start and when new questions, components, errors or sources appear. Apply the context and write what the lookup and investigation reveal.
 ---
 
 # Find with ObsDog
 
-Read existing knowledge before working out the answer. Continue looking up
-context throughout investigation, implementation and verification.
+At task start, search for the question, project or component. Open matching notes,
+read the surrounding explanation, and follow links to related notes and sources.
+Apply that context to the work.
 
-## Search, open and follow
+## Search as questions arise
 
-Search for the task's subject, project, component, error or question. Open matching
-notes and read the sections that explain the answer and its surrounding context.
-Follow links to related explanations, decisions, procedures and source material.
+Search again when a new question, component, error, term or source appears. Use
+names and identifiers discovered in the notes and source material. When a query
+misses, try related terms and investigate the available sources.
 
-Expand the search with names, identifiers, paths and terms found in the notes and
-sources. Search each new question the work raises. When a query misses, try related
-terms and investigate the available sources. Keep the original question in the
-explanation you write so a later lookup can find the answer.
+## Turn reading into writing
 
-## Use the context and keep writing
+After finding an answer or reading a source, write what you learned and how it
+applies to this task. Update the matching explanation, including the sources and
+conditions being checked. Record open questions and the next check as they arise.
+When the subject has no note, create one from the investigation so far and keep
+updating it. Include the original question and the vocabulary used in the lookup.
 
-Apply what you read to the current question or implementation. Compare it with
-the code, configuration, documents or runtime observations being investigated.
-Keep source versions and applicability visible when they differ.
+- A note explains retries; the source reveals a timeout interaction. Add that
+  interaction and its applicability to the same explanation.
+- A search finds no answer; a log reveals a symptom. Record the symptom, source,
+  current hypothesis and next check, then continue investigating.
 
-Use `remember` to write the findings, decisions, attempts, results and questions
-produced by the task. Update the existing explanation after both successful
-lookups and search misses. Use `maintain` to incorporate corrections and connect
-related notes, and `documentify` to investigate a subject across sources.
-
-At phase changes and before completion or handoff, finish the writes and read-back
-using the [capture checkpoints](../remember/references/checkpoints.md).
+This is the ongoing `remember` and `maintain` workflow: capture the finding and
+integrate it into the explanation as one continuous action. At phase changes and
+before the final response, finish outstanding saves and read-back using the
+[capture checkpoints](../remember/references/checkpoints.md).
 
 ## Tools and destination
 
-For connected ObsDog tools, read [remote MCP](references/remote-mcp.md). Resolve
-the current account's available Spaces through those tools and reuse the Space
-selected for this task. Use the sole available Space automatically; resolve a
-choice between several destinations before writing. Use returned identifiers.
-
+For connected ObsDog tools, read [remote MCP](references/remote-mcp.md). Reuse the
+Space selected for the task, or use the sole available Space. Resolve an unclear
+choice among several once and keep that selection. Use returned identifiers.
 For an explicitly selected local library, read [CLI usage](references/cli.md).
 Follow the user's source scope and explicit read-only or no-memory requests.
