@@ -1,55 +1,58 @@
 ---
 name: remember
-description: Write findings, decisions, attempts, results and work context to ObsDog throughout the task, including after successful searches. Save preliminary findings and open questions, then update the same notes as work progresses.
+description: Write user requirements, preferences, findings, decisions, attempts and results to ObsDog as they arise. Record hypotheses and open questions immediately, then update the same notes as work progresses.
 ---
 
 # Remember with ObsDog
 
-Write while the work happens. Use the user's established task scope and selected
-Space without waiting for another save request at each step.
+Write while the work happens, within the user's established task scope and
+selected Space. Continue saving without waiting for completion or another request.
 
-## Capture the work
+## Write at the event
 
-- Record source and code locations, component roles, configuration and behavior.
-- Record decisions, reasons and alternatives considered.
-- Record approaches tried, errors, fixes, tests and their results.
-- Record the current investigation state, open questions and next actions.
+| What happens | What to write |
+| --- | --- |
+| The user gives a requirement, preference or correction | The current requirement or preference, its scope and stated reason. Update the previous explanation when corrected. |
+| A lookup or source answers a question | What was learned, where it came from and how it applies to this task. |
+| A decision is made | The choice, reason and alternatives considered. |
+| An approach or check runs | What was tried, its conditions, result and next action, including failures. |
+| Understanding is incomplete | Observations, hypotheses and open questions with their status and next check. |
+| Work changes phase or reaches the final response | Accumulated findings, current work state and next actions. |
 
-Save early observations and hypotheses with their current status, evidence and
-next check. Update them as evidence arrives. An investigation in progress is
-context to record; describe what is known and what is still being checked.
+Save observations and hypotheses immediately with their status. When a check
+supports, changes or rejects a hypothesis, update that same explanation with the
+result and the next step. Continue writing after successful searches.
 
-Continue writing after a successful search. Add what this task learned, tried,
-decided or changed to the explanation that supplied the original context.
+## Keep the subject's existing home current
 
-## Update the existing home
+Search for the subject and read its matching note. Update the relevant section;
+create a note when the subject has no home. Keep its identity as work develops.
+Integrate the new understanding into the explanation, including source locations,
+versions or dates and the question being answered. Link related notes and sources.
 
-Search for the subject and read the matching note. Update the relevant section
-with the new context. Create a note when there is no existing home for the subject.
-Keep its identity as the investigation develops.
+Recording a finding and incorporating it into the explanation are one continuous
+writing flow. Use the `maintain` workflow for reconciling several notes or changing
+their structure as needed.
 
-Write around the question the next reader needs answered. Include source
-locations, versions or dates, the result and the conditions under which it applies.
-Connect related explanations using links to the actual notes and source sections.
-Use `maintain` when several notes need reconciliation or structural changes.
+For example, record a failed timeout adjustment with the observed error and next
+check. When a later test identifies the cause, update that investigation with the
+cause and result. If the user changes the rollout requirement, update its existing
+section and the next actions that depend on it.
 
 ## Save and read back
 
-Save accumulated findings at phase changes, verification, completion and handoff.
-Read back the accepted revision and check the content and links. For a new note
-or a search repair, check that the task's lookup finds the explanation. Follow
-the [capture checkpoints](references/checkpoints.md) for interrupted work.
+Read back accepted saves and confirm the content and links. For a new note or a
+search repair, check that the task's lookup finds the explanation. At phase changes
+and before the final response or handoff, finish remaining saves using the
+[capture checkpoints](references/checkpoints.md).
 
-Return saved locations. If a write or read-back fails, retain the actual result
-and state what remains unfinished while continuing the available work.
+Return saved locations and actual unfinished writes or checks.
 
 ## Tools and destination
 
 Use [remote MCP](../find/references/remote-mcp.md) for the connected account and
-its available Spaces. Reuse the task's selected Space, or select the sole available
-Space. Resolve a genuine choice between several destinations before writing.
-Use current revisions and returned identifiers for updates.
-
-Use [CLI usage](references/cli.md) only for an explicitly selected local library.
-Follow the user's source/upload scope and explicit read-only or no-memory requests.
-Keep secrets out of saved content.
+Space selected for the task. Use the sole available Space when no selection
+exists; resolve an unclear choice among several once. Use current revisions and
+returned identifiers for updates. Use [CLI usage](references/cli.md) only for an
+explicitly selected local library. Follow source/upload scope and explicit
+read-only or no-memory requests. Keep secrets out of saved content.

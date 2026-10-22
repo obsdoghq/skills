@@ -34,6 +34,32 @@ Use direct instructions such as “write the observation and next check” and
 enough,” “only fully established findings,” or “skip uncertain content.” The
 entrypoint should make the next read or write clear.
 
+## Trigger the next action
+
+The shared hook follows the task's events rather than asking the agent to choose
+among skill names first. The skills explain how to carry out each action.
+
+| Event | Action |
+| --- | --- |
+| Task start; new question, component, error or source | Search, open the explanation, follow sources and apply the context. |
+| Requirement, preference or correction | Record the current requirement, scope and reason; update affected steps. |
+| Answer found or source read | Write what was learned and how it applies to this task. |
+| Decision, attempt or check | Record the choice or attempt, conditions, result and next action. |
+| Incomplete understanding | Save observations, hypotheses and questions now, then revise as checks progress. |
+| Phase change or final response | Finish accumulated saves, record next actions and read back. |
+
+Capture and integration are a continuous writing flow. Keep the subject's existing
+home current and create one when absent. The entrypoints include examples of a
+successful lookup followed by writing, a failed attempt, a user correction and a
+hypothesis changed by a later check. Scope and runtime mechanics remain in the
+selected runtime reference.
+
+This structure draws on [Basic Memory's assistant guide](https://docs.basicmemory.com/reference/ai-assistant-guide)
+and [Graphiti's agent rules](https://github.com/getzep/graphiti/blob/main/mcp_server/docs/cursor_rules.md),
+reviewed on 2026-10-22. These are design references, not evidence of measured
+improvement in ObsDog behavior. The static hook still supplies instructions;
+it does not run searches or save transcripts itself.
+
 ## Runtime and delivery
 
 Reuse the user's existing capture permission, selected Space and source scope.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Maintain ObsDog"
-  short_description: "Update explanations and links as work develops."
-  default_prompt: "Use $maintain to read the current notes and sources, incorporate findings, update explanations and links, and verify the saved changes."
+  short_description: "Integrate corrections and findings into existing notes."
+  default_prompt: "Use $maintain to incorporate findings, user corrections and check results into current explanations, update their links and verify the saves."

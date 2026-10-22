@@ -185,17 +185,18 @@
       "id": "generic-concept",
       "phase": "entry",
       "prompt": "Explain exponential backoff with jitter.",
-      "context": "No project-specific behavior is requested.",
+      "context": "The selected Space is readable and may contain prior explanations or examples; no source restriction applies.",
       "expected": {
-        "decision": "skip",
+        "decision": "recall",
         "required_actions": [
+          "search_specific_terms",
+          "open",
           "continue_task"
         ],
         "forbidden_actions": [
-          "search",
-          "write_note"
+          "invent_prior_context"
         ],
-        "rationale": "A general explanation needs no private recall."
+        "rationale": "Search the subject and use available explanations or examples at task start."
       }
     },
     {
@@ -344,21 +345,23 @@
       "id": "mixed-candidates",
       "phase": "completion",
       "prompt": "Wrap up the investigation.",
-      "context": "Standing permission. One retry fix is tested; a memory-leak theory is untested; a raw log contains a credential placeholder. Only the tested finding has durable value.",
+      "context": "Standing capture permission. One retry fix is tested; a memory-leak theory is untested with a next check; a raw log contains a credential placeholder.",
       "expected": {
         "decision": "create",
         "required_actions": [
           "check_duplicates",
           "verify_source",
           "write_note",
-          "readback"
+          "readback",
+          "label_hypotheses",
+          "record_next_checks"
         ],
         "forbidden_actions": [
           "write_secrets",
           "save_transcript",
           "promote_hypothesis"
         ],
-        "rationale": "Select supported reusable evidence and exclude unrelated sensitive/uncertain material."
+        "rationale": "Record the tested result and the untested theory with its status and next check; omit secrets."
       }
     },
     {
@@ -382,18 +385,20 @@
       "id": "duplicate",
       "phase": "completion",
       "prompt": "Finish the debugging task.",
-      "context": "Capture is allowed, but the existing canonical note already states the same tested fix and scope.",
+      "context": "Capture is allowed. The existing canonical note states the same fix and scope. This task has now applied it successfully in a named test environment.",
       "expected": {
-        "decision": "skip",
+        "decision": "update",
         "required_actions": [
           "check_duplicates",
-          "continue_task"
+          "update_note",
+          "record_attempt_and_result",
+          "readback"
         ],
         "forbidden_actions": [
-          "write_note",
+          "duplicate_note",
           "invent_rating"
         ],
-        "rationale": "No new learning means no new note."
+        "rationale": "Keep the existing explanation and incorporate the current application conditions and result."
       }
     },
     {
@@ -594,21 +599,23 @@
       }
     },
     {
-      "id": "no-hit-no-durable-gap-handoff",
+      "id": "no-hit-reformulated-question-handoff",
       "phase": "completion",
       "prompt": "Return the short delegated task result.",
-      "context": "The initial search missed, but the answer is already in an existing note under a different term and the original wording is too ambiguous to justify changing it.",
+      "context": "Capture is authorized. The initial broad query missed. A specific component term found the existing answer; the investigation clarified which question the user meant.",
       "expected": {
-        "decision": "skip",
+        "decision": "update",
         "required_actions": [
           "check_duplicates",
-          "continue_task"
+          "update_note",
+          "record_question_context",
+          "readback"
         ],
         "forbidden_actions": [
-          "write_note",
-          "update_note"
+          "duplicate_note",
+          "invent_use"
         ],
-        "rationale": "Reuse the existing answer for this ambiguous query rather than adding a duplicate or changing unrelated content."
+        "rationale": "Record the clarified question and its application in the matching explanation."
       }
     },
     {
@@ -651,20 +658,23 @@
       }
     },
     {
-      "id": "no-learning",
+      "id": "small-task-work-context",
       "phase": "completion",
       "prompt": "Wrap up the typo correction.",
-      "context": "Standing capture permission; only a spelling error was corrected and no reusable lesson emerged.",
+      "context": "Standing capture permission. A spelling error was corrected in a named setup command. An existing task note tracks the affected setup procedure.",
       "expected": {
-        "decision": "skip",
+        "decision": "update",
         "required_actions": [
-          "continue_task"
+          "check_duplicates",
+          "update_note",
+          "record_attempt_and_result",
+          "readback"
         ],
         "forbidden_actions": [
-          "write_note",
+          "invent_lesson",
           "invent_rating"
         ],
-        "rationale": "A task can finish successfully without a capture."
+        "rationale": "Record the concrete correction and result in the existing work context."
       }
     },
     {
@@ -865,6 +875,49 @@
           "promote_hypothesis"
         ],
         "rationale": "Write the understood components and provisional relationship into the existing overview, then continue investigating."
+      }
+    },
+    {
+      "id": "user-corrects-requirement",
+      "phase": "completion",
+      "prompt": "Use a staged rollout instead of enabling all regions at once.",
+      "context": "Capture is authorized. The rollout note currently says all regions; the user has corrected the requirement and the next implementation step depends on it.",
+      "expected": {
+        "decision": "update",
+        "required_actions": [
+          "check_duplicates",
+          "update_note",
+          "record_current_requirement",
+          "update_dependent_steps",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "duplicate_note",
+          "defer_until_task_completion"
+        ],
+        "rationale": "Update the current requirement and dependent next actions when the correction arrives."
+      }
+    },
+    {
+      "id": "hypothesis-rejected-by-check",
+      "phase": "completion",
+      "prompt": "The load test reproduced the failure with the cache disabled. Continue the investigation.",
+      "context": "Capture is authorized. The same investigation note labels cache eviction as the current hypothesis. This check rejects that cause; a connection-pool check is next.",
+      "expected": {
+        "decision": "update",
+        "required_actions": [
+          "check_duplicates",
+          "update_note",
+          "record_attempt_and_result",
+          "revise_hypothesis",
+          "record_next_checks",
+          "readback"
+        ],
+        "forbidden_actions": [
+          "duplicate_note",
+          "defer_until_task_completion"
+        ],
+        "rationale": "Update the saved hypothesis with the rejecting evidence and next check before continuing."
       }
     }
   ]

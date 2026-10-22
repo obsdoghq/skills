@@ -1,5 +1,16 @@
 # Workflow changes
 
+## 0.3.27 — 2026-10-22
+
+- Organize injected guidance by task events: start, new questions, requirements,
+  findings, decisions, attempts, checks and phase changes.
+- Make reading lead into writing, including successful lookups and unfinished
+  investigations. Capture findings and integrate them into existing explanations
+  as one continuous workflow.
+- Add concrete skill examples for user corrections, failed attempts and hypotheses
+  updated by later checks. Align evaluation cases with ongoing work-context capture.
+- Preserve runtime-selected destinations and the static SessionStart hook.
+
 ## 0.3.26 — 2026-10-22
 
 - Remove the final runtime-reference and scope paragraph from the injected

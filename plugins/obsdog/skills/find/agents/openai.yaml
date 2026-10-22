@@ -1,4 +1,4 @@
 interface:
   display_name: "Find with ObsDog"
-  short_description: "Search and read context throughout the task."
-  default_prompt: "Use $find to read the existing context, follow related notes and sources, and search the new questions this task raises."
+  short_description: "Search new questions and write what reading reveals."
+  default_prompt: "Use $find to search this question, read related notes and sources, and update the explanation with what the investigation reveals."

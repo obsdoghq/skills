@@ -1,9 +1,21 @@
-# Capture checkpoints at completion and handoff
+# Capture checkpoints during work and at handoff
 
 These are workflow examples, not new tool endpoints, automatic hooks or evidence
 that a host has invoked a skill. Use the selected Space and the user's existing
 capture authorization. A completed search and a completed capture are different
 outcomes. Keep this checkpoint in the existing task handoff, not a second ledger.
+
+## During work and at phase changes
+
+Write requirements and preferences when the user states or corrects them. After
+reading a source or finding an answer, incorporate what was learned and its
+application into the existing explanation. Record decisions and reasons, attempts
+and results, including unsuccessful checks. Save hypotheses and open questions
+with their status and next check, then revise them as checks progress.
+
+At a phase change, save accumulated context and next actions before continuing.
+Capture and integration are one continuous flow; update the same subject's note
+or create its home when absent.
 
 ## Before task completion
 
