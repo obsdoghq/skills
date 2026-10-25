@@ -39,6 +39,17 @@ invokes their short skill names such as `$find`.
 Benchmark and product-comparison workflows are intentionally not distributed in
 this user plugin. They remain separate internal evaluation work.
 
+## Write and maintain explanations
+
+The plugin includes a shared
+[authoring guide](plugins/obsdog/skills/documentify/references/authoring-guide.md),
+[split and consolidation guide](plugins/obsdog/skills/documentify/references/note-structure.md),
+and [fictional examples](plugins/obsdog/skills/documentify/references/authoring-examples.md).
+The skills load the relevant guidance for substantial writing or structural
+changes. They keep current answers, conditions and evidence together as notes
+grow, with short routing in the hook. The
+[design evidence](docs/AUTHORING_EVIDENCE.md) explains the references and their limits.
+
 ## Requirements and data boundaries
 
 Choose the authorized runtime first. Remote search, reads and supported writes

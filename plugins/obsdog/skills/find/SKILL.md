@@ -15,6 +15,13 @@ Search again when a new question, component, error, term or source appears. Use
 names and identifiers discovered in the notes and source material. When a query
 misses, try related terms and investigate the available sources.
 
+Use the actual question and exact error names. Check each answer's environment,
+version and status against the task before applying it; an imported old source
+is not a newer fact. Open the relevant detail directly when found, without forcing
+every lookup through an overview. Repair missing vocabulary in the existing home
+and recheck the original question; see
+[retrieval authoring](../maintain/references/retrieval-authoring.md).
+
 ## Turn reading into writing
 
 After finding an answer or reading a source, write what you learned and how it

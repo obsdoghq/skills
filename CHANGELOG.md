@@ -1,5 +1,17 @@
 # Workflow changes
 
+## 0.3.28 — 2026-10-25
+
+- Ship shared authoring, note-structure and fictional example references with
+  targeted loading from the four existing skills.
+- Review split boundaries during writing: independent questions and update
+  cycles, current/history separation, consolidation and coherent procedures.
+  Preserve applicability, exceptions, evidence, lineage and retrieval paths.
+- Keep the current answer and its evidence visible in the short routing hook,
+  while retaining immediate provisional capture and runtime-selected scope.
+- Document the limits of LLM Wiki and memory-system evidence, expand authoring
+  evaluation cases, and verify all private-bundle reference bytes.
+
 ## 0.3.27 — 2026-10-22
 
 - Organize injected guidance by task events: start, new questions, requirements,

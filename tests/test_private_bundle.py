@@ -79,8 +79,9 @@ class PrivateBundleTests(unittest.TestCase):
             for name in archive.namelist():
                 self.assertNotIn(marker.encode(), archive.read(name))
             for relative in ["hooks/context.md", *[
-                f"skills/{name}/SKILL.md"
-                for name in ("find", "remember", "maintain", "documentify")
+                path.relative_to(PLUGIN).as_posix()
+                for path in (PLUGIN / "skills").rglob("*")
+                if path.is_file() and path.suffix in {".md", ".yaml"}
             ]]:
                 self.assertEqual(archive.read(relative), (PLUGIN / relative).read_bytes())
             extracted = self.root / "extracted"
