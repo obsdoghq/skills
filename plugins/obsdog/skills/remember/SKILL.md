@@ -30,6 +30,12 @@ create a note when the subject has no home. Keep its identity as work develops.
 Integrate the new understanding into the explanation, including source locations,
 versions or dates and the question being answered. Link related notes and sources.
 
+Keep applicability, evidence and uncertainty close to the answer. Revise repeated
+progress statements into current state while preserving consequential decisions
+and failed attempts. When a new question needs an independent home or history
+buries the answer, use [note structure](../documentify/references/note-structure.md)
+through `maintain`. Capture the finding now even if restructuring remains pending.
+
 Recording a finding and incorporating it into the explanation are one continuous
 writing flow. Use the `maintain` workflow for reconciling several notes or changing
 their structure as needed.

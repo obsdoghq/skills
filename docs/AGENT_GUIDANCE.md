@@ -60,6 +60,31 @@ reviewed on 2026-10-22. These are design references, not evidence of measured
 improvement in ObsDog behavior. The static hook still supplies instructions;
 it does not run searches or save transcripts itself.
 
+## Maintain explanations as they grow
+
+The packaged [authoring guide](../plugins/obsdog/skills/documentify/references/authoring-guide.md)
+is the common source for reader purpose, evidence, current state and retrieval.
+[Note structure](../plugins/obsdog/skills/documentify/references/note-structure.md)
+owns split/consolidation timing and mechanics; the
+[fictional examples](../plugins/obsdog/skills/documentify/references/authoring-examples.md)
+show the decisions. Documentify reads the guide for substantial writing; maintain
+loads structure guidance when boundaries change. Remember and find keep the small
+criteria needed in daily work. The hook carries only the shared behavior.
+
+Review boundaries during additions and corrections, when retrieval exposes buried
+answers, and at phase changes. Separate independent questions and update cycles;
+use internal sections for a single coherent task. Preserve conditions, exceptions,
+source identity and useful history, then verify both old navigation and direct
+lookup. A byte threshold is an inspection signal, never a reason to cut meaning.
+Keep runtime operations in the existing Care references and use the current
+capability contract. Guidance does not add an unsupported structural operation.
+
+The design draws on the sources linked in those references, including LLM Wiki,
+Basic Memory and Letta. It adopts maintained synthesis and progressive detail,
+without importing full-project scans, raw transcript collection, fixed page
+quotas or source-removal rules. Published memory benchmarks and favorable user
+reports motivate evaluation; they do not establish ObsDog outcomes.
+
 ## Runtime and delivery
 
 Reuse the user's existing capture permission, selected Space and source scope.

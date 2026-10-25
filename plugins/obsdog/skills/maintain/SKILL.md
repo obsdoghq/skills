@@ -30,9 +30,16 @@ the unresolved question and next check. Revise those statements as checks progre
 
 Read both ends of a relationship and link the notes with the question the link
 answers. Connect overviews to procedures, source locations and detailed explanations.
-Combine overlapping explanations around their subject. Split subjects that need
-independent explanations. Keep decision history and connect superseded guidance
-to its current replacement. Use the runtime's supported structural operations.
+Combine overlapping explanations around their subject. When additions introduce
+independent questions, different update cycles or accumulating history, read
+[note structure](../documentify/references/note-structure.md) for split timing,
+boundaries and verification. Keep a coherent procedure together and preserve
+decision history, conditions, evidence and navigation through supported operations.
+
+For substantial changes to an explanation, read the shared
+[authoring guide](../documentify/references/authoring-guide.md); use its
+[examples](../documentify/references/authoring-examples.md) when a boundary is unclear.
+Small corrections do not require loading every reference or auditing the Space.
 
 ## Apply and verify
 

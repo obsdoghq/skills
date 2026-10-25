@@ -12,7 +12,7 @@
       "name": "obsdog",
       "source": "./plugins/obsdog",
       "description": "Knowledge, made observable. Read and write knowledge throughout work with four ObsDog workflows.",
-      "version": "0.3.27"
+      "version": "0.3.28"
     }
   ]
 }

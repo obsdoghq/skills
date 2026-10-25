@@ -16,9 +16,12 @@ Record unfinished understanding as observations, hypotheses and open questions
 with the next check. Update the same explanation as checks progress. Write during
 the task without waiting for completion or another save request.
 
-Update the subject's existing note to reflect the current understanding; create
-one when the subject has no home. Link related explanations and sources. Include
-the questions, terms and error names that later work will search for.
+Write the current answer into the subject's existing explanation, keeping its
+applicability, evidence and uncertainty close to the claim; create a home when
+absent. Integrate repeated progress reports while preserving decisions and failed
+attempts. When questions or update cycles diverge, separate coherent topics with
+their context and source links. Link related explanations and include the questions,
+terms and error names that later work will search for.
 
 At phase changes and before the final response, save the findings, work state and
 next actions accumulated so far. Read back the saved content to confirm the update.

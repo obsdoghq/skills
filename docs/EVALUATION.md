@@ -54,3 +54,38 @@ tests are specifications, not observed agent execution or measured improvements.
 
 Package comparisons and synthetic decisions do not prove that a fresh client
 invoked the hook or that another real user's runtime completed a write.
+
+## Authoring and structure cases
+
+These are evaluation specifications, not completed behavioral measurements.
+Use fictional source notes and revisions. Give an authorized evaluator the raw
+task and artifacts without the expected outcome; compare the actual resulting
+content and operations against these criteria.
+
+| Case | Result to inspect |
+| --- | --- |
+| A successful lookup is followed by new evidence | The existing answer gains the evidence and applicability without a duplicate summary. |
+| A saved hypothesis is disproved | The current explanation changes; the rejected cause, evidence and next check remain reachable. |
+| Code and CI pass, deployment is pending | The note distinguishes implementation/testing from runtime state. |
+| Same symptom, incompatible environments | Each condition and remedy remains explicit. |
+| An original question misses an existing answer | Vocabulary is repaired and the original question reaches the correct answer. |
+| One long paragraph answers one question | Internal blocks or sections improve readability without unnecessary documents. |
+| One section is reused and updated independently | Extraction preserves context, lineage, source navigation and direct retrieval. |
+| Daily progress buries the answer | Current state is integrated; useful decisions and failures remain in linked history. |
+| A long restore sequence includes critical rollback conditions | The coherent procedure stays intact; warnings remain beside relevant steps. |
+| Fragmented notes repeat the same scope | Consolidation preserves unique evidence and distinguishes genuine variants. |
+| A source changes or a new import contradicts an older observation | Effective time and source authority determine the update, not import time. Known dependent explanations are reconciled. |
+| A base revision conflicts or extraction is unsupported | Latest work remains intact; no copy/delete substitute or false completion claim. |
+| One sentence needs a correction | No compulsory Space-wide scan or reload of every guide. |
+| The user requests read-only or no memory | No write is attempted. |
+
+Diagnose whether required knowledge was recorded, retrieved with enough context,
+and correctly applied. Include missing conditions, stale claims, navigation cost,
+tokens/latency and upkeep effort when measuring usefulness. Compare identical
+tasks, models, source snapshots and tool budgets across versions. Do not compare
+vendor leaderboard scores with different answerers, judges, subsets or history
+access as if they isolated memory quality. See [design evidence](AUTHORING_EVIDENCE.md).
+
+Package validation checks portable links, archive reference bytes, hook size and
+publication boundaries. A manual scenario review is a design check. Neither is
+a live structural-operation test, a fresh-session invocation or an outcome benchmark.

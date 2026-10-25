@@ -15,6 +15,11 @@ matching notes and follow their source links. Investigate the code, documents,
 configuration, tests or work records needed to answer the current question.
 Search again with the questions, names and terms those sources introduce.
 
+For a new explanation or substantial revision, read the shared
+[authoring guide](references/authoring-guide.md) and the relevant
+[worked examples](references/authoring-examples.md). Choose the shape that answers
+the reader's question; do not delay recording an unfinished understanding.
+
 ## Build the explanation during investigation
 
 After reading a source or completing a check, update the subject's existing note
@@ -36,6 +41,11 @@ then update it with that check's result.
 Organize around readers' questions. Link overviews, procedures and detailed notes
 with what each destination explains. Use the ongoing `remember` and `maintain`
 flow to save findings and integrate them into current explanations.
+
+When additions introduce an independent question or bury the current answer in
+history, use [note structure](references/note-structure.md) to choose sections,
+extraction or consolidation. Keep prerequisites, exceptions and evidence with
+the explanation they qualify; length alone is not a split rule.
 
 At phase changes and before the final response or handoff, save the accumulated
 explanation, work state and next checks. Read back saved content and check its
