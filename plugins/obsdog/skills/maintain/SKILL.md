@@ -23,8 +23,9 @@ the unresolved question and next check. Revise those statements as checks progre
   evidence and explain what will be checked next.
 - A user corrects a deployment requirement: update the requirement and procedure
   that depended on it, linking the relevant decision.
-- A search misses an existing answer: add the task's question or error term to
-  the matching explanation and check the original lookup after saving.
+- A lookup misses, needs alternate wording or requires scattered notes: improve
+  the matching explanation and its navigation, then check the original lookup
+  after saving. See [retrieval authoring](references/retrieval-authoring.md).
 
 ## Connect and organize
 

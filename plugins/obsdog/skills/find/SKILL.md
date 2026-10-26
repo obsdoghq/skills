@@ -18,8 +18,9 @@ misses, try related terms and investigate the available sources.
 Use the actual question and exact error names. Check each answer's environment,
 version and status against the task before applying it; an imported old source
 is not a newer fact. Open the relevant detail directly when found, without forcing
-every lookup through an overview. Repair missing vocabulary in the existing home
-and recheck the original question; see
+every lookup through an overview. If finding the answer required alternate terms
+or assembling scattered notes, improve the existing explanation even when the
+lookup succeeded. Repair missing vocabulary and recheck the original question; see
 [retrieval authoring](../maintain/references/retrieval-authoring.md).
 
 ## Turn reading into writing

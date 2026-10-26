@@ -13,10 +13,11 @@
 
 ## Contribution tracking
 
-- Track internal work and verification only in the team's Project draft tickets,
-  not repository Issues or a mutable TODO.md checklist. Issues remain public
-  feedback intake, not a second implementation tracker. Never copy private
-  ticket bodies or access details into this repository.
+- Follow the [central tracking workflow](https://github.com/obsdoghq/obsdog/blob/main/docs/TASK_TRACKING.md)
+  for current work and verification. Jira replaced the closed GitHub Project;
+  retained draft tickets are historical evidence, not the current ledger.
+  Issues remain public feedback intake. Do not create a second implementation
+  tracker or copy private ticket bodies or access details into this repository.
 - Keep public acceptance evidence in the PR and relevant public docs. Do not
   mark package validation as actual client-session invocation or delivery.
 

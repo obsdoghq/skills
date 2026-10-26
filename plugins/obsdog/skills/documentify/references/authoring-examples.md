@@ -95,3 +95,24 @@ Add the renewal question, `LEASE_EXPIRED`, and the restart condition naturally
 to that explanation. Read back the change, rerun the original question and open
 the intended answer. A search hit alone does not prove the answer was applied
 or that the underlying service was repaired.
+
+## Repair a successful lookup that needed a detour
+
+A fictional task asks why the Atlas worker "loses its job after restart". That
+query misses the existing investigation. Searching the log's `LEASE_EXPIRED`
+finds it; the current-revision check is explained in a separate retry note.
+
+Update the existing investigation with a direct answer:
+
+> In the restart fixture, the Atlas worker lost its job after restart because
+> the retry reused an old lease revision and returned `LEASE_EXPIRED`. Reading
+> the current revision before retrying fixed this fixture. Production behavior
+> remains unverified. Evidence: the restart trace and corrected fixture result.
+
+Link the retry note with what it explains: "How retries read the current lease
+revision". Preserve that note's prerequisites rather than duplicating its whole
+procedure. Check the original symptom wording and the observed error term; open
+the results and verify that the answer retains its fixture-only scope.
+
+Do not create separate symptom and error pages for the same explanation, invent
+additional aliases, or call diagnostic retrieval a successful production fix.

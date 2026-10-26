@@ -71,6 +71,12 @@ show the decisions. Documentify reads the guide for substantial writing; maintai
 loads structure guidance when boundaries change. Remember and find keep the small
 criteria needed in daily work. The hook carries only the shared behavior.
 
+Write for later tasks that ask the same question or express the same intent
+differently. Actual symptom wording and source-confirmed names belong near the
+answer and its conditions, not in a keyword list. A successful lookup that needed
+detours or scattered notes is also an authoring opportunity. The retrieval
+reference owns bounded checks; the hook and global snippet state the purpose.
+
 Review boundaries during additions and corrections, when retrieval exposes buried
 answers, and at phase changes. Separate independent questions and update cycles;
 use internal sections for a single coherent task. Preserve conditions, exceptions,

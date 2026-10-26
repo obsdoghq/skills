@@ -69,6 +69,9 @@ content and operations against these criteria.
 | Code and CI pass, deployment is pending | The note distinguishes implementation/testing from runtime state. |
 | Same symptom, incompatible environments | Each condition and remedy remains explicit. |
 | An original question misses an existing answer | Vocabulary is repaired and the original question reaches the correct answer. |
+| A symptom query needs an exact-error detour | The existing explanation connects the observed wording and error; both reach the scoped answer without duplicate pages. |
+| Several hits must be assembled to answer one question | A maintained conclusion and meaningful links reduce missing context while preserving independent source detail. |
+| A matching title describes an incompatible environment | Retrieval is not counted as success; conditions are checked and the mismatch remains explicit. |
 | One long paragraph answers one question | Internal blocks or sections improve readability without unnecessary documents. |
 | One section is reused and updated independently | Extraction preserves context, lineage, source navigation and direct retrieval. |
 | Daily progress buries the answer | Current state is integrated; useful decisions and failures remain in linked history. |
