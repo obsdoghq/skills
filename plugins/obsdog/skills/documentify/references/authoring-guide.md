@@ -66,6 +66,22 @@ per source, noun, day or paragraph. A useful overview states the answer at its
 level and links to detail by the questions each destination answers. Direct
 searches may go straight to a detailed note; the overview is not a required hop.
 
+## Keep the current answer first with supported operations
+
+Revise the current answer in its existing blocks when possible. For several
+same-layout corrections, one exact-revision `document update` avoids a separate
+snapshot rebuild for each block. To add a new answer section above history,
+check installed capabilities and use an atomic positioned insertion if listed.
+If it is absent, preserve the accepted structure and state the precise gap;
+do not silently perform append-then-many-moves as an atomic change. See
+[care execution](../../maintain/references/care-execution.md) for direct split,
+the existing extraction-plan fallback, document-scoped IDs and insertion bounds.
+
+The CLI counts parsed Markdown blocks, not visual list items. A bullet belongs
+on one line when it must remain one block; multi-line continuation paragraphs
+count separately. Preserve their content and check the parsed count when a
+heading-led append exceeds its 20-block limit.
+
 ## Make future retrieval work
 
 Use the actual question, domain vocabulary, aliases and exact error in natural
