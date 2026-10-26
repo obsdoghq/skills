@@ -56,7 +56,7 @@ Use structure operations only when the installed CLI help exposes them:
 
 - `block split --id <id> --part <text> --part <text> --reason <reason>` replaces one active leaf with 2–20 explicit successors. It retires the predecessor; it does not delete history.
 - `block merge --ids <id>,<id> --content <text> --reason <reason>` accepts only contiguous active sibling leaves of the same type and depth. Supply reconciled content explicitly rather than hiding a concatenation decision.
-- `block move --id <id> --before <anchor>` or `--after <anchor>` preserves block and content-revision identity while moving the complete heading subtree. It does not reparent.
+- `block move --id <id> --before <anchor>` or `--after <anchor>` preserves block and content-revision identity while moving the complete heading subtree. It does not reparent. Inspect installed help: in the unreleased capability-aware CLI, agent single and batch moves also require `--base-document-revision <current-document-revision>`. This applies to compatibility APIs too; never fall back to human authorship to bypass the base check.
 - `block lineage --id <id>` reads direct exact-revision split/merge edges and moves for an active or retired identity.
 
 Do not copy labels, comments, evaluations, or verification state from retired predecessors to successors unless a separate attributable policy explicitly requires it. Verify successor IDs and current Markdown after split/merge, verify the complete subtree after move, and use `block lineage` for provenance. Do not edit the SQLite database directly.

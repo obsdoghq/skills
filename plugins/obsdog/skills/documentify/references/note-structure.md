@@ -50,6 +50,12 @@ on top of an unchanged growing log does not resolve the structure problem.
    [care execution](../../maintain/references/care-execution.md) before an extract,
    split, merge, move or supersede. Follow its exact revision and check/apply
    contract; a successful check does not reserve the base revision.
+   A CLI with `document split` can construct the extraction receipt directly.
+   On older care-capable CLIs, use the existing `extract-document` plan rather
+   than treating the missing shorthand as proof extraction is unavailable.
+   Read document-scoped identities with `document read --structure --format json`.
+   The [execution guide](../../maintain/references/care-execution.md) distinguishes
+   unreleased shortcuts, installed support and connected preparation.
 3. Preserve the source note's useful identity. Leave a brief answer at its level
    and a descriptive link to the new home where the old detail was expected.
    Give the destination a self-contained opening, scope and source/history links.
