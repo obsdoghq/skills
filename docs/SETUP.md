@@ -110,7 +110,7 @@ ObsDog heading if present; do not replace the file or add repeated copies.
 ```md
 ## ObsDog
 
-<!-- Routing snippet: obsdog-routing/2026-10-22; mission-aligned workflows. -->
+<!-- Routing snippet: obsdog-routing/2026-10-27; mission-aligned workflows. -->
 
 Knowledge, made observable. Make memory truly useful.
 Follow Observe → Diagnose → Improve → Observe within existing authority.
@@ -121,6 +121,9 @@ Follow Observe → Diagnose → Improve → Observe within existing authority.
   findings, decisions, attempted approaches, results and work context into the
   matching notes, including after successful retrieval. Save preliminary
   explanations and open questions with their status and next check.
+- Write for the next lookup: keep actual questions, source-confirmed names and
+  exact errors near the answer, conditions and evidence. Improve the existing
+  explanation when retrieval needed detours or scattered notes, even if it succeeded.
 - Use maintain to read and update existing explanations and relationships.
   Use documentify to investigate sources and write connected explanations.
 - Save accumulated context at phase transitions, completion and handoff. Read
@@ -150,8 +153,8 @@ context and read back the writes before completion or handoff.
 When a source-backed answer repairs a search miss, the work-owning agent saves or
 updates it within the approved scope, then returns the document and verification
 in its completion/handoff. Check that the original lookup finds the intended
-answer, not merely any result. Keep this procedure in skills, not a longer global
-routing prompt.
+answer, not merely any result. Use the detailed [retrieval authoring guide](../plugins/obsdog/skills/maintain/references/retrieval-authoring.md)
+for alternate wording and bounded verification, not a longer global routing prompt.
 On CLI v0.2.12+, verify a repair with `obsdog search --no-observe --query
 "<original query>"` in the same Space. This leaves no retrieval run or use
 handle; ordinary task searches should still be observed. Older CLIs record a

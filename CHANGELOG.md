@@ -1,5 +1,13 @@
 # Workflow changes
 
+## 0.3.31 — 2026-10-27
+
+Write for the next lookup using observed questions, names and errors beside the
+answer, applicability and evidence. Repair detours and fragmented answers even
+after successful retrieval. Align the optional global snippet and hook, add a
+fictional symptom-to-error example, and bound discovery checks without keyword
+stuffing, duplicate query pages or a new gate on provisional capture.
+
 ## 0.3.30 — 2026-10-27
 
 Describe capability-checked connected batch movement from the v0.2.32 source

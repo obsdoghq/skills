@@ -84,15 +84,25 @@ heading-led append exceeds its 20-block limit.
 
 ## Make future retrieval work
 
-Use the actual question, domain vocabulary, aliases and exact error in natural
-prose. Give a result enough local context to identify its subject, applicability
-and current status. A bare fragment such as "increase it to 30" is not reusable.
+Write so later work can find and apply the answer using the same question or
+another expression of the same intent. Use the actual question, domain vocabulary,
+source-confirmed aliases and exact error in natural prose. Include names in another
+language when the task or sources actually use them; do not invent synonyms,
+append keyword lists or create one note per search phrase.
+
+Give a retrieved passage enough local context to identify its subject, answer,
+applicability, current status and evidence. A bare fragment such as "increase it
+to 30" is not reusable. Keep these together without copying an entire procedure
+into every related note.
 Link related explanations only after reading the relationship's context. Link
 count and graph density are not quality targets.
 
 On a miss, distinguish absent knowledge from a retrieval problem: search related
-terms and inspect the likely home before creating a duplicate. After repair,
-retry the original question and read the intended answer. Keep diagnostic search
+terms and inspect the likely home before creating a duplicate. A successful
+lookup can still expose a gap: if it needed detours or several scattered notes,
+integrate the answer or improve the relevant navigation in its existing home.
+After repair, retry the original question and read the intended answer with its
+conditions and evidence. Keep diagnostic search
 and actual use declarations distinct. See
 [retrieval authoring](../../maintain/references/retrieval-authoring.md).
 
