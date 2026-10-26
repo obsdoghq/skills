@@ -73,14 +73,15 @@ do not fabricate search use or a useful rating for a maintenance replay.
 ## Match structural guidance to installed capabilities
 
 Read `obsdog document --help` and `obsdog block --help` before choosing syntax.
-The commands below are an unreleased source addition; use them only when the
-installed help lists them. Never assume a plugin update upgraded the CLI/server.
+Check the installed help and exact server capability before using these
+commands. Some installed versions predate the structural shorthands or connected
+batches. A plugin update does not upgrade the CLI/server.
 
 - `document split --id DOC_ID --base-revision REV_ID --blocks BLOCK_ID,BLOCK_ID --title TITLE --reason TEXT --actor-type agent --actor AGENT_ID` performs one bounded `extract-document` Care transaction. A selected heading includes its descendants. Read both resulting documents and repair known navigation with returned successor IDs. This is not a move into an existing document.
 - If direct split is absent, the existing `extract-document` plan above is the supported atomic operation. Capture exact document/block heads, run `care check`, then `care apply`; preserve its reference and subtree refusals. A missing shorthand alone does not require leaving every extraction unexecuted.
 - `block list --document DOC_ID --format json` or `document read --id DOC_ID --with-block-ids --format json` obtains document-scoped IDs. Older CLIs already return them through `document read --id DOC_ID --structure --format json`; no whole-Space export is needed.
 - `document append --id DOC_ID --base-revision REV_ID --file answer.md --before BLOCK_ID --reason TEXT --actor-type agent --actor AGENT_ID` inserts a heading-led section in one transaction. Choose an anchor that preserves existing parent context, usually the first older peer section after the title. This uses a distinct `insert-document` receipt and requires authenticated `document_insertion_v1` preparation when connected. Without it, execution records no unsupported receipt or outbox. Never replace it with append-then-N-moves while claiming atomicity.
-- `block move --ids BLOCK_ID,BLOCK_ID --before ANCHOR_ID --base-document-revision REV_ID --reason TEXT --actor-type agent --actor AGENT_ID` moves a contiguous union of complete subtrees atomically in a local-only Space. Connected changing batches are refused before mutation because their transport supports one subtree; an already-positioned no-op creates no transport and may succeed. List roots in document order. Already-in-position succeeds with `no_op: true` and no new history; stale bases are still refused.
+- `block move --ids BLOCK_ID,BLOCK_ID --before ANCHOR_ID --base-document-revision REV_ID --reason TEXT --actor-type agent --actor AGENT_ID` moves source-ordered disjoint complete subtrees atomically. In the v0.2.32 source candidate, connected changing batches require fresh authenticated `document_reorder_v1` preparation for the exact endpoint and Space. First adoption excludes older consumers/writers; update all active sessions before applying. Missing capability refuses the mutation without a new receipt/outbox. Existing Care bounds require 2–200 roots and at most 200 blocks in the complete document frame. Keep root order, choose an external anchor and preserve Markdown parents. Read the Care receipt and document back. Already-in-position succeeds with `no_op: true` and no new history after exact-base checks.
 - `document status --id DOC_ID --since-revision REV_ID --format json` compares heads without reading bodies. It is a change signal, not a reservation. `document read --format markdown` emits raw Markdown.
 
 For several corrections with the same block layout, read the current full JSON

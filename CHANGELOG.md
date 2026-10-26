@@ -1,5 +1,14 @@
 # Workflow changes
 
+## 0.3.30 — 2026-10-27
+
+Describe capability-checked connected batch movement from the v0.2.32 source
+candidate: disjoint complete subtrees, exact endpoint/Space preparation, bounded
+Care frames and the older-client exclusion after first adoption. Require active
+sessions to update before applying, and preserve no-op, revision, parent-context
+and receipt/read-back checks. Installed help and authenticated capabilities remain
+authoritative; a plugin update does not upgrade the CLI or hosted service.
+
 ## 0.3.29 — 2026-10-26
 
 Match authoring guidance to the installed CLI's actual capabilities. Explain the

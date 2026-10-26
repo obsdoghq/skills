@@ -1,6 +1,6 @@
 {
   "name": "obsdog",
-  "version": "0.3.29",
+  "version": "0.3.30",
   "description": "Read and write ObsDog knowledge throughout work: find context, remember findings, maintain notes and document source investigations. Use the connected account and selected Space, or an explicitly selected local library.",
   "author": {
     "name": "ObsDog",
