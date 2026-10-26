@@ -1,5 +1,16 @@
 # Workflow changes
 
+## 0.3.29 — 2026-10-26
+
+Match authoring guidance to the installed CLI's actual capabilities. Explain the
+existing atomic `extract-document` plan and document-scoped structured block IDs
+so missing shorthands do not block safe restructuring. Show capability-checked,
+unreleased split, positioned insertion, revision-status and local batch-move
+commands without claiming every installed client supports them. Recommend one
+exact-base document update for several same-layout corrections, and explain
+parsed block counts and multi-line list continuation limits. Keep content,
+lineage, conflict refusal and navigation verification requirements intact.
+
 ## 0.3.28 — 2026-10-25
 
 - Ship shared authoring, note-structure and fictional example references with
