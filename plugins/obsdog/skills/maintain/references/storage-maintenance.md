@@ -25,3 +25,13 @@ SQLite has one physical writer per DB, even for different documents; revision
 checks separately decide conflicting edits. Observe phase/admission diagnostics
 and let an owned operation finish/cancel normally. Missing lock age is unknown,
 not evidence of corruption or a reason to restart another process.
+
+Command elapsed time is wall time. Admission budget is the allowance at that
+operation's entry; attempts show actual reservation waits/backoff, including on
+success. Prior admission spent is already included in command elapsed time.
+Phases can overlap, so do not sum them as exclusive durations. A budget is not
+an ETA. Each long-lived MCP request gets a fresh allowance. Search/open known
+prewrite refusal returns real content with `not_recorded` and exact `next_read`.
+Other local MCP errors carry `obsdog.mcp-error/v1`, `error_code`, `message` and
+diagnostics in structuredContent and omit the normal `result`. Never interpret
+an error as no matching knowledge or call use/evaluation on an unopened result.

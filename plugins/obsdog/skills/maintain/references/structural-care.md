@@ -70,3 +70,29 @@ inventory/search. `document list --include-retired` supports audit/recovery.
 Retirement does not physically erase live retained history. For physical storage
 maintenance read [storage maintenance](storage-maintenance.md); do not change a
 retention policy or compact a user's DB merely because a diagnostic mentions size.
+
+CLI v0.2.36 adds `document repair-parent-context --id DOC --base-revision REV
+--reason TEXT --actor-type agent --actor ID --dry-run`. It recalculates parents
+implied by unchanged ordered Markdown, preserving block IDs, content revisions,
+kind/depth, bytes and order. Review the preview, then remove `--dry-run` to apply
+the same exact intent. A clean head reports `no_op`; other boundary mismatches
+are refused. Original-request retries return the original receipt. Ordinary
+`block move` preserves parents; explicit `care structure reparent` recalculates
+them. `document update --dry-run` and `block move --dry-run` use read-only
+validation and create no receipt or writer reservation. Move preview needs an
+exact `--base-document-revision`.
+
+Doctor distinguishes scanned/affected document counts from structural block
+mismatches and informational legacy terminal newlines. Each item includes ID,
+zero-based ordinal, first40 Unicode characters and blocking operations. A parent
+mismatch can block extraction elsewhere because both whole resulting documents
+must pass round-trip. Inspect the proposed repair; never strip headings or links
+to force extraction. Current ordinary insertion refuses implicit parent changes;
+old timestamps alone do not identify which historical API created drift.
+
+Care `offending_block_ids` is already available in v0.2.35. v0.2.36 adds the CLI
+response view `care_diagnostics` with all attributable IDs, ordinal, preview,
+total/returned/remaining and completeness. The display is bounded; unknown
+attribution is not an empty successful list. A noncontiguous extraction names
+the conflicting whole span, including gaps. Compare it with the intended
+selection rather than silently expanding that selection.
