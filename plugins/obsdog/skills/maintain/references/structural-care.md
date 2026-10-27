@@ -59,3 +59,14 @@ applicability, exact heads, layout and evidence. A persisted defer using new
 diagnostic fields also adopts the structural history grammar. Unsupported
 endpoints do not receive an unsupported receipt/outbox; update consumers before
 adopting the new format.
+
+
+On CLI v0.2.36+, retire a whole temporary document without a sink using
+`document retire --id DOC --base-revision REV --reason TEXT --actor-type agent
+--actor AGENT_ID --space SPACE_ID --dry-run --format json`. Remove dry-run only
+within the authorized cleanup scope. It uses the existing complete-root Care
+contract and exact retry, preserves history and hides the document from current
+inventory/search. `document list --include-retired` supports audit/recovery.
+Retirement does not physically erase live retained history. For physical storage
+maintenance read [storage maintenance](storage-maintenance.md); do not change a
+retention policy or compact a user's DB merely because a diagnostic mentions size.

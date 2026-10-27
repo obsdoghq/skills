@@ -212,7 +212,7 @@ At each long-task phase boundary, verify the selected executable and the actual
 operation capability again. On CLI v0.2.34+, doctor reports these boundaries:
 
 ```sh
-obsdog doctor --guidance-version 0.3.33 --minimum-cli v0.2.35 --require-capability document_split_dry_run_v1 --format json
+obsdog doctor --guidance-version 0.3.34 --minimum-cli v0.2.36 --require-capability document_split_dry_run_v1 --format json
 obsdog doctor --check-updates --format json
 ```
 

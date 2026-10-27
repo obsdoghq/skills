@@ -193,3 +193,14 @@ conditions. Do not promise `--no-observe` always succeeds. On CLI v0.2.35+ use
 probe. Preserve the other writer. Search/open/direct read/append timings describe
 separate operations; an open records selection/exposure and can need a writer.
 API unavailable is a remote transport/server outcome, not proof of a Space lock.
+
+
+On CLI v0.2.36+, a known observation admission refusal can return complete open
+content with `observation.persistence=not_recorded`, no exposure/selection event
+and an exact `next_read` target. Diagnostic search also supplies block/revision
+navigation. Use `block show --id BLOCK --revision REV` or advertised local MCP
+`obsdog_block_read`; this is a read, not a fabricated observed run or use. An
+`unknown` commit outcome is not a safe automatic retry. Inspect the original
+trace/request. Successful reads and writer availability remain separate facts.
+Default document list omits retired documents; use `--include-retired` only when
+an audit/recovery task needs them. Exact read/history remains available.
