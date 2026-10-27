@@ -32,6 +32,17 @@ with its exact current base revision, a concrete reason, and agent attribution.
 Preserve that block's kind/depth; this ordinary revision path does not prepare
 atomic Care. Check installed help for the supported flags.
 
+One paragraph is one block. `One fact.\nA continuation of the same fact.` can
+remain one paragraph; `First fact.\n\nSecond fact.` is two parsed paragraphs.
+For two successor paragraphs, retain the blank-line structure and use
+`block split --id BLOCK_ID --part-file first.md --part-file second.md` with
+Space/actor/reason flags. A `parsed N blocks` refusal preserves the old content;
+it is not a failed valid capture. Error previews identify kind/depth. Do not
+remove blank lines to force multiple authored blocks into one large block.
+Merging list items preserves `list_item`: use content such as `- Combined fact.`.
+For deliberate parent changes or retirement use capability-checked
+[structural Care](../../maintain/references/structural-care.md).
+
 On CLI v0.2.10+, a full Markdown update can preserve document identity when
 block structure is unchanged. Unlike ordinary `block update`, this is atomic
 Care even without a layout change: connected Spaces require verified
