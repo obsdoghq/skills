@@ -176,3 +176,12 @@ closes this loop before its handoff, rather than leaving capture to an unspecifi
 later agent.
 
 Keep JSON stdout machine-clean. Do not send raw queries, content, paths, Space identifiers, comments, or reasons to external diagnostics.
+
+
+On CLI v0.2.34+, options must precede positional search text. Use
+`obsdog search --space SPACE_ID --no-observe --query "example query" --format json`
+for a diagnostic query. Use `--query` or a `--` terminator for literal text that
+looks like an option. A misplaced option is a refusal, never permission to use
+Personal or observe the diagnostic query. A normal search's explicit
+`not_recorded_writer_busy` fallback is unobserved and has no run/hit receipt.
+Status/doctor and diagnostic search do not repair caches or require a writer.

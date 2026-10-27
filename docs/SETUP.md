@@ -206,7 +206,20 @@ records within the agreed scope. For an individual finding, use `remember`.
 
 ## Updating CLI and agent guidance
 
-CLI and plugin versions advance separately. For a Homebrew CLI, use
+CLI and plugin versions advance separately. Loaded session instructions also
+have their own lifetime: updating files does not reload an active session.
+At each long-task phase boundary, verify the selected executable and the actual
+operation capability again. On CLI v0.2.34+, doctor reports these boundaries:
+
+```sh
+obsdog doctor --guidance-version 0.3.32 --minimum-cli v0.2.34 --require-capability document_split_dry_run_v1 --format json
+obsdog doctor --check-updates --format json
+```
+
+Supply a guidance version only when it is actually loaded. Unknown stays unknown.
+The optional latest check installs nothing; offline/unavailable is not up-to-date.
+These flags are capability-dependent; older CLIs still need their actual help.
+ For a Homebrew CLI, use
 `brew update && brew upgrade obsdoghq/tap/obsdog`; a verified standalone CLI
 uses `obsdog update --check` and `obsdog update`. Refresh the agent marketplace
 separately:

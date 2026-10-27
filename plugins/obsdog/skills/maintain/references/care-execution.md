@@ -19,6 +19,26 @@ Write an `obsdog.care-plan/v1` JSON file inside the authorized private boundary:
 - concrete `reason`, `evidence: [{reference, checked_revision, finding}]`;
 - the action's complete replacement, parts or title, never just a vague goal.
 
+A complete fictional extraction plan follows. Replace every example identity
+with the current selected Space and exact heads before checking it. The schema
+uses `id`/`revision_id`, not document/block field aliases:
+
+```json
+{
+  "schema": "obsdog.care-plan/v1",
+  "space_id": "spc_example",
+  "request_id": "request_example",
+  "actor_type": "agent",
+  "actor_id": "agent_example",
+  "action": "extract-document",
+  "documents": [{"id": "doc_example", "revision_id": "rev_document_example"}],
+  "blocks": [{"id": "blk_example", "revision_id": "rev_block_example"}],
+  "title": "Prior context",
+  "reason": "Separate the selected complete section",
+  "evidence": [{"reference": "fixture:source", "checked_revision": "rev_document_example", "finding": "Inspected the exact selected section and its boundaries"}]
+}
+```
+
 Use IDs returned by the CLI, not titles, ranks or identifiers from this guide.
 Evidence describes what you checked; it is not a human verification certificate.
 Do not include credentials or copy a private source outside its permitted home.
@@ -28,11 +48,12 @@ Do not include credentials or copy a private source outside its permitted home.
 | `update-block` | One document/block, complete `content`; same authored kind/depth. |
 | `update-document` | One document, complete replacement Markdown with unchanged block structure and/or a stored `title`; exact document head. |
 | `append-document` | One exact document head, a heading-led Markdown suffix of at most 20 new blocks; preserve every existing block identity/revision. Requires the append capability on a connected Space. |
-| `insert-document` | Capability-gated unreleased action: one exact document head, heading-led `content` and exact `before_block_id`; its receipt must prove that anchor and preserve all existing identities/parents. |
+| `insert-document` | Capability-gated action: one exact document head, heading-led `content` and exact `before_block_id`; its receipt must prove that anchor and preserve all existing identities/parents. |
 | `supersede-document` | Two exact document heads, duplicate source first and active canonical target second; no block copy or target revision change. Require concrete duplicate evidence. |
 | `split-block` | One leaf, 2–20 explicit `parts`; each stays context-complete. |
 | `merge-blocks` | 2–20 contiguous sibling leaves; reconciled `content`. |
 | `extract-document` | One document, a complete contiguous subtree/range and new `title`. |
+| `extract-titled-document` | CLI v0.2.34+: the same extraction plus one newly authored H1 root. Requires exact endpoint title-extraction capability when connected. |
 | `merge-documents` | Two documents, source first and destination second; no block list. |
 
 Stay within the runtime's bounds: two affected documents, at most 200 active
@@ -78,16 +99,17 @@ commands. Some installed versions predate the structural shorthands or connected
 batches. A plugin update does not upgrade the CLI/server.
 
 - `document split --id DOC_ID --base-revision REV_ID --blocks BLOCK_ID,BLOCK_ID --title TITLE --reason TEXT --actor-type agent --actor AGENT_ID` performs one bounded `extract-document` Care transaction. A selected heading includes its descendants. Read both resulting documents and repair known navigation with returned successor IDs. This is not a move into an existing document.
+- On CLI v0.2.34+, add `--dry-run` to check the exact same split syntax without creating a document, receipt or writer floor. A ready check is not a reservation. Add `--with-title-heading` when a new H1 root is required; this uses the separate `extract-titled-document` receipt. Prepare `document_title_extraction_v1` for the exact connected endpoint/Space and update every active consumer first. A selected existing H1 already provides a root title.
 - If direct split is absent, the existing `extract-document` plan above is the supported atomic operation. Capture exact document/block heads, run `care check`, then `care apply`; preserve its reference and subtree refusals. A missing shorthand alone does not require leaving every extraction unexecuted.
 - `block list --document DOC_ID --format json` or `document read --id DOC_ID --with-block-ids --format json` obtains document-scoped IDs. Older CLIs already return them through `document read --id DOC_ID --structure --format json`; no whole-Space export is needed.
 - `document append --id DOC_ID --base-revision REV_ID --file answer.md --before BLOCK_ID --reason TEXT --actor-type agent --actor AGENT_ID` inserts a heading-led section in one transaction. Choose an anchor that preserves existing parent context, usually the first older peer section after the title. This uses a distinct `insert-document` receipt and requires authenticated `document_insertion_v1` preparation when connected. Without it, execution records no unsupported receipt or outbox. Never replace it with append-then-N-moves while claiming atomicity.
-- `block move --ids BLOCK_ID,BLOCK_ID --before ANCHOR_ID --base-document-revision REV_ID --reason TEXT --actor-type agent --actor AGENT_ID` moves source-ordered disjoint complete subtrees atomically. In the v0.2.32 source candidate, connected changing batches require fresh authenticated `document_reorder_v1` preparation for the exact endpoint and Space. Persisting this new receipt grammar excludes older consumers/writers, including supported deferred/failed outcomes; update all active sessions before applying. A read-only check, no-op or unsupported refusal persists no receipt and raises no floor. Missing capability refuses the mutation without a new receipt/outbox. Existing Care bounds require 2–200 roots and at most 200 blocks in the complete document frame. Human and agent batches both require the explicit document base. Keep root order, choose an external anchor and preserve Markdown parents. Read the Care receipt and document back. Already-in-position succeeds with `no_op: true` and no new history after exact-base checks.
+- `block move --ids BLOCK_ID,BLOCK_ID --before ANCHOR_ID --base-document-revision REV_ID --reason TEXT --actor-type agent --actor AGENT_ID` moves source-ordered disjoint complete subtrees atomically. In the v0.2.32 source candidate, connected changing batches require fresh authenticated `document_reorder_v1` preparation for the exact endpoint and Space. Persisting this new receipt grammar excludes older consumers/writers, including supported deferred/failed outcomes; update all active sessions before applying. A read-only check, no-op or unsupported refusal persists no receipt and raises no floor. Missing capability refuses the mutation without a new receipt/outbox. Existing Care bounds require 2–200 roots and at most 200 blocks in the complete document frame. Human and agent batches both require the explicit document base. List each heading root once; its descendants travel with it and must not also appear in `--ids`. Keep root order, choose an external anchor and preserve Markdown parents. Read the Care receipt and document back. Already-in-position succeeds with `no_op: true` and no new history after exact-base checks.
 - `document status --id DOC_ID --since-revision REV_ID --format json` compares heads without reading bodies. It is a change signal, not a reservation. `document read --format markdown` emits raw Markdown.
 
 For several corrections with the same block layout, read the current full JSON
 Markdown once, assert the intended old strings, and use one existing
 `document update --id DOC_ID --base-revision REV_ID --file edited.md --reason TEXT`.
-This avoids rebuilding the complete search snapshot for every individual patch.
+Choose it for one exact-base transaction and one publication, not an unconditional speed guarantee. Compare equal changed content, layout, cache and writer conditions before making a performance claim.
 Block count, order, kind/depth and parent relationships must remain unchanged;
 a conflict requires a new read and intent. Never turn a boundary refusal into a
 copy/delete workaround.
@@ -146,3 +168,36 @@ documents and exact old revisions remain historical evidence.
 Summarize material outcomes, reason and recovery ID. Counts in
 `insights show`/`dashboard serve` describe activity, not proven improvement.
 There is no need for a person to edit, approve or undo each routine item in UI.
+
+## Failed capture and long-task drift
+
+On CLI v0.2.34+, `document import` stages a private local draft before its write.
+If it fails or the response is uncertain, preserve the returned `capture_…` ID.
+Inspect `document drafts --draft ID --space SPACE_ID --format json`, then use
+`document recover --draft ID --space SPACE_ID --actor-type agent --actor ORIGINAL_AGENT`
+with the original intent/actor. Do not issue a new import or `--fork` to bypass an
+uncertain outcome. Recovery first resolves an already committed local receipt and
+rechecks the same request under writer admission; a replay gives original identity
+and revision evidence, not current body content. Read that document by ID. Existing
+subject updates still require its exact current base; recovery does not authorize
+copying into another Space or changing the original actor. Draft inventory returns
+at most200 entries and an explicit `--after` cursor. Remote hosted tools use their
+own request receipts; a local draft command is not a policy fallback for them.
+
+At long-task phase changes, check the selected executable/capabilities again.
+When this v0.3.32 guidance is actually loaded and CLI v0.2.34+ is selected, use
+`obsdog doctor --space SPACE_ID --guidance-version 0.3.32 --minimum-cli v0.2.34
+--require-capability document_split_dry_run_v1 --format json`.
+Loaded guidance is caller-declared or unknown. MCP/viewer versions come from their
+existing connections/listeners, not the installed CLI. `--check-updates` is an
+explicit bounded release check and performs no installation/restart. A failed
+lookup is unavailable; a cached tag is unverified. An old CLI may not support
+these doctor flags; inspect its actual help and retain the capability gap.
+
+Ordinary search can return `observation_status: not_recorded_writer_busy` with
+read-only results after a confirmed admission failure. Such results have no
+usable run/hit receipt: do not declare observed selection, use or feedback for
+them. Writer diagnostics distinguish phase/attempt/backoff/command elapsed time
+and caller PID. Unknown lock owner or transaction age is not a successful capture
+or proof of self-contention. Preserve drafts and inspect evidence; do not kill
+other processes, edit SQLite, delete events or change sync to force progress.
