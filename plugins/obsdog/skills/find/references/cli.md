@@ -185,3 +185,11 @@ looks like an option. A misplaced option is a refusal, never permission to use
 Personal or observe the diagnostic query. A normal search's explicit
 `not_recorded_writer_busy` fallback is unobserved and has no run/hit receipt.
 Status/doctor and diagnostic search do not repair caches or require a writer.
+
+Read-only status/probe/direct document reads acquire no writer and record no
+observation, but can still fail on file access, WAL recovery or other SQLite
+conditions. Do not promise `--no-observe` always succeeds. On CLI v0.2.35+ use
+`space write-readiness` separately for an instantaneous rollback-only writer
+probe. Preserve the other writer. Search/open/direct read/append timings describe
+separate operations; an open records selection/exposure and can need a writer.
+API unavailable is a remote transport/server outcome, not proof of a Space lock.

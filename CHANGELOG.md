@@ -1,5 +1,15 @@
 # Workflow changes
 
+## 0.3.33 — 2026-10-27
+
+Describe explicit retirement, heading insertion, reparenting and cross-document
+transfer through capability-checked structural Care. Keep root selection, exact
+heads, dry-run, lineage, retry and compensation concrete. Explain current plan
+schema/field diagnostics, known offending blocks, one-paragraph updates and
+multi-part splits without flattening content. Separate read-only status from
+rollback-only writer readiness and local contention from API unavailability.
+Preserve uncertainty about intermittent locks and loaded session versions.
+
 ## 0.3.31 — 2026-10-27
 
 Write for the next lookup using observed questions, names and errors beside the

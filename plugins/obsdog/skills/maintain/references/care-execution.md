@@ -91,6 +91,16 @@ Reuse the same request ID only with identical input. Read the current Markdown
 and receipt after success. Verify intended context, successors, links and actor;
 do not fabricate search use or a useful rating for a maintenance replay.
 
+## Explicit boundary changes
+
+For retirement, a new heading that intentionally changes parents, another parent,
+or transfer into an existing document, read [structural Care](structural-care.md).
+CLI v0.2.35+ provides `care structure --dry-run`; ordinary update/move/insertion
+retain their original protections. A contiguous `document split` is only one
+expressible extraction, not a general cross-document movement capability.
+`care schema --format json` returns the current field schema. Known defer causes
+include `offending_block_ids`; check those exact blocks and preserve links.
+
 ## Match structural guidance to installed capabilities
 
 Read `obsdog document --help` and `obsdog block --help` before choosing syntax.
@@ -185,8 +195,8 @@ at most200 entries and an explicit `--after` cursor. Remote hosted tools use the
 own request receipts; a local draft command is not a policy fallback for them.
 
 At long-task phase changes, check the selected executable/capabilities again.
-When this v0.3.32 guidance is actually loaded and CLI v0.2.34+ is selected, use
-`obsdog doctor --space SPACE_ID --guidance-version 0.3.32 --minimum-cli v0.2.34
+When this v0.3.33 guidance is actually loaded and CLI v0.2.35+ is selected, use
+`obsdog doctor --space SPACE_ID --guidance-version 0.3.33 --minimum-cli v0.2.35
 --require-capability document_split_dry_run_v1 --format json`.
 Loaded guidance is caller-declared or unknown. MCP/viewer versions come from their
 existing connections/listeners, not the installed CLI. `--check-updates` is an
@@ -201,3 +211,13 @@ them. Writer diagnostics distinguish phase/attempt/backoff/command elapsed time
 and caller PID. Unknown lock owner or transaction age is not a successful capture
 or proof of self-contention. Preserve drafts and inspect evidence; do not kill
 other processes, edit SQLite, delete events or change sync to force progress.
+
+General `space status` is a read-only snapshot. `space write-readiness` on CLI
+v0.2.35+ is a separate short, rollback-only writer reservation; `ready` describes
+that instant, not a later write guarantee. Stdio MCP exposes the same distinction
+through `obsdog_space_status` and `obsdog_write_readiness`. Tool metadata carries
+operation/elapsed time and reservation failures expose attempt diagnostics.
+Healthy WAL read snapshots remain usable under an ordinary writer; read-only
+access is not a guarantee against every file, recovery or lock failure. An API
+transport/unavailability error and local `space_writer_busy` are distinct; inspect
+the actual endpoint/path and error rather than treating one as the other.
