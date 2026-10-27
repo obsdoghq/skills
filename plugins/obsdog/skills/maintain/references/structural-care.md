@@ -96,3 +96,9 @@ total/returned/remaining and completeness. The display is bounded; unknown
 attribution is not an empty successful list. A noncontiguous extraction names
 the conflicting whole span, including gaps. Compare it with the intended
 selection rather than silently expanding that selection.
+
+`care_diagnostics.complete` means the reported condition's named IDs could be
+attributed to exact before-frame blocks. Read total/returned/remaining together;
+it does not assert later mechanical checks are ready. Doctor scan_complete is
+its scanned document window. Check status/reason_class/mechanical_checks before
+forming a repair or changing the selection.
