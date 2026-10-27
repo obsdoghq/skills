@@ -195,8 +195,8 @@ at most200 entries and an explicit `--after` cursor. Remote hosted tools use the
 own request receipts; a local draft command is not a policy fallback for them.
 
 At long-task phase changes, check the selected executable/capabilities again.
-When this v0.3.33 guidance is actually loaded and CLI v0.2.35+ is selected, use
-`obsdog doctor --space SPACE_ID --guidance-version 0.3.33 --minimum-cli v0.2.35
+When this v0.3.34 guidance is actually loaded and CLI v0.2.35+ is selected, use
+`obsdog doctor --space SPACE_ID --guidance-version 0.3.34 --minimum-cli v0.2.36
 --require-capability document_split_dry_run_v1 --format json`.
 Loaded guidance is caller-declared or unknown. MCP/viewer versions come from their
 existing connections/listeners, not the installed CLI. `--check-updates` is an
@@ -204,13 +204,26 @@ explicit bounded release check and performs no installation/restart. A failed
 lookup is unavailable; a cached tag is unverified. An old CLI may not support
 these doctor flags; inspect its actual help and retain the capability gap.
 
-Ordinary search can return `observation_status: not_recorded_writer_busy` with
-read-only results after a confirmed admission failure. Such results have no
-usable run/hit receipt: do not declare observed selection, use or feedback for
-them. Writer diagnostics distinguish phase/attempt/backoff/command elapsed time
-and caller PID. Unknown lock owner or transaction age is not a successful capture
-or proof of self-contention. Preserve drafts and inspect evidence; do not kill
-other processes, edit SQLite, delete events or change sync to force progress.
+CLI v0.2.36 search/open separates available exact content from observation
+persistence. Inspect `observation.persistence`, `retryable` and `retry_safe`.
+`not_recorded` has no fabricated events or run/hit handles: follow `next_read`
+through `block show --id BLOCK --revision REV` or the local MCP
+`obsdog_block_read` when advertised. Do not declare observed selection/use or
+feedback. Reopen an original recorded run after writer release before its use
+workflow. `unknown` after an attempted commit is not automatically retryable;
+inspect the original trace/request instead. Do not resend use just to repair
+missing telemetry. Hosted MCP uses its own actual contract, not these local fields.
+
+Response timings distinguish phase, admission attempts/backoff and total command
+elapsed. CLI progress stays on stderr; MCP keeps protocol stdout clean. Actual
+WAL lock diagnostics may name a competing PID with an OS basis. Missing ownership
+has an explicit reason and transaction age can stay null. Same-PID sample span is
+not continuous lock age or proof of self-contention. Preserve drafts; never kill
+another writer, edit SQLite, delete events or change sync to force progress.
+Capture inventory includes effective title/source_path. A failed import preserves
+the original draft and structured recovery state; retry with that same draft and
+actor. Ordinary append failure does not promise a draft: inspect its reported
+base state, document status/read and original Care receipt before a new intent.
 
 General `space status` is a read-only snapshot. `space write-readiness` on CLI
 v0.2.35+ is a separate short, rollback-only writer reservation; `ready` describes

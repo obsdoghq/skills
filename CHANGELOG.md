@@ -1,5 +1,15 @@
 # Workflow changes
 
+## 0.3.34 — 2026-10-27
+
+Explain CLI0.2.36 independent read/observation persistence, exact diagnostic
+navigation and original-draft/base recovery. Add whole-document retirement and
+explicit physical compaction guidance, preserving history, real writer ownership
+and separate retention-policy activation. Plugin installation still does not
+upgrade CLI processes or reload existing session instructions. Explain complete
+structural diagnostics, exact parent-only repair and read-only move/update
+previews; keep structured MCP failures distinct from absent knowledge.
+
 ## 0.3.33 — 2026-10-27
 
 Describe explicit retirement, heading insertion, reparenting and cross-document
