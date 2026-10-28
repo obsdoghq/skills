@@ -58,7 +58,7 @@ plan later maintenance under similar conditions, without treating them as an ETA
 obsdog space compact --space SPACE_ID --storage-details --format json
 ```
 
-This opt-in read-only dbstat scan has a 2s budget and at most 1024 object rows.
+This opt-in read-only dbstat scan has a default 2s budget (explicit --storage-details-budget 1ms..30s, within the command deadline) and at most 1024 object rows.
 Check storage_details.complete/status. Allocated, payload and unused page bytes
 are shown per B-tree/table/index with categorized totals. This is metadata,
 not document contents. The categories group object names and do not allocate
