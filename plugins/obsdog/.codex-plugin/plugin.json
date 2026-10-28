@@ -1,6 +1,6 @@
 {
   "name": "obsdog",
-  "version": "0.3.34",
+  "version": "0.3.35",
   "description": "Read existing context and write findings throughout work with ObsDog.",
   "author": {
     "name": "ObsDog",

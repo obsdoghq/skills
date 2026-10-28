@@ -53,7 +53,7 @@ Do not include credentials or copy a private source outside its permitted home.
 | `split-block` | One leaf, 2–20 explicit `parts`; each stays context-complete. |
 | `merge-blocks` | 2–20 contiguous sibling leaves; reconciled `content`. |
 | `extract-document` | One document, a complete contiguous subtree/range and new `title`. |
-| `extract-titled-document` | CLI v0.2.34+: the same extraction plus one newly authored H1 root. Requires exact endpoint title-extraction capability when connected. |
+| `extract-titled-document` | When installed help advertises it: the same extraction plus one newly authored H1 root. Requires exact endpoint title-extraction capability when connected. |
 | `merge-documents` | Two documents, source first and destination second; no block list. |
 
 Stay within the runtime's bounds: two affected documents, at most 200 active
@@ -95,7 +95,7 @@ do not fabricate search use or a useful rating for a maintenance replay.
 
 For retirement, a new heading that intentionally changes parents, another parent,
 or transfer into an existing document, read [structural Care](structural-care.md).
-CLI v0.2.35+ provides `care structure --dry-run`; ordinary update/move/insertion
+When installed help advertises `care structure --dry-run`, use it; ordinary update/move/insertion
 retain their original protections. A contiguous `document split` is only one
 expressible extraction, not a general cross-document movement capability.
 `care schema --format json` returns the current field schema. Known defer causes
@@ -109,11 +109,11 @@ commands. Some installed versions predate the structural shorthands or connected
 batches. A plugin update does not upgrade the CLI/server.
 
 - `document split --id DOC_ID --base-revision REV_ID --blocks BLOCK_ID,BLOCK_ID --title TITLE --reason TEXT --actor-type agent --actor AGENT_ID` performs one bounded `extract-document` Care transaction. A selected heading includes its descendants. Read both resulting documents and repair known navigation with returned successor IDs. This is not a move into an existing document.
-- On CLI v0.2.34+, add `--dry-run` to check the exact same split syntax without creating a document, receipt or writer floor. A ready check is not a reservation. Add `--with-title-heading` when a new H1 root is required; this uses the separate `extract-titled-document` receipt. Prepare `document_title_extraction_v1` for the exact connected endpoint/Space and update every active consumer first. A selected existing H1 already provides a root title.
+- When installed help advertises it, add `--dry-run` to check the exact same split syntax without creating a document, receipt or writer floor. A ready check is not a reservation. Add `--with-title-heading` when a new H1 root is required; this uses the separate `extract-titled-document` receipt. Prepare `document_title_extraction_v1` for the exact connected endpoint/Space and update every active consumer first. A selected existing H1 already provides a root title.
 - If direct split is absent, the existing `extract-document` plan above is the supported atomic operation. Capture exact document/block heads, run `care check`, then `care apply`; preserve its reference and subtree refusals. A missing shorthand alone does not require leaving every extraction unexecuted.
 - `block list --document DOC_ID --format json` or `document read --id DOC_ID --with-block-ids --format json` obtains document-scoped IDs. Older CLIs already return them through `document read --id DOC_ID --structure --format json`; no whole-Space export is needed.
 - `document append --id DOC_ID --base-revision REV_ID --file answer.md --before BLOCK_ID --reason TEXT --actor-type agent --actor AGENT_ID` inserts a heading-led section in one transaction. Choose an anchor that preserves existing parent context, usually the first older peer section after the title. This uses a distinct `insert-document` receipt and requires authenticated `document_insertion_v1` preparation when connected. Without it, execution records no unsupported receipt or outbox. Never replace it with append-then-N-moves while claiming atomicity.
-- `block move --ids BLOCK_ID,BLOCK_ID --before ANCHOR_ID --base-document-revision REV_ID --reason TEXT --actor-type agent --actor AGENT_ID` moves source-ordered disjoint complete subtrees atomically. In the v0.2.32 source candidate, connected changing batches require fresh authenticated `document_reorder_v1` preparation for the exact endpoint and Space. Persisting this new receipt grammar excludes older consumers/writers, including supported deferred/failed outcomes; update all active sessions before applying. A read-only check, no-op or unsupported refusal persists no receipt and raises no floor. Missing capability refuses the mutation without a new receipt/outbox. Existing Care bounds require 2–200 roots and at most 200 blocks in the complete document frame. Human and agent batches both require the explicit document base. List each heading root once; its descendants travel with it and must not also appear in `--ids`. Keep root order, choose an external anchor and preserve Markdown parents. Read the Care receipt and document back. Already-in-position succeeds with `no_op: true` and no new history after exact-base checks.
+- `block move --ids BLOCK_ID,BLOCK_ID --before ANCHOR_ID --base-document-revision REV_ID --reason TEXT --actor-type agent --actor AGENT_ID` moves source-ordered disjoint complete subtrees atomically. Connected changing batches require fresh authenticated `document_reorder_v1` preparation for the exact endpoint and Space. Persisting this new receipt grammar excludes older consumers/writers, including supported deferred/failed outcomes; update all active sessions before applying. A read-only check, no-op or unsupported refusal persists no receipt and raises no floor. Missing capability refuses the mutation without a new receipt/outbox. Existing Care bounds require 2–200 roots and at most 200 blocks in the complete document frame. Human and agent batches both require the explicit document base. List each heading root once; its descendants travel with it and must not also appear in `--ids`. Keep root order, choose an external anchor and preserve Markdown parents. Read the Care receipt and document back. Already-in-position succeeds with `no_op: true` and no new history after exact-base checks.
 - `document status --id DOC_ID --since-revision REV_ID --format json` compares heads without reading bodies. It is a change signal, not a reservation. `document read --format markdown` emits raw Markdown.
 
 For several corrections with the same block layout, read the current full JSON
@@ -181,7 +181,7 @@ There is no need for a person to edit, approve or undo each routine item in UI.
 
 ## Failed capture and long-task drift
 
-On CLI v0.2.34+, `document import` stages a private local draft before its write.
+When installed help exposes `document drafts` and `document recover`, `document import` stages a private local draft before its write.
 If it fails or the response is uncertain, preserve the returned `capture_…` ID.
 Inspect `document drafts --draft ID --space SPACE_ID --format json`, then use
 `document recover --draft ID --space SPACE_ID --actor-type agent --actor ORIGINAL_AGENT`
@@ -195,8 +195,8 @@ at most200 entries and an explicit `--after` cursor. Remote hosted tools use the
 own request receipts; a local draft command is not a policy fallback for them.
 
 At long-task phase changes, check the selected executable/capabilities again.
-When this v0.3.34 guidance is actually loaded and CLI v0.2.35+ is selected, use
-`obsdog doctor --space SPACE_ID --guidance-version 0.3.34 --minimum-cli v0.2.36
+When these installed doctor flags are advertised, declare the guidance actually loaded using
+`obsdog doctor --space SPACE_ID --guidance-version 0.3.35 --minimum-cli v0.2.38
 --require-capability document_split_dry_run_v1 --format json`.
 Loaded guidance is caller-declared or unknown. MCP/viewer versions come from their
 existing connections/listeners, not the installed CLI. `--check-updates` is an
@@ -204,7 +204,7 @@ explicit bounded release check and performs no installation/restart. A failed
 lookup is unavailable; a cached tag is unverified. An old CLI may not support
 these doctor flags; inspect its actual help and retain the capability gap.
 
-CLI v0.2.36 search/open separates available exact content from observation
+Current advertised search/open support separates available exact content from observation
 persistence. Inspect `observation.persistence`, `retryable` and `retry_safe`.
 `not_recorded` has no fabricated events or run/hit handles: follow `next_read`
 through `block show --id BLOCK --revision REV` or the local MCP
@@ -226,7 +226,7 @@ actor. Ordinary append failure does not promise a draft: inspect its reported
 base state, document status/read and original Care receipt before a new intent.
 
 General `space status` is a read-only snapshot. `space write-readiness` on CLI
-v0.2.35+ is a separate short, rollback-only writer reservation; `ready` describes
+with installed support is a separate short, rollback-only writer reservation; `ready` describes
 that instant, not a later write guarantee. Stdio MCP exposes the same distinction
 through `obsdog_space_status` and `obsdog_write_readiness`. Tool metadata carries
 operation/elapsed time and reservation failures expose attempt diagnostics.
@@ -234,3 +234,48 @@ Healthy WAL read snapshots remain usable under an ordinary writer; read-only
 access is not a guarantee against every file, recovery or lock failure. An API
 transport/unavailability error and local `space_writer_busy` are distinct; inspect
 the actual endpoint/path and error rather than treating one as the other.
+
+
+A successful read is not a committed open observation. For example, a response
+with `ok: true`, returned Markdown, `observation.persistence: not_recorded`,
+`reason: writer_admission_refused`, `use_available: false` and `event_ids: []`
+means the content was read but the open/use prerequisite was not accepted. If
+observation is needed, retry only `search open` with the original run/rank after
+writer release. Proceed to use/feedback only after a committed open and the
+actual applicable use. Do not repeat an already accepted document/block update.
+A missing answer outside the requested rank/page bound requires a wider diagnostic
+window before it can be called a missing save or missing search result.
+
+## Correction failure and accepted work
+
+When installed help advertises `document corrections`, block/document corrections
+preserve private local intent before a write. Inspect `mutation_state.persistence`,
+its evidence and fresh-head status. `committed` with a later read failure means
+read the target without repeating the edit. `unknown` means inspect the original
+request/history first. `not_committed` permits reconciling and retrying only that
+failed target, preserving exact bases and any original receipt key. Do not rerun
+already accepted sibling writes. A fresh head is observed, not reserved.
+
+List `document corrections list --space SPACE_ID --format json`; inspect one with
+`--draft ID`. Recover only that original draft with `document corrections recover
+--draft ID --actor-type agent --actor ORIGINAL_AGENT --space SPACE_ID --format json`.
+Recovery keeps original bases and does not silently rebase. When a newer writer
+exists, reconcile the current content, author a new intent if needed, then use
+`document corrections resolve --draft ID --revision CURRENT_DOCUMENT_REV --reason
+TEXT` with the original actor to record an explicit local disposition. This does
+not edit content or assert independent verification. Pending notices cover this
+local installation; do not claim another device received them. Preserve these
+private files separately before moving a profile; database-only Space backups do
+not contain correction drafts. Existing capture drafts use their separate commands.
+
+Single-shot CLI commands share a default 60s deadline. Where advertised, prefix
+`obsdog --timeout 90s ...` explicitly changes it; a failed mutation may use a
+separate maximum 500ms read-only head reconciliation. Local MCP/viewer requests
+have independent request bounds. A timeout alone does not prove rollback.
+Default document inventory excludes settled redirect/retired documents; the audit
+`--include-retired` view states lifecycle explicitly. A stale release cache is
+not the latest installed version. Ordinary commands can warn on stderr about an
+older same-Space default-port viewer. `dashboard restart --space SPACE_ID --port
+PORT` authenticates private owned control; older viewers without that control
+need one manual foreground stop before serving the new CLI. Do not kill a guessed
+PID, change another Space or restart a separately owned MCP host.

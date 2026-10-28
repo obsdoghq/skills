@@ -1,5 +1,7 @@
 # Find CLI Reference
 
+Start with `obsdog doctor --space <space-id> --format json` and installed help. Check the selected Space, executable, loaded guidance and required capabilities before work; a failed check does not authorize changing libraries.
+
 Consult the relevant sections for command syntax and retrieval mechanics. Check installed help when version-dependent behavior matters.
 
 ## Select the boundary
@@ -78,9 +80,9 @@ Compare `obsdog_version` in that existing connection with a fresh shell's
 When the installed `obsdog document --help` advertises `links`, use
 `obsdog document links --space <space-id> --id <document-id> --limit 5 --format json`
 to inspect a selected note's direct authored navigation. The scoped MCP equivalent
-is `obsdog_document_links` when present in its actual tool list. This is a next-CLI
-candidate capability, not part of published v0.2.19; older runtimes can read the
-links in the Markdown. Read needed destinations explicitly. The command records
+is `obsdog_document_links` when present in its actual tool list. Installed help
+and the current tool catalog establish availability; older runtimes can read
+the links in the Markdown. Read needed destinations explicitly. The command records
 no exposure/use, does not follow redirects or modify ranking, and reports
 missing/ambiguous/truncated results. A link or title is not its target's evidence.
 

@@ -34,3 +34,9 @@ the intended answer with its conditions and evidence.
 Use the connected account and the Space selected for this task. Resolve available
 Spaces through the connected tools when needed. Use the sole available Space;
 resolve an unclear choice among several once, then keep that selection.
+
+When no connected ObsDog tools are available in this session, follow the installed
+CLI reference for an already installed `obsdog` and the same authorized Space.
+Verify `obsdog space status --space <space-id> --format json` and `obsdog doctor`.
+A connected-service denial or broken selection does not authorize this route.
+Do not install, log in or switch accounts/libraries to bypass a limitation.

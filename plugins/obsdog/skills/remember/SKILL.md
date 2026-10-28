@@ -56,9 +56,13 @@ Return saved locations and actual unfinished writes or checks.
 
 ## Tools and destination
 
-Use [remote MCP](../find/references/remote-mcp.md) for the connected account and
-Space selected for the task. Use the sole available Space when no selection
-exists; resolve an unclear choice among several once. Use current revisions and
-returned identifiers for updates. Use [CLI usage](references/cli.md) only for an
-explicitly selected local library. Follow source/upload scope and explicit
-read-only or no-memory requests. Keep secrets out of saved content.
+Use [remote MCP](../find/references/remote-mcp.md) when connected ObsDog tools are available,
+keeping the selected account and Space. For an explicitly selected local library,
+use [CLI usage](references/cli.md). When no connected ObsDog tools exist in the
+session, use an already installed `obsdog` CLI for the same authorized Space;
+verify `obsdog space status --space <space-id> --format json` and follow that
+CLI reference. A hosted denial, lost permission or broken selection is not tool
+absence and does not authorize a local/account fallback. Do not install, log in,
+migrate or broaden access just to capture. Keep source/upload and read-only or
+no-memory restrictions. Resolve an unclear Space once; use returned identifiers
+and current exact revisions for writes.
