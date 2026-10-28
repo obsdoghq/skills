@@ -1,5 +1,7 @@
 # Documentify CLI Reference
 
+Start with `obsdog doctor --space <space-id> --format json` and installed help. Check the selected Space, executable, loaded guidance and required capabilities before work; a failed check does not authorize changing libraries.
+
 ## Save and update documents
 
 Follow the [remember CLI reference](../../remember/references/cli.md) for Space selection, existing-note discovery, agent attribution, creation, conditional updates, and read-back verification.
@@ -26,7 +28,7 @@ Inspect `insights show` and its graph output, or the local dashboard's Graph, wh
 
 If installed help exposes `document links`, inspect a changed note's bounded
 outbound references directly using the [find reference](../../find/references/cli.md#follow-authority-not-just-a-familiar-answer).
-This candidate command avoids computing the whole graph and reports unresolved
+This command avoids computing the whole graph and reports unresolved
 targets; it does not certify relationships or record target reads.
 
 An unresolved target remains an explicit limitation. Use a current-revision `question` comment for an uncertain relationship. Shared tags or semantic similarity alone do not establish a citation.

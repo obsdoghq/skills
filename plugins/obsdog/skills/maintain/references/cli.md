@@ -1,5 +1,7 @@
 # Maintain CLI Reference
 
+Start with `obsdog doctor --space <space-id> --format json` and installed help. Check the selected Space, executable, loaded guidance and required capabilities before work; a failed check does not authorize changing libraries.
+
 Use the relevant sections for maintenance commands and verification. Check installed help for version-dependent behavior.
 
 ## Inspect before mutation

@@ -1,5 +1,7 @@
 # Remember CLI Reference
 
+Start with `obsdog doctor --space <space-id> --format json` and installed help. Check the selected Space, executable, loaded guidance and required capabilities before work; a failed check does not authorize changing libraries.
+
 Check installed command help for version-dependent flags and behavior. Keep the same selected Space and agent identity throughout a save.
 
 ## Select the Space
@@ -81,7 +83,7 @@ On a revision conflict, read the current content and reconcile the change before
 
 ## Links and metadata
 
-Use returned stable document or block IDs in Markdown links, such as `[Related decision](<document-id>)`. Read both ends and explain the actual relationship.
+Use verified stable document IDs in Markdown links, such as `[Related decision](<document-id>)`. Read both ends and explain the actual relationship. A bare block ID is not an advertised document-link target: link its document and retain the exact block ID in the prose. After saving, inspect `document links` when installed help advertises it; resolve or disclose unresolved targets before claiming the relationship works.
 
 Use comments for questions, explanations, or evidence that should not change canonical prose. Inspect existing comments before adding one. For an uncertain connection, use a `question` comment on the exact current revision and state the uncertainty.
 

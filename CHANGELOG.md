@@ -1,5 +1,16 @@
 # Workflow changes
 
+## 0.3.35 — 2026-10-28
+
+Route sessions without connected tools to an already installed CLI for the same
+verified Space, retaining the hosted-denial boundary. Introduce doctor at each
+CLI entry; replace obsolete candidate captions with installed help. Use verified
+document links with explicit block identities where bare block links are unsupported.
+Separate returned content from accepted observation and show failed-open-only retry.
+Describe mutation commit evidence, exact correction drafts, whole-command deadlines,
+explicit current/audit inventory and owned dashboard restart without guessed PID kills.
+Actual loaded session guidance and runtime capabilities remain separate checks.
+
 ## 0.3.34 — 2026-10-27
 
 Explain CLI0.2.36 independent read/observation persistence, exact diagnostic

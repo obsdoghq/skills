@@ -1,6 +1,9 @@
 # Remote ObsDog MCP
 
 Use this reference only for the selected, already-authorized hosted connection.
+If the session has no connected ObsDog tools at all, use the already installed
+CLI route in [CLI usage](cli.md) for the same authorized Space. The refusal and
+unavailability rules below apply to an existing hosted connection, not tool absence.
 Its tool names can have a client namespace prefix. Use the actual tool schemas
 from that connection rather than adding CLI flags or calling arbitrary HTTP
 endpoints. OAuth and the server enforce access; a skill does not grant permission.

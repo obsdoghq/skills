@@ -43,8 +43,13 @@ before the final response, finish outstanding saves and read-back using the
 
 ## Tools and destination
 
-For connected ObsDog tools, read [remote MCP](references/remote-mcp.md). Reuse the
-Space selected for the task, or use the sole available Space. Resolve an unclear
-choice among several once and keep that selection. Use returned identifiers.
-For an explicitly selected local library, read [CLI usage](references/cli.md).
-Follow the user's source scope and explicit read-only or no-memory requests.
+Use [remote MCP](references/remote-mcp.md) when connected ObsDog tools are available,
+keeping the selected account and Space. For an explicitly selected local library,
+use [CLI usage](references/cli.md). When no connected ObsDog tools exist in the
+session, use an already installed `obsdog` CLI for the same authorized Space;
+verify `obsdog space status --space <space-id> --format json` and follow that
+CLI reference. A hosted denial, lost permission or broken selection is not tool
+absence and does not authorize a local/account fallback. Do not install, log in,
+migrate or broaden access just to capture. Keep source/upload and read-only or
+no-memory restrictions. Resolve an unclear Space once; use returned identifiers
+and current exact revisions for writes.
