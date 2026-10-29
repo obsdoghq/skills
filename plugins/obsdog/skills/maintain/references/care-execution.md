@@ -196,7 +196,7 @@ own request receipts; a local draft command is not a policy fallback for them.
 
 At long-task phase changes, check the selected executable/capabilities again.
 When these installed doctor flags are advertised, declare the guidance actually loaded using
-`obsdog doctor --space SPACE_ID --guidance-version 0.3.35 --minimum-cli v0.2.38
+`obsdog doctor --space SPACE_ID --guidance-version 0.3.36 --minimum-cli v0.2.39
 --require-capability document_split_dry_run_v1 --format json`.
 Loaded guidance is caller-declared or unknown. MCP/viewer versions come from their
 existing connections/listeners, not the installed CLI. `--check-updates` is an
@@ -267,6 +267,9 @@ not edit content or assert independent verification. Pending notices cover this
 local installation; do not claim another device received them. Preserve these
 private files separately before moving a profile; database-only Space backups do
 not contain correction drafts. Existing capture drafts use their separate commands.
+When installed help advertises --include-drafts, an idle-profile backup can include
+both private draft trees. Check its coverage and byte counts; it is not an atomic
+cross-file snapshot or a credential/profile clone.
 
 Single-shot CLI commands share a default 60s deadline. Where advertised, prefix
 `obsdog --timeout 90s ...` explicitly changes it; a failed mutation may use a
@@ -279,3 +282,15 @@ older same-Space default-port viewer. `dashboard restart --space SPACE_ID --port
 PORT` authenticates private owned control; older viewers without that control
 need one manual foreground stop before serving the new CLI. Do not kill a guessed
 PID, change another Space or restart a separately owned MCP host.
+
+On CLI v0.2.39+, write-readiness human reports the same ready/status/writer values
+as JSON. Default exit0 means the probe executed; explicit --require-ready returns3
+for an inspected non-ready state. OS lock inventory supplies owner/range, not
+acquisition time: transaction_age_unavailable_reason explains a null age. Sample
+span and process uptime cannot establish continuous transaction age.
+For a disposable older listener on an ephemeral port, dashboard status
+--space SYNTHETIC_SPACE_ID --port PRINTED_PORT --check-notice exercises the same
+warning predicate without taking the live default port. Ordinary automatic probes
+remain default-port-only. Follow the public [bounded reproduction guide](https://github.com/obsdoghq/obsdog-releases/blob/main/guides/accepted-work.md)
+for a noninteractive sentinel holder; verify the acquired signal, live test child
+and actual busy result before interpreting a sample.
